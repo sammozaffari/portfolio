@@ -26,7 +26,7 @@
   "title": "A platform that was not short of features",
   "body": [
    "Every restaurant in the network ran on the same time and attendance platform. Most managers preferred it to what came before. And yet the research found 175 distinct pain points, the compliance warnings list had grown so long that managers had stopped reading it, and the workarounds were physical: paper deployment charts transcribed twice a day, whiteboards above the time clock, spreadsheet rosters, and shifts entered in the wrong week so a pay run would go through.",
-   "Only 41 per cent of those pain points were a software problem. That is the finding the screens here are built on. The platform did not need more features. It needed a compliance layer people could work inside, a way for a manager to see the cost of a decision while they were making it, and something to give back to the team member, who supplied two thirds of the survey responses and got the least from the product.",
+   "Only 41 per cent of those pain points were a software problem. That is the finding the screens here are built on. The platform didn't only need more features, it needed a compliance layer people could work inside, a way for a manager to see the cost of a decision while they were making it, and something to give back to the team member, who supplied two thirds of the survey responses and got the least from the product.",
    "So each module below starts from a pain point in the report and shows the screen that answers it. Where an item carried a release number, it is on the module. Where it did not, it is marked as scheduled."
   ]
  },
