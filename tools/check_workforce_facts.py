@@ -85,17 +85,17 @@ for who, hrs in HOURS.items():
     if shown not in text("roster-week.html"):
         fails.append(f"roster-week.html: {who} works {shown} by the data, and that figure is not on the screen")
 
-# Natalia is the through-line: her contract, her hours and her make-up pay have
+# Bridget is the through-line: her contract, her hours and her make-up pay have
 # to agree on the roster, the compliance list, the leave screen and her phone.
-NAT = HOURS["Natalia F."]
+NAT = HOURS["Bridget K."]
 if abs(NAT - 12.25) > 0.001:
-    fails.append(f"Natalia F. works {NAT} hrs in the roster data, but every screen says 12.25")
+    fails.append(f"Bridget K. works {NAT} hrs in the roster data, but every screen says 12.25")
 want("roster-week.html", "12.25 / 15.0 hrs", "her contract and her hours are the whole make-up pay story")
-want("roster-week.html", "Make-up pay $38.61", "the cost is shown on the roster before it is incurred")
+want("roster-week.html", "Make-up pay $70.54", "the cost is shown on the roster before it is incurred")
 want("compliance-list.html", "12.25 of 15.0 hrs", "the compliance row must quote the roster's figure")
-want("compliance-list.html", "$38.61", "the compliance row prices the same shortfall")
+want("compliance-list.html", "$70.54", "the compliance row prices the same shortfall")
 want("leave-drop.html", "12.25 of her guaranteed 15.0 hours", "the drop screen explains the same shortfall")
-want("leave-drop.html", "$38.61", "the drop screen prices the same shortfall")
+want("leave-drop.html", "$70.54", "the drop screen prices the same shortfall")
 want("phone-home.html", "15 contracted hours", "her phone shows the same contract")
 
 # ------------------------------------------------------ 2. the extended shift
@@ -122,13 +122,27 @@ want("roster-extended.html", "2 must fix", "extending the shift adds the second 
 
 # ---------------------------------------------------------- 4. the pay period
 # Journey 2, as the report tells it: a five hour Monday shift, never punched.
+# There are two of these, deliberately, and they must not be the same shift. The
+# phone is dated Wed 6 November and shows the easy path, a Monday corrected the
+# next day while the period was open. The desktop shows the hard path, a Monday
+# in a period that has since closed. Putting both on 4 November meant the phone
+# displayed a correction raised eight days in its own future.
 for f in ("payperiod-correct.html",):
-    want(f, "Mon 4 Nov", "the journey puts the missed shift on a Monday")
+    want(f, "Mon 28 Oct", "the closed-period correction is for a shift in the period that closed")
+    want(f, "Period closed 12 Nov", "and the period it belongs to is closed")
     want(f, "5.00", "the journey says five hours")
-    want(f, "$70.20", "five hours at the ordinary rate")
-want("phone-hours.html", "+$70.20", "the correction reaches her phone at the same figure")
+    want(f, "$128.25", "five hours at the ordinary rate")
+want("phone-hours.html", "+$128.25", "the correction reaches her phone at the same figure")
 want("phone-hours.html", "Mon 4 Nov", "her punch history shows the day it was added for")
-want("payperiod-closed.html", "Natalia F.", "the closed period keeps the correction with it")
+want("phone-hours.html", "Added by Nadia A. on Tue 5 Nov",
+     "added the day after the shift, so nothing on a screen dated Wed 6 Nov comes from its future")
+if "Mon 28 Oct" in text("phone-hours.html"):
+    fails.append("phone-hours.html: shows the closed-period shift, which had not been corrected yet on 6 November")
+for _n in ("Amar",):
+    for _f in ("payperiod-correct.html", "payperiod-closed.html", "phone-hours.html"):
+        if _n in text(_f):
+            fails.append(f"{_f}: {_n} is in no roster and no persona in the report")
+want("payperiod-closed.html", "Bridget K.", "the closed period keeps the correction with it")
 
 # --------------------------------------------------------- 5. the roster grid
 # The legend counts every chip on the grid, so they must sum to the shifts.
@@ -160,12 +174,12 @@ for _n in ALL:
 want_not(r"\b(NSW|QLD|VIC|SA|WA|TAS|NT|ACT)\b", "is a state, which narrows a restaurant to a place")
 
 # a role should not contradict itself across screens
-if "Natalia" in text("phone-home.html") and "Nadia" not in text("phone-home.html"):
+if "Bridget" in text("phone-home.html") and "Nadia" not in text("phone-home.html"):
     fails.append("phone-home.html: Nadia is the manager who asked about the leave and should be named")
 for f in ("phone-home.html", "phone-break.html", "phone-shifts.html", "phone-hours.html"):
     t = text(f)
     if "Afternoon, Nadia" in t or "Nadia&rsquo;s shifts" in t:
-        fails.append(f"{f}: the crew app belongs to Natalia, the part-time team member, not to the manager")
+        fails.append(f"{f}: the crew app belongs to Bridget, the part-time team member, not to the manager")
 
 # ------------------------------------------------------- 7. stale captures
 # The lint reads markup, so a screen can be corrected and still ship the old

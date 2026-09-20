@@ -47,7 +47,7 @@ AREAS = [
         ]),
     ]),
     ("Front counter", "#7d5300", [
-        ("Natalia F.", "Team member · part time, 15 hrs", [
+        ("Bridget K.", "Team member · part time, 15 hrs", [
             ("17:00", "21:00", "Counter", "", ""),
             ("10:45", "16:00", "Counter", "risk", "5.25 hrs, break unclear"),
             None,
@@ -65,7 +65,7 @@ AREAS = [
             None,
             None,
         ]),
-        ("Priya S.", "Team member", [
+        ("Tessa W.", "Team member", [
             ("17:00", "21:00", "Counter", "", ""),
             None,
             ("17:00", "21:00", "Counter", "", ""),
@@ -85,7 +85,7 @@ AREAS = [
             ("00:00", "00:00", "Annual leave", "leave", "Auto-filled"),
             ("15:00", "21:00", "Drive thru", "", ""),
         ]),
-        ("Mia T.", "Team member · shared", [
+        ("Rosa V.", "Team member · shared", [
             ("16:00", "22:00", "Drive thru", "", ""),
             None,
             ("16:00", "22:00", "Drive thru", "", ""),
@@ -96,7 +96,7 @@ AREAS = [
         ]),
     ]),
     ("Cook", "#54407e", [
-        ("Dan R.", "Cook", [
+        ("Hugo N.", "Cook", [
             ("09:00", "17:00", "Cook", "", ""),
             ("09:00", "17:00", "Cook", "", ""),
             ("09:00", "17:00", "Cook", "", ""),
@@ -105,7 +105,7 @@ AREAS = [
             ("10:00", "18:00", "Cook", "", ""),
             None,
         ]),
-        ("Dev P.", "Cook · in training", [
+        ("Kwame P.", "Cook · in training", [
             ("12:00", "16:00", "Induction", "training", ""),
             ("12:00", "18:00", "Cook", "", ""),
             None,
@@ -122,10 +122,10 @@ AREAS = [
     ]),
 ]
 
-# The one unfilled part-time obligation the manager has to see: Natalia is short of
+# The one unfilled part-time obligation the manager has to see: Bridget is short of
 # her contracted hours because Thursday came off, which is the make-up pay
 # trap the research found managers being warned about after the fact.
-SHORTFALL = {"Natalia F.": ("12.25 / 15.0 hrs", "Make-up pay $38.61")}
+SHORTFALL = {"Bridget K.": ("12.25 / 15.0 hrs", "Make-up pay $70.54")}
 
 
 def hours(s):
@@ -281,7 +281,7 @@ def build(state):
       <button class="p-btn p-btn-secondary p-btn-sm">Auto-fill breaks</button>
       <button class="p-btn p-btn-primary p-btn-sm">Publish week</button>
     </div>
-    <p class="p-work-sub">Compliance runs as you build, not when you publish. Everything here is checked against the agreement and the state rules for each person, including Mia T., whose hours are counted across Riverside and Lakeside together.</p>
+    <p class="p-work-sub">Compliance runs as you build, not when you publish. Everything here is checked against the agreement and the state rules for each person, including Rosa V., whose hours are counted across Riverside and Lakeside together.</p>
     <div class="p-roster">
       <div class="p-rgrid">{''.join(head)}{''.join(rows)}</div>
       {legend}

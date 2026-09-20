@@ -59,7 +59,7 @@ def phone(title, screen, current, cta=""):
 
 # ----------------------------------------------------------------------- home
 HOME = '''
-<div class="p-mhead"><h1>Afternoon, Natalia</h1><p>Wednesday 6 November</p></div>
+<div class="p-mhead"><h1>Afternoon, Bridget</h1><p>Wednesday 6 November</p></div>
 <div class="p-mrow next">
   <div class="p-mdate"><i>Wed</i><b>6</b></div>
   <div class="p-grow"><b>On now, front counter</b><span>10:45 &ndash; 16:00 &middot; 5 hrs 15 min</span>
@@ -68,7 +68,7 @@ HOME = '''
 <div class="p-alert p-alert-warning" style="margin:12px 0 14px"><b>Your meal break is due in 12 minutes.</b> Thirty minutes, unpaid, and it has to start before 13:15.</div>
 <div class="p-card" style="padding:4px 14px 8px;margin-bottom:12px">
   <div class="p-mstat"><div class="p-mstat-l">This week so far<span>Of your 15 contracted hours</span></div><div class="p-mstat-v">9.25 hrs</div></div>
-  <div class="p-mstat"><div class="p-mstat-l">Expected pay this week<span>Updates when you clock out</span></div><div class="p-mstat-v">$214.60</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Expected pay this week<span>Updates when you clock out</span></div><div class="p-mstat-v">$253.45</div></div>
   <div class="p-mstat"><div class="p-mstat-l">Annual leave available<span>Updated after your last shift</span></div><div class="p-mstat-v good">25.5 hrs</div></div>
 </div>
 <div class="p-card" style="padding:12px 14px">
@@ -134,14 +134,15 @@ HISTORY = '''
 <div class="p-mhead"><h1>My hours</h1><p>Pay period 28 Oct to 10 Nov</p></div>
 <div class="p-card" style="padding:4px 14px 8px;margin-bottom:14px">
   <div class="p-mstat"><div class="p-mstat-l">Worked this period<span>Nine shifts</span></div><div class="p-mstat-v">37.4 hrs</div></div>
-  <div class="p-mstat"><div class="p-mstat-l">Expected pay<span>Before tax, paid 26 Nov</span></div><div class="p-mstat-v">$867.20</div></div>
-  <div class="p-mstat"><div class="p-mstat-l">Correction added<span>Mon 4 Nov, five hours you were not paid for</span></div><div class="p-mstat-v good">+$70.20</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Expected pay<span>Before tax, paid 26 Nov</span></div><div class="p-mstat-v">$1,024.76</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Correction added<span>Mon 4 Nov, five hours you were not paid for</span></div><div class="p-mstat-v good">+$128.25</div></div>
 </div>
-<h3 style="font-size:var(--p-fs-3);margin-bottom:4px">Every punch, as it was recorded</h3>
+<h3 style="font-size:var(--p-fs-3);margin-bottom:4px">Every punch this period</h3>
+<p class="p-meta" style="margin-bottom:8px">Showing the most recent five of nine</p>
 <div class="p-card" style="padding:4px 14px 10px">
   <div class="p-punch"><span class="p-pd">Wed 6</span><div><b>10:44 in</b><span class="p-pb">Break 13:02 to 13:32</span></div><span class="p-ph">on now</span></div>
   <div class="p-punch"><span class="p-pd">Tue 5</span><div><b>17:01 in &middot; 21:04 out</b><span class="p-pb">No break, under 5 hrs</span></div><span class="p-ph">4.05</span></div>
-  <div class="p-punch amended"><span class="p-pd">Mon 4</span><div><b>11:00 in &middot; 16:00 out</b><span class="p-pb">Added by Amar on 14 Nov. You worked it and did not clock on.</span></div><span class="p-ph">5.00</span></div>
+  <div class="p-punch amended"><span class="p-pd">Mon 4</span><div><b>11:00 in &middot; 16:00 out</b><span class="p-pb">Added by Nadia A. on Tue 5 Nov. You worked it and did not clock on.</span></div><span class="p-ph">5.00</span></div>
   <div class="p-punch"><span class="p-pd">Sat 2</span><div><b>16:58 in &middot; 22:03 out</b><span class="p-pb">Break 19:00 to 19:30</span></div><span class="p-ph">4.58</span></div>
   <div class="p-punch"><span class="p-pd">Fri 1</span><div><b>17:00 in &middot; 21:02 out</b><span class="p-pb">Rest pause 19:10</span></div><span class="p-ph">4.03</span></div>
 </div>

@@ -21,27 +21,27 @@ from build_workforce import shell, write  # noqa: E402
 # photographed on the charts in the restaurants.
 LANES = [
     ("Lane 1", "#24405e", [
-        ("Expo 1", "Priya S.", "11:00&ndash;15:00", "10 min taken", "done"),
-        ("L1 QT", "Natalia F.", "10:45&ndash;16:00", "30 min at 13:00", "due"),
+        ("Expo 1", "Tessa W.", "11:00&ndash;15:00", "10 min taken", "done"),
+        ("L1 QT", "Bridget K.", "10:45&ndash;16:00", "30 min at 13:00", "due"),
         ("Money taker", "Jaxon R.", "16:00&ndash;20:00", "10 min at 18:00", ""),
-        ("Burger 1", "Dev P.", "12:00&ndash;18:00", "30 min taken", "done"),
+        ("Burger 1", "Kwame P.", "12:00&ndash;18:00", "30 min taken", "done"),
         ("Pack 1", None, "", "", ""),
     ]),
     ("Lane 2", "#7d5300", [
         ("Expo 2", "Omar H.", "15:00&ndash;21:00", "30 min at 18:00", ""),
-        ("L2 QT", "Mia T.", "16:00&ndash;22:00", "10 min at 18:30", ""),
+        ("L2 QT", "Rosa V.", "16:00&ndash;22:00", "10 min at 18:30", ""),
         ("Checker", "Chiara B.", "14:00&ndash;23:30", "30 min at 18:00", "due"),
         ("Burger 2", None, "", "", ""),
         ("Pack 2", None, "", "", ""),
     ]),
     ("Kitchen", "#54407e", [
-        ("Cook 1", "Dan R.", "09:00&ndash;17:00", "30 min taken", "done"),
-        ("Cook 2", "Dev P.", "12:00&ndash;18:00", "Also on Burger 1", ""),
+        ("Cook 1", "Hugo N.", "09:00&ndash;17:00", "30 min taken", "done"),
+        ("Cook 2", "Kwame P.", "12:00&ndash;18:00", "Also on Burger 1", ""),
         ("Cook 3", None, "", "", ""),
         ("Chip 2", "Nadia A.", "06:00&ndash;14:30", "30 min taken", "done"),
     ]),
     ("Delivery and support", "#1a6042", [
-        ("Delivery", "Mia T.", "From 19:00", "Moves off L2 QT", ""),
+        ("Delivery", "Rosa V.", "From 19:00", "Moves off L2 QT", ""),
         ("Floor support", "Nadia A.", "Until 14:30", "", ""),
     ]),
 ]
@@ -90,7 +90,7 @@ def timeclock():
         '<div class="p-card-head"><h3>Breaks as a clock, rather than as a warning list</h3>'
         '<span class="p-meta">Updates every minute</span></div>'
         '<div class="p-card-body"><div class="p-figs">'
-        '<div class="p-fig live"><div class="p-fig-l">Natalia F., 30 minute meal break</div>'
+        '<div class="p-fig live"><div class="p-fig-l">Bridget K., 30 minute meal break</div>'
         '<div class="p-fig-v">due in 12 min</div>'
         '<div class="p-fig-d">Has to start before 13:15 to stay inside the agreement</div></div>'
         '<div class="p-fig live"><div class="p-fig-l">Chiara B., 30 minute meal break</div>'
@@ -235,7 +235,7 @@ def reports():
         '<span class="p-sub">Corrections and dismissals</span></div><span class="p-switch on"></span></div>'
         '</div></div></div>'
         '<div>'
-        '<div class="p-work-head"><h1>Compliance rate, week 45</h1><div class="p-spacer"></div>'
+        '<div class="p-work-head"><h1>Compliance rate, week of 5 November</h1><div class="p-spacer"></div>'
         '<div class="p-seg"><button>Restaurant</button><button aria-pressed="true">Area</button>'
         '<button>Group</button></div>'
         '<button class="p-btn p-btn-primary p-btn-sm">Download</button></div>'

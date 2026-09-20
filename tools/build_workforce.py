@@ -72,15 +72,15 @@ def write(name, content):
 COMP_ROWS = [
     ("must", "No break on a 9.5 hour shift", "Chiara B. &middot; Wed 6 Nov",
      "Shift supervisor, meal break required over 9 hrs", "Nadia A.", "Before publish", "Blocks publish"),
-    ("must", "Under contracted hours", "Natalia F. &middot; week 45",
-     "12.25 of 15.0 hrs. Make-up pay $38.61 at the pay run", "Nadia A.", "Before Sun 10 Nov", "Costs $38.61"),
-    ("should", "Break rule unclear, 5.25 hour shift", "Natalia F. &middot; Wed 6 Nov",
+    ("must", "Under contracted hours", "Bridget K. &middot; this week",
+     "12.25 of 15.0 hrs. Make-up pay $70.54 at the pay run", "Nadia A.", "Before Sun 10 Nov", "Costs $70.54"),
+    ("should", "Break rule unclear, 5.25 hour shift", "Bridget K. &middot; Wed 6 Nov",
      "Between 5 and 5.49 hrs. A 10 minute rest pause applies", "Nadia A.", "Before the shift", "Rest pause owed"),
     ("should", "Rostered past 21:00 on a school night", "Jaxon R. &middot; Thu 7 Nov",
      "Under 18. School calendar says term time", "Nadia A.", "Before the shift", "Breaches the rule"),
-    ("should", "Hours across two restaurants", "Mia T. &middot; week 45",
+    ("should", "Hours across two restaurants", "Rosa V. &middot; this week",
      "38.5 hrs counting Lakeside. Overtime starts at 38", "Sarah", "Before Sat 9 Nov", "Overtime from 38 hrs"),
-    ("info", "Training not yet recorded", "Dev P. &middot; from Mon 11 Nov",
+    ("info", "Training not yet recorded", "Kwame P. &middot; Mon 11 Nov",
      "Cook certification pending. Rostered as cook from Monday", "Nadia A.", "Before Mon 11 Nov", "Watch only"),
 ]
 
@@ -233,11 +233,11 @@ def leave(state):
       <div class="p-card">
         <div class="p-card-head"><h3>Entering leave for somebody else</h3><span class="p-badge p-badge-warning">Consent needed</span></div>
         <div class="p-card-body">
-          <p class="p-meta" style="margin-bottom:16px">You are entering annual leave on behalf of Natalia F. for Thu 7 Nov. Because you are not the person taking the leave, she has to agree to it before it is written.</p>
+          <p class="p-meta" style="margin-bottom:16px">You are entering annual leave on behalf of Bridget K. for Thu 7 Nov. Because you are not the person taking the leave, she has to agree to it before it is written.</p>
           <div class="p-consent">
-            <b>Natalia will get one notification</b>
+            <b>Bridget will get one notification</b>
             <p>It names the day, the hours, the leave type and who asked. She taps agree or asks a question. Nothing is written to the roster or the pay run until she does.</p>
-            <div class="p-sent"><span class="p-avatar sm">NF</span>Sent to Natalia F. at 09:44 &middot; not yet answered</div>
+            <div class="p-sent"><span class="p-avatar sm">BK</span>Sent to Bridget K. at 09:44 &middot; not yet answered</div>
           </div>
           <h4 style="font-size:var(--p-fs-3);margin:20px 0 8px">What she is being asked to agree to</h4>
           <div class="p-impact"><dl>
@@ -273,9 +273,9 @@ def leave(state):
         panel = '''
     <div class="p-grid p-grid-8-4">
       <div class="p-card">
-        <div class="p-card-head"><h3>Natalia F. dropped Thu 7 Nov</h3><span class="p-badge p-badge-danger">Costs money if ignored</span></div>
+        <div class="p-card-head"><h3>Bridget K. dropped Thu 7 Nov</h3><span class="p-badge p-badge-danger">Costs money if ignored</span></div>
         <div class="p-card-body">
-          <div class="p-alert p-alert-danger"><b>She is now on 12.25 of her guaranteed 15.0 hours.</b> Left alone, the pay run adds make-up pay of $38.61 and the warning arrives after the money has gone.</div>
+          <div class="p-alert p-alert-danger"><b>She is now on 12.25 of her guaranteed 15.0 hours.</b> Left alone, the pay run adds make-up pay of $70.54 and the warning arrives after the money has gone.</div>
           <h4 style="font-size:var(--p-fs-3);margin-bottom:6px">What do you want to do with the shift?</h4>
           <p class="p-meta" style="margin-bottom:12px">This is the question the product never asked. A dropped shift simply vanished, and the consequence turned up at the pay run as a compliance warning about contracted hours.</p>
           <fieldset class="p-fieldset">
@@ -283,10 +283,10 @@ def leave(state):
               <div class="p-choice"><input type="radio" id="d1" name="d" checked><label for="d1"><span class="p-glyph">A</span><div><b>Annual leave, paid</b><span>Draws 2.75 hrs from her balance of 25.5. Contracted hours met, no make-up pay.</span></div></label></div>
               <div class="p-choice"><input type="radio" id="d2" name="d"><label for="d2"><span class="p-glyph">U</span><div><b>Leave without pay</b><span>Contracted hours waived for the week by agreement. Needs her consent.</span></div></label></div>
               <div class="p-choice"><input type="radio" id="d3" name="d"><label for="d3"><span class="p-glyph">O</span><div><b>Offer the shift to the team</b><span>Goes to the three people qualified for counter who are under their hours.</span></div></label></div>
-              <div class="p-choice"><input type="radio" id="d4" name="d"><label for="d4"><span class="p-glyph">M</span><div><b>Leave it short and pay the difference</b><span>Records the decision and the $38.61 now, rather than finding it later.</span></div></label></div>
+              <div class="p-choice"><input type="radio" id="d4" name="d"><label for="d4"><span class="p-glyph">M</span><div><b>Leave it short and pay the difference</b><span>Records the decision and the $70.54 now, rather than finding it later.</span></div></label></div>
             </div>
           </fieldset>
-          <div class="p-actions"><button class="p-btn p-btn-primary">Apply and tell Natalia</button><button class="p-btn p-btn-secondary">Decide later</button></div>
+          <div class="p-actions"><button class="p-btn p-btn-primary">Apply and tell Bridget</button><button class="p-btn p-btn-secondary">Decide later</button></div>
         </div>
       </div>
       <div class="p-grid">
@@ -297,7 +297,7 @@ def leave(state):
               <dt>Annual leave, paid</dt><dd class="good">$0 extra</dd>
               <dt>Leave without pay</dt><dd class="good">$0 extra</dd>
               <dt>Offer to the team</dt><dd class="good">$0 extra</dd>
-              <dt class="tot">Leave it short</dt><dd class="tot bad">$38.61</dd>
+              <dt class="tot">Leave it short</dt><dd class="tot bad">$70.54</dd>
             </dl></div>
             <p class="p-meta" style="margin-top:12px">The number comes from the same rule that generated the warning, so the manager is choosing with the figure in front of them rather than discovering it a fortnight later.</p>
           </div>
@@ -336,22 +336,22 @@ def payperiod(state):
       <div class="p-card p-stat"><div class="p-stat-label">Corrections after close</div><div class="p-stat-value">0</div><div class="p-stat-delta">Available for 21 days without reopening</div></div>
     </div>'''
         rows = '''
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">DR</span>Dan R.</span><span class="p-sub">Cook</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">HN</span>Hugo N.</span><span class="p-sub">Cook</span></td>
         <td>Thu 7 Nov</td><td class="p-diff-cell"><span class="p-diff settled"><s>09:00&ndash;17:00 rostered</s><b>09:02&ndash;17:04 worked</b></span></td>
         <td>30 min unpaid</td><td class="p-num">7.53</td><td><span class="p-badge p-badge-success">Approved</span></td><td></td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">CB</span>Chiara B.</span><span class="p-sub">Shift supervisor</span></td>
         <td>Fri 8 Nov</td><td><span class="p-diff"><s>14:00&ndash;23:00 rostered</s><b>14:00 in, never clocked out</b></span></td>
         <td>30 min unpaid</td><td class="p-num">&ndash;</td><td><span class="p-badge p-badge-danger">Missed clock-out</span></td>
         <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Set the finish</button></td></tr>
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">PS</span>Priya S.</span><span class="p-sub">Team member</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">TW</span>Tessa W.</span><span class="p-sub">Team member</span></td>
         <td>Fri 8 Nov</td><td><span class="p-diff"><s>11:00&ndash;15:00 rostered</s><b>11:00&ndash;14:12 worked</b></span></td>
         <td>None</td><td class="p-num">3.20</td><td><span class="p-badge p-badge-warning">Finished early</span></td>
         <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Ask why</button></td></tr>
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">NF</span>Natalia F.</span><span class="p-sub">Team member</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">BK</span>Bridget K.</span><span class="p-sub">Team member</span></td>
         <td>Sat 9 Nov</td><td><span class="p-diff"><s>17:00&ndash;20:00 rostered</s><b>17:00&ndash;19:40 worked</b></span></td>
         <td>None</td><td class="p-num">2.67</td><td><span class="p-badge p-badge-warning">Finished early</span></td>
         <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Ask why</button></td></tr>
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">MT</span>Mia T.</span><span class="p-sub">Shared with Lakeside</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">RV</span>Rosa V.</span><span class="p-sub">Shared with Lakeside</span></td>
         <td>Sat 9 Nov</td><td><span class="p-diff settled"><s>16:00&ndash;23:00 rostered</s><b>16:00&ndash;23:06 worked</b></span></td>
         <td>30 min unpaid</td><td class="p-num">6.60</td><td><span class="p-badge p-badge-success">Approved</span></td>
         <td class="p-meta">Lakeside punches included</td></tr>'''
@@ -365,13 +365,13 @@ def payperiod(state):
       <div class="p-card">
         <div class="p-card-head"><h3>Correct a shift in a closed period</h3><span class="p-badge p-badge-neutral">Period closed 12 Nov</span></div>
         <div class="p-card-body">
-          <p class="p-meta" style="margin-bottom:16px">Natalia F. worked her Monday shift on 4 November and forgot to clock on. She told Amar the same evening. The period closed on the 12th. This pays the five hours in the period they were worked, without reopening anything and without asking payroll.</p>
+          <p class="p-meta" style="margin-bottom:16px">Bridget K. worked her Monday shift on 28 October and forgot to clock on. She told Chiara B., the supervisor on shift, the same evening. The period closed on the 12th. This pays the five hours in the period they were worked, without reopening anything and without asking payroll.</p>
           <div class="p-grid p-grid-2" style="margin-bottom:4px">
-            <label class="p-field"><span>Day worked</span><input class="p-input" value="Mon 4 Nov 2024"></label>
+            <label class="p-field"><span>Day worked</span><input class="p-input" value="Mon 28 Oct 2024"></label>
             <label class="p-field"><span>Hours</span><input class="p-input" value="5.00"></label>
           </div>
           <label class="p-field"><span>What happened</span><textarea class="p-textarea">Rostered 11:00 to 16:00 and worked the full shift. Did not clock on. Confirmed by Chiara B., who was the supervisor on shift, and by the drive thru till log.</textarea></label>
-          <div class="p-alert p-alert-success"><b>Paid at Monday&rsquo;s ordinary rate, in the period it was worked.</b> No overtime, no compliance pay, and Natalia&rsquo;s contracted hours for that week are met rather than carried into the next one.</div>
+          <div class="p-alert p-alert-success"><b>Paid at Monday&rsquo;s ordinary rate, in the period it was worked.</b> No overtime, no compliance pay, and Bridget&rsquo;s contracted hours for that week are met rather than carried into the next one.</div>
           <div class="p-actions"><button class="p-btn p-btn-primary">Send to payroll</button><button class="p-btn p-btn-secondary">Save as draft</button></div>
           <p class="p-meta" style="margin-top:12px">Everything here is on the shift, so the area coach reading next week&rsquo;s compliance report sees a correction with a reason rather than an unexplained overtime payment.</p>
         </div>
@@ -381,8 +381,8 @@ def payperiod(state):
           <div class="p-card-head"><h3>What this pays</h3></div>
           <div class="p-card-body">
             <div class="p-impact"><dl>
-              <dt>5.00 hrs, ordinary rate</dt><dd>$70.20</dd>
-              <dt>Superannuation</dt><dd>$8.07</dd>
+              <dt>5.00 hrs, ordinary rate</dt><dd>$128.25</dd>
+              <dt>Superannuation</dt><dd>$14.75</dd>
               <dt>Overtime incurred</dt><dd class="good">None</dd>
               <dt>Effect on next week&rsquo;s hours</dt><dd class="good">None</dd>
               <dt class="tot">Paid on</dt><dd class="tot">26 Nov, this cycle</dd>
@@ -394,10 +394,10 @@ def payperiod(state):
           <div class="p-card-body">
             <p class="p-meta" style="margin-bottom:12px">The research followed this exact correction through the old process. Payroll would not reopen the period, so the five hours went onto the following week&rsquo;s roster as an extra shift.</p>
             <div class="p-impact"><dl>
-              <dt>5.00 hrs added to the next week</dt><dd>$70.20</dd>
-              <dt>Pushes her past her contracted hours</dt><dd class="bad">+$23.40 overtime</dd>
-              <dt>Compliance pay triggered</dt><dd class="bad">+$14.04</dd>
-              <dt class="tot">Costs the restaurant</dt><dd class="tot bad">$37.44 more</dd>
+              <dt>5.00 hrs added to the next week</dt><dd>$128.25</dd>
+              <dt>Pushes her past her contracted hours</dt><dd class="bad">+$42.75 overtime</dd>
+              <dt>Compliance pay triggered</dt><dd class="bad">+$25.65</dd>
+              <dt class="tot">Costs the restaurant</dt><dd class="tot bad">$68.40 more</dd>
             </dl></div>
             <p class="p-meta" style="margin-top:12px">It also reached her as a pay rise she had not earned, which she found confusing and embarrassing, and reached the area coach as an unexplained overtime line on the weekly compliance report. Three people spent time on a five hour shift that nobody disputed.</p>
           </div>
@@ -408,21 +408,21 @@ def payperiod(state):
     else:  # closed
         head = '''
     <div class="p-grid p-grid-4" style="margin-bottom:20px">
-      <div class="p-card p-stat"><div class="p-stat-label">Pay period</div><div class="p-stat-value" style="font-size:var(--p-fs-5)">28 Oct &ndash; 10 Nov</div><div class="p-stat-delta">Closed Tue 12 Nov, 09:58, by Amar</div></div>
+      <div class="p-card p-stat"><div class="p-stat-label">Pay period</div><div class="p-stat-value" style="font-size:var(--p-fs-5)">28 Oct &ndash; 10 Nov</div><div class="p-stat-delta">Closed Tue 12 Nov, 09:58, by Nadia A.</div></div>
       <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Sent to payroll</div><div class="p-stat-value">64 / 64</div><div class="p-stat-delta">No shift left unapproved</div></div>
       <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Corrections</div><div class="p-stat-value">1</div><div class="p-stat-delta">Paid in the period it was worked</div></div>
       <div class="p-card p-stat"><div class="p-stat-label">Reopened</div><div class="p-stat-value">0</div><div class="p-stat-delta">The period never had to be reopened</div></div>
     </div>'''
         rows = '''
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">DR</span>Dan R.</span><span class="p-sub">Correction, Sun 3 Nov</span></td>
-        <td>Raised 14 Nov</td><td>1.00 hr at Sunday rate</td><td class="p-num">$42.18</td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">HN</span>Hugo N.</span><span class="p-sub">Correction, Sun 3 Nov</span></td>
+        <td>Raised 14 Nov</td><td>1.00 hr at Sunday rate</td><td class="p-num">$38.48</td>
         <td><span class="p-badge p-badge-success">Paid 26 Nov</span></td><td class="p-meta">Nadia A. &middot; confirmed by Chiara B.</td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">JR</span>Jaxon R.</span><span class="p-sub">Dismissal, Thu 7 Nov</span></td>
         <td>Recorded 6 Nov</td><td>Rostered past 21:00, school night</td><td class="p-num">&ndash;</td>
         <td><span class="p-badge p-badge-neutral">On the shift</span></td><td class="p-meta">Guardian consent on file, 14 Oct</td></tr>
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">NF</span>Natalia F.</span><span class="p-sub">Dropped shift, Thu 7 Nov</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">BK</span>Bridget K.</span><span class="p-sub">Dropped shift, Thu 7 Nov</span></td>
         <td>Resolved 6 Nov</td><td>Became paid annual leave, 4.0 hrs</td><td class="p-num">$0.00</td>
-        <td><span class="p-badge p-badge-success">Consented</span></td><td class="p-meta">Agreed by Natalia F. at 10:02</td></tr>'''
+        <td><span class="p-badge p-badge-success">Consented</span></td><td class="p-meta">Agreed by Bridget K. at 10:02</td></tr>'''
         panel = ""
         title = "Pay period, closed with its record"
 
