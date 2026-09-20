@@ -1,11 +1,5 @@
 [
  {
-  "src": "articles/57/showcase/screens/hero.html",
-  "w": 1440,
-  "h": 900,
-  "out": "articles/57/showcase/img/hero.png"
- },
- {
   "src": "articles/57/showcase/screens/dashboard-manager.html",
   "w": 1440,
   "h": 1180,
@@ -52,5 +46,11 @@
   "w": 390,
   "h": 844,
   "out": "articles/57/showcase/img/quick-add-review.png"
+ },
+ {
+  "src": "articles/57/showcase/screens/hero.html",
+  "w": 1440,
+  "h": 900,
+  "out": "articles/57/showcase/img/hero.png"
  }
 ]

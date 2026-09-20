@@ -99,6 +99,7 @@ body.p-app { background: var(--p-canvas); color: var(--p-ink); font: 400 var(--p
 .p-stat .p-stat-delta { font-size: var(--p-fs-1); margin-top: var(--p-s-2); color: var(--p-ink-3); }
 .p-stat .p-stat-delta b { font-weight: 600; }
 .p-stat .up { color: var(--p-success); } .p-stat .down { color: var(--p-danger); }
+.p-stat .good { color: var(--p-success); } .p-stat .bad { color: var(--p-danger); }
 .p-stat-accent .p-stat-label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--p-ink-3); margin-right: 7px; flex: none; }
 .p-stat-accent.danger .p-stat-label::before { background: var(--p-danger); }
 .p-stat-accent.warning .p-stat-label::before { background: var(--p-warning); }
@@ -609,6 +610,8 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-fig .p-fig-d b { font-weight: 600; }
 .p-fig .p-fig-d .up { color: var(--p-danger); }
 .p-fig .p-fig-d .down { color: var(--p-success); }
+.p-fig .p-fig-d .good { color: var(--p-success); }
+.p-fig .p-fig-d .bad { color: var(--p-danger); }
 .p-fig.live .p-fig-l::after { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--p-success); margin-left: 6px; vertical-align: 1px; }
 
 /* ---- a time clock is a wall-mounted screen, not a page ---- */

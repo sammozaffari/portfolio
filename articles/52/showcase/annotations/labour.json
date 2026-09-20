@@ -1,0 +1,42 @@
+{
+ "screen": "Labour, live on shift",
+ "img": "img/labour-live.png",
+ "markers": [
+  {
+   "title": "Hours that count as they are worked",
+   "finding": "Hours were not counted until a shift completed, so there was no running labour figure during service. One manager put it plainly: technically it is how most systems work, but they can also do a running calculation.",
+   "decision": "Labour cost accrues minute by minute against sales, so the figure exists at the moment a decision about it can still be made.",
+   "rejected": "A daily summary. A number that arrives after the shift describes the problem instead of preventing it.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Two units, two axes, said out loud",
+   "finding": "Managers were comparing sales and labour by hand across two systems that disagreed with each other.",
+   "decision": "Sales on the left axis, labour cost on the right, solid up to the current hour and dashed beyond it, with a line on the chart saying which axis is which.",
+   "rejected": "One axis for both, which was the first version of this screen and which made labour look like the whole of sales.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The spreadsheet this replaces, named",
+   "finding": "Managers kept a nightly tracker with the store number, the week, last year's sales, the forecast, actual sales, transactions, hours rostered, hours used and the rate against target, typed in by hand. Area coaches kept a second workbook with a tab per measure.",
+   "decision": "The four figures those spreadsheets existed to produce sit across the top of the screen, each against its target or its forecast.",
+   "rejected": "A configurable dashboard. The people doing this did not want to build a report, they wanted the four numbers they were already copying.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Four weeks of forecast, minutes old",
+   "finding": "Head office sent three weeks of forecast when managers needed four, and the feed reached the platform on a two hour delay, so a roster was often built against a forecast that had already moved.",
+   "decision": "Four weeks, arriving in minutes. The panel shows the age of the figures, because a forecast without its age is a guess presented as a fact.",
+   "rejected": "Shortening the delay alone, which leaves the fourth week rostered against nothing.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

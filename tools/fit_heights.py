@@ -13,7 +13,7 @@ screens sit on white.
 Usage: fit_heights.py articles/52/showcase/capture.json [--apply]
 Without --apply it reports what it would change and writes nothing.
 """
-import json, sys, pathlib, subprocess, tempfile, shutil, os, signal, struct, zlib
+import json, sys, time, pathlib, subprocess, tempfile, shutil, os, signal, struct, zlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -74,7 +74,12 @@ def png_rows(path):
 
 def last_content_row(path, tol=6):
     w, h, nch, rows = png_rows(path)
-    bg = rows[4][(w - 8) * nch:(w - 8) * nch + 3]        # top right, past any shadow
+    # Sample the bottom left corner, not the top. A probe render this tall ends
+    # in empty page by definition, whereas the top right corner sits inside the
+    # app bar, which is white while the page behind it is canvas grey. Reading
+    # the background from there made every row look like content and returned
+    # the probe height for sixteen screens in a row.
+    bg = rows[h - 3][2 * nch:2 * nch + 3]
     for y in range(h - 1, -1, -1):
         r = rows[y]
         for x in range(0, w, 3):                          # every third pixel is enough
@@ -93,10 +98,22 @@ def render(src, w, h, out):
            f"--screenshot={out}", f"file://{ROOT / src}"]
     proc = subprocess.Popen(cmd, start_new_session=True,
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    try:
-        proc.wait(timeout=60)
-    except subprocess.TimeoutExpired:
-        pass
+    # Chrome writes the PNG and then routinely fails to exit, so waiting for the
+    # process wastes the whole timeout on every screen. Wait for the file to
+    # appear and stop growing instead, then kill the group.
+    deadline, last, stable = time.time() + 45, -1, 0
+    while time.time() < deadline:
+        if proc.poll() is not None:
+            break
+        size = out.stat().st_size if out.exists() else -1
+        if size > 0 and size == last:
+            stable += 1
+            if stable >= 2:
+                break
+        else:
+            stable = 0
+        last = size
+        time.sleep(0.4)
     try:
         os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
     except (ProcessLookupError, PermissionError):

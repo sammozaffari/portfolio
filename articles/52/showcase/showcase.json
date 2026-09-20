@@ -200,20 +200,20 @@
     "The report records this as a full user journey: a part-timer on a fifteen hour contract forgot to clock on for a five hour shift, payroll would not reopen the period, the manager added it to the following week, and the area coach then queried the overtime on the weekly compliance report. Five people, one missed punch.",
     "The design question was not how to make reopening easier. It was why a correction needs a reopening at all. A correction is now a first-class object inside a closed period, priced at the rate of the day it was worked, and the screen shows what the workaround would have cost beside it."
    ],
-   "caption": "The correction path, made faster than the workaround it replaces. Until it was faster, nobody was going to use it.",
-   "img": "img/payperiod-open.png",
+   "caption": "The same hour, paid two ways. The comparison is on the screen because the research found people choosing the workaround without knowing it was the expensive option.",
+   "img": "img/payperiod-correct.png",
    "phone": false,
    "noteLimit": 4,
    "states": [
     {
-     "img": "img/payperiod-closed.png",
-     "title": "The period, closed and still correctable",
-     "cap": "Closing is no longer a one-way door, which is what made the workaround necessary in the first place."
+     "img": "img/payperiod-open.png",
+     "title": "The week before it closes",
+     "cap": "Three punches need a decision. Rostered and worked sit together, because the gap between them is the only part worth reading."
     },
     {
-     "img": "img/payperiod-correct.png",
-     "title": "What the workaround would have cost",
-     "cap": "The same hour, paid two ways. The comparison is on the screen because the research found people choosing the workaround without knowing it was the expensive option."
+     "img": "img/payperiod-closed.png",
+     "title": "Closed, with its history kept",
+     "cap": "One correction, one dismissal and one dropped shift that became leave, all still attached to the period they belong to."
     }
    ]
   },
@@ -229,11 +229,21 @@
     "One team member said they wanted to see how much time they had left on a break, because people were coming back early. Another said they wished they could see their expected pay and their leave balance after every shift. Neither is a hard feature. Both were missing.",
     "The break countdown is the one that matters operationally, because the manager was tracking it on a whiteboard and in their head. Putting it on the phone of the person taking the break moves it to the only place it can be acted on."
    ],
-   "caption": "The crew home screen. A shift, a break that counts down, hours so far, expected pay and a live leave balance.",
-   "img": "img/phone-home.png",
+   "caption": "Arriving. Seven minutes before the shift starts, inside the restaurant, with three people already queuing at the terminal. The journey the research wrote down opens exactly here.",
+   "img": "img/phone-clockin.png",
    "phone": true,
    "noteLimit": 4,
    "states": [
+    {
+     "img": "img/phone-home.png",
+     "title": "On shift",
+     "cap": "The break due in twelve minutes, the week against a fifteen hour contract, expected pay, and a leave balance that moved after last night's shift rather than at the pay run."
+    },
+    {
+     "img": "img/phone-break.png",
+     "title": "The break, counting down",
+     "cap": "Thirty minutes or ten, which two of them, and when it has to start by."
+    },
     {
      "img": "img/phone-shifts.png",
      "title": "Shifts, with leave shifts in the list",
@@ -243,11 +253,6 @@
      "img": "img/phone-hours.png",
      "title": "Punch history, which did not exist",
      "cap": "Ranked ninth of ten and released in November 2024. A team member could not see their own clock-ins, and sixteen of seventeen supervisors were adjusting forgotten ones by hand."
-    },
-    {
-     "img": "img/phone-break.png",
-     "title": "The break, counting down",
-     "cap": "Thirty minutes or ten, which two of them, and when it has to start by."
     }
    ]
   },

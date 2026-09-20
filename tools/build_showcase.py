@@ -98,6 +98,12 @@ def tokens_section():
         ("Ink", ["--p-ink", "--p-ink-2", "--p-ink-3", "--p-ink-inverse"]),
         ("Status", ["--p-danger", "--p-warning", "--p-success", "--p-info", "--p-neutral"]),
         ("Status grounds", ["--p-danger-bg", "--p-warning-bg", "--p-success-bg", "--p-info-bg", "--p-neutral-bg"]),
+        # The family that makes the workforce product what it is. Four content
+        # states drawn low in chroma so a shift is never coloured for being a
+        # shift, two that borrow from the status family because something is
+        # actually wrong, and the two lines on the labour chart.
+        ("Roster states", ["--p-w-shift", "--p-w-open", "--p-w-leave", "--p-w-training",
+                           "--p-w-break-risk", "--p-w-overtime", "--p-w-forecast", "--p-w-actual"]),
     ]
     o = []
     for name, keys in groups:
