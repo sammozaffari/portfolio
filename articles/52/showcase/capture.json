@@ -1,0 +1,128 @@
+[
+ {
+  "src": "articles/52/showcase/screens/hero.html",
+  "w": 1440,
+  "h": 900,
+  "out": "articles/52/showcase/img/hero.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/compliance-dismiss.html",
+  "w": 1440,
+  "h": 1050,
+  "out": "articles/52/showcase/img/compliance-dismiss.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/compliance-list.html",
+  "w": 1440,
+  "h": 1050,
+  "out": "articles/52/showcase/img/compliance-list.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/features-console.html",
+  "w": 1440,
+  "h": 940,
+  "out": "articles/52/showcase/img/features-console.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/labour-live.html",
+  "w": 1440,
+  "h": 790,
+  "out": "articles/52/showcase/img/labour-live.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/leave-consent.html",
+  "w": 1440,
+  "h": 820,
+  "out": "articles/52/showcase/img/leave-consent.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/leave-drop.html",
+  "w": 1440,
+  "h": 880,
+  "out": "articles/52/showcase/img/leave-drop.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/leave-range.html",
+  "w": 1440,
+  "h": 800,
+  "out": "articles/52/showcase/img/leave-range.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/payperiod-closed.html",
+  "w": 1440,
+  "h": 640,
+  "out": "articles/52/showcase/img/payperiod-closed.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/payperiod-correct.html",
+  "w": 1440,
+  "h": 820,
+  "out": "articles/52/showcase/img/payperiod-correct.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/payperiod-open.html",
+  "w": 1440,
+  "h": 760,
+  "out": "articles/52/showcase/img/payperiod-open.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/phone-break.html",
+  "w": 390,
+  "h": 844,
+  "out": "articles/52/showcase/img/phone-break.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/phone-clockin.html",
+  "w": 390,
+  "h": 844,
+  "out": "articles/52/showcase/img/phone-clockin.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/phone-home.html",
+  "w": 390,
+  "h": 844,
+  "out": "articles/52/showcase/img/phone-home.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/phone-hours.html",
+  "w": 390,
+  "h": 844,
+  "out": "articles/52/showcase/img/phone-hours.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/phone-shifts.html",
+  "w": 390,
+  "h": 844,
+  "out": "articles/52/showcase/img/phone-shifts.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/reports-group.html",
+  "w": 1440,
+  "h": 900,
+  "out": "articles/52/showcase/img/reports-group.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/roster-extended.html",
+  "w": 1440,
+  "h": 1000,
+  "out": "articles/52/showcase/img/roster-extended.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/roster-hardstop.html",
+  "w": 1440,
+  "h": 1000,
+  "out": "articles/52/showcase/img/roster-hardstop.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/roster-week.html",
+  "w": 1440,
+  "h": 1000,
+  "out": "articles/52/showcase/img/roster-week.png"
+ },
+ {
+  "src": "articles/52/showcase/screens/timeclock-board.html",
+  "w": 1440,
+  "h": 840,
+  "out": "articles/52/showcase/img/timeclock-board.png"
+ }
+]
