@@ -19,7 +19,7 @@ e = lambda s: html.escape(str(s), quote=False)
 # screens below; change one and the other is wrong, which is the point.
 NAV = [("Roster", None), ("Time and attendance", None), ("Compliance", ("4", "attn")),
        ("Leave", ("2", "")), ("Pay", None), ("Reports", None)]
-WHERE = "<b>Northgate</b> &middot; 0731 &middot; equity"
+WHERE = "<b>Riverside</b> &middot; 0412 &middot; equity"
 
 
 def shell(title, current, body, width=1440, who="NA", where=WHERE, extra=""):
@@ -70,7 +70,7 @@ COMP_ROWS = [
     ("should", "Rostered past 21:00 on a school night", "Jaxon R. &middot; Thu 7 Nov",
      "Under 18. School calendar says term time", "Nadia A.", "Before the shift", "Breaches the rule"),
     ("should", "Hours across two restaurants", "Mia T. &middot; week 45",
-     "38.5 hrs counting the second restaurant. Overtime starts at 38", "Sarah", "Before Sat 9 Nov", "Overtime from 38 hrs"),
+     "38.5 hrs counting Lakeside. Overtime starts at 38", "Sarah", "Before Sat 9 Nov", "Overtime from 38 hrs"),
     ("info", "Training not yet recorded", "Dev P. &middot; from Mon 11 Nov",
      "Cook certification pending. Rostered as cook from Monday", "Nadia A.", "Before Mon 11 Nov", "Watch only"),
 ]
@@ -331,8 +331,8 @@ def payperiod(state):
         <td>Thu 7 Nov</td><td class="p-diff-cell"><span class="p-diff settled"><s>09:00&ndash;17:00 rostered</s><b>09:02&ndash;17:04 worked</b></span></td>
         <td>30 min unpaid</td><td class="p-num">7.53</td><td><span class="p-badge p-badge-success">Approved</span></td><td></td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">CB</span>Chiara B.</span><span class="p-sub">Shift supervisor</span></td>
-        <td>Fri 8 Nov</td><td><span class="p-diff"><s>14:00&ndash;23:00 rostered</s><b>14:00&ndash;&mdash;&mdash; no clock-out</b></span></td>
-        <td>30 min unpaid</td><td class="p-num">&mdash;</td><td><span class="p-badge p-badge-danger">Missed clock-out</span></td>
+        <td>Fri 8 Nov</td><td><span class="p-diff"><s>14:00&ndash;23:00 rostered</s><b>14:00 in, never clocked out</b></span></td>
+        <td>30 min unpaid</td><td class="p-num">&ndash;</td><td><span class="p-badge p-badge-danger">Missed clock-out</span></td>
         <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Set the finish</button></td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">PS</span>Priya S.</span><span class="p-sub">Team member</span></td>
         <td>Fri 8 Nov</td><td><span class="p-diff"><s>11:00&ndash;15:00 rostered</s><b>11:00&ndash;14:12 worked</b></span></td>
@@ -342,10 +342,10 @@ def payperiod(state):
         <td>Sat 9 Nov</td><td><span class="p-diff"><s>17:00&ndash;20:00 rostered</s><b>17:00&ndash;19:40 worked</b></span></td>
         <td>None</td><td class="p-num">2.67</td><td><span class="p-badge p-badge-warning">Finished early</span></td>
         <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Ask why</button></td></tr>
-      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">MT</span>Mia T.</span><span class="p-sub">Shared with Ashgrove</span></td>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">MT</span>Mia T.</span><span class="p-sub">Shared with Lakeside</span></td>
         <td>Sat 9 Nov</td><td><span class="p-diff settled"><s>16:00&ndash;23:00 rostered</s><b>16:00&ndash;23:06 worked</b></span></td>
         <td>30 min unpaid</td><td class="p-num">6.60</td><td><span class="p-badge p-badge-success">Approved</span></td>
-        <td class="p-meta">Ashgrove punches included</td></tr>'''
+        <td class="p-meta">Lakeside punches included</td></tr>'''
         panel = ""
         title = "Pay period, before close"
     elif state == "correct":
@@ -409,7 +409,7 @@ def payperiod(state):
         <td>Raised 14 Nov</td><td>1.00 hr at Sunday rate</td><td class="p-num">$42.18</td>
         <td><span class="p-badge p-badge-success">Paid 26 Nov</span></td><td class="p-meta">Nadia A. &middot; confirmed by Chiara B.</td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">JR</span>Jaxon R.</span><span class="p-sub">Dismissal, Thu 7 Nov</span></td>
-        <td>Recorded 6 Nov</td><td>Rostered past 21:00, school night</td><td class="p-num">&mdash;</td>
+        <td>Recorded 6 Nov</td><td>Rostered past 21:00, school night</td><td class="p-num">&ndash;</td>
         <td><span class="p-badge p-badge-neutral">On the shift</span></td><td class="p-meta">Guardian consent on file, 14 Oct</td></tr>
       <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">NF</span>Natalia F.</span><span class="p-sub">Dropped shift, Thu 7 Nov</span></td>
         <td>Resolved 6 Nov</td><td>Became paid annual leave, 4.0 hrs</td><td class="p-num">$0.00</td>

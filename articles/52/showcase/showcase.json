@@ -1,0 +1,273 @@
+{
+ "title": "The workforce platform, module by module",
+ "eyebrow": "Product design · Nine modules · One design system",
+ "description": "The rostering, time and attendance product that the findings report argued for, module by module, with every design decision traced to a research finding and checked against a shipped pattern. By Sam Mozaffari.",
+ "deck": "Nine modules of a rostering, time and attendance product for a restaurant network. Each screen answers a pain point from the research, and the ones that carry a release number were shipped.",
+ "facts": [
+  {
+   "dt": "Delivered",
+   "dd": "The findings report, a four-lane service blueprint across seven lifecycle stages, twelve personas, two worked user journeys and a scored top ten, accepted as the standing prioritisation. Eight of the ten had a named release within a year: three in release 1.63 in November 2024 and five in release 1.64 across 2025."
+  },
+  {
+   "dt": "Evidence behind it",
+   "dd": "175 pain points, each typed and triaged by the kind of change that would resolve it. 200 field survey responses, ten restaurant visits across six franchise and four equity sites, and an above-restaurant round with a franchisee, two area coaches and payroll."
+  },
+  {
+   "dt": "How it is built",
+   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting product, extended with a rostering layer. Gated by a contrast script, a component manifest and a site lint. Every component was checked against shipped products on Mobbin before it was drawn."
+  },
+  {
+   "dt": "Confidentiality",
+   "dd": "The vendor, the sites and the people are removed. Every name, restaurant and number on these screens is written for the walkthrough. The findings, the quotations and the release numbers are from the delivered report."
+  }
+ ],
+ "intro": {
+  "kicker": "The argument",
+  "title": "A platform that was not short of features",
+  "body": [
+   "Every restaurant in the network ran on the same time and attendance platform. Most managers preferred it to what came before. And yet the research found 175 distinct pain points, the compliance warnings list had grown so long that managers had stopped reading it, and the workarounds were physical: paper deployment charts transcribed twice a day, whiteboards above the time clock, spreadsheet rosters, and shifts entered in the wrong week so a pay run would go through.",
+   "Only 41 per cent of those pain points were a software problem. That is the finding the screens here are built on. The platform did not need more features. It needed a compliance layer people could work inside, a way for a manager to see the cost of a decision while they were making it, and something to give back to the team member, who supplied two thirds of the survey responses and got the least from the product.",
+   "So each module below starts from a pain point in the report and shows the screen that answers it. Where an item carried a release number, it is on the module. Where it did not, it is marked as scheduled."
+  ]
+ },
+ "system": {
+  "kicker": "The design system",
+  "title": "Two products, one set of tokens",
+  "body": [
+   "This product and the safety reporting product are built on the same token file and the same component library. That is deliberate: they are two products for the same network, used by the same restaurant manager on the same shift, so a badge, a table row and a primary button behave identically in both.",
+   "What the workforce product added is a rostering layer: a shift chip with six states, a roster grid that freezes the person column and the day header, a strip that draws forecast demand behind rostered labour, and a compliance rail. Colour is the scarce resource. A rostered shift is grey, because a week holds sixty of them, and colour is spent only on the shifts that need a decision.",
+   "Tokens are written in the W3C Design Tokens format and compiled to CSS, the component manifest is generated from the stylesheet, and the build fails if either drifts. A contrast script checks every text pair at 4.5:1 and every border at 3:1. It caught a real failure while this layer was being written: an open shift is drawn as an outline, so the outline is the object and has to clear 3:1, which the first grey did not."
+  ]
+ },
+ "footNav": [
+  {
+   "kind": "btn-ink",
+   "href": "../index.html",
+   "text": "Back to the case study"
+  },
+  {
+   "kind": "btn-ghost",
+   "href": "../prototypes/service-blueprint.html",
+   "text": "Open the service blueprint"
+  }
+ ],
+ "modules": [
+  {
+   "id": "roster",
+   "kicker": "Module 01",
+   "title": "The roster, with compliance running as you build",
+   "figure": "Figure 1",
+   "annotations": "annotations/roster.json",
+   "findingLabel": "What the research found",
+   "finding": "Managers described the compliance warnings list as overwhelming and unmanageable, and said the result was that issues went unactioned. One area coach checked compliance by opening the exception report, opening the roster beside it, counting published shifts and dividing by hand.",
+   "body": [
+    "The warnings did not go away. They were triaged, and moved to where the decision is made. A roster of sixty shifts now surfaces four things that need a person, each with the cost of getting it wrong and the two or three ways to fix it.",
+    "The two counters beside the publish button are the whole argument in miniature. A count that is a route into the work is a tool. A count that is a badge is noise, which is what the old list had become."
+   ],
+   "caption": "The week as a manager builds it. Everything is checked against the agreement while the roster is being drawn, not after it is published and not on a separate screen.",
+   "img": "img/roster-week.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": [
+    {
+     "img": "img/roster-hardstop.png",
+     "title": "The one place a hard stop was right",
+     "cap": "A shift supervisor over eight hours with no thirty minute break cannot be published. Ranked second of ten and released in November 2024. Almost everywhere else the research argued against hard stops, because a hard stop on a common shift pattern pushes a manager into recording something untrue."
+    },
+    {
+     "img": "img/roster-extended.png",
+     "title": "The shift that grew",
+     "cap": "A three and a half hour shift extended by an hour on the floor crosses into a rest pause entitlement, and nothing used to flag it. Ranked first of ten and released in November 2024."
+    }
+   ]
+  },
+  {
+   "id": "compliance",
+   "kicker": "Module 02",
+   "title": "Compliance, triaged instead of listed",
+   "figure": "Figure 2",
+   "annotations": "annotations/compliance.json",
+   "findingLabel": "What the research found",
+   "finding": "Compliance warnings were dismissed without investigation, with no documentation and no oversight of the dismissal. Separately, a manager was found adding missed pay as empty shifts in the following week, which created overtime and broke part-timers' contracted hours.",
+   "body": [
+    "A flat list of thirty-one warnings is a list nobody reads. The same thirty-one split by what happens if you ignore them is a morning's work with an order to it.",
+    "Dismissing is still allowed, because the research was clear that a system which forbids it gets routed around. What changed is that a dismissal now takes a reason, carries a name, and appears on the area coach's report as a decision rather than as a silence."
+   ],
+   "caption": "The same warnings the old list held, sorted by what they cost and who owns them.",
+   "img": "img/compliance-list.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": [
+    {
+     "img": "img/compliance-dismiss.png",
+     "title": "A dismissal is a decision, and it is signed",
+     "cap": "The reason is required, the name is attached, and the record is what the area coach sees. This is the mitigation the report asked for under compliance pay dismissal."
+    }
+   ]
+  },
+  {
+   "id": "timeclock",
+   "kicker": "Module 03",
+   "title": "The deployment chart, generated rather than transcribed",
+   "figure": "Figure 3",
+   "annotations": "annotations/timeclock.json",
+   "findingLabel": "What the research found",
+   "finding": "Deployment charts were being transcribed by hand from the roster once or twice a day, onto a laminated station chart and a spiral-bound duty log. A manager asked for exactly this: make the platform auto generate a deployment chart that they can fill out manually and change.",
+   "body": [
+    "This is the module that was asked for in plain words, so it is built in plain words. The chart generates itself from the published roster, keeps the station columns the restaurants already use, and stays editable, because the research also found that managers deploy people to stations in real time and did not want that taken away.",
+    "The whiteboard above the time clock stays. It was doing a job the platform could not do, which was showing who was due a break and when, and the screen is designed to be the thing the whiteboard is copied from rather than a replacement for it."
+   ],
+   "caption": "The day's deployment, generated from the roster and editable on the floor, with the break columns the restaurants were already drawing by hand.",
+   "img": "img/timeclock-board.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": []
+  },
+  {
+   "id": "leave",
+   "kicker": "Module 04",
+   "title": "Leave as a date range, not as a row of shifts",
+   "figure": "Figure 4",
+   "annotations": "annotations/leave.json",
+   "findingLabel": "What the research found",
+   "finding": "A leave shift had to be created by hand after approval, one shift at a time. A week off meant entering every shift. A year of parental leave meant entering a year of shifts. Separately, leave balances updated only at the pay run, so managers approved leave people had not accrued.",
+   "body": [
+    "Four of the top ten were leave items, and they were four symptoms of one decision: leave had been modelled as a series of shifts rather than as a period of time. Modelling it as a range collapses all four.",
+    "Consent is the item that matters most and looks like the least. Entering leave on someone's behalf without asking them was routine, and it is the kind of thing that stays invisible until it is a dispute."
+   ],
+   "caption": "A week, a month or a year of leave entered once. The schedule fills itself, the balance is live, and the person is asked before anything is recorded against their name.",
+   "img": "img/leave-range.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": [
+    {
+     "img": "img/leave-consent.png",
+     "title": "Consent, captured at the point it is given",
+     "cap": "Ranked eighth of ten and released during 2025. The manager can still act quickly. What they cannot do is record leave against someone who has not seen it."
+    },
+    {
+     "img": "img/leave-drop.png",
+     "title": "A dropped shift, offered as leave",
+     "cap": "When a part-timer drops a shift, the manager used to get a compliance warning for not meeting contracted hours. Now the drop asks the question the manager was going to have to answer anyway."
+    }
+   ]
+  },
+  {
+   "id": "labour",
+   "kicker": "Module 05",
+   "title": "Labour, while there is still time to act on it",
+   "figure": "Figure 5",
+   "annotations": "annotations/labour.json",
+   "findingLabel": "What the research found",
+   "finding": "Hours were not counted as worked until a shift completed, so there was no running labour figure during the shift. Managers and area coaches kept their own spreadsheet trackers, filled in nightly, to get a number the platform could have given them.",
+   "body": [
+    "A labour figure that arrives after the shift is a report. A labour figure that arrives during the shift is a decision. The research found managers doing the arithmetic by hand precisely because they needed it while they could still send someone home or call someone in.",
+    "The forecast is drawn behind the actual rather than beside it, so the gap is the thing you see first. That is the shape the spreadsheets people had built for themselves were trying to make."
+   ],
+   "caption": "Today, by hour, with labour counted as it is worked. The photographed spreadsheet this replaces was being filled in by hand every night.",
+   "img": "img/labour-live.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": []
+  },
+  {
+   "id": "reports",
+   "kicker": "Module 06",
+   "title": "Reporting above one restaurant",
+   "figure": "Figure 6",
+   "annotations": "annotations/reports.json",
+   "findingLabel": "What the research found",
+   "finding": "Reports were per restaurant, capped at a thirty day window, and area and group figures were compiled by hand. Managers also did not know which reports existed. One said plainly that they had not generated a report in the platform for some time.",
+   "body": [
+    "Ranked fourth of ten and released during 2025. An area coach carries more pain points than any other role in the service and had no screen built for them, which is why this scored as high as it did.",
+    "The compliance rate is the area coach's manual spot-check, automated: issues divided by published shifts. It was described in an interview as a thing done by hand, week by week, and it is now a column."
+   ],
+   "caption": "One row per restaurant, past the thirty day cap, with the compliance rate that an area coach was calculating by hand.",
+   "img": "img/reports-group.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": []
+  },
+  {
+   "id": "payperiod",
+   "kicker": "Module 07",
+   "title": "A correction that does not need the period reopened",
+   "figure": "Figure 7",
+   "annotations": "annotations/payperiod.json",
+   "findingLabel": "What the research found",
+   "finding": "Reopening a pay period was long and difficult, and some groups refused to do it at all. So managers added missed pay as empty shifts in the next cycle, which created overtime, broke part-timers' contracted hours, and surprised the team member when their pay changed. One restaurant manager said the reopening was a long process, but preferred it to a workaround coming back to bite them later.",
+   "body": [
+    "The report records this as a full user journey: a part-timer on a fifteen hour contract forgot to clock on for a five hour shift, payroll would not reopen the period, the manager added it to the following week, and the area coach then queried the overtime on the weekly compliance report. Five people, one missed punch.",
+    "The design question was not how to make reopening easier. It was why a correction needs a reopening at all. A correction is now a first-class object inside a closed period, priced at the rate of the day it was worked, and the screen shows what the workaround would have cost beside it."
+   ],
+   "caption": "The correction path, made faster than the workaround it replaces. Until it was faster, nobody was going to use it.",
+   "img": "img/payperiod-open.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": [
+    {
+     "img": "img/payperiod-closed.png",
+     "title": "The period, closed and still correctable",
+     "cap": "Closing is no longer a one-way door, which is what made the workaround necessary in the first place."
+    },
+    {
+     "img": "img/payperiod-correct.png",
+     "title": "What the workaround would have cost",
+     "cap": "The same hour, paid two ways. The comparison is on the screen because the research found people choosing the workaround without knowing it was the expensive option."
+    }
+   ]
+  },
+  {
+   "id": "crew",
+   "kicker": "Module 08",
+   "title": "The app for the person the platform gave the least to",
+   "figure": "Figure 8",
+   "annotations": "annotations/crew.json",
+   "findingLabel": "What the research found",
+   "finding": "Team members had no punch times and no clock in or out history in the app, no view of elapsed break time and no notification when a break should end, and a leave balance that updated only at the pay run. Two thirds of the 200 survey responses came from team members.",
+   "body": [
+    "One team member said they wanted to see how much time they had left on a break, because people were coming back early. Another said they wished they could see their expected pay and their leave balance after every shift. Neither is a hard feature. Both were missing.",
+    "The break countdown is the one that matters operationally, because the manager was tracking it on a whiteboard and in their head. Putting it on the phone of the person taking the break moves it to the only place it can be acted on."
+   ],
+   "caption": "The crew home screen. A shift, a break that counts down, hours so far, expected pay and a live leave balance.",
+   "img": "img/phone-home.png",
+   "phone": true,
+   "noteLimit": 4,
+   "states": [
+    {
+     "img": "img/phone-shifts.png",
+     "title": "Shifts, with leave shifts in the list",
+     "cap": "Ranked tenth of ten. Leave used to be invisible in the shift list, so people were not sure their leave had been recorded."
+    },
+    {
+     "img": "img/phone-hours.png",
+     "title": "Punch history, which did not exist",
+     "cap": "Ranked ninth of ten and released in November 2024. A team member could not see their own clock-ins, and sixteen of seventeen supervisors were adjusting forgotten ones by hand."
+    },
+    {
+     "img": "img/phone-break.png",
+     "title": "The break, counting down",
+     "cap": "Thirty minutes or ten, which two of them, and when it has to start by."
+    }
+   ]
+  },
+  {
+   "id": "features",
+   "kicker": "Module 09",
+   "title": "What is switched on, and where",
+   "figure": "Figure 9",
+   "annotations": "annotations/features.json",
+   "findingLabel": "What the research found",
+   "finding": "There was no standard baseline of enabled features across the business. Shift swaps and messaging were configured differently by location, managers did not know what was available to them, and an area coach could not enable a feature for a single restaurant inside a larger franchise group.",
+   "body": [
+    "This is the module that came out of the twenty-six per cent of pain points tagged as education. The report asked for the configurable options to be published clearly so managers know what is available to them, and a screen is the honest way to publish them.",
+    "Franchise autonomy is real and is not being designed away. What the console changes is that the variation becomes visible and deliberate, instead of being discovered by a manager who assumed a feature did not exist."
+   ],
+   "caption": "Every configurable feature against every restaurant in the group, with who can change it and what happens when it is off.",
+   "img": "img/features-console.png",
+   "phone": false,
+   "noteLimit": 4,
+   "states": []
+  }
+ ]
+}

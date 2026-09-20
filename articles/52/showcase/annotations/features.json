@@ -1,0 +1,33 @@
+{
+ "screen": "Features, by restaurant",
+ "img": "img/features-console.png",
+ "markers": [
+  {
+   "title": "What is on, and where",
+   "finding": "There was no standard baseline. Critical features were configured differently across locations, managers lacked clarity on what was available, and useful functionality went unused.",
+   "decision": "One list of features in plain language, with what each one does, and a count of how many restaurants in the area have it on.",
+   "rejected": "A settings tree, which is how the configuration was reached before and why nobody knew what was in it.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "One restaurant inside a group",
+   "finding": "Features could not be enabled for a single restaurant inside a larger franchise group, so an area coach could not pilot anything.",
+   "decision": "Scope is per restaurant, and each row says who is allowed to change it. Two rules that carry legal weight are locked on and say so.",
+   "rejected": "Group-wide switches only, which forces an all-or-nothing decision on every franchisee at once.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Being the odd one out is visible",
+   "finding": "Communication ran across five channels because the in-app one had unreliable notifications, and nobody could see what their neighbours were doing.",
+   "decision": "The count on the right shows how many of the seven have each feature on, which turns a configuration screen into a quiet comparison.",
+   "rejected": "Naming the restaurants that differ, which makes it an audit rather than a prompt.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

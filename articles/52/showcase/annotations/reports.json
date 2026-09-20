@@ -1,0 +1,42 @@
+{
+ "screen": "Reporting above a single restaurant",
+ "img": "img/reports-group.png",
+ "markers": [
+  {
+   "title": "One table, not seven visits",
+   "finding": "Reports could only be pulled per restaurant and had to be aggregated by hand for an area. One area coach described going into every restaurant and taking the numbers from the top of each.",
+   "decision": "Compliance rate as issues divided by published shifts, one row per restaurant, with the same three-level switch on every report.",
+   "rejected": "A group dashboard as a separate product, which is how the manual workbook came to exist in the first place.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The reports are named, so they can be found",
+   "finding": "Managers did not know which reports existed or which were useful, and were building spreadsheets for figures the platform already held.",
+   "decision": "A catalogue down the side in plain names, grouped by when you would want them, with the two new ones marked.",
+   "rejected": "A report builder. The finding was not that people wanted to construct reports, it was that they did not know what was already there.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The thirty day cap is gone",
+   "finding": "Reports could only be generated for a thirty day window, which one participant wanted to be much longer or unlimited.",
+   "decision": "Any range, and the two standing reports arrive by themselves on Monday morning and at pay period close.",
+   "rejected": "A longer fixed cap, which moves the wall rather than removing it.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The shape before the rows",
+   "finding": "Area coaches were reading seven sets of numbers to find the two that mattered.",
+   "decision": "Four figures across the top, and a state on every row that says whether this is a rostering problem or a conversation about process.",
+   "rejected": "Ranking restaurants against each other, which turns a diagnostic into a league table and changes what gets reported.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

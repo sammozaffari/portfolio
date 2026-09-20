@@ -1,0 +1,42 @@
+{
+ "screen": "Compliance, triaged by consequence",
+ "img": "img/compliance-list.png",
+ "markers": [
+  {
+   "title": "Sort by what happens if nobody acts",
+   "finding": "The list was long, flat and uniform, so managers dismissed warnings without investigating them. There was no documentation of a dismissal and no oversight of the decision.",
+   "decision": "Two panels before any row: what is clear, and what needs a decision broken down by consequence. Stops the roster or costs money. Breaches a rule with no automatic cost. Worth knowing.",
+   "rejected": "Severity by rule category, which is how the original list was grouped and which tells a manager nothing about what to do first.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "A warning belongs to a person",
+   "finding": "Warnings belonged to the screen. Nobody owned one, so nobody was accountable for clearing it, and area coaches compiled their own spot checks by hand.",
+   "decision": "Every row carries an owner and a date to fix it by. Five of the six are the assistant manager's and two of them are on the same day, which is a morning's work rather than a backlog.",
+   "rejected": "A send-a-message action as the only response, which chases the person rather than changing the roster.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Every warning carries its price",
+   "finding": "The consequences of ignoring a warning were invisible until the pay run, when make-up pay, overtime and compliance pay appeared without explanation.",
+   "decision": "The subtitle on each row is what it costs or what it breaches. A manager triaging six items can see which two are money.",
+   "rejected": "A severity word alone, which is a judgement the product is asking the manager to trust rather than a figure they can weigh.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Dismissal is a record with a reason",
+   "finding": "Dismissals happened under time pressure with nothing recorded, which was raised as a backlog item for compliance pay dismissal mitigation.",
+   "decision": "Dismissing asks which of three situations applies and writes a note that stays on the shift and reaches the area coach's weekly report. Three dismissals of one rule in a month raise it automatically.",
+   "rejected": "A confirm dialog, which records that somebody clicked and nothing about why.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

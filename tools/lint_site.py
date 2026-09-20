@@ -8,6 +8,11 @@ BANNED = ['under review', 'unconfirmed', 'illustrative', 'not verified', 'cannot
           'being confirmed', 'being re-checked', 'Failed at nothing', 'Friday ritual', 'client engagements', 'practice studies',
           'Whether this write-up']
 BLOCKED = ['[vendor names removed]']
+# Real suburbs and store codes that reached a draft once. Nothing public may name a
+# real site from the research, and a plausible-looking suburb beside a real area
+# code reads as an identifiable restaurant even when every other detail is invented.
+# Riverside 0412 and Lakeside 0418 are the invented ones the screens use instead.
+PLACES = ['Northgate', 'Ashgrove', '0731']
 WRONG_COUNTS = [r'\b80 (?:methods|skills)', r'\b30(?:-tool| tools| runtime tools)', r'\b(?:38|39) (?:registered |runtime )?(?:artifact|template) kinds', r'\b12 (?:emitted|platform|distribution)', r'\b232 (?:corpus )?resources', r'\b(?:51|50) published', r'\b43 practice']
 def text_of(s):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>', ' ', s, flags=re.S)
@@ -20,6 +25,8 @@ for f in pages:
         for m in re.finditer(re.escape(b), t, flags=re.I): errors.append(f'{rel}: banned "{b}"')
     for b in BLOCKED:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: blocked name {b}')
+    for b in PLACES:
+        if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: real place or store code {b}')
     for pat in WRONG_COUNTS:
         if re.search(pat, t): errors.append(f'{rel}: wrong tooling count {pat}')
     if '<html lang="en-AU">' not in s: errors.append(f'{rel}: lang is not en-AU')
@@ -58,7 +65,10 @@ for f in pages:
 
 # the artefact pages a case study links to are read by the same people, so they
 # are held to the same rules: no em dashes, no blocked vendor names
-for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html')) + glob.glob(str(ROOT / 'articles/*/prototypes/*.html'))):
+for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html'))
+                + glob.glob(str(ROOT / 'articles/*/prototypes/*.html'))
+                + glob.glob(str(ROOT / 'articles/*/showcase/index.html'))
+                + glob.glob(str(ROOT / 'articles/*/showcase/screens/*.html'))):
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     n = len(re.findall(r'—', t)) + len(re.findall(r'\\u2014', s))
     if n:
@@ -66,6 +76,9 @@ for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html')) + glob.glob
     for b in BLOCKED:
         if re.search(r'\b' + re.escape(b) + r'\b', s):
             errors.append(f'{rel}: blocked name {b} in a linked artefact')
+    for b in PLACES:
+        if re.search(r'\b' + re.escape(b) + r'\b', s):
+            errors.append(f'{rel}: real place or store code {b} in a linked artefact')
 
 # --- design system gates -------------------------------------------------
 import subprocess, json as _json

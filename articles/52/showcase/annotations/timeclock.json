@@ -1,0 +1,42 @@
+{
+ "screen": "The deployment board on the time clock",
+ "img": "img/timeclock-board.png",
+ "markers": [
+  {
+   "title": "The question the manager actually has",
+   "finding": "The journey records an assistant manager looking at the time clock during the dinner rush and seeing only a list of red compliance warnings, at the moment she needs to know who is where.",
+   "decision": "The board answers who is standing where and who is owed a break. Compliance is still counted, in four pills at the top, but it is not the screen.",
+   "rejected": "The warnings list as the default view, which is what it replaced and what people had learned to look past.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The laminated chart, generated",
+   "finding": "Restaurants kept their own deployment charts on paper. One was a spiral-bound duty log, one a laminated sheet with columns for name, shift, ten minutes, thirty minutes and station, transcribed from the roster once or twice a day.",
+   "decision": "The board is built from the published roster and uses the station names from those charts. It prints, because the wall is still where people look.",
+   "rejected": "Rostering strictly by role, which managers said they did not want because it costs them the flexibility to move people during service.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Breaks as a countdown, not a breach",
+   "finding": "There was no real-time break tracking and no automated alert for a missed or delayed break, so compliance was a note a manager kept in their head during service.",
+   "decision": "The two people due a break are named with the time remaining and the rule that applies. The person is told on their phone as well, so it is not one manager's memory.",
+   "rejected": "Flagging the breach afterwards, which is the behaviour that produced the warnings list in the first place.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "An empty station is a question",
+   "finding": "Managers moved people between stations during service based on what was happening, and the roster's own view of deployment did not survive contact with a rush.",
+   "decision": "Unfilled stations are hatched and carry an assign action, so the board can be edited on the floor rather than only in the office.",
+   "rejected": "Locking the board to the roster, which would make it accurate and useless by seven o'clock.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

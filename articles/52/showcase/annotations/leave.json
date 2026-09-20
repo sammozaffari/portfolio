@@ -1,0 +1,42 @@
+{
+ "screen": "Leave, entered once",
+ "img": "img/leave-drop.png",
+ "markers": [
+  {
+   "title": "The drop asks a question instead of leaving a hole",
+   "finding": "There was no automatic leave when a part-time person dropped a shift, and the manager then received a compliance warning for not meeting their contracted hours. One asked directly for an option to mark a dropped shift as leave with or without pay.",
+   "decision": "Dropping the shift raises the four things it could become, with the cost of each, at the moment the decision is live.",
+   "rejected": "Deleting the shift and reporting the shortfall later, which is what produced the warning and the make-up pay.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Every option carries its price",
+   "finding": "Make-up pay and overtime arrived at the pay run with no explanation attached and no record of a decision having been made.",
+   "decision": "Three of the four options cost nothing extra and one costs a specific amount. The figure comes from the rule that would have raised the warning.",
+   "rejected": "Ranking the options by policy. A manager short-staffed on a Thursday is weighing coverage against cost, and needs both numbers.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "A date range writes the shifts",
+   "finding": "A leave shift had to be created by hand after approval, one day at a time. A week was five entries. Extended leave, up to a year, was described as being put in shift by shift.",
+   "decision": "The dates produce the list of shifts they cover, read from the published roster, and approving writes all of them. Coverage lost becomes an open shift rather than silence.",
+   "rejected": "Bulk entry as a separate tool, which is a second thing to learn for the case that matters most.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Consent is captured, not assumed",
+   "finding": "Consent was not captured when leave was entered on somebody's behalf, and a consent workflow went onto the backlog as a ranked ticket.",
+   "decision": "Entering leave for someone sends them what they are agreeing to, in hours and dollars against their balance, and writes nothing until they answer.",
+   "rejected": "A tickbox on the manager's side saying consent was obtained, which records the manager's memory rather than the person's agreement.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

@@ -75,7 +75,7 @@ def timeclock():
         '<div class="p-spacer"></div>'
         '<div class="p-counters">'
         '<span class="p-counter ok"><b>9</b> on shift</span>'
-        '<span class="p-counter quiet"><b>2</b> on a break</span>'
+        '<span class="p-counter quiet"><b>4</b> breaks done</span>'
         '<span class="p-counter should"><b>2</b> due a break</span>'
         '<span class="p-counter must"><b>0</b> late</span>'
         '</div>'
@@ -105,32 +105,34 @@ def timeclock():
 
 
 # ------------------------------------------------------------ labour on shift
-CHART = '''<svg class="p-chart" viewBox="0 0 720 262" role="img" aria-label="Sales by hour as columns with labour worked drawn solid to the current hour and labour forecast drawn dashed beyond it">
-  <g class="grid"><line x1="52" y1="20" x2="704" y2="20"/><line x1="52" y1="68" x2="704" y2="68"/><line x1="52" y1="116" x2="704" y2="116"/><line x1="52" y1="164" x2="704" y2="164"/></g>
-  <text x="44" y="24" text-anchor="end">$600</text><text x="44" y="120" text-anchor="end">$300</text><text x="44" y="216" text-anchor="end">$0</text>
-  <rect x="62" y="180" width="34" height="32" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="110" y="158" width="34" height="54" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="158" y="120" width="34" height="92" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="206" y="74" width="34" height="138" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="254" y="52" width="34" height="160" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="302" y="86" width="34" height="126" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
-  <rect x="350" y="132" width="34" height="80" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="398" y="146" width="34" height="66" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="446" y="128" width="34" height="84" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="494" y="70" width="34" height="142" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="542" y="44" width="34" height="168" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="590" y="92" width="34" height="120" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <rect x="638" y="150" width="34" height="62" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
-  <polyline points="79,186 127,166 175,130 223,88 271,66 319,98" fill="none" stroke="var(--p-w-actual)" stroke-width="2.5"/>
-  <polyline points="319,98 367,140 415,152 463,136 511,80 559,56 607,102 655,158" fill="none" stroke="var(--p-w-forecast)" stroke-width="2" stroke-dasharray="5 4"/>
-  <line x1="336" y1="14" x2="336" y2="218" stroke="var(--p-brand)" stroke-width="1.5"/>
-  <text x="342" y="26" fill="var(--p-brand)" font-weight="600">now, 13:04</text>
-  <g class="axis"><line x1="52" y1="212" x2="704" y2="212"/></g>
-  <text x="79" y="232" text-anchor="middle">7am</text><text x="175" y="232" text-anchor="middle">9</text>
-  <text x="271" y="232" text-anchor="middle">11</text><text x="367" y="232" text-anchor="middle">1pm</text>
-  <text x="463" y="232" text-anchor="middle">3</text><text x="559" y="232" text-anchor="middle">5</text>
-  <text x="655" y="232" text-anchor="middle">7pm</text>
-  <text x="378" y="254" text-anchor="middle">Hour of trading</text>
+CHART = '''<svg class="p-chart" viewBox="0 0 720 268" role="img" aria-label="Sales by hour as columns on the left axis, with labour cost drawn solid to the current hour and dashed beyond it on the right axis">
+  <g class="grid"><line x1="56" y1="28" x2="664" y2="28"/><line x1="56" y1="89" x2="664" y2="89"/><line x1="56" y1="150" x2="664" y2="150"/></g>
+  <text x="48" y="32" text-anchor="end">$600</text><text x="48" y="93" text-anchor="end">$400</text><text x="48" y="154" text-anchor="end">$200</text><text x="48" y="215" text-anchor="end">$0</text>
+  <text x="672" y="32">$160</text><text x="672" y="93">$107</text><text x="672" y="154">$53</text><text x="672" y="215">$0</text>
+  <rect x="64" y="181" width="32" height="30" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="110" y="160" width="32" height="51" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="156" y="123" width="32" height="88" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="202" y="79" width="32" height="132" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="248" y="58" width="32" height="153" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="294" y="90" width="32" height="121" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)"/>
+  <rect x="340" y="134" width="32" height="77" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="386" y="148" width="32" height="63" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="432" y="130" width="32" height="81" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="478" y="75" width="32" height="136" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="524" y="50" width="32" height="161" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="570" y="96" width="32" height="115" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <rect x="616" y="152" width="32" height="59" fill="var(--p-w-shift-bg)" stroke="var(--p-w-shift-line)" opacity=".4"/>
+  <polyline points="80,177 126,155 172,114 218,66 264,43 310,79" fill="none" stroke="var(--p-w-actual)" stroke-width="2.5"/>
+  <polyline points="310,79 356,127 402,141 448,122 494,62 540,35 586,85 632,146" fill="none" stroke="var(--p-w-forecast)" stroke-width="2" stroke-dasharray="5 4"/>
+  <line x1="333" y1="22" x2="333" y2="216" stroke="var(--p-brand)" stroke-width="1.5"/>
+  <text x="339" y="33" fill="var(--p-brand)" font-weight="600">now, 13:04</text>
+  <g class="axis"><line x1="56" y1="211" x2="664" y2="211"/></g>
+  <text x="80" y="230" text-anchor="middle">7am</text><text x="172" y="230" text-anchor="middle">9</text>
+  <text x="264" y="230" text-anchor="middle">11</text><text x="356" y="230" text-anchor="middle">1pm</text>
+  <text x="448" y="230" text-anchor="middle">3</text><text x="540" y="230" text-anchor="middle">5</text>
+  <text x="632" y="230" text-anchor="middle">7pm</text>
+  <text x="360" y="252" text-anchor="middle">Hour of trading</text>
+  <text x="56" y="266">Left axis: sales. Right axis: labour cost. Pale columns are forecast.</text>
 </svg>'''
 
 
@@ -140,7 +142,7 @@ def labour():
         '<div class="p-work-head"><h1>Labour, right now</h1><div class="p-spacer"></div>'
         '<div class="p-where">Wed 6 Nov &middot; 13:04</div>'
         '<button class="p-btn p-btn-secondary p-btn-sm">This week</button>'
-        '<button class="p-btn p-btn-secondary p-btn-sm">Send somebody home</button></div>'
+        '<button class="p-btn p-btn-secondary p-btn-sm">Adjust today&rsquo;s roster</button></div>'
         '<p class="p-work-sub">Hours count as they are worked rather than when a shift completes. '
         'That single change is the difference between a decision taken at 13:04 and a report read on Thursday.</p>'
         '<div class="p-card" style="padding:20px 24px 24px;margin-bottom:20px"><div class="p-figs">'
@@ -155,11 +157,11 @@ def labour():
         '</div></div>'
         '<div class="p-grid p-grid-8-4"><div class="p-card">'
         '<div class="p-card-head"><h3>Today, by hour</h3>'
-        '<span class="p-meta">Labour solid to now, dashed beyond it</span></div>'
+        '<span class="p-meta">Labour cost solid to now, dashed beyond it</span></div>'
         '<div class="p-card-body">' + CHART +
         '<div class="p-legend">'
         '<span><i style="background:var(--p-w-shift-bg);border:1px solid var(--p-w-shift-line)"></i>Sales by hour</span>'
-        '<span><i style="background:var(--p-w-actual)"></i>Labour worked</span>'
+        '<span><i style="background:var(--p-w-actual)"></i>Labour cost worked</span>'
         '<span><i style="background:var(--p-w-forecast)"></i>Labour forecast</span></div>'
         '</div></div>'
         '<div class="p-grid">'
@@ -186,13 +188,13 @@ def labour():
 
 # --------------------------------------------------- reporting at every level
 GROUP = [
-    ("Northgate", "0731", "equity", "64", "6", "9.4%", "$71.40", "ok"),
-    ("Riverside", "0412", "equity", "71", "4", "5.6%", "$76.10", "ok"),
-    ("Parkway", "0588", "franchise", "58", "19", "32.8%", "$62.90", "bad"),
-    ("Eastgate", "0244", "franchise", "66", "11", "16.7%", "$69.80", "warn"),
-    ("Harbour", "0903", "equity", "49", "3", "6.1%", "$78.40", "ok"),
-    ("Westfields", "0155", "franchise", "82", "24", "29.3%", "$64.20", "bad"),
-    ("Southbank", "0677", "equity", "55", "5", "9.1%", "$73.10", "ok"),
+    ("Riverside", "0412", "equity", "64", "6", "9.4%", "$71.40", "ok"),
+    ("Lakeside", "0418", "equity", "71", "4", "5.6%", "$76.10", "ok"),
+    ("Parkway", "0433", "franchise", "58", "19", "32.8%", "$62.90", "bad"),
+    ("Fairwater", "0455", "franchise", "66", "11", "16.7%", "$69.80", "warn"),
+    ("Harbour", "0461", "equity", "49", "3", "6.1%", "$78.40", "ok"),
+    ("Greenway", "0478", "franchise", "82", "24", "29.3%", "$64.20", "bad"),
+    ("Stonebridge", "0490", "equity", "55", "5", "9.1%", "$73.10", "ok"),
 ]
 
 
@@ -310,7 +312,7 @@ def features():
         '<div class="p-card p-stat"><div class="p-stat-label">Changed in the last 90 days</div>'
         '<div class="p-stat-value">11</div><div class="p-stat-delta">Each one recorded with who and why</div></div>'
         '</div>'
-        '<div class="p-card"><div class="p-card-head"><h3>Northgate &middot; 0731</h3>'
+        '<div class="p-card"><div class="p-card-head"><h3>Riverside &middot; 0412</h3>'
         '<span class="p-badge p-badge-success">Matches the area baseline</span></div>'
         + "".join(rows) + '</div>'
         '<p class="p-work-sub" style="margin-top:18px">The figure on the right is how many of the seven '

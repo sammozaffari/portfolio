@@ -46,7 +46,7 @@ def phone(title, screen, current, cta=""):
 .p-phone{{width:390px;height:844px;border:0;border-radius:0;box-shadow:none}}</style>
 </head><body class="p-app">
 <div class="p-phone">
-  <div class="p-status"><span>9:41</span><span>KFC Northgate</span></div>
+  <div class="p-status"><span>9:41</span><span>KFC Riverside</span></div>
   <div class="p-screen" style="padding:0 0 0;display:flex;flex-direction:column">
     <div style="flex:1;overflow:hidden;padding:0 16px">{screen}</div>
     {cta}
@@ -63,7 +63,7 @@ HOME = '''
 <div class="p-mrow next">
   <div class="p-mdate"><i>Wed</i><b>6</b></div>
   <div class="p-grow"><b>On now, front counter</b><span>10:45 &ndash; 16:00 &middot; 5 hrs 15 min</span>
-  <em>Chiara B. is the supervisor on this shift</em></div>
+  <em>Chiara B., shift supervisor, is on with you</em></div>
 </div>
 <div class="p-alert p-alert-warning" style="margin:12px 0 14px"><b>Your meal break is due in 12 minutes.</b> Thirty minutes, unpaid, and it has to start before 13:15.</div>
 <div class="p-card" style="padding:4px 14px 8px;margin-bottom:12px">
@@ -74,7 +74,7 @@ HOME = '''
 <div class="p-card" style="padding:12px 14px">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
     <div><b style="font-size:var(--p-fs-3)">Thursday off, still unpaid</b>
-    <div class="p-meta" style="margin-top:2px">Nadia asked whether to make it annual leave. One tap either way.</div></div>
+    <div class="p-meta" style="margin-top:2px">Nadia A., your rostering manager, asked whether to make it annual leave. One tap either way.</div></div>
   </div>
   <div class="p-actions" style="margin-top:10px"><button class="p-btn p-btn-primary p-btn-sm">Use annual leave</button><button class="p-btn p-btn-secondary p-btn-sm">Leave it unpaid</button></div>
 </div>
@@ -120,11 +120,11 @@ SHIFTS = '''
 </div>
 <div class="p-mrow">
   <div class="p-mdate"><i>Sat</i><b>9</b></div>
-  <div class="p-grow"><b>Front counter</b><span>17:00 &ndash; 20:00 &middot; 3 hrs</span><em>Sarah T. is the supervisor</em></div>
+  <div class="p-grow"><b>Front counter</b><span>17:00 &ndash; 20:00 &middot; 3 hrs</span><em>Chiara B., shift supervisor</em></div>
 </div>
 <div class="p-mrow pending">
   <div class="p-mdate"><i>Sun</i><b>10</b></div>
-  <div class="p-grow"><b>Offered to you, cook</b><span>17:00 &ndash; 23:00 &middot; 6 hrs</span><em>Two other people were offered it too</em></div>
+  <div class="p-grow"><b>Offered to you, front counter</b><span>17:00 &ndash; 21:00 &middot; 4 hrs</span><em>Offered to three people trained on counter</em></div>
 </div>
 <p class="p-meta" style="padding:2px">A day of approved leave now appears here as a day. It used to be a gap, which is why people rang the restaurant to ask whether their leave had gone through.</p>
 '''

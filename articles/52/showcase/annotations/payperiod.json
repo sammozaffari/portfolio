@@ -1,0 +1,42 @@
+{
+ "screen": "Correcting a shift without reopening the period",
+ "img": "img/payperiod-correct.png",
+ "markers": [
+  {
+   "title": "The compliant path is now the fast one",
+   "finding": "A part-time team member forgot to clock on for a five hour shift. The period had closed, payroll would not reopen it, and the manager was told to add the hours to the following week.",
+   "decision": "A correction is a first-class thing that happens inside a closed period. No ticket, no reopening, no asking payroll.",
+   "rejected": "Reopening the period, which was a long process with a queue, so restaurants stopped requesting it and some refused outright.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Both paths, costed side by side",
+   "finding": "Adding the hours to the next week triggered an overtime warning and compliance pay, cost the restaurant more than the shift was worth, and reached the team member as an unexplained pay rise.",
+   "decision": "The panel on the right prices the workaround line by line against the correction, so the argument for doing it properly is a number rather than a policy.",
+   "rejected": "A warning that the workaround is non-compliant. People already knew. What they did not have was a faster alternative.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The reason travels with the money",
+   "finding": "The area coach saw the overtime on the weekly compliance report a week later and had to ring the manager to find out what it was.",
+   "decision": "What happened, who confirmed it and the day it was worked are all on the correction, so the report shows a correction with a reason rather than an anomaly.",
+   "rejected": "A shift note, which the correction does not carry with it into payroll or into the report.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Paid in the period it was worked",
+   "finding": "Delayed payment affected people's budgeting, and the report recorded that pay timing matters because other payments depend on it.",
+   "decision": "The hours are paid at the day's own rate, in the cycle they belong to, with no effect on the following week's hours.",
+   "rejected": "Carrying it forward, which changes the rate, the hours and the person's contracted total all at once.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "screen": "The roster, with compliance running as you build",
+ "img": "img/roster-week.png",
+ "markers": [
+  {
+   "title": "Colour means something is wrong, not that something exists",
+   "finding": "Managers described the compliance list as overwhelming and unmanageable, and said they had stopped actioning it. One checked it by opening the exception report, opening the roster beside it, and dividing issues by published shifts by hand.",
+   "decision": "A rostered shift is grey. Colour is spent only on the four shifts that need a decision, so the eye lands on them before it lands on anything else.",
+   "rejected": "Colouring every shift by work area, which is the common pattern in this category and the reason a roster of sixty shifts reads as sixty alerts.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The rule runs while the roster is being built",
+   "finding": "Compliance was checked after publishing, or on a separate screen, or not at all. The exception report arrived later and from above.",
+   "decision": "Two counters sit beside the publish button and both are routes into the work rather than badges. The footer says when the rules were last refreshed, because they used not to refresh when the screen loaded.",
+   "rejected": "A compliance tab. Anything on its own tab is a thing a busy manager visits on Thursday.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The break question, priced and named",
+   "finding": "The agreement is ambiguous between five and five and a half hours, and managers could not tell whether to send a break. It was raised as a backlog item for a soft constraint on 5 to 5.49 hour shifts.",
+   "decision": "The shift carries the hours and the doubt in the chip itself, in words, at the point the decision is made. It warns rather than stops, because a hard stop on a rule people cannot satisfy is what drives hours being recorded that were not worked.",
+   "rejected": "A silent pass. The previous behaviour was that nothing flagged at all, so the entitlement was simply missed.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Part-time hours are a running total, not a surprise",
+   "finding": "Managers described thinking the week had gone well, then finding warnings for people who had not met their contracted minimum hours, after the pay run had already priced it.",
+   "decision": "The person's row carries hours against contract and the make-up pay it will cost if the week ends like this. The cost is shown before it is incurred.",
+   "rejected": "Reporting it at the pay run, which is where it used to appear and where it is already too late to act.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Leave is a day on the roster",
+   "finding": "Approving leave was the start of the manager's work. A leave shift then had to be created by hand, one day at a time. A week was five entries; a year of parental leave was entered shift by shift.",
+   "decision": "Approving a request writes the days. They appear on the roster as leave, so the gap is explained rather than blank, and the coverage it costs is raised as an open shift.",
+   "rejected": "Leaving the days empty, which is indistinguishable from nobody being needed.",
+   "n": 5,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Somebody shared between restaurants is counted once",
+   "finding": "Compliance across locations for shared employees was raised as a distinct problem, and cross-schedule compliance for shared and cross-state employees went onto the backlog.",
+   "decision": "Hours are totalled across both restaurants on the person's row, so the overtime threshold is measured against the person rather than against the site.",
+   "rejected": "Per-site totals, which let two compliant rosters add up to one non-compliant week.",
+   "n": 6,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

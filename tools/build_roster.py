@@ -266,7 +266,7 @@ def build(state):
       <a href="#">Reports</a>
     </nav>
     <div class="p-spacer"></div>
-    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <div class="p-where"><b>Riverside</b> &middot; 0412 &middot; equity</div>
     <span class="p-avatar">NA</span>
   </header>
   <div class="p-work">
@@ -281,7 +281,7 @@ def build(state):
       <button class="p-btn p-btn-secondary p-btn-sm">Auto-fill breaks</button>
       <button class="p-btn p-btn-primary p-btn-sm">Publish week</button>
     </div>
-    <p class="p-work-sub">Compliance runs as you build, not when you publish. Everything here is checked against the agreement and the state rules for each person, including Bec T., whose hours are counted across Northgate and Ashgrove together.</p>
+    <p class="p-work-sub">Compliance runs as you build, not when you publish. Everything here is checked against the agreement and the state rules for each person, including Mia T., whose hours are counted across Riverside and Lakeside together.</p>
     <div class="p-roster">
       <div class="p-rgrid">{''.join(head)}{''.join(rows)}</div>
       {legend}
