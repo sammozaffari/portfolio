@@ -110,6 +110,27 @@ for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html'))
         if re.search(re.escape(b), t, flags=re.I):
             errors.append(f'{rel}: banned "{b}" in a linked artefact')
 
+# --- no artefact is ever blown up beyond its own resolution ------------
+# A 393px phone screenshot in a 1100px wide figure renders at nearly three times
+# its own size and every word in it is huge. That shipped, and a 700px capture
+# in the safety case was doing a softer version of the same thing. Captures are
+# taken at 2x, so the natural width is half the pixel width.
+import struct as _struct
+for _f in glob.glob(str(ROOT / 'articles/*/index.html')):
+    _p = pathlib.Path(_f); _s2 = _p.read_text(errors='ignore'); _rel = _p.relative_to(ROOT)
+    for _m in re.finditer(r'<figure class="fig fig-wide[^"]*">.*?<img src="([^"]+\.png)"([^>]*)>', _s2, re.S):
+        _img = (_p.parent / _m.group(1))
+        if not _img.exists():
+            continue
+        try:
+            _w, _h = _struct.unpack('>II', _img.read_bytes()[16:24])
+        except Exception:
+            continue
+        _nat = _w // 2
+        if _nat < 900 and 'max-width' not in _m.group(2):
+            errors.append(f'{_rel}: {_m.group(1)} is {_nat}px natural in a wide figure; '
+                          f'cap it with max-width or use a wider capture')
+
 # --- everything here is a page -------------------------------------------
 # GitHub Pages serves this repository from its root, so the site is not the HTML
 # files, it is every file. That was missed until a check found the blocked vendor
