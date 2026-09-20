@@ -1,21 +1,21 @@
 # Sam Mozaffari
 
-> Experience Designer in Sydney, Australia. Research, service blueprints, stakeholder workshops and practical AI for operational services. Australian citizen; Sydney hybrid or remote within Australia; permanent, contract and consulting work considered.
+> Experience Designer in Sydney, Australia. Research, service blueprints, stakeholder workshops and practical AI for operational services. Australian citizen. Permanent, contract and consulting work considered.
 
 ## Who
 
 - Experience Designer at KFC South Pacific, July 2024 to present. Leads and co-leads service-improvement projects across safety reporting, workforce-management tools, hiring and onboarding, learning platforms and employee experience.
 - Conducts interviews and user testing, creates service blueprints, facilitates stakeholder workshops, prioritises improvements with evidence. Project and stakeholder leadership; does not manage a team of designers.
-- Uses AI daily in research synthesis and built an internal tool that extracts and classifies interview insights with AI, each record reviewed by hand. Building evidence for designing AI-enabled services; has not shipped an AI feature to production users.
+- Uses AI daily in research synthesis and built an internal tool that extracts and classifies interview insights with AI, each record reviewed by hand. Designs and builds custom harnesses and agents for specific design tasks, on a token-based design system with deterministic build gates.
 - Earlier: product designer in electrical hardware and digital products (2021 to 2024); UX designer on public-sector forms (part-time, 2020 to 2023); product designer in retail environments (2019 to 2021).
 
 ## Work (employment, one employer, organisation and vendors anonymised)
 
-- [Safety incident reporting](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/57/index.html): research to a five-stage blueprint to three proposals, held in an insight tool he built. Led research and design. Proposals and prototypes delivered; adoption unconfirmed.
-- [Workforce platform prioritisation](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/52/index.html): a four-lane blueprint and a scored top ten for a vendor conversation. Co-led with one other designer.
-- [Hiring and onboarding](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/55/index.html): nine-stage blueprint and an automated screening-to-interview path. Led the design work; outcome figures under review.
-- [Learning platform replacement](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/56/index.html): business case, scoping workshop, compliance-gated journey and pilot. Led the design work; rollout figures under review.
-- Further write-ups, figures under review: [employee experience](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/50/index.html), [service quality](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/51/index.html), [self-service channel](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/53/index.html), [drive-thru](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/54/index.html).
+- [Safety and compliance reporting](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/57/index.html): research into why reporting varied across the network, a five-stage blueprint and three proposals, held in an insight tool he built, then designed as a ten-module product. Led research and design. Delivered December 2025.
+- [Rostering, time and attendance](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/52/index.html): 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane blueprint and a ranked top ten, then designed as a nine-module product. Eight of the ten carried a named release within the year. Co-led with one other designer.
+- [Hiring and onboarding](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/55/index.html): a nine-stage blueprint from application to first shift, and an automated screening-to-interview path designed around the failing moments. Led the design work.
+- [Learning platform replacement](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/56/index.html): the business case, the scoping workshop, a compliance-gated journey and the pilot. Led the design work.
+- Further write-ups: [employee experience](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/50/index.html), [service quality](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/51/index.html), [self-service channel](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/53/index.html), [drive-thru](https://sammozaffari.github.io/the-agentic-service-designer-site/articles/54/index.html).
 
 ## Pages
 

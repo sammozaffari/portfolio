@@ -63,6 +63,25 @@ for f in pages:
         tgt = tgt.split('?')[0]
         if not (p.parent / tgt).exists(): errors.append(f'{rel}: missing {tgt}')
 
+# llms.txt is the machine-readable summary of the whole site, so a recruiter's
+# assistant reads it before anything else. It is plain text and was therefore
+# outside every check above, which is how it kept four lines the site had
+# already dropped: an availability line, a sentence describing Sam by what he
+# has not shipped, and two figures held "under review".
+_llms = ROOT / 'llms.txt'
+if _llms.exists():
+    _t = _llms.read_text()
+    for b in BANNED:
+        if re.search(re.escape(b), _t, flags=re.I):
+            errors.append(f'llms.txt: banned "{b}"')
+    for b in BLOCKED + PLACES:
+        if re.search(r'\b' + re.escape(b) + r'\b', _t):
+            errors.append(f'llms.txt: blocked name {b}')
+    if '\u2014' in _t:
+        errors.append(f'llms.txt: {_t.count(chr(8212))} em dashes')
+    if re.search(r'has not (shipped|built|delivered|led|run)', _t, flags=re.I):
+        errors.append('llms.txt: describes Sam by what he has not done')
+
 # the artefact pages a case study links to are read by the same people, so they
 # are held to the same rules: no em dashes, no blocked vendor names
 for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html'))

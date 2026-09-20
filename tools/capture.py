@@ -2,7 +2,7 @@
 """Capture showcase screens to 2x PNGs with headless Chrome.
 Usage: capture.py manifest.json   where manifest is a list of {"src": html path, "w": px, "h": px, "out": png path}.
 """
-import json, os, signal, subprocess, sys, pathlib, tempfile, shutil
+import json, os, signal, subprocess, sys, pathlib, tempfile, shutil, time
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 items = json.load(open(sys.argv[1]))
@@ -21,10 +21,23 @@ for it in items:
     # zygote children behind. Run it in its own process group and kill the group,
     # otherwise the strays accumulate and starve later captures.
     proc = subprocess.Popen(cmd, start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    try:
-        proc.wait(timeout=int(os.environ.get("CAP_TIMEOUT", "60")))
-    except subprocess.TimeoutExpired:
-        pass
+    # Waiting on the process means waiting the whole timeout every time, because
+    # Chrome writes the PNG and then hangs rather than exiting. That made a
+    # twenty-one screen run take half an hour of almost pure waiting. Poll for
+    # the file instead, and once it stops growing the shot is finished, so the
+    # timeout becomes what it should be: the failure case, not the normal one.
+    limit = float(os.environ.get("CAP_TIMEOUT", "60"))
+    deadline = time.time() + limit
+    size = -1
+    while time.time() < deadline:
+        if proc.poll() is not None:
+            break
+        if out.exists() and out.stat().st_mtime > before:
+            now = out.stat().st_size
+            if now > 0 and now == size:
+                break          # written and stable: Chrome is only hanging now
+            size = now
+        time.sleep(0.25)
     try:
         os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
     except (ProcessLookupError, PermissionError):
