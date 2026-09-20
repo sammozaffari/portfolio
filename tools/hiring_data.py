@@ -87,6 +87,17 @@ SCREEN_DAY = {
     "pipeline":    "offer",
     "queue":       "offer",
     "humanlane":   "offer",
+    "hero":        "offer",   # a composition of the queue screen
+}
+
+# Three screens are about something that has not happened yet, so they may name
+# a later date: the slot picker offers times, the offer names a start day, and
+# the day-before screen counts down to the first shift. Every other screen shows
+# history and may not mention a date after its own.
+SCREEN_MAX = {
+    "book":   "offer",       # the last slot offered is Fri 8 Nov
+    "offer":  "start",
+    "before": "start",
 }
 
 # ------------------------------------------------------- the five questions
@@ -169,7 +180,7 @@ PIPELINE = [
     ("Offer sent", [
         {"who": "tia", "waited": "1 day", "flag": "ok",
          "sub": "Sent Fri 8 Nov, 9:10am",
-         "trail": "Applied Mon 4 &middot; screened same day &middot; interviewed Thu 7"},
+         "trail": "Applied Mon 4 &middot; screened same day &middot; interviewed Thu 7 Nov, 4:00pm"},
     ]),
     ("Accepted", []),
 ]

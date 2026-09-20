@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><title>Hiring and onboarding, composition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>
+  *{box-sizing:border-box;margin:0}
+  html,body{width:1440px;height:820px;overflow:hidden}
+  body{background:var(--p-canvas);font:400 14px var(--p-font);position:relative;-webkit-font-smoothing:antialiased}
+  /* a thin band of the brand, so the composition is anchored without a slab of red */
+  body::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--p-brand)}
+  /* The window holds a 1440x728 screen, so at 960px wide it stands 485px tall
+     plus 32px of chrome, which is 517. Top is set from that arithmetic rather
+     than by eye, because the safety hero grew down onto its own caption when
+     the screen inside it changed shape. 84 + 517 = 601, and the caption starts
+     at 820 - 34 - 18 = 768. */
+  .win{position:absolute;left:56px;top:84px;width:960px;border-radius:12px;overflow:hidden;background:var(--p-panel);
+       border:1px solid var(--p-line);box-shadow:0 1px 2px rgba(22,23,26,.05),0 34px 64px -30px rgba(22,23,26,.45)}
+  .bar{height:32px;background:var(--p-panel-2);border-bottom:1px solid var(--p-line);display:flex;align-items:center;gap:7px;padding:0 12px}
+  .bar i{width:9px;height:9px;border-radius:50%;background:var(--p-line);display:block}
+  .bar i:first-child{background:var(--p-brand-line)}
+  .bar span{margin-left:12px;height:17px;flex:1;max-width:340px;border-radius:9px;background:var(--p-panel);border:1px solid var(--p-line)}
+  .win img{display:block;width:100%;height:auto}
+  /* 252 wide gives 546 tall. Bottom 118 puts its top at 820 - 118 - 546 = 156,
+     clear of the brand band, and its left edge at 1440 - 70 - 252 = 1118, clear
+     of the window's right edge at 1016. */
+  .phone{position:absolute;right:70px;bottom:118px;width:252px;border-radius:30px;overflow:hidden;background:var(--p-panel);
+         border:1px solid var(--p-line);box-shadow:0 1px 2px rgba(22,23,26,.05),0 30px 58px -24px rgba(22,23,26,.5)}
+  .phone img{display:block;width:100%;height:auto}
+  .cap{position:absolute;left:56px;bottom:34px;display:flex;align-items:baseline;gap:14px}
+  .cap b{font-size:15px;font-weight:600;letter-spacing:var(--p-tracking-tight);color:var(--p-ink)}
+  .cap span{font-family:var(--p-font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--p-ink-3)}
+</style></head><body>
+  <div class="win"><div class="bar"><i></i><i></i><i></i><span></span></div>
+    <img src="../img/queue.png" alt=""></div>
+  <div class="phone"><img src="../img/questions.png" alt=""></div>
+  <div class="cap"><b>Hiring and onboarding</b><span>Candidate and manager &middot; one system</span></div>
+</body></html>
