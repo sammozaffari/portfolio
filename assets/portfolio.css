@@ -129,7 +129,11 @@
 .pf-facts dd { margin: 0; font-size: var(--pf-small); line-height: 1.5; color: #e4e4de; }
 .pf-panel-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; }
 .pf-panel-actions .btn-ghost { background: transparent; color: var(--dark-ink); border-color: rgba(255, 255, 255, 0.35); }
-.pf-panel-fig { display: block; background: #f4f3ee; border-left: 1px solid rgba(255, 255, 255, 0.12); }
+/* The artwork keeps its own aspect ratio while the copy column drives the panel's
+   height, so any difference showed as a band of empty ground under the image.
+   Centring splits what is left above and below instead of dumping it at the
+   bottom, and the copy is written short enough that there is little to split. */
+.pf-panel-fig { display: grid; align-content: center; background: #f4f3ee; border-left: 1px solid rgba(255, 255, 255, 0.12); }
 .pf-panel-fig img { display: block; width: 100%; height: auto; }
 .pf-caption { font-size: var(--pf-small); color: var(--muted); line-height: 1.55; margin: 14px 0 0; max-width: 78ch; }
 .pf-caption a { border-bottom: 1px solid var(--line-strong); }
