@@ -35,28 +35,6 @@
     list.className = 'annot-list';
 
     notes.forEach(function (note, i) {
-      var pin = document.createElement('button');
-      pin.type = 'button';
-      pin.className = 'annot-pin';
-      pin.style.left = note.x + '%';
-      pin.style.top = note.y + '%';
-      pin.textContent = note.n != null ? note.n : (i + 1);
-      pin.setAttribute('aria-describedby', 'annot-' + (note.n || i + 1) + '-' + Math.random().toString(36).slice(2, 7));
-
-      var pop = document.createElement('div');
-      pop.className = 'annot-pop' + (note.x > 58 ? ' left' : '');
-      pop.id = pin.getAttribute('aria-describedby');
-      pop.innerHTML =
-        '<span class="annot-kind">' + (PREFIX[note.kind] || 'Note') + '</span>' +
-        '<b>' + (note.title || '') + '</b>' +
-        '<p>' + (note.body || '') + '</p>' +
-        (note.link ? '<a href="' + note.link.href + '">' + note.link.text + '</a>' : '');
-      pop.style.left = note.x + '%';
-      pop.style.top = note.y + '%';
-
-      stage.appendChild(pin);
-      stage.appendChild(pop);
-
       var li = document.createElement('li');
       li.className = 'annot-note';
       li.innerHTML =
@@ -68,13 +46,9 @@
       list.appendChild(li);
 
       function open() {
-        stage.querySelectorAll('.is-open').forEach(function (n) { n.classList.remove('is-open'); });
         list.querySelectorAll('.is-open').forEach(function (n) { n.classList.remove('is-open'); });
-        pop.classList.add('is-open'); pin.classList.add('is-open'); li.classList.add('is-open');
+        li.classList.add('is-open');
       }
-      pin.addEventListener('mouseenter', open);
-      pin.addEventListener('focus', open);
-      pin.addEventListener('click', open);
       li.addEventListener('mouseenter', open);
       note._open = open;
     });

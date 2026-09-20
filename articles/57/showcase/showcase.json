@@ -211,12 +211,7 @@
    ],
    "caption": "The restaurant manager's dashboard at 1440 by 900. Four counts, a weekly trend read in a sentence, the open reports with the next human act as their status, and the loop closed on the right.",
    "img": "img/dashboard-manager.png",
-   "story": {
-    "device": "browser",
-    "align": "left",
-    "lensRadius": 9,
-    "zoom": 1.55
-   }
+   "noteLimit": 5
   },
   {
    "id": "dashboard-area",

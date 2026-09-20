@@ -1126,3 +1126,37 @@ footer.footer { position: absolute; left: 0; right: 0; bottom: 0; }
   .annot-list { grid-template-columns: 1fr; }
 }
 @media print { .annot-pop, .annot-pin { display: none; } }
+
+/* =============================================================
+   v12 · ANIMATIONS THAT PLAY ONCE
+   An artefact settles into place the first time it is seen, and a
+   sequence plays through once and then rests on the frame that
+   carries the meaning. Nothing loops and nothing is tied to the
+   scroll wheel. Without script everything is simply visible.
+   ============================================================= */
+.reveal { opacity: 1; }
+.seq { position: relative; }
+.seq .seq-stage { position: relative; }
+.seq .seq-frame { display: block; width: 100%; height: auto; }
+.seq .seq-frame + .seq-frame { position: absolute; inset: 0; }
+.seq-steps { list-style: none; margin: 18px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 0 30px;
+  border-top: 1px solid var(--line); }
+.seq-steps li { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 13.5px; line-height: 1.6; color: #3c3c38; }
+.seq-steps li b { display: block; font-size: 14.5px; color: var(--ink); letter-spacing: -.01em; margin-bottom: 5px; }
+.seq-steps li .c { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal, .js .seq { opacity: 0; transform: translateY(14px); transition: opacity 560ms cubic-bezier(.22,.7,.2,1), transform 560ms cubic-bezier(.22,.7,.2,1); }
+  .js .reveal.is-in, .js .seq.is-in { opacity: 1; transform: none; }
+  .js .seq .seq-frame { opacity: 0; transition: opacity 420ms cubic-bezier(.22,.7,.2,1); }
+  .js .seq .seq-frame:first-child { opacity: 1; }
+  .js .seq .seq-frame.is-on { opacity: 1; }
+  .js .seq .seq-frame:first-child:not(.is-on) { opacity: 0; }
+  .js .seq-steps li { opacity: .42; transition: opacity 420ms cubic-bezier(.22,.7,.2,1); }
+  .js .seq-steps li.is-on, .js .seq.has-played .seq-steps li { opacity: 1; }
+}
+
+/* no script: the sequence rests on its final frame and every note is legible */
+html:not(.js) .seq .seq-frame { display: none; }
+html:not(.js) .seq .seq-frame:last-child { display: block; position: static; }

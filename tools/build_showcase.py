@@ -61,17 +61,10 @@ def shot(img, markers=None, phone=False):
     if phone:
         # a real device frame: the display size, corner radius, island and safe
         # areas are the iPhone 15 specification scaled, not an eyeballed crop
-        o = [f'<div class="dv-phone"><div class="dv-screen">'
-             f'<img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy">']
-        for m in markers or []:
-            o.append(f'<span class="mk" style="left:{m["x"]:.2f}%;top:{m["y"]:.2f}%">{m["n"]}</span>')
-        o.append("</div></div>")
-        return "".join(o)
-    o = [f'<div class="shot"><img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy">']
-    for m in markers or []:
-        o.append(f'<span class="mk" style="left:{m["x"]:.2f}%;top:{m["y"]:.2f}%">{m["n"]}</span>')
-    o.append("</div>")
-    return "".join(o)
+        return (f'<div class="dv-phone"><div class="dv-screen">'
+                f'<img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy">'
+                f'</div></div>')
+    return (f'<div class="shot reveal"><img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy"></div>')
 
 def notes_block(d, limit=None):
     o = ['<div class="notes">']
@@ -246,8 +239,9 @@ page = f"""<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/style.css?v=9">
 <link rel="stylesheet" href="../../../assets/showcase.css?v=9">
-<link rel="stylesheet" href="../../../assets/scrollytell.css?v=12">
+<link rel="stylesheet" href="../../../assets/scrollytell.css?v=13">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
+<script>document.documentElement.classList.add('js')</script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-head">
@@ -285,7 +279,8 @@ page = f"""<!doctype html>
   <a class="btn-ghost" href="../prototype/index.html">Open the form prototype</a>
 </div></div>
 </main>
-<script src="../../../assets/scrollytell.js?v=12"></script>
+<script src="../../../assets/scrollytell.js?v=13"></script>
+<script src="../../../assets/playonce.js?v=12"></script>
 <footer class="footer">
   <span>Sam Mozaffari · Experience Designer, Sydney.</span>
   <span><a href="../../../library.html">Library</a> · <a href="../../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7" target="_blank" rel="noopener">LinkedIn</a></span>
