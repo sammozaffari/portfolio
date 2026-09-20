@@ -202,12 +202,22 @@ for mod in spec["modules"]:
     if sb:
         parts.append(sb)
     else:
-        parts.append(shot(img, d["markers"] if d else None, mod.get("phone")))
+        # only pin what the page goes on to explain, so no number is left orphaned
+        limit = mod.get("noteLimit", 4)
+        pins = d["markers"][:limit] if d else None
+        parts.append(shot(img, pins, mod.get("phone")))
     parts.append(f'<p class="shot-cap"><span class="fignum">{e(mod["figure"])}</span>{md_inline(mod["caption"])}</p>')
     if d and not sb:
         # a module without a story shows the decisions that carry it, not all of them
         parts.append(notes_block(d, limit=mod.get("noteLimit", 4)))
     states = [s for s in mod.get("states", []) if (SC / s["img"]).exists()]
+    if sb:
+        # the story already walks these screens; showing them again as a grid is
+        # the same content twice, so only states the story does not cover survive
+        told = set()
+        for dev in (mod["story"].get("devices") or [{"shots": mod["story"].get("shots", [])}]):
+            told.update(dev.get("shots", []))
+        states = [s for s in states if s["img"] not in told]
     if states:
         parts.append(f'<h3>{e(mod.get("statesTitle", "The states that matter"))}</h3>')
         state_notes = []
