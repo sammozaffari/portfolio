@@ -142,6 +142,11 @@ for item in spec:
         continue
     last, _ = last_content_row(probe)
     fit = max(320, -(-(last + MARGIN) // STEP) * STEP)
+    if fit >= PROBE_H - MARGIN:
+        # A modal scrim or drawer pinned to the viewport fills whatever height
+        # it is handed, so this screen cannot be measured. Leave it alone.
+        print(f"  {pathlib.Path(src).name:<28} fills the viewport (overlay), keeping {item['h']}")
+        continue
     if fit != item["h"]:
         print(f"  {pathlib.Path(src).name:<28} {item['h']} -> {fit}"
               f"  ({item['h'] - fit:+d} of empty canvas removed)" if fit < item["h"]
