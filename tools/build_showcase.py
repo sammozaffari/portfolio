@@ -270,7 +270,7 @@ page = f"""<!doctype html>
     <a href="../../../index.html">Home</a>
     <a href="../../../articles.html" class="on">Work</a>
     <a href="../../../about.html">About</a>
-    <a href="../../../cv.html">CV</a><a href="../../../writing/index.html">Writing</a>
+    <a href="../../../cv.html">CV</a>
   </nav>
 </header>
 <main id="main" class="sc">

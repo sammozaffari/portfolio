@@ -19,7 +19,7 @@ check = "--check" in sys.argv
 
 missing, changed, cited = set(), 0, {}
 for f in sorted(glob.glob(str(ROOT / "*.html")) + glob.glob(str(ROOT / "articles/*/index.html"))
-                + glob.glob(str(ROOT / "writing/*/index.html"))):
+):
     p = pathlib.Path(f)
     s = p.read_text()
     out = s

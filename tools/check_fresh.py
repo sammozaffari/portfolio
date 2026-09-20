@@ -45,8 +45,12 @@ for spec_path in sorted(glob.glob(str(ROOT / "articles/*/showcase/capture*.json"
             bad.append(f"{rel}: never captured")
             continue
         n += 1
+        # A capture written in the same second as its source is not stale; it is
+        # the same edit. Anything under a second is also what a git checkout
+        # produces when it rewrites a working tree and reorders mtimes, which
+        # would otherwise fail this gate on files nobody has touched.
         drift = src.stat().st_mtime - out.stat().st_mtime
-        if drift > 0:
+        if drift >= 1:
             bad.append(f"{rel}: {drift:.0f}s older than {src.name}; re-capture it")
 
 # a screen nobody captures is a screen the page cannot show

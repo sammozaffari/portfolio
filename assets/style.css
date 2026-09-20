@@ -781,6 +781,21 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .btn-ink:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); text-decoration: none; }
 .btn-ghost { display: inline-block; border: 1px solid var(--line-strong); color: var(--ink); padding: 12px 22px; border-radius: var(--radius-card); font-weight: 600; font-size: 14px; transition: border-color var(--fast) var(--ease); }
 .btn-ghost:hover { border-color: var(--ink); text-decoration: none; }
+
+/* Social buttons carry their own brand, because a reader scans for the two marks
+   rather than reading two words in a meta line. Official colours, both of which
+   clear 4.5:1 against white text: LinkedIn #0A66C2 at 5.69, GitHub #181717 at
+   17.9. The mark is the letterform only, not the containing tile, so it does not
+   read as a white square sitting inside a coloured button. */
+.btn-brand { display: inline-flex; align-items: center; gap: 9px; padding: 13px 20px; border-radius: var(--radius-card); font-weight: 600; font-size: 14px; color: #fff; border: 1px solid transparent; transition: transform var(--fast) var(--ease), box-shadow var(--fast) var(--ease), background var(--fast) var(--ease); }
+.btn-brand svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.btn-brand:hover { color: #fff; text-decoration: none; transform: translateY(-1px); box-shadow: var(--shadow-hover); }
+.btn-brand:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.btn-linkedin { background: #0a66c2; }
+.btn-linkedin:hover { background: #08529b; }
+.btn-github { background: #181717; }
+.btn-github:hover { background: #000; }
+@media (prefers-reduced-motion: reduce) { .btn-brand:hover { transform: none; } }
 .btn-text { font-size: 14px; color: var(--muted); padding: 12px 6px; }
 .btn-text:hover { color: var(--ink); }
 .hero .hero-meta { font-family: var(--mono); font-size: 13px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }

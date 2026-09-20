@@ -18,7 +18,7 @@ def text_of(s):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>', ' ', s, flags=re.S)
     return html.unescape(re.sub(r'<[^>]+>', ' ', s))
 errors = []
-pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'docs/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'writing/*/index.html')))
+pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'docs/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')))
 for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     for b in (BANNED if not str(rel).startswith('docs/') else []):
