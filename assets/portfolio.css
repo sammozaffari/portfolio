@@ -111,7 +111,7 @@
 .pf-lead-case { padding: 0 0 var(--pf-section); }
 .pf-panel {
   background: var(--dark); color: var(--dark-ink); border-radius: var(--radius-card);
-  overflow: hidden; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  overflow: hidden; display: grid; grid-template-columns: minmax(0, 4.5fr) minmax(0, 7.5fr);
 }
 .pf-panel-text { padding: clamp(30px, 3.4vw, 52px); display: flex; flex-direction: column; }
 .pf-panel-text .pf-eyebrow { color: rgba(248, 248, 245, 0.6); }
@@ -135,7 +135,7 @@
    bottom, and the copy is written short enough that there is little to split. */
 .pf-panel-fig { display: grid; align-content: center; background: #f4f3ee; border-left: 1px solid rgba(255, 255, 255, 0.12); }
 .pf-panel-fig img { display: block; width: 100%; height: auto; }
-.pf-caption { font-size: var(--pf-small); color: var(--muted); line-height: 1.55; margin: 14px 0 0; max-width: 78ch; }
+.pf-caption { font-size: var(--pf-body); color: var(--ink-soft); line-height: 1.6; margin: 16px 0 0; max-width: 78ch; }
 .pf-caption a { border-bottom: 1px solid var(--line-strong); }
 .pf-caption a:hover { border-bottom-color: var(--ink); }
 
