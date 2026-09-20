@@ -2,7 +2,7 @@
  "$description": "Every component class the safety reporting design system defines. An agent must search this before writing a new component. tools/lint_site.py fails the build on any p- class used in a screen that is neither declared here nor defined in that screen's own style block.",
  "source": "assets/product/components.css",
  "tokens": "assets/product/tokens.dtcg.json",
- "count": 220,
+ "count": 232,
  "components": [
   {
    "class": "p-actions",
@@ -183,6 +183,10 @@
   {
    "class": "p-chart",
    "group": "Charts (inline SVG built to the dataviz rules)"
+  },
+  {
+   "class": "p-chat",
+   "group": "the bottom bar"
   },
   {
    "class": "p-check",
@@ -421,6 +425,10 @@
    "group": "the deployment board: the laminated chart, generated"
   },
   {
+   "class": "p-ledge",
+   "group": "A white card on a hard black ledge, no blur. The brand uses this at a 45px radius on its benefit cards and it is the single most recognisable thing in the system, so the job a candidate is choosing sits on one."
+  },
+  {
    "class": "p-legend",
    "group": "Forms"
   },
@@ -479,6 +487,10 @@
   {
    "class": "p-mrow",
    "group": "a shift in the list: a date block, then what and when"
+  },
+  {
+   "class": "p-msg",
+   "group": "the bottom bar"
   },
   {
    "class": "p-mstat",
@@ -587,6 +599,10 @@
   {
    "class": "p-punch",
    "group": "punch history, the thing the app simply did not show"
+  },
+  {
+   "class": "p-quick",
+   "group": "Tappable answers. A wrapped row rather than a stack, so five options do not push the question off the screen."
   },
   {
    "class": "p-quick-add",
@@ -741,6 +757,22 @@
    "group": "App shell"
   },
   {
+   "class": "p-slot",
+   "group": "Interview times. Grouped by day, and a day with nothing free says so rather than being left out, which is the Zocdoc treatment: an empty day a candidate can see is better than a gap they have to infer."
+  },
+  {
+   "class": "p-slotday",
+   "group": "Interview times. Grouped by day, and a day with nothing free says so rather than being left out, which is the Zocdoc treatment: an empty day a candidate can see is better than a gap they have to infer."
+  },
+  {
+   "class": "p-slotrow",
+   "group": "Interview times. Grouped by day, and a day with nothing free says so rather than being left out, which is the Zocdoc treatment: an empty day a candidate can see is better than a gap they have to infer."
+  },
+  {
+   "class": "p-slots",
+   "group": "Interview times. Grouped by day, and a day with nothing free says so rather than being left out, which is the Zocdoc treatment: an empty day a candidate can see is better than a gap they have to infer."
+  },
+  {
    "class": "p-spacer",
    "group": "App shell"
   },
@@ -853,8 +885,16 @@
    "group": "the triage split: shape before rows"
   },
   {
+   "class": "p-vcheck",
+   "group": "Interview times. Grouped by day, and a day with nothing free says so rather than being left out, which is the Zocdoc treatment: an empty day a candidate can see is better than a gap they have to infer."
+  },
+  {
    "class": "p-w-100",
    "group": "Utilities"
+  },
+  {
+   "class": "p-waited",
+   "group": "How long somebody has been waiting, on the card rather than in a report. The wait from applying to a first human touch ran from days to weeks and nobody could see it, so it is the one number every pipeline card carries."
   },
   {
    "class": "p-weekpick",
@@ -863,6 +903,14 @@
   {
    "class": "p-where",
    "group": "shell with a top bar instead of a side rail"
+  },
+  {
+   "class": "p-who",
+   "group": "The assistant says what it is before it asks anything, because a candidate deserves to know whether a person is reading this."
+  },
+  {
+   "class": "p-why",
+   "group": "Why a question is asked, in one line, under the question. The research found a form that asked more than it decided, so every question here earns itself."
   },
   {
    "class": "p-work",

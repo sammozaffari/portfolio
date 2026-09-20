@@ -1,0 +1,42 @@
+{
+ "screen": "Consent before any decision",
+ "img": "img/consent.png",
+ "markers": [
+  {
+   "title": "The branch runs before anything is decided",
+   "finding": "Under-age applicants were being assessed and sometimes rejected before anyone established whether a parent had agreed to any of it.",
+   "decision": "At sixteen, consent goes out before a single decision is recorded. The screen says so in those words, so silence does not read as rejection.",
+   "rejected": "Assessing first and collecting consent at the offer, which is both the wrong order legally and the wrong order for the person waiting.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "A false negative on a first job is not an acceptable error",
+   "finding": "The cost of wrongly rejecting a sixteen year old's first application is a person who never comes back, and the business had no way to see that happening.",
+   "decision": "No response at all is recorded as no decision, not as a rejection. She can return at seventeen with nothing against her name.",
+   "rejected": "Auto-rejecting on a consent timeout, which is the cheapest thing to build and the most expensive thing to be wrong about.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The rate is named, in the consent",
+   "finding": "Parents were agreeing to employment without being told the junior rate or the hours a school night allows.",
+   "decision": "The rate is stated as a percentage of the adult rate, with the step-ups. A guardian agreeing to something should be able to see what it is.",
+   "rejected": "A link to an award summary, which is a document written for payroll and not for a parent on a phone at six in the evening.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Age and consent are locked in the specification",
+   "finding": "Rules of this kind drift when a release is under time pressure, and the drift is invisible until somebody is hurt by it.",
+   "decision": "This branch cannot be changed without sign-off. It is written into the specification as a locked rule rather than as a default somebody can toggle.",
+   "rejected": "Treating it as configuration, which is how a compliance rule quietly becomes a setting.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

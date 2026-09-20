@@ -164,7 +164,10 @@ notes.append(f"roster grid: {total_chips} chips, {counts['filled']} clear, "
 # ------------------------------------------------------- 6. things never said
 want_not(r"[vendor names removed]",
          "is a blocked vendor name")
-want_not(r"northgate|ashgrove|southbank|westfield|\b0731\b",
+# Encoded because this repository is served as the website, so a plain-text
+# list of real suburbs beside the client name would publish the thing it exists
+# to catch. See the same note in tools/lint_site.py.
+want_not(__import__("base64").b64decode("bm9ydGhnYXRlfGFzaGdyb3ZlfHNvdXRoYmFua3x3ZXN0ZmllbGR8XGIwNzMxXGI=").decode(),
          "is a real place or a store code that reads as one")
 want_not(r"\u2014", "is an em dash")
 # the entity form slipped past a sweep that only looked for the character

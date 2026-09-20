@@ -1,0 +1,62 @@
+[
+ {
+  "src": "articles/55/showcase/screens/find.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/find.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/questions.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/questions.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/consent.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/consent.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/book.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/book.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/rights.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/rights.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/offer.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/offer.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/before.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/55/showcase/img/before.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/pipeline.html",
+  "w": 1440,
+  "h": 492,
+  "out": "articles/55/showcase/img/pipeline.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/queue.html",
+  "w": 1440,
+  "h": 728,
+  "out": "articles/55/showcase/img/queue.png"
+ },
+ {
+  "src": "articles/55/showcase/screens/humanlane.html",
+  "w": 1440,
+  "h": 636,
+  "out": "articles/55/showcase/img/humanlane.png"
+ }
+]

@@ -1,0 +1,42 @@
+{
+ "screen": "The human lane",
+ "img": "img/humanlane.png",
+ "markers": [
+  {
+   "title": "A machine may not end an application",
+   "finding": "Work rights was the hardest part of the experience and the step that most needed a person. First-job candidates fail automated checks for innocent reasons, and payroll was finding the wrong documents at pay time.",
+   "decision": "Automated checks run, and anything they will not pass goes to a payroll administrator who accepts or rejects with a reason. The machine can say a photo is unreadable. It cannot say somebody cannot have a job.",
+   "rejected": "Fully automated verification with auto-rejection on failure, which is the cheapest build and the one whose errors are irreversible.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The reason is the words that get sent",
+   "finding": "Rejections arrived as status changes with no explanation, and candidates had no idea whether to try again.",
+   "decision": "The reason field is the email. What the administrator types is what the candidate reads, so there is no gap between the internal note and the message.",
+   "rejected": "A reason code with a template, which lets an internal shorthand become a sentence nobody meant to send.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Two failures, neither of them a refusal",
+   "finding": "A cut-off photo and a visa condition were being treated the same way as a failed right-to-work check, which is a category error with a person on the other end.",
+   "decision": "The panel says what each one actually is. A photo problem is a photo problem. A fortnightly cap is a rostering constraint, which belongs in the roster, not in a rejection.",
+   "rejected": "One failed state for every check, which is how a rostering constraint becomes a reason somebody does not get hired.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The split is published",
+   "finding": "Nobody outside the project could say which parts of the check were automated, so nobody could challenge the boundary.",
+   "decision": "The rail lists what runs automatically and what always goes to a person, including everyone under eighteen. A boundary somebody can read is a boundary somebody can argue with.",
+   "rejected": "Leaving it in the specification, where it is correct and invisible.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

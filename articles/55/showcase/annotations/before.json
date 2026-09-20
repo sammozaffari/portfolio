@@ -1,0 +1,33 @@
+{
+ "screen": "Before the first shift",
+ "img": "img/before.png",
+ "markers": [
+  {
+   "title": "Nobody measured whether she turns up",
+   "finding": "Two moments had no data at all. Nobody measured whether a hired crew member turned up to their first shift, and nobody measured retention at ninety days.",
+   "decision": "The screen exists because the moment does. It is the first thing in the service that anybody built specifically for the first shift rather than for the paperwork before it.",
+   "rejected": "Treating the offer as the end of hiring, which is what produced two moments with no owner and no number.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "One name to ask for",
+   "finding": "New starters arrived at the back door, or asked for whoever was on the roster, and the first ten minutes set the tone for the ninety days nobody was measuring.",
+   "decision": "One name, one door, one time. Arriving ten minutes early is stated as paid, because a sixteen year old will otherwise arrive at four exactly.",
+   "rejected": "A welcome pack, which is read by nobody on the way to a first shift.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "What to bring is almost nothing",
+   "finding": "Candidates brought documents they had already sent, because nothing told them the paperwork was finished.",
+   "decision": "Two lines: shoes, and nothing else. The second line exists to close the loop on the documents sent three days earlier.",
+   "rejected": "A checklist of everything that might conceivably be needed, which is how a person ends up carrying a folder to a shift.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

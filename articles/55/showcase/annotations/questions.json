@@ -1,0 +1,51 @@
+{
+ "screen": "The five questions",
+ "img": "img/questions.png",
+ "markers": [
+  {
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0,
+   "title": "The advertised assistant and the real one are two different products",
+   "finding": "The careers homepage advertises this assistant in black and red, in the brand's heavy italic display face, with a phone mock showing black assistant bubbles answered in red. The assistant that actually loads is a 338 by 324 vendor popover in pale mint with grey body text and a crimson send button that is not the brand's red. On the apply page the composer is disabled until a terms card is opened, so the first thing a candidate meets is not a question.",
+   "decision": "Build the one the brand promised. Black bubbles, red answers, the brand's own speech-bubble shape, and the first thing on screen is the first question.",
+   "rejected": "Restyling the vendor widget, which leaves a 338 by 324 box floating over an art-directed page and still opens on a terms dialog."
+  },
+  {
+   "title": "Five, because five is what changes a decision",
+   "finding": "The old application was a multi-system form that asked more than it decided, and managers then re-keyed the answers into another system anyway.",
+   "decision": "Minimum age, work rights, availability, shifts a week, and the high-demand shift. Nothing else is asked, because nothing else changes what happens next.",
+   "rejected": "A shorter version of the same form. The delay was in the routing after the form, not only in the form.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Answers are tapped, not typed",
+   "finding": "First-job candidates abandoned fields that rejected their input without saying why, and a date of birth field is the worst of them.",
+   "decision": "Every answer is a chip. There is no format to get wrong, and the whole set is visible, so a candidate can see what they are choosing between.",
+   "rejected": "Free text with validation, which is a quiz where the rules are only revealed when you fail.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Every question says why it is asked",
+   "finding": "Candidates read a screening question about availability as a test they could fail, and answered what they thought was wanted rather than what was true.",
+   "decision": "One line under each question saying what it decides. An honest answer is more useful than a flattering one, and saying so is what gets it.",
+   "rejected": "Explaining nothing, which is how a form full of reasonable questions reads as an interrogation.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The hard question is asked last",
+   "finding": "The high-demand shift is the one the restaurant is genuinely short of, and leading with it reads as the only thing that matters.",
+   "decision": "It is question five. By then the candidate knows what the job is, and a no on this question is a conversation rather than an exit.",
+   "rejected": "Asking it first as a qualifier, which turns the most valuable applicants away before they know what they are turning down.",
+   "n": 5,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

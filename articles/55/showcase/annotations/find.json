@@ -1,0 +1,42 @@
+{
+ "screen": "Finding a job near you",
+ "img": "img/find.png",
+ "markers": [
+  {
+   "title": "No account before you have a job",
+   "finding": "Finding the job was one of the five moments that failed. There is no job detail page today: the title and the apply button both open a vendor page in a new tab, so a candidate leaves the brand's own site to read the ad. There is no account either, so there is nowhere to go back to and see what happened.",
+   "decision": "The ad is on this page and the application starts from it. Nothing is asked for until there is something to ask about, and the account is created at the offer, when there is finally something to keep.",
+   "rejected": "Register first, browse second, which is what produces a funnel with a leak at the top and a database of people who never applied.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The card answers the two questions a sixteen year old has",
+   "finding": "Candidates were choosing between restaurants on distance and hours and could see neither until they had clicked through.",
+   "decision": "How far away and which shifts, on the card. The closest one is marked, because the nearest restaurant is the one a first-job candidate can actually get to.",
+   "rejected": "A job description above the fold. Nobody reads it, and it hides the two facts that decide the application.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The assistant says what it is before it starts",
+   "finding": "Candidates did not know whether a person was reading their application or how long any of it would take.",
+   "decision": "Five questions, a name, and the fact that you can stop. Stated before the first question rather than in a policy nobody opens.",
+   "rejected": "Opening straight into the first question, which reads as a form wearing a conversation as a costume.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0,
+   "title": "The job sits on the brand's own card",
+   "finding": "The job cards on the live site carry a 4px radius, which is a vendor default rather than a decision anybody made. The brand's own cards are very round, white, and sit on a hard black ledge with no blur.",
+   "decision": "The thing a candidate is choosing between is drawn in the brand's most recognisable shape. With the logo removed you would still know whose site this is.",
+   "rejected": "The vendor's card, which is neutral, competent and belongs to no one."
+  }
+ ]
+}

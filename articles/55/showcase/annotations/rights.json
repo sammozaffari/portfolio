@@ -1,0 +1,33 @@
+{
+ "screen": "Work rights, sent once",
+ "img": "img/rights.png",
+ "markers": [
+  {
+   "title": "Sent once, read by everything",
+   "finding": "Candidates uploaded the same documents more than once even when everything about them was correct, because payroll, rostering and the restaurant each held their own copy.",
+   "decision": "One record, read by all three. The screen says so, because a candidate asked for a document twice assumes the first one was wrong.",
+   "rejected": "A document per system, which is the arrangement that produced the duplicate uploads the research found.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Every check says who made it",
+   "finding": "Work rights was the hardest part of the experience and the step that most needed a person, and candidates could not tell what was happening or who was doing it.",
+   "decision": "Each row names whether a machine or a person decided. Four run automatically, and the one that matters most, the consent, was a person.",
+   "rejected": "A single progress spinner, which hides both the speed of the automated checks and the fact that a human looked at the important one.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Nothing is ever rejected by a machine",
+   "finding": "Automated document checks fail for innocent reasons on first-job candidates, and payroll was discovering wrong documents at pay time rather than at hire time.",
+   "decision": "A failed check routes to a person. The screen states this before any check runs, so a candidate whose photo is cut off is not sitting at home assuming they have lost the job.",
+   "rejected": "Fully automated verification with auto-rejection on failure, which is cheaper and gets a sixteen year old's first job wrong.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

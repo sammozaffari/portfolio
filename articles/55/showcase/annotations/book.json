@@ -1,0 +1,33 @@
+{
+ "screen": "Booking her own interview",
+ "img": "img/book.png",
+ "markers": [
+  {
+   "title": "Real times, not a request",
+   "finding": "Managers were texting candidates back and forth to arrange interviews, which is where days of the wait actually went.",
+   "decision": "The slots are the manager's real free times. Picking one books it. Nobody waits for a reply to a message about when to have a conversation.",
+   "rejected": "A request form the manager confirms, which is the same back and forth with an extra screen in front of it.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "A day with nothing free says so",
+   "finding": "An empty day looks like a system failure when it is silently left out, and candidates assumed the process had stalled.",
+   "decision": "Wednesday is listed with the reason there are no times. An empty day a candidate can see beats a gap they have to infer.",
+   "rejected": "Hiding days with no availability, which is tidier and tells the candidate nothing.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The interview is not a dining room table",
+   "finding": "Interviews were happening at dining-room tables and in food courts, rushed and inconsistent, and the research named it as a moment that failed.",
+   "decision": "The room is named on the booking, along with how long it takes and that nothing needs to be brought. Taking the admin out is what gives the manager the conversation back.",
+   "rejected": "Leaving the location to be sorted on the day, which is how it became a table in the dining room in the first place.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

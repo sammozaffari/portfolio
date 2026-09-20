@@ -1,0 +1,42 @@
+{
+ "screen": "The offer, where she will find it",
+ "img": "img/offer.png",
+ "markers": [
+  {
+   "title": "It is not an email",
+   "finding": "Offers landed in spam. The offer was one of the five moments that failed, and it failed at delivery. There is no account on the live site, no sign-in and no application dashboard, so email was the only place an offer could go and a spam filter was the only thing between the candidate and the job.",
+   "decision": "The offer lives where the application lives, and a text points at it. Email is a notification, never the artefact.",
+   "rejected": "A PDF attached to an email, which is the arrangement that lost the offers in the first place.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The rate is explained, not just stated",
+   "finding": "First-job candidates had no way to tell whether a junior rate was correct, and no way to ask without sounding suspicious.",
+   "decision": "The rate is shown as a percentage of the adult rate, with the fact that it steps up on each birthday. A number a candidate can check is a number they can trust.",
+   "rejected": "An hourly figure on its own, which is accurate, unhelpful, and indistinguishable from an error.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The hours are the ones she said suited her",
+   "finding": "Candidates were hired into hours they had not agreed to, and the mismatch surfaced weeks later as a retention problem nobody was measuring.",
+   "decision": "The offer quotes the availability back. If it does not match what was asked, that is visible before acceptance rather than after the first roster.",
+   "rejected": "A generic casual contract, which is faster to issue and is the reason the first shift is a moment that fails.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Nobody is left waiting",
+   "finding": "Candidates vanished from the process without ever receiving a response, and the business had no view of how many.",
+   "decision": "Reminders at 24, 48 and 72 hours, and after ten days an answer either way. The promise is on the offer screen, so it is a commitment rather than a background job.",
+   "rejected": "Letting stale applications lapse silently, which costs nothing to run and is the single rudest thing the old process did.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

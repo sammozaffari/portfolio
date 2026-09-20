@@ -1,0 +1,42 @@
+{
+ "screen": "The pipeline, with the wait on every card",
+ "img": "img/pipeline.png",
+ "markers": [
+  {
+   "title": "The wait is on the card, not in a report",
+   "finding": "The wait for a first human touch ran from days to weeks, and no one in the business could see it while it was happening. It surfaced only in exit data, long after the person had gone.",
+   "decision": "Every card carries how long that person has been waiting. It is the one number that appears on every card in the product.",
+   "rejected": "A time-to-hire figure on a monthly dashboard, which is the same number arriving too late to act on.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "Held on a document is not held on a decision",
+   "finding": "Managers could not distinguish a candidate they had not looked at from one who was stuck behind a check somebody else owned.",
+   "decision": "The card says which it is. The longest wait on this board belongs to a document, and the stat card underneath says so in those words.",
+   "rejected": "One amber state for everything slow, which tells a manager to chase something that is not theirs to chase.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "A person is in one column",
+   "finding": "Two products on this site have already shipped a screen where the same record appeared in two states at once, and a reader spotted it before any check did.",
+   "decision": "One card per person, with the trail underneath. Tia's speed from Monday to Friday is shown as history on her card rather than as four copies of her across the board.",
+   "rejected": "Drawing the candidate at every stage they have passed, which looks busier and is wrong.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "An empty column says so",
+   "finding": "Sparse boards get padded with placeholder records, and a manager then cannot tell real volume from decoration.",
+   "decision": "Three columns are empty, and they say nobody is here. Two candidates is what a single restaurant's week looks like.",
+   "rejected": "Filling the board out, which would have meant inventing people and lying about volume to make a screenshot look impressive.",
+   "n": 4,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

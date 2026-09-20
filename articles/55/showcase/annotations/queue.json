@@ -1,0 +1,33 @@
+{
+ "screen": "The queue, with the answers attached",
+ "img": "img/queue.png",
+ "markers": [
+  {
+   "title": "Outside the rule is not rejected",
+   "finding": "A candidate who did not fit the automatic path was dropped, and the business read the drop as a labour-market problem rather than a routing decision it had made.",
+   "decision": "Anyone outside the auto-schedule rule arrives here as a decision for a person. The screen leads with the one who needs deciding on, not the one who did not.",
+   "rejected": "Auto-declining on the availability rule, which is what turns a routing rule into a hiring policy nobody agreed.",
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The answers travel with the person",
+   "finding": "Managers were re-keying candidate data across systems, and the research recorded candidates and managers describing the same re-keying from both ends.",
+   "decision": "All five answers arrive attached, with the reason each was asked. The manager decides with context instead of rebuilding it.",
+   "rejected": "A link back to the application record, which is the extra system that produced the re-keying.",
+   "n": 2,
+   "x": 50.0,
+   "y": 50.0
+  },
+  {
+   "title": "The near miss is visible",
+   "finding": "A binary in-or-out verdict hid how close a candidate was, so managers could not tell a poor fit from a single unlucky answer.",
+   "decision": "The one answer that put him outside the rule is the one marked. He meets it on shifts and misses it on the last question only.",
+   "rejected": "A match percentage, which compresses five real answers into one number nobody can argue with.",
+   "n": 3,
+   "x": 50.0,
+   "y": 50.0
+  }
+ ]
+}

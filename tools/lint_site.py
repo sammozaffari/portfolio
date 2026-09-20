@@ -7,12 +7,16 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 BANNED = ['under review', 'unconfirmed', 'illustrative', 'not verified', 'cannot confirm', 'would be fabrication',
           'being confirmed', 'being re-checked', 'Failed at nothing', 'Friday ritual', 'client engagements', 'practice studies',
           'Whether this write-up']
-BLOCKED = ['[vendor names removed]']
-# Real suburbs and store codes that reached a draft once. Nothing public may name a
-# real site from the research, and a plausible-looking suburb beside a real area
-# code reads as an identifiable restaurant even when every other detail is invented.
-# Riverside 0412 and Lakeside 0418 are the invented ones the screens use instead.
-PLACES = ['Northgate', 'Ashgrove', '0731']
+# GitHub Pages serves this repository from its root, so every file here is a page
+# on the public site, including this one. Spelling the vendor names out in source
+# would publish, at a fetchable URL and beside the client's name, the exact list
+# of names the site exists to keep out. They are encoded for that reason alone:
+# this is not secrecy, it is not printing the list on the website.
+import base64 as _b64
+_dec = lambda b: _b64.b64decode(b).decode().split("|")
+BLOCKED = _dec("TGlmZWxlbnp8TWFjcm9tYXRpeHxWYXVsdHxZdW18RG9uZXNhZmV8Q2xldmVyIEZpcnN0IEFpZHxQYXJhZG94")
+# Real suburbs and a real area code that reached a draft once. Same reasoning.
+PLACES = _dec("Tm9ydGhnYXRlfEFzaGdyb3ZlfDA3MzE=")
 WRONG_COUNTS = [r'\b80 (?:methods|skills)', r'\b30(?:-tool| tools| runtime tools)', r'\b(?:38|39) (?:registered |runtime )?(?:artifact|template) kinds', r'\b12 (?:emitted|platform|distribution)', r'\b232 (?:corpus )?resources', r'\b(?:51|50) published', r'\b43 practice']
 def text_of(s):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>', ' ', s, flags=re.S)
@@ -105,6 +109,37 @@ for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html'))
     for b in BANNED:
         if re.search(re.escape(b), t, flags=re.I):
             errors.append(f'{rel}: banned "{b}" in a linked artefact')
+
+# --- everything here is a page -------------------------------------------
+# GitHub Pages serves this repository from its root, so the site is not the HTML
+# files, it is every file. That was missed until a check found the blocked vendor
+# names, real suburb names and a confidential client brief all fetchable at
+# public URLs while every page-level gate passed. This walks the whole tree.
+_SERVED_SKIP = {'.git', 'node_modules', '__pycache__', 'baseline'}
+_TEXT = {'.html', '.txt', '.md', '.json', '.py', '.css', '.js', '.svg', '.csv', '.xml'}
+for _p in ROOT.rglob('*'):
+    if not _p.is_file() or any(part in _SERVED_SKIP for part in _p.parts):
+        continue
+    _rel = _p.relative_to(ROOT)
+    if _p.suffix.lower() not in _TEXT:
+        continue
+    try:
+        _t = _p.read_text(errors='ignore')
+    except OSError:
+        continue
+    for b in BLOCKED:
+        if re.search(r'\b' + re.escape(b) + r'\b', _t):
+            errors.append(f'{_rel}: blocked name {b} is fetchable at a public URL')
+    for b in PLACES:
+        if re.search(r'\b' + re.escape(b) + r'\b', _t):
+            errors.append(f'{_rel}: real place or store code {b} is fetchable at a public URL')
+    # Working notes are not pages, and the site's content is HTML. The one
+    # exception is a README that documents a deliverable a reader can download,
+    # which is the point of publishing it.
+    _ALLOWED_MD = {'articles/57/prototype/figma/README.md'}
+    if (_p.suffix.lower() == '.md' and _rel.parts[0] in ('articles', 'writing')
+            and str(_rel) not in _ALLOWED_MD):
+        errors.append(f'{_rel}: internal notes under a served path; keep them outside the repository')
 
 # --- design system gates -------------------------------------------------
 import subprocess, json as _json
