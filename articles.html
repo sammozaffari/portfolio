@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Work by Sam Mozaffari, Experience Designer: eight case studies from employment at KFC South Pacific, across service design, experience design, product and platform work, and applied AI.">
+<meta name="description" content="Work by Sam Mozaffari, Experience Designer: seven case studies from employment at KFC South Pacific, across service design, experience design, product and platform work, and applied AI.">
 <title>Work · Sam Mozaffari</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/style.css?v=9">
@@ -33,7 +33,7 @@
       <p class="pf-lead">Employment work at KFC South Pacific, written up with vendors, sites and people removed. Each case says what I did, who I worked with, what was decided and what happened next.</p>
     </div>
     <div class="pf-facets" role="group" aria-label="Filter the work">
-      <button class="pf-facet" type="button" data-facet="all" aria-pressed="true">All eight</button>
+      <button class="pf-facet" type="button" data-facet="all" aria-pressed="true">All seven</button>
       <button class="pf-facet" type="button" data-facet="service" aria-pressed="false">Service design</button>
       <button class="pf-facet" type="button" data-facet="experience" aria-pressed="false">Experience design</button>
       <button class="pf-facet" type="button" data-facet="platform" aria-pressed="false">Product and platform</button>
@@ -66,14 +66,6 @@
       <span class="pf-tag">Hiring and onboarding</span>
       <h3>Redesigning hiring and onboarding for a restaurant network</h3>
       <p>Nine stages from application to first shift, mapped from interviews with managers and candidates, with the failing moments named and an automated screening-to-interview path designed around them.</p>
-      <span class="pf-role">Led the design work</span>
-    </a>
-
-    <a class="pf-card" href="./articles/56/index.html" data-facet="service platform">
-      <span class="pf-thumb"><img src="./articles/56/images/learner-dashboard.svg" alt="The learner dashboard specified in the journey design, drawn as one annotated screen with tabs, lock states and due dates" loading="lazy"></span>
-      <span class="pf-tag">Learning platform</span>
-      <h3>Replacing a network-wide learning platform and proving who was compliant</h3>
-      <p>A support-cost case for retiring a legacy platform, a scoping workshop that put every connected system in its own lane, and a compliance-gated learning journey piloted before wider rollout.</p>
       <span class="pf-role">Led the design work</span>
     </a>
 
@@ -110,7 +102,7 @@
     </a>
 
   </div>
-  <p class="pf-caption" id="work-count">Showing all eight projects.</p>
+  <p class="pf-caption" id="work-count">Showing all seven projects.</p>
 </section>
 
 </main>
@@ -127,7 +119,7 @@
   var facets = document.querySelectorAll('.pf-facet');
   var cards = document.querySelectorAll('#work-grid .pf-card');
   var count = document.getElementById('work-count');
-  var words = { all: 'all eight projects', service: 'service design', experience: 'experience design', platform: 'product and platform work', ai: 'applied AI' };
+  var words = { all: 'all seven projects', service: 'service design', experience: 'experience design', platform: 'product and platform work', ai: 'applied AI' };
   facets.forEach(function (b) {
     b.addEventListener('click', function () {
       var key = b.getAttribute('data-facet');
@@ -139,7 +131,7 @@
         if (on) shown++;
       });
       count.textContent = key === 'all'
-        ? 'Showing all eight projects.'
+        ? 'Showing all seven projects.'
         : 'Showing ' + shown + (shown === 1 ? ' project in ' : ' projects in ') + words[key] + '.';
     });
   });
