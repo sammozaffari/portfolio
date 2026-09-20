@@ -168,3 +168,80 @@ gates the start.
 - Time clock: deployment plan view for the day
 - Reporting at multiple levels
 - Break end alerts and notifications on mobile
+
+---
+
+# The incumbent platform, studied before anything was drawn
+
+Working notes. The vendor is never named, on this page or anywhere else. What
+follows was assembled from the product's own public web shell and its published
+feature list, its app store listings and screenshots, its help material and its
+marketing stylesheet. It matters because a successor has to be recognisably the
+same job, not a different product with the same nouns.
+
+## What it does
+Nine modules, in the vendor's own grouping: people, forecasting, scheduling,
+compliance, time clock, timekeeping, reporting, pay, and one app for employees
+and managers. Forecasting produces required headcount by workstation across the
+trading day. Scheduling assigns people to roles and intervals against cost and
+service targets. The time clock is a fixed terminal, offline capable. Pay
+detects compliance and premium pay and hands off to a payroll system.
+
+## Three visual systems, not one
+The marketing site, the web product and the time clock terminal share almost
+nothing: different typefaces, different palettes, different corner radii. The
+product itself is mid-migration between two front ends, so old and new pages sit
+beside each other. A successor has to tolerate that rather than pretend it away.
+
+## What is genuinely good, and was kept
+- **Density is the character.** The screens managers live in are ten and twelve
+  column tables. Trading density for whitespace would be rejected by the people
+  who use it, so the roster and the pay period here stay dense.
+- **Compliance is priced.** Warnings carry a dollar figure. That is the single
+  best idea in the product and it is carried through every screen here, on the
+  roster chip, the compliance row, the dropped shift and the correction.
+- **Workstation colour is the organising device.** Lanes and stations get
+  consistent hues across the forecast, the roster and the deployment chart.
+- **The terminal is designed for a kitchen**, with near-black high contrast
+  buttons for a greasy touchscreen, which is a serious piece of thinking.
+
+## What was deliberately changed
+- **Colour carries severity, not category.** In the incumbent, status colour
+  floods whole cards and every category has its own hue, including a distinct
+  colour for young-worker breaches. That is why a list of sixty warnings reads
+  as sixty alerts. Here a shift is grey unless something is wrong with it.
+- **Numbers align right.** Numeric columns in the incumbent are left aligned,
+  which is unusual for anything finance adjacent and makes a column of figures
+  hard to compare.
+- **Contrast is a build gate.** The incumbent publishes no accessibility
+  statement, and its 10px uppercase table headers and near-black-on-red cards
+  are legibility risks. Every text pair here clears 4.5 to 1 and every border
+  3 to 1, checked by a script before a screen is captured.
+- **The icons are drawn, not borrowed.** The incumbent uses a stock icon font
+  throughout, which is why its iconography reads as generic.
+
+## Capability gaps that the findings independently confirmed
+Each of these is absent from everything about the product that can be reached
+publicly, and each matches a pain point the research found in the restaurants.
+1. **No intra-shift deployment or positioning board.** The restaurants filled
+   the gap with laminated paper.
+2. **No named interpretation of the Australian agreement**, penalty rates or
+   allowances. This is the largest gap against the product's own home market,
+   and it is the direct cause of the five to five and a half hour break question.
+3. **No leave accrual or balance engine.** Time off requests exist; a balance
+   that is true today does not.
+4. **No multi-site or district rollup.** Everything observable is single store,
+   which is why area coaches keep their own workbooks.
+5. **No mobile punching.** Punching is terminal only, which is why there is a
+   queue at changeover.
+6. **No scheduled report delivery or named export formats.**
+7. **No certification or right-to-work expiry tracking**, including permits for
+   working with minors.
+8. **No cross-site open shift pool**, so a call-out cannot be covered from a
+   nearby restaurant.
+
+## One thing to be careful about in the case study
+The findings report records a stakeholder validation session and three user
+group milestones on the 2024 roadmap. It does not record usability testing of
+any of these features. Say validated with the user group, which is true. Do not
+say tested with users, which is not.

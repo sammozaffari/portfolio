@@ -148,6 +148,36 @@ HISTORY = '''
 <p class="p-meta" style="padding:8px 2px 0">A corrected punch is shown as a correction, with who added it and why, rather than quietly replacing what the clock recorded.</p>
 '''
 
+# -------------------------------------------------------------------- clock in
+# Journey 1 opens with a queue. Three people are waiting at the time clock,
+# Jaxon is fifteen minutes early and still clocks in late, and the manager
+# spends the start of her shift approving late clock-ins that were not anybody's
+# fault. The report lists the gap plainly: no queuing system or second clock-in
+# point to handle a changeover, and no allowance for arrival time.
+#
+# Punching from a phone is not in the product today and is the clearest of the
+# nice-to-have additions, because it removes the queue rather than measuring it.
+# It is scoped tightly on purpose: only inside the restaurant, only in the
+# window around a rostered shift, and the terminal stays for anyone without a
+# phone or without the policy to use one.
+CLOCKIN = '''
+<div class="p-mhead"><h1>Ready to start</h1><p>Wednesday 6 November &middot; 10:38</p></div>
+<div class="p-mrow next">
+  <div class="p-mdate"><i>Wed</i><b>6</b></div>
+  <div class="p-grow"><b>Front counter, L1 QT</b><span>10:45 &ndash; 16:00 &middot; 5 hrs 15 min</span>
+  <em>Starts in 7 minutes</em></div>
+</div>
+<div class="p-alert p-alert-success" style="margin:12px 0 14px"><b>You are at the restaurant.</b> Checked once, against this restaurant only, and not stored after you clock in.</div>
+<div class="p-card" style="padding:4px 14px 8px;margin-bottom:14px">
+  <div class="p-mstat"><div class="p-mstat-l">Clocking in from<span>Your phone, not the terminal</span></div><div class="p-mstat-v good">Riverside</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Window<span>Fifteen minutes either side of your start</span></div><div class="p-mstat-v">10:30 to 11:00</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Waiting at the terminal<span>Three people, shift changeover</span></div><div class="p-mstat-v">3</div></div>
+</div>
+<p class="p-meta" style="padding:0 2px">The terminal is still there and still works. This exists because a queue at changeover was turning people who arrived early into late clock-ins, and turning the start of the manager&rsquo;s shift into a list of approvals.</p>
+'''
+CLOCKIN_CTA = '<div class="p-cta"><button class="p-btn p-btn-primary p-btn-lg p-btn-block">Clock in for this shift</button></div>'
+
+
 if __name__ == "__main__":
     SCR.mkdir(parents=True, exist_ok=True)
     for name, title, screen, cur, cta in (
@@ -155,6 +185,11 @@ if __name__ == "__main__":
         ("phone-break.html", "Break countdown", BREAK, "home", BREAK_CTA),
         ("phone-shifts.html", "My shifts", SHIFTS, "cal", ""),
         ("phone-hours.html", "My hours", HISTORY, "clock", ""),
+        ("phone-clockin.html", "Clock in", CLOCKIN, "home", CLOCKIN_CTA),
     ):
-        (SCR / name).write_text(phone(title, screen, cur, cta))
-        print("wrote", (SCR / name).relative_to(ROOT))
+        f = SCR / name
+        body = phone(title, screen, cur, cta)
+        changed = not (f.exists() and f.read_text() == body)
+        if changed:
+            f.write_text(body)
+        print(("wrote " if changed else "same  ") + str(f.relative_to(ROOT)))

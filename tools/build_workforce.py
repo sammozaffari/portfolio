@@ -49,10 +49,19 @@ def shell(title, current, body, width=1440, who="NA", where=WHERE, extra=""):
 '''
 
 
+def _write_if_changed(path, content):
+    """Write only when the bytes differ, so an unchanged screen keeps its mtime
+    and the stale-capture check stays meaningful."""
+    if path.exists() and path.read_text() == content:
+        return False
+    path.write_text(content)
+    return True
+
+
 def write(name, content):
     SCR.mkdir(parents=True, exist_ok=True)
-    (SCR / name).write_text(content)
-    print("wrote", (SCR / name).relative_to(ROOT))
+    changed = _write_if_changed(SCR / name, content)
+    print(("wrote " if changed else "same  ") + str((SCR / name).relative_to(ROOT)))
 
 
 # ---------------------------------------------------------------- compliance

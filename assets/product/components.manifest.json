@@ -678,7 +678,7 @@
   },
   {
    "class": "p-scope",
-   "group": "a switch, for the feature console"
+   "group": "on and locked: still visibly on, visibly not yours to change"
   },
   {
    "class": "p-screen",
@@ -834,7 +834,7 @@
   },
   {
    "class": "p-togglerow",
-   "group": "a switch, for the feature console"
+   "group": "on and locked: still visibly on, visibly not yours to change"
   },
   {
    "class": "p-topbar",

@@ -295,6 +295,9 @@ def build(state):
 
 OUT.parent.mkdir(parents=True, exist_ok=True)
 for st in ("week", "extended", "hardstop"):
-    p = OUT.with_name(f"roster-{st}.html")
-    p.write_text(build(st))
-    print("wrote", p.relative_to(ROOT))
+    f = OUT.with_name(f"roster-{st}.html")
+    body = build(st)
+    changed = not (f.exists() and f.read_text() == body)
+    if changed:
+        f.write_text(body)
+    print(("wrote " if changed else "same  ") + str(f.relative_to(ROOT)))

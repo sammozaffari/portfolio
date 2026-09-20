@@ -173,14 +173,22 @@ for f in ("phone-home.html", "phone-break.html", "phone-shifts.html", "phone-hou
 # still said another, and every text gate passed. A capture older than the
 # screen it came from is now a failure, not something a reader has to notice.
 IMG = ROOT / "articles/52/showcase/img"
+CSS_MTIME = max((ROOT / "assets/product/tokens.css").stat().st_mtime,
+                (ROOT / "assets/product/components.css").stat().st_mtime)
 for n in ALL:
     png = IMG / (n[:-5] + ".png")
     if not png.exists():
         fails.append(f"{n}: no capture at img/{png.name}")
         continue
-    if png.stat().st_mtime < (SCR / n).stat().st_mtime:
-        fails.append(f"img/{png.name}: captured before {n} was last written, so the "
-                     f"picture is older than the screen")
+    # Every screen depends on the two stylesheets as much as on its own markup,
+    # so a token or component change makes every capture stale, not just the
+    # ones whose HTML moved. Missing that is how a switch that read as off
+    # survived a green build.
+    newest_source = max((SCR / n).stat().st_mtime, CSS_MTIME)
+    if png.stat().st_mtime < newest_source:
+        why = "the screen" if (SCR / n).stat().st_mtime >= CSS_MTIME else "the stylesheets it uses"
+        fails.append(f"img/{png.name}: captured before {n} or its design system was last "
+                     f"written, so the picture is older than {why}")
 notes.append(f"captures: {sum(1 for n in ALL if (IMG / (n[:-5] + '.png')).exists())} of {len(ALL)} present")
 
 # ------------------------------------------------------------------- report

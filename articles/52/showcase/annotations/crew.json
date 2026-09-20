@@ -3,11 +3,20 @@
  "img": "img/phone-home.png",
  "markers": [
   {
+   "n": 1,
+   "x": 50.0,
+   "y": 50.0,
+   "title": "Clocking in without the queue",
+   "finding": "The journey opens with three people waiting at the time clock at changeover. A fifteen year old arrives fifteen minutes early and still clocks in late, and his manager starts her shift approving late clock-ins that nobody caused. The report names the gap as no queuing system or second clock-in point, and no allowance for arrival time.",
+   "decision": "Clocking in from a phone, inside the restaurant only, inside a fifteen minute window either side of the rostered start. The terminal stays for anyone without a phone or without the policy to use one.",
+   "rejected": "A second terminal, which measures the queue rather than removing it and costs hardware in several hundred restaurants."
+  },
+  {
    "title": "The break you are on, as a clock",
    "finding": "Team members said they wanted to see how much time was left on a break, and were coming back saying they had another five minutes. There were no notifications for when a break should end.",
    "decision": "A ring and a countdown, with a nudge at five minutes that goes to the person and the manager at the same time.",
    "rejected": "A start and end time in a list, which is what the shift detail showed and which nobody can do arithmetic on mid-shift.",
-   "n": 1,
+   "n": 2,
    "x": 50.0,
    "y": 50.0
   },
@@ -16,7 +25,7 @@
    "finding": "Punch times were not visible in the app and there was no clock in or out history, so verifying a time meant asking a manager. One interview recorded that being an issue from the beginning.",
    "decision": "Every punch for the period, with the break inside it, and an amended punch shown as an amendment with who added it and why.",
    "rejected": "Showing only the corrected figure, which quietly replaces what the clock recorded and gives a person nothing to query.",
-   "n": 2,
+   "n": 3,
    "x": 50.0,
    "y": 50.0
   },
@@ -25,7 +34,7 @@
    "finding": "Balances only moved at the pay run. Managers approved leave people had not accrued, and payroll absorbed the enquiries.",
    "decision": "The balance updates after each shift is clocked out of, and expected pay updates with it, which were the two figures people asked for most.",
    "rejected": "A balance as at the last pay run, which is accurate on one day a fortnight.",
-   "n": 3,
+   "n": 4,
    "x": 50.0,
    "y": 50.0
   },
@@ -34,7 +43,7 @@
    "finding": "Approved leave did not appear on the shift list, so a day off looked the same as a gap and people rang the restaurant to check the leave had gone through.",
    "decision": "Leave sits in the list as a day, in its own colour, with the hours it draws and when the person agreed to it.",
    "rejected": "A separate leave screen, which means checking two places to answer one question.",
-   "n": 4,
+   "n": 5,
    "x": 50.0,
    "y": 50.0
   }

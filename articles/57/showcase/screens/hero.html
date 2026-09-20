@@ -8,7 +8,10 @@
   body{background:var(--p-canvas);font:400 14px var(--p-font);position:relative;-webkit-font-smoothing:antialiased}
   /* a thin band of the brand, so the composition is anchored without a slab of red */
   body::before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:var(--p-brand)}
-  .win{position:absolute;left:56px;top:82px;width:900px;border-radius:12px;overflow:hidden;background:var(--p-panel);
+  /* The window holds a 1440x1180 screen, so at 900px wide it is 737px tall plus
+     the 32px chrome. Top and caption are set from that, not by eye, because the
+     last time the screen inside changed shape the window grew down onto the caption. */
+  .win{position:absolute;left:56px;top:58px;width:900px;border-radius:12px;overflow:hidden;background:var(--p-panel);
        border:1px solid var(--p-line);box-shadow:0 1px 2px rgba(22,23,26,.05),0 34px 64px -30px rgba(22,23,26,.45)}
   .bar{height:32px;background:var(--p-panel-2);border-bottom:1px solid var(--p-line);display:flex;align-items:center;gap:7px;padding:0 12px}
   .bar i{width:9px;height:9px;border-radius:50%;background:var(--p-line);display:block}
@@ -18,7 +21,7 @@
   .phone{position:absolute;right:74px;bottom:92px;width:268px;border-radius:28px;overflow:hidden;background:var(--p-panel);
          border:1px solid var(--p-line);box-shadow:0 1px 2px rgba(22,23,26,.05),0 30px 58px -24px rgba(22,23,26,.5)}
   .phone img{display:block;width:100%;height:auto}
-  .cap{position:absolute;left:56px;bottom:52px;display:flex;align-items:baseline;gap:14px}
+  .cap{position:absolute;left:56px;bottom:26px;display:flex;align-items:baseline;gap:14px}
   .cap b{font-size:15px;font-weight:600;letter-spacing:var(--p-tracking-tight);color:var(--p-ink)}
   .cap span{font-family:var(--p-font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--p-ink-3)}
 </style></head><body>
