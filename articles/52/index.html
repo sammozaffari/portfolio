@@ -34,10 +34,16 @@
   @media (max-width: 640px) { .brief, .frame { grid-template-columns: 1fr; } }
 
   /* module index into the showcase */
-  .mods { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin: 20px 0 28px; }
-  .mods a { display: block; padding: 13px 16px 15px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); text-decoration: none; }
-  .mods a:hover { background: var(--paper-tint); }
-  .mods .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+  .mods { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 2px 28px; margin: 22px 0 30px; }
+  /* A rule above each item, and nothing around the set. Bordering every cell drew
+     a boxed table in the middle of the prose, with outer edges that lined up with
+     nothing on the page. */
+  .mods a { display: block; padding: 12px 0 16px; border-top: 1px solid var(--line); text-decoration: none; }
+  /* the whole card is the link, so the prose inside it must not be underlined;
+     the article rule for links is more specific than a bare .mods a */
+  .art-body .mods a, .art-body .mods a span { text-decoration: none; border-bottom: 0; }
+  .art-body .mods a:hover .t { text-decoration: underline; }
+    .mods .k { font-family: var(--mono); font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
   .mods .t { display: block; font-size: 14.5px; font-weight: 600; margin: 3px 0 3px; color: var(--ink); }
   .mods .d { display: block; font-size: 12.5px; line-height: 1.45; color: var(--ink-soft); }
 </style>
