@@ -98,6 +98,13 @@ for f in sorted(glob.glob(str(ROOT / 'articles/*/artifacts/*.html'))
     for b in PLACES:
         if re.search(r'\b' + re.escape(b) + r'\b', s):
             errors.append(f'{rel}: real place or store code {b} in a linked artefact')
+    # The hedges were only ever checked on case-study pages, but a linked
+    # artefact is read by the same person and a screenshot of one gets published
+    # as pixels no text gate can see. An "unconfirmed" reached the safety case
+    # that way, baked into an image, while every check passed.
+    for b in BANNED:
+        if re.search(re.escape(b), t, flags=re.I):
+            errors.append(f'{rel}: banned "{b}" in a linked artefact')
 
 # --- design system gates -------------------------------------------------
 import subprocess, json as _json
