@@ -1,0 +1,7 @@
+{"type":"ranked","width":960,
+ "title":"What kind of fix each pain point needed","subtitle":"Every one of the 175 pain points was tagged by the kind of change that would resolve it, before anything was ranked.",
+ "categories":["Technology","Education","Integration","Process change","Other"],
+ "series":[{"name":"Share of pain points","values":[41,26,21,11,1],"colour":"clay"}],
+ "unit":"%","highlight":[1],
+ "note":"Only 41 per cent were a software problem. A quarter were education, and the business had no channel to deliver it through, which is the gap the blueprint named.",
+ "source":"Pain point triage, Time and Attendance Findings Report, October 2024."}

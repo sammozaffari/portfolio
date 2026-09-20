@@ -73,6 +73,9 @@ _ds = []
 _r = subprocess.run([sys.executable, str(ROOT / 'tools/build_tokens.py'), '--check'], capture_output=True, text=True)
 if _r.returncode != 0:
     _ds.append('tokens.css is out of date with tokens.dtcg.json; run tools/build_tokens.py')
+_r = subprocess.run([sys.executable, str(ROOT / 'tools/build_manifest.py'), '--check'], capture_output=True, text=True)
+if _r.returncode != 0:
+    _ds.append('components.manifest.json is out of date with components.css; run tools/build_manifest.py')
 _man = _json.loads((ROOT / 'assets/product/components.manifest.json').read_text())
 _declared = {c['class'] for c in _man['components']}
 for f in glob.glob(str(ROOT / 'articles/*/showcase/screens/*.html')):

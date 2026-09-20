@@ -44,6 +44,9 @@
   --p-row-h: 44px;
   --p-control-h: 36px;
   --p-page-max: 1240px;
+  --p-w-lane-h: 56px;  /* a roster lane: two shift chips stack inside it without clipping */
+  --p-w-col-min: 116px;  /* the narrowest a day column goes before the week scrolls */
+  --p-w-name-w: 208px;  /* the frozen first column holding the person */
 
   /* Scale */
   --p-lh-tight: 1.18;
@@ -99,6 +102,25 @@
   --p-c-5: #1a6042;
   --p-c-6: #6a6d75;
   --p-c-grid: #ececee;
+  --p-w-shift: #24405e;  /* a rostered shift, filled */
+  --p-w-shift-bg: #eef2f7;
+  --p-w-shift-line: #b9c8d8;
+  --p-w-open: #5b5e66;  /* a shift with nobody on it */
+  --p-w-open-bg: #ffffff;
+  --p-w-open-line: #7e8188;  /* an open shift is drawn as an outline, so the outline is the object and has to clear 3:1, not 1.5:1 */
+  --p-w-overtime: #9b2a21;  /* hours past the threshold */
+  --p-w-overtime-bg: #fbf0ef;
+  --p-w-break-risk: #7d5300;  /* a shift crossing the break boundary unbroken */
+  --p-w-break-risk-bg: #fdf4e0;
+  --p-w-leave: #1a6042;  /* approved leave */
+  --p-w-leave-bg: #ecf4ef;
+  --p-w-leave-line: #afd3c0;
+  --p-w-training: #54407e;  /* induction or training time, paid but not on the floor */
+  --p-w-training-bg: #f2eff8;
+  --p-w-training-line: #cdc2e4;
+  --p-w-forecast: #83858c;  /* forecast demand, drawn behind the roster */
+  --p-w-actual: #16171a;  /* rostered or worked labour, drawn in front */
+  --p-w-hatch: #dfe1e5;  /* unavailable time and break windows */
 
   /* Aliases */
   --p-primary: var(--p-brand);

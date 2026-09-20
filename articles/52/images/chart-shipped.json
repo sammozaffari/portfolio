@@ -1,0 +1,7 @@
+{"type":"ranked","width":960,
+ "title":"What the top ten became","subtitle":"The ten scored priorities, placed on the release that carried them. Eight had a named release within a year of the report.",
+ "categories":["Release 1.63, November 2024","Release 1.64, 2025","Scheduled, release to be confirmed"],
+ "series":[{"name":"Priorities","values":[3,5,2],"colour":"sage"}],
+ "highlight":[0],
+ "note":"The first two out were the five-hour break warning and the supervisor break hard stop, ranked one and two. Both were compliance items the old warnings list had buried.",
+ "source":"Top ten prioritisation and release plan, Time and Attendance Findings Report, October 2024."}

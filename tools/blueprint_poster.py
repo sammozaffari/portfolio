@@ -35,13 +35,23 @@ def render(spec, W=1100):
     out.append(f'<text x="30" y="{y+25}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="12" fill="{MUTED}">Stage</text>')
     y += hh
     lines = spec.get("lines", {})
-    chars = int(col_w / 7.0)
+    # How many characters fit on a line. The old figure divided the whole column
+    # by a single constant, which ignored the 10px padding on each side and gave
+    # the smaller note text a bonus on top, so long cells ran under the next
+    # column's rule and lost their last word or two. Width is now the space the
+    # text actually has, and each size gets its own average advance: Inter sits
+    # near 0.56em at semibold and 0.545em at regular, rounded up so a line of
+    # wide characters still lands inside the cell.
+    avail = col_w - pad * 2
+    chars_label = max(8, int(avail / (12.5 * 0.56)))
+    chars_note = max(8, int(avail / (11.5 * 0.545)))
+    chars_lane = max(8, int((label_w - 20) / (13 * 0.56)))
     for li, lane in enumerate(lanes):
         # compute row height
         cells = []
         for c in lane["cells"]:
             label, _, note = c.partition(" || ")
-            ls = wrap(label.strip(), chars); ns = wrap(note.strip(), chars + 4) if note.strip() else []
+            ls = wrap(label.strip(), chars_label); ns = wrap(note.strip(), chars_note) if note.strip() else []
             cells.append((ls, ns))
         rh = max(18 + len(ls) * 17 + (len(ns) * 15 + 6 if ns else 0) + 12 for ls, ns in cells)
         rh = max(rh, 64)
@@ -52,7 +62,7 @@ def render(spec, W=1100):
         is_fail = lane["name"].lower().startswith("fail")
         bg = FAIL_BG if is_fail else LANE_BG[li % len(LANE_BG)]
         out.append(f'<rect x="20" y="{y}" width="{label_w}" height="{rh}" fill="{bg}" stroke="{LINE}"/>')
-        for k, ln in enumerate(wrap(lane["name"], 20)):
+        for k, ln in enumerate(wrap(lane["name"], chars_lane)):
             out.append(f'<text x="30" y="{y+22+k*16}" font-family="Inter, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="{FAIL if is_fail else INK}">{esc(ln)}</text>')
         for si, (ls, ns) in enumerate(cells):
             x = 20 + label_w + si * col_w

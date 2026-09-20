@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay period, correcting after close &middot; Workforce platform concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>html,body{width:1440px}</style>
+</head><body class="p-app">
+<div class="p-shell-top" style="position:relative">
+  <header class="p-appbar">
+    <div class="p-brand-inline"><div class="p-brand-mark">W</div><b>Workforce</b></div>
+    <nav class="p-modnav"><a href="#">Roster</a><a href="#">Time and attendance</a><a href="#">Compliance<span class="p-count attn">4</span></a><a href="#">Leave<span class="p-count ">2</span></a><a href="#" aria-current="page">Pay</a><a href="#">Reports</a></nav>
+    <div class="p-spacer"></div>
+    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <span class="p-avatar">AM</span>
+  </header>
+  
+  <div class="p-work">
+    <div class="p-work-head">
+      <h1>Pay period</h1>
+      <div class="p-spacer"></div>
+      <button class="p-btn p-btn-secondary p-btn-sm">Export for payroll</button><button class="p-btn p-btn-secondary p-btn-sm">Raise a correction</button>
+    </div>
+    <p class="p-work-sub">A correction is a first-class thing that happens inside a closed period, not a reason to reopen one.</p>
+    
+    <div class="p-grid p-grid-8-4">
+      <div class="p-card">
+        <div class="p-card-head"><h3>Correct a shift in a closed period</h3><span class="p-badge p-badge-neutral">Period closed 12 Nov</span></div>
+        <div class="p-card-body">
+          <p class="p-meta" style="margin-bottom:16px">Natalia F. worked her Monday shift on 4 November and forgot to clock on. She told Amar the same evening. The period closed on the 12th. This pays the five hours in the period they were worked, without reopening anything and without asking payroll.</p>
+          <div class="p-grid p-grid-2" style="margin-bottom:4px">
+            <label class="p-field"><span>Day worked</span><input class="p-input" value="Mon 4 Nov 2024"></label>
+            <label class="p-field"><span>Hours</span><input class="p-input" value="5.00"></label>
+          </div>
+          <label class="p-field"><span>What happened</span><textarea class="p-textarea">Rostered 11:00 to 16:00 and worked the full shift. Did not clock on. Confirmed by Chiara B., who was the supervisor on shift, and by the drive thru till log.</textarea></label>
+          <div class="p-alert p-alert-success"><b>Paid at Monday&rsquo;s ordinary rate, in the period it was worked.</b> No overtime, no compliance pay, and Natalia&rsquo;s contracted hours for that week are met rather than carried into the next one.</div>
+          <div class="p-actions"><button class="p-btn p-btn-primary">Send to payroll</button><button class="p-btn p-btn-secondary">Save as draft</button></div>
+          <p class="p-meta" style="margin-top:12px">Everything here is on the shift, so the area coach reading next week&rsquo;s compliance report sees a correction with a reason rather than an unexplained overtime payment.</p>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-card">
+          <div class="p-card-head"><h3>What this pays</h3></div>
+          <div class="p-card-body">
+            <div class="p-impact"><dl>
+              <dt>5.00 hrs, ordinary rate</dt><dd>$70.20</dd>
+              <dt>Superannuation</dt><dd>$8.07</dd>
+              <dt>Overtime incurred</dt><dd class="good">None</dd>
+              <dt>Effect on next week&rsquo;s hours</dt><dd class="good">None</dd>
+              <dt class="tot">Paid on</dt><dd class="tot">26 Nov, this cycle</dd>
+            </dl></div>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-card-head"><h3>The workaround it replaces</h3></div>
+          <div class="p-card-body">
+            <p class="p-meta" style="margin-bottom:12px">The research followed this exact correction through the old process. Payroll would not reopen the period, so the five hours went onto the following week&rsquo;s roster as an extra shift.</p>
+            <div class="p-impact"><dl>
+              <dt>5.00 hrs added to the next week</dt><dd>$70.20</dd>
+              <dt>Pushes her past her contracted hours</dt><dd class="bad">+$23.40 overtime</dd>
+              <dt>Compliance pay triggered</dt><dd class="bad">+$14.04</dd>
+              <dt class="tot">Costs the restaurant</dt><dd class="tot bad">$37.44 more</dd>
+            </dl></div>
+            <p class="p-meta" style="margin-top:12px">It also reached her as a pay rise she had not earned, which she found confusing and embarrassing, and reached the area coach as an unexplained overtime line on the weekly compliance report. Three people spent time on a five hour shift that nobody disputed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

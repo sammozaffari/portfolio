@@ -1,580 +1,888 @@
 {
-  "$description": "Every component class the safety reporting design system defines. An agent must search this before writing a new component. tools/lint_site.py fails the build on any p- class used in a screen that is neither declared here nor defined in that screen's own style block.",
-  "source": "assets/product/components.css",
-  "tokens": "assets/product/tokens.dtcg.json",
-  "count": 143,
-  "components": [
-    {
-      "class": "p-actions",
-      "group": "App shell"
-    },
-    {
-      "class": "p-alert",
-      "group": "Forms"
-    },
-    {
-      "class": "p-alert-danger",
-      "group": "Forms"
-    },
-    {
-      "class": "p-alert-info",
-      "group": "Forms"
-    },
-    {
-      "class": "p-alert-success",
-      "group": "Forms"
-    },
-    {
-      "class": "p-alert-warning",
-      "group": "Forms"
-    },
-    {
-      "class": "p-app",
-      "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p-"
-    },
-    {
-      "class": "p-app-bar",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-avatar",
-      "group": "Avatars and people"
-    },
-    {
-      "class": "p-avatar-sm",
-      "group": "Alias, because a bare .sm modifier collides with any screen-local .sm rule"
-    },
-    {
-      "class": "p-back",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-badge",
-      "group": "Badges"
-    },
-    {
-      "class": "p-badge-danger",
-      "group": "Badges"
-    },
-    {
-      "class": "p-badge-info",
-      "group": "Badges"
-    },
-    {
-      "class": "p-badge-neutral",
-      "group": "Badges"
-    },
-    {
-      "class": "p-badge-plain",
-      "group": "a type, not a state: the dot carries it and the ground stays out of the way"
-    },
-    {
-      "class": "p-badge-success",
-      "group": "Badges"
-    },
-    {
-      "class": "p-badge-type",
-      "group": "a type, not a state: the dot carries it and the ground stays out of the way"
-    },
-    {
-      "class": "p-badge-warning",
-      "group": "Badges"
-    },
-    {
-      "class": "p-between",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-box",
-      "group": "Forms"
-    },
-    {
-      "class": "p-brand",
-      "group": "App shell"
-    },
-    {
-      "class": "p-brand-mark",
-      "group": "App shell"
-    },
-    {
-      "class": "p-btn",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-block",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-brand-quiet",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-danger",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-ghost",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-lg",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-primary",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-secondary",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-btn-sm",
-      "group": "Buttons"
-    },
-    {
-      "class": "p-caps",
-      "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p-"
-    },
-    {
-      "class": "p-card",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-card-body",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-card-head",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-chart",
-      "group": "Charts (inline SVG built to the dataviz rules)"
-    },
-    {
-      "class": "p-check",
-      "group": "Forms"
-    },
-    {
-      "class": "p-chev",
-      "group": "Filter bar"
-    },
-    {
-      "class": "p-chip",
-      "group": "Filter bar"
-    },
-    {
-      "class": "p-choice",
-      "group": "Forms"
-    },
-    {
-      "class": "p-choices",
-      "group": "Forms"
-    },
-    {
-      "class": "p-col",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-col-head",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-compare",
-      "group": "Two definitions side by side, for a distinction people get wrong"
-    },
-    {
-      "class": "p-count",
-      "group": "App shell"
-    },
-    {
-      "class": "p-crumbs",
-      "group": "App shell"
-    },
-    {
-      "class": "p-cta",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-dot",
-      "group": "Drawer, sheet, toast, empty state"
-    },
-    {
-      "class": "p-drawer",
-      "group": "Drawer, sheet, toast, empty state"
-    },
-    {
-      "class": "p-drawer-body",
-      "group": "Drawer: a panel that sits under the topbar rather than over it"
-    },
-    {
-      "class": "p-drawer-foot",
-      "group": "Drawer: a panel that sits under the topbar rather than over it"
-    },
-    {
-      "class": "p-drawer-head",
-      "group": "Drawer: a panel that sits under the topbar rather than over it"
-    },
-    {
-      "class": "p-drawer-wrap",
-      "group": "Drawer: a panel that sits under the topbar rather than over it"
-    },
-    {
-      "class": "p-empty",
-      "group": "Drawer, sheet, toast, empty state"
-    },
-    {
-      "class": "p-error",
-      "group": "Forms"
-    },
-    {
-      "class": "p-field",
-      "group": "Forms"
-    },
-    {
-      "class": "p-fieldset",
-      "group": "Forms"
-    },
-    {
-      "class": "p-filters",
-      "group": "Filter bar"
-    },
-    {
-      "class": "p-floor",
-      "group": "Floor sketch"
-    },
-    {
-      "class": "p-gap-2",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-glyph",
-      "group": "Forms"
-    },
-    {
-      "class": "p-grid",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-grid-2",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-grid-3",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-grid-4",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-grid-8-4",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-grow",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-hint",
-      "group": "Forms"
-    },
-    {
-      "class": "p-home",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-ico",
-      "group": "App shell"
-    },
-    {
-      "class": "p-input",
-      "group": "Forms"
-    },
-    {
-      "class": "p-kanban",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-kcard",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-kmeta",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-kv",
-      "group": "Drawer, sheet, toast, empty state"
-    },
-    {
-      "class": "p-legend",
-      "group": "Forms"
-    },
-    {
-      "class": "p-link-ref",
-      "group": "Kanban"
-    },
-    {
-      "class": "p-list",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-list-row",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-main",
-      "group": "App shell"
-    },
-    {
-      "class": "p-mb-3",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-mb-4",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-mb-5",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-meta",
-      "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p-"
-    },
-    {
-      "class": "p-mono",
-      "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p-"
-    },
-    {
-      "class": "p-mt-2",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-mt-3",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-mt-4",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-mt-5",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-muted",
-      "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p-"
-    },
-    {
-      "class": "p-nav",
-      "group": "App shell"
-    },
-    {
-      "class": "p-nav-label",
-      "group": "App shell"
-    },
-    {
-      "class": "p-note-row",
-      "group": "A note that belongs to the row above it, spanning the table"
-    },
-    {
-      "class": "p-nowrap",
-      "group": "Tables"
-    },
-    {
-      "class": "p-num",
-      "group": "Tables"
-    },
-    {
-      "class": "p-overdue",
-      "group": "Tables"
-    },
-    {
-      "class": "p-page",
-      "group": "App shell"
-    },
-    {
-      "class": "p-page-fill",
-      "group": "A page that fills the viewport, so a board or a grid reaches the bottom edge"
-    },
-    {
-      "class": "p-page-head",
-      "group": "App shell"
-    },
-    {
-      "class": "p-pager",
-      "group": "Tables"
-    },
-    {
-      "class": "p-person",
-      "group": "Avatars and people"
-    },
-    {
-      "class": "p-phone",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-pin",
-      "group": "Floor sketch"
-    },
-    {
-      "class": "p-primary-cell",
-      "group": "Tables"
-    },
-    {
-      "class": "p-quick-add",
-      "group": "App shell"
-    },
-    {
-      "class": "p-record",
-      "group": "Section / two-column record layout"
-    },
-    {
-      "class": "p-record-head",
-      "group": "Section / two-column record layout"
-    },
-    {
-      "class": "p-record-id",
-      "group": "Section / two-column record layout"
-    },
-    {
-      "class": "p-right",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-row",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-screen",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-search",
-      "group": "App shell"
-    },
-    {
-      "class": "p-search-lg",
-      "group": "The one oversized search field, for a page whose whole job is search"
-    },
-    {
-      "class": "p-section",
-      "group": "Section / two-column record layout"
-    },
-    {
-      "class": "p-seg",
-      "group": "Filter bar"
-    },
-    {
-      "class": "p-select",
-      "group": "Forms"
-    },
-    {
-      "class": "p-shell",
-      "group": "App shell"
-    },
-    {
-      "class": "p-sidebar",
-      "group": "App shell"
-    },
-    {
-      "class": "p-sidebar-foot",
-      "group": "App shell"
-    },
-    {
-      "class": "p-spacer",
-      "group": "App shell"
-    },
-    {
-      "class": "p-stat",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-stat-accent",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-stat-delta",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-stat-label",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-stat-value",
-      "group": "Cards and stats"
-    },
-    {
-      "class": "p-status",
-      "group": "Phone frame for mobile screens"
-    },
-    {
-      "class": "p-stepper",
-      "group": "Stepper"
-    },
-    {
-      "class": "p-steps",
-      "group": "Numbered steps, for \"what happens next\""
-    },
-    {
-      "class": "p-sub",
-      "group": "Tables"
-    },
-    {
-      "class": "p-table",
-      "group": "Tables"
-    },
-    {
-      "class": "p-table-foot",
-      "group": "Tables"
-    },
-    {
-      "class": "p-table-wrap",
-      "group": "Tables"
-    },
-    {
-      "class": "p-tabs",
-      "group": "Section / two-column record layout"
-    },
-    {
-      "class": "p-textarea",
-      "group": "Forms"
-    },
-    {
-      "class": "p-timeline",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-tl-item",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-tl-note",
-      "group": "Lists and timelines"
-    },
-    {
-      "class": "p-toast",
-      "group": "Drawer, sheet, toast, empty state"
-    },
-    {
-      "class": "p-topbar",
-      "group": "App shell"
-    },
-    {
-      "class": "p-w-100",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-wrap",
-      "group": "Utilities"
-    },
-    {
-      "class": "p-zone",
-      "group": "Floor sketch"
-    }
-  ]
+ "$description": "Every component class the safety reporting design system defines. An agent must search this before writing a new component. tools/lint_site.py fails the build on any p- class used in a screen that is neither declared here nor defined in that screen's own style block.",
+ "source": "assets/product/components.css",
+ "tokens": "assets/product/tokens.dtcg.json",
+ "count": 220,
+ "components": [
+  {
+   "class": "p-actions",
+   "group": "App shell"
+  },
+  {
+   "class": "p-alert",
+   "group": "Forms"
+  },
+  {
+   "class": "p-alert-danger",
+   "group": "Forms"
+  },
+  {
+   "class": "p-alert-info",
+   "group": "Forms"
+  },
+  {
+   "class": "p-alert-success",
+   "group": "Forms"
+  },
+  {
+   "class": "p-alert-warning",
+   "group": "Forms"
+  },
+  {
+   "class": "p-app",
+   "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p"
+  },
+  {
+   "class": "p-app-bar",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-appbar",
+   "group": "shell with a top bar instead of a side rail"
+  },
+  {
+   "class": "p-avatar",
+   "group": "Avatars and people"
+  },
+  {
+   "class": "p-avatar-open",
+   "group": "an open shift has no person, so it gets a hole rather than initials"
+  },
+  {
+   "class": "p-avatar-sm",
+   "group": "Alias, because a bare .sm modifier collides with any screen-local .sm rule"
+  },
+  {
+   "class": "p-back",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-badge",
+   "group": "Badges"
+  },
+  {
+   "class": "p-badge-danger",
+   "group": "Badges"
+  },
+  {
+   "class": "p-badge-info",
+   "group": "Badges"
+  },
+  {
+   "class": "p-badge-neutral",
+   "group": "Badges"
+  },
+  {
+   "class": "p-badge-plain",
+   "group": "a type, not a state: the dot carries it and the ground stays out of the way"
+  },
+  {
+   "class": "p-badge-success",
+   "group": "Badges"
+  },
+  {
+   "class": "p-badge-type",
+   "group": "a type, not a state: the dot carries it and the ground stays out of the way"
+  },
+  {
+   "class": "p-badge-warning",
+   "group": "Badges"
+  },
+  {
+   "class": "p-bar",
+   "group": "the triage split: shape before rows"
+  },
+  {
+   "class": "p-between",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-board",
+   "group": "the deployment board: the laminated chart, generated"
+  },
+  {
+   "class": "p-box",
+   "group": "Forms"
+  },
+  {
+   "class": "p-brand",
+   "group": "App shell"
+  },
+  {
+   "class": "p-brand-inline",
+   "group": "narrow: the week scrolls sideways rather than crushing"
+  },
+  {
+   "class": "p-brand-mark",
+   "group": "App shell"
+  },
+  {
+   "class": "p-breakdown",
+   "group": "the triage split: shape before rows"
+  },
+  {
+   "class": "p-brk",
+   "group": "the deployment board: the laminated chart, generated"
+  },
+  {
+   "class": "p-btn",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-block",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-brand-quiet",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-danger",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-ghost",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-lg",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-primary",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-secondary",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-btn-sm",
+   "group": "Buttons"
+  },
+  {
+   "class": "p-caps",
+   "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p"
+  },
+  {
+   "class": "p-card",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-card-body",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-card-head",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-cell",
+   "group": "the person cell is the frozen first column"
+  },
+  {
+   "class": "p-chart",
+   "group": "Charts (inline SVG built to the dataviz rules)"
+  },
+  {
+   "class": "p-check",
+   "group": "Forms"
+  },
+  {
+   "class": "p-chev",
+   "group": "Filter bar"
+  },
+  {
+   "class": "p-chip",
+   "group": "Filter bar"
+  },
+  {
+   "class": "p-choice",
+   "group": "Forms"
+  },
+  {
+   "class": "p-choices",
+   "group": "Forms"
+  },
+  {
+   "class": "p-clock",
+   "group": "a time clock is a wall-mounted screen, not a page"
+  },
+  {
+   "class": "p-clock-body",
+   "group": "a time clock is a wall-mounted screen, not a page"
+  },
+  {
+   "class": "p-clock-head",
+   "group": "a time clock is a wall-mounted screen, not a page"
+  },
+  {
+   "class": "p-col",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-col-head",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-compare",
+   "group": "Two definitions side by side, for a distinction people get wrong"
+  },
+  {
+   "class": "p-consent",
+   "group": "consent, captured rather than assumed"
+  },
+  {
+   "class": "p-count",
+   "group": "App shell"
+  },
+  {
+   "class": "p-counter",
+   "group": "counter pills: a count that is a route into the work, not a badge"
+  },
+  {
+   "class": "p-counters",
+   "group": "counter pills: a count that is a route into the work, not a badge"
+  },
+  {
+   "class": "p-cover",
+   "group": "coverage: how the hour-by-hour roster sits against what the forecast asked for"
+  },
+  {
+   "class": "p-crumbs",
+   "group": "App shell"
+  },
+  {
+   "class": "p-cta",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-datestrip",
+   "group": "the week strip: the next shift is never more than one tap away"
+  },
+  {
+   "class": "p-demand",
+   "group": "forecast against rostered labour, drawn behind the week it belongs to"
+  },
+  {
+   "class": "p-diff",
+   "group": "the original struck through above the actual"
+  },
+  {
+   "class": "p-diff-cell",
+   "group": "the cell that holds one: two lines of times, so it sets its own rhythm rather than inheriting the single-line row height and clipping the struck-through time"
+  },
+  {
+   "class": "p-dot",
+   "group": "Drawer, sheet, toast, empty state"
+  },
+  {
+   "class": "p-drawer",
+   "group": "Drawer, sheet, toast, empty state"
+  },
+  {
+   "class": "p-drawer-body",
+   "group": "Drawer: a panel that sits under the topbar rather than over it"
+  },
+  {
+   "class": "p-drawer-foot",
+   "group": "Drawer: a panel that sits under the topbar rather than over it"
+  },
+  {
+   "class": "p-drawer-head",
+   "group": "Drawer: a panel that sits under the topbar rather than over it"
+  },
+  {
+   "class": "p-drawer-wrap",
+   "group": "Drawer: a panel that sits under the topbar rather than over it"
+  },
+  {
+   "class": "p-empty",
+   "group": "Drawer, sheet, toast, empty state"
+  },
+  {
+   "class": "p-error",
+   "group": "Forms"
+  },
+  {
+   "class": "p-field",
+   "group": "Forms"
+  },
+  {
+   "class": "p-fieldset",
+   "group": "Forms"
+  },
+  {
+   "class": "p-fig",
+   "group": "a small inline sparkline row, for the labour figures"
+  },
+  {
+   "class": "p-fig-d",
+   "group": "a small inline sparkline row, for the labour figures"
+  },
+  {
+   "class": "p-fig-l",
+   "group": "a small inline sparkline row, for the labour figures"
+  },
+  {
+   "class": "p-fig-v",
+   "group": "a small inline sparkline row, for the labour figures"
+  },
+  {
+   "class": "p-figs",
+   "group": "a small inline sparkline row, for the labour figures"
+  },
+  {
+   "class": "p-filters",
+   "group": "Filter bar"
+  },
+  {
+   "class": "p-flag",
+   "group": "the flag is a shape as well as a colour, so the state survives a greyscale print"
+  },
+  {
+   "class": "p-floor",
+   "group": "Floor sketch"
+  },
+  {
+   "class": "p-gap-2",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-glyph",
+   "group": "Forms"
+  },
+  {
+   "class": "p-grid",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-grid-2",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-grid-3",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-grid-4",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-grid-8-4",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-grow",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-hint",
+   "group": "Forms"
+  },
+  {
+   "class": "p-home",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-ico",
+   "group": "App shell"
+  },
+  {
+   "class": "p-impact",
+   "group": "money impact: what this costs, before you commit it"
+  },
+  {
+   "class": "p-input",
+   "group": "Forms"
+  },
+  {
+   "class": "p-kanban",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-kcard",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-kmeta",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-kv",
+   "group": "Drawer, sheet, toast, empty state"
+  },
+  {
+   "class": "p-lane",
+   "group": "the deployment board: the laminated chart, generated"
+  },
+  {
+   "class": "p-lane-head",
+   "group": "the deployment board: the laminated chart, generated"
+  },
+  {
+   "class": "p-legend",
+   "group": "Forms"
+  },
+  {
+   "class": "p-legendbar",
+   "group": "the legend strip along the bottom of the roster"
+  },
+  {
+   "class": "p-link-ref",
+   "group": "Kanban"
+  },
+  {
+   "class": "p-list",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-list-row",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-main",
+   "group": "App shell"
+  },
+  {
+   "class": "p-mb-3",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mb-4",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mb-5",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mdate",
+   "group": "a shift in the list: a date block, then what and when"
+  },
+  {
+   "class": "p-meta",
+   "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p"
+  },
+  {
+   "class": "p-mhead",
+   "group": "the shortfall note sits on the person, in the same shape a shift flag uses"
+  },
+  {
+   "class": "p-modnav",
+   "group": "shell with a top bar instead of a side rail"
+  },
+  {
+   "class": "p-mono",
+   "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p"
+  },
+  {
+   "class": "p-mrow",
+   "group": "a shift in the list: a date block, then what and when"
+  },
+  {
+   "class": "p-mstat",
+   "group": "the figures a team member asked for and could not get"
+  },
+  {
+   "class": "p-mstat-l",
+   "group": "the figures a team member asked for and could not get"
+  },
+  {
+   "class": "p-mstat-v",
+   "group": "the figures a team member asked for and could not get"
+  },
+  {
+   "class": "p-mt-2",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mt-3",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mt-4",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-mt-5",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-muted",
+   "group": "Product components for the safety reporting concept. CSS only, no framework. Depends on tokens.css. Class prefix: p"
+  },
+  {
+   "class": "p-nav",
+   "group": "App shell"
+  },
+  {
+   "class": "p-nav-label",
+   "group": "App shell"
+  },
+  {
+   "class": "p-note-row",
+   "group": "A note that belongs to the row above it, spanning the table"
+  },
+  {
+   "class": "p-nowrap",
+   "group": "Tables"
+  },
+  {
+   "class": "p-num",
+   "group": "Tables"
+  },
+  {
+   "class": "p-overdue",
+   "group": "Tables"
+  },
+  {
+   "class": "p-page",
+   "group": "App shell"
+  },
+  {
+   "class": "p-page-fill",
+   "group": "A page that fills the viewport, so a board or a grid reaches the bottom edge"
+  },
+  {
+   "class": "p-page-head",
+   "group": "App shell"
+  },
+  {
+   "class": "p-pager",
+   "group": "Tables"
+  },
+  {
+   "class": "p-pb",
+   "group": "punch history, the thing the app simply did not show"
+  },
+  {
+   "class": "p-pd",
+   "group": "punch history, the thing the app simply did not show"
+  },
+  {
+   "class": "p-person",
+   "group": "Avatars and people"
+  },
+  {
+   "class": "p-ph",
+   "group": "punch history, the thing the app simply did not show"
+  },
+  {
+   "class": "p-phone",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-pin",
+   "group": "Floor sketch"
+  },
+  {
+   "class": "p-post",
+   "group": "the deployment board: the laminated chart, generated"
+  },
+  {
+   "class": "p-primary-cell",
+   "group": "Tables"
+  },
+  {
+   "class": "p-punch",
+   "group": "punch history, the thing the app simply did not show"
+  },
+  {
+   "class": "p-quick-add",
+   "group": "App shell"
+  },
+  {
+   "class": "p-rail",
+   "group": "the compliance rail: what the roster will breach if it is published as it is"
+  },
+  {
+   "class": "p-rail-group",
+   "group": "the report rail"
+  },
+  {
+   "class": "p-rail-item",
+   "group": "the compliance rail: what the roster will breach if it is published as it is"
+  },
+  {
+   "class": "p-railed",
+   "group": "the report rail"
+  },
+  {
+   "class": "p-rarea",
+   "group": "an area band spans the whole week"
+  },
+  {
+   "class": "p-rarea-sum",
+   "group": "an area band spans the whole week"
+  },
+  {
+   "class": "p-rc",
+   "group": "the frozen first column carries the person and the hours they are on for"
+  },
+  {
+   "class": "p-record",
+   "group": "Section / two-column record layout"
+  },
+  {
+   "class": "p-record-head",
+   "group": "Section / two-column record layout"
+  },
+  {
+   "class": "p-record-id",
+   "group": "Section / two-column record layout"
+  },
+  {
+   "class": "p-rf",
+   "group": "the totals strip: hours and cost per day, against the target the forecast set"
+  },
+  {
+   "class": "p-rgrid",
+   "group": "the roster grid"
+  },
+  {
+   "class": "p-rh",
+   "group": "the header row: the day, the forecast it was built against, and how many people are on"
+  },
+  {
+   "class": "p-rhead",
+   "group": "the roster grid"
+  },
+  {
+   "class": "p-right",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-ring",
+   "group": "the break countdown: a ring, because a number alone does not read across a kitchen"
+  },
+  {
+   "class": "p-rn",
+   "group": "the frozen first column carries the person and the hours they are on for"
+  },
+  {
+   "class": "p-rname",
+   "group": "the person cell is the frozen first column"
+  },
+  {
+   "class": "p-roster",
+   "group": "The persistent report action lives on the dark sidebar, so the quiet brand button needs a dark-surface form: a pale pink block on black reads as a disabled slab. Scoped, so the light-surface variant is untouched."
+  },
+  {
+   "class": "p-roster-grid",
+   "group": "The persistent report action lives on the dark sidebar, so the quiet brand button needs a dark-surface form: a pale pink block on black reads as a disabled slab. Scoped, so the light-surface variant is untouched."
+  },
+  {
+   "class": "p-row",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-scope",
+   "group": "a switch, for the feature console"
+  },
+  {
+   "class": "p-screen",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-scrollx",
+   "group": "narrow: the week scrolls sideways rather than crushing"
+  },
+  {
+   "class": "p-search",
+   "group": "App shell"
+  },
+  {
+   "class": "p-search-lg",
+   "group": "The one oversized search field, for a page whose whole job is search"
+  },
+  {
+   "class": "p-section",
+   "group": "Section / two-column record layout"
+  },
+  {
+   "class": "p-seg",
+   "group": "Filter bar"
+  },
+  {
+   "class": "p-select",
+   "group": "Forms"
+  },
+  {
+   "class": "p-sent",
+   "group": "consent, captured rather than assumed"
+  },
+  {
+   "class": "p-sevtabs",
+   "group": "severity tabs"
+  },
+  {
+   "class": "p-shell",
+   "group": "App shell"
+  },
+  {
+   "class": "p-shell-top",
+   "group": "shell with a top bar instead of a side rail"
+  },
+  {
+   "class": "p-shift",
+   "group": "the chip. One object, six states, and the state is never carried by colour alone: an open shift is dashed, a break risk and an overtime chip each say so in words on the chip itself."
+  },
+  {
+   "class": "p-shift-flag",
+   "group": "the chip. One object, six states, and the state is never carried by colour alone: an open shift is dashed, a break risk and an overtime chip each say so in words on the chip itself."
+  },
+  {
+   "class": "p-sidebar",
+   "group": "App shell"
+  },
+  {
+   "class": "p-sidebar-foot",
+   "group": "App shell"
+  },
+  {
+   "class": "p-spacer",
+   "group": "App shell"
+  },
+  {
+   "class": "p-stat",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-stat-accent",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-stat-delta",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-stat-label",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-stat-value",
+   "group": "Cards and stats"
+  },
+  {
+   "class": "p-status",
+   "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-stepper",
+   "group": "Stepper"
+  },
+  {
+   "class": "p-steps",
+   "group": "Numbered steps, for \"what happens next\""
+  },
+  {
+   "class": "p-sub",
+   "group": "Tables"
+  },
+  {
+   "class": "p-swap",
+   "group": "a before-and-after, for a screen whose whole point is that it replaces something"
+  },
+  {
+   "class": "p-swap-body",
+   "group": "a before-and-after, for a screen whose whole point is that it replaces something"
+  },
+  {
+   "class": "p-switch",
+   "group": "a switch, for the feature console"
+  },
+  {
+   "class": "p-tabbar",
+   "group": "the bottom bar"
+  },
+  {
+   "class": "p-table",
+   "group": "Tables"
+  },
+  {
+   "class": "p-table-foot",
+   "group": "Tables"
+  },
+  {
+   "class": "p-table-wrap",
+   "group": "Tables"
+  },
+  {
+   "class": "p-tabs",
+   "group": "Section / two-column record layout"
+  },
+  {
+   "class": "p-textarea",
+   "group": "Forms"
+  },
+  {
+   "class": "p-timeline",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-tl-item",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-tl-note",
+   "group": "Lists and timelines"
+  },
+  {
+   "class": "p-toast",
+   "group": "Drawer, sheet, toast, empty state"
+  },
+  {
+   "class": "p-togglerow",
+   "group": "a switch, for the feature console"
+  },
+  {
+   "class": "p-topbar",
+   "group": "App shell"
+  },
+  {
+   "class": "p-tri-head",
+   "group": "the triage split: shape before rows"
+  },
+  {
+   "class": "p-triage",
+   "group": "the triage split: shape before rows"
+  },
+  {
+   "class": "p-triage-panel",
+   "group": "the triage split: shape before rows"
+  },
+  {
+   "class": "p-w-100",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-weekpick",
+   "group": "the week stepper"
+  },
+  {
+   "class": "p-where",
+   "group": "shell with a top bar instead of a side rail"
+  },
+  {
+   "class": "p-work",
+   "group": "the working area: full width, no page-max, because a week has seven columns"
+  },
+  {
+   "class": "p-work-head",
+   "group": "the working area: full width, no page-max, because a week has seven columns"
+  },
+  {
+   "class": "p-work-sub",
+   "group": "the working area: full width, no page-max, because a week has seven columns"
+  },
+  {
+   "class": "p-wrap",
+   "group": "Utilities"
+  },
+  {
+   "class": "p-zone",
+   "group": "Floor sketch"
+  }
+ ]
 }

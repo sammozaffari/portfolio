@@ -314,3 +314,388 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 }
 .p-sidebar .p-btn-brand-quiet:hover { background: rgba(255,255,255,.12); }
 .p-sidebar .p-btn-brand-quiet .p-ico { color: var(--p-brand); opacity: 1; }
+
+/* ---------------------------------------------------------------
+   THE ROSTER SURFACE
+   The workforce platform and the safety product are two products on
+   one design system. Everything above is shared. What follows is the
+   surface only the workforce product needs: a week of people against
+   days, where a manager has to read coverage, cost and compliance in
+   one pass without opening anything.
+
+   The grid is CSS grid rather than a table because the first column
+   and the header both freeze, and a shift chip has to be able to sit
+   at an arbitrary offset inside its day. Checked against the shipped
+   rostering grids on Mobbin: Deputy for the lane-per-person layout
+   and the totals footer, 7shifts for putting the conflict and
+   overtime count in the header where the publish button is.
+   --------------------------------------------------------------- */
+.p-roster { border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); overflow: hidden; box-shadow: var(--p-shadow-1); }
+.p-roster-grid { display: grid; grid-template-columns: var(--p-w-name-w) repeat(7, minmax(var(--p-w-col-min), 1fr)); }
+
+/* the header row: the day, the forecast it was built against, and how many people are on */
+.p-roster-grid > .p-rh { position: sticky; top: 0; z-index: var(--p-z-sticky); background: var(--p-panel-2); border-bottom: 1px solid var(--p-line); padding: var(--p-s-2) var(--p-s-3); }
+.p-rh b { display: block; font-size: var(--p-fs-2); letter-spacing: var(--p-tracking-tight); }
+.p-rh span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rh.today { box-shadow: inset 0 -2px 0 var(--p-brand); }
+.p-rh.today b { color: var(--p-brand-ink); }
+
+/* the frozen first column carries the person and the hours they are on for */
+.p-roster-grid > .p-rn { border-right: 1px solid var(--p-line); border-bottom: 1px solid var(--p-line-2); padding: var(--p-s-2) var(--p-s-3); display: flex; gap: var(--p-s-2); align-items: center; min-height: var(--p-w-lane-h); background: var(--p-panel); }
+.p-rn .p-grow > b { display: block; font-size: var(--p-fs-2); }
+.p-rn .p-grow > span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rn.over span { color: var(--p-w-overtime); font-weight: 600; }
+
+.p-roster-grid > .p-rc { border-right: 1px solid var(--p-line-2); border-bottom: 1px solid var(--p-line-2); padding: 5px; display: grid; gap: 4px; align-content: start; min-height: var(--p-w-lane-h); }
+.p-rc.off { background: repeating-linear-gradient(135deg, var(--p-w-hatch) 0 6px, transparent 6px 12px); }
+
+/* the chip. One object, six states, and the state is never carried by colour
+   alone: an open shift is dashed, a break risk and an overtime chip each say
+   so in words on the chip itself. */
+.p-shift { border-radius: var(--p-r-1); padding: 5px 7px; font-size: var(--p-fs-1); line-height: 1.3; border: 1px solid var(--p-w-shift-line); border-left-width: 3px; background: var(--p-w-shift-bg); color: var(--p-w-shift); text-align: left; }
+.p-shift b { display: block; font-weight: 600; font-variant-numeric: tabular-nums; }
+.p-shift span { display: block; color: inherit; opacity: .78; }
+.p-shift.open { background: var(--p-w-open-bg); border: 1px dashed var(--p-w-open-line); border-left-width: 3px; color: var(--p-w-open); }
+.p-shift.overtime { background: var(--p-w-overtime-bg); border-color: var(--p-w-overtime); color: var(--p-w-overtime); }
+.p-shift.risk { background: var(--p-w-break-risk-bg); border-color: var(--p-w-break-risk); color: var(--p-w-break-risk); }
+.p-shift.leave { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); border-left-color: var(--p-w-leave); color: var(--p-w-leave); }
+.p-shift.training { background: var(--p-w-training-bg); border-color: var(--p-w-training-line); border-left-color: var(--p-w-training); color: var(--p-w-training); }
+.p-shift.ghost { opacity: .45; }
+.p-shift-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 3px; font-weight: 600; font-size: 10.5px; letter-spacing: .01em; }
+
+/* the totals strip: hours and cost per day, against the target the forecast set */
+.p-roster-grid > .p-rf { border-right: 1px solid var(--p-line-2); border-top: 1px solid var(--p-line); background: var(--p-panel-2); padding: var(--p-s-2) var(--p-s-3); font-size: var(--p-fs-1); font-variant-numeric: tabular-nums; }
+.p-rf b { display: block; font-size: var(--p-fs-2); }
+.p-rf span { color: var(--p-ink-3); }
+.p-rf.over b { color: var(--p-w-overtime); }
+.p-rf.under b { color: var(--p-w-leave); }
+
+/* forecast against rostered labour, drawn behind the week it belongs to */
+.p-demand { display: block; width: 100%; height: auto; }
+.p-demand .fc { fill: var(--p-w-forecast); opacity: .22; }
+.p-demand .ac { fill: none; stroke: var(--p-w-actual); stroke-width: 2; }
+.p-demand .gap { fill: var(--p-w-overtime); opacity: .16; }
+.p-demand text { font-family: var(--p-font); font-size: 10px; fill: var(--p-ink-3); }
+
+/* coverage: how the hour-by-hour roster sits against what the forecast asked for */
+.p-cover { display: grid; gap: 2px; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: end; height: 34px; }
+.p-cover i { display: block; background: var(--p-w-shift-line); border-radius: 2px 2px 0 0; }
+.p-cover i.short { background: var(--p-w-overtime); }
+.p-cover i.over { background: var(--p-w-forecast); }
+
+/* the compliance rail: what the roster will breach if it is published as it is */
+.p-rail { display: grid; gap: var(--p-s-2); }
+.p-rail-item { display: flex; gap: var(--p-s-2); align-items: flex-start; padding: var(--p-s-3); border: 1px solid var(--p-line); border-left: 3px solid var(--p-line-strong); border-radius: var(--p-r-1); background: var(--p-panel); font-size: var(--p-fs-2); }
+.p-rail-item.warn { border-left-color: var(--p-w-break-risk); background: var(--p-w-break-risk-bg); }
+.p-rail-item.stop { border-left-color: var(--p-danger); background: var(--p-danger-bg); }
+.p-rail-item.good { border-left-color: var(--p-success); background: var(--p-success-bg); }
+.p-rail-item b { display: block; margin-bottom: 2px; }
+.p-rail-item p { color: var(--p-ink-2); }
+
+/* a before-and-after, for a screen whose whole point is that it replaces something */
+.p-swap { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--p-s-4); align-items: stretch; }
+.p-swap > div { border: 1px solid var(--p-line); border-radius: var(--p-r-2); overflow: hidden; background: var(--p-panel); }
+.p-swap h4 { font-size: var(--p-fs-1); text-transform: uppercase; letter-spacing: var(--p-tracking-caps); padding: var(--p-s-2) var(--p-s-3); border-bottom: 1px solid var(--p-line); color: var(--p-ink-3); background: var(--p-panel-2); }
+.p-swap .was h4 { color: var(--p-ink-3); }
+.p-swap .now h4 { color: var(--p-brand-ink); background: var(--p-brand-quiet); border-bottom-color: var(--p-brand-line); }
+.p-swap-body { padding: var(--p-s-3); font-size: var(--p-fs-2); color: var(--p-ink-2); display: grid; gap: var(--p-s-2); }
+
+/* =====================================================================
+   WORKFORCE LAYER
+   The same tokens, a second product. A safety report is written once a
+   fortnight by somebody who is upset; a roster is worked on every day by
+   somebody on a headset. So the shell inverts: no dark rail eating 236px,
+   a light top bar instead, and the whole width given to the grid.
+
+   The colour rule that makes the rest work: the brand red is the primary
+   action and nothing else, roster content uses its own low-chroma slate
+   family, and the amber/red/green status family is reserved for
+   compliance. A shift is never coloured for being a shift. If it has
+   colour, something is wrong with it. That is the direct answer to a list
+   of warnings so uniformly loud that managers stopped reading it.
+   ===================================================================== */
+
+/* ---- shell with a top bar instead of a side rail ---- */
+.p-shell-top { display: flex; flex-direction: column; min-height: 100vh; background: var(--p-canvas); }
+.p-appbar { display: flex; align-items: center; gap: var(--p-s-5); height: var(--p-topbar-h); padding: 0 var(--p-s-5); background: var(--p-panel); border-bottom: 1px solid var(--p-line); }
+.p-appbar .p-spacer { flex: 1; }
+.p-modnav { display: flex; align-items: stretch; gap: 2px; height: var(--p-topbar-h); }
+.p-modnav a { display: flex; align-items: center; padding: 0 var(--p-s-3); font-size: var(--p-fs-3); color: var(--p-ink-2); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; }
+.p-modnav a:hover { color: var(--p-ink); text-decoration: none; }
+.p-modnav a[aria-current="page"] { color: var(--p-ink); font-weight: 600; border-bottom-color: var(--p-brand); }
+.p-modnav a .p-count { margin-left: 6px; font-size: 11px; font-variant-numeric: tabular-nums; background: var(--p-neutral-bg); color: var(--p-ink-2); padding: 1px 6px; border-radius: var(--p-r-pill); }
+.p-modnav a .p-count.attn { background: var(--p-warning-bg); color: var(--p-warning); }
+.p-where { display: flex; align-items: center; gap: var(--p-s-2); font-size: var(--p-fs-2); color: var(--p-ink-2); padding: 0 var(--p-s-3); height: 30px; border: 1px solid var(--p-line-strong); border-radius: var(--p-r-1); background: var(--p-panel); }
+.p-where b { color: var(--p-ink); font-weight: 600; }
+
+/* the working area: full width, no page-max, because a week has seven columns */
+.p-work { padding: var(--p-s-4) var(--p-s-5) var(--p-s-6); width: 100%; }
+.p-work-head { display: flex; align-items: center; gap: var(--p-s-3); flex-wrap: wrap; margin-bottom: var(--p-s-3); }
+.p-work-head h1 { font-size: var(--p-fs-6); letter-spacing: var(--p-tracking-display); }
+.p-work-head .p-spacer { flex: 1; }
+.p-work-sub { color: var(--p-ink-3); font-size: var(--p-fs-2); margin: -4px 0 var(--p-s-4); }
+
+/* ---- the week stepper ---- */
+.p-weekpick { display: inline-flex; align-items: center; border: 1px solid var(--p-line-strong); border-radius: var(--p-r-1); background: var(--p-panel); height: 30px; overflow: hidden; }
+.p-weekpick button { width: 28px; height: 28px; border: 0; background: none; color: var(--p-ink-2); cursor: pointer; font-size: 13px; line-height: 1; }
+.p-weekpick b { padding: 0 var(--p-s-3); font-size: var(--p-fs-2); font-weight: 600; font-variant-numeric: tabular-nums; border-left: 1px solid var(--p-line); border-right: 1px solid var(--p-line); line-height: 28px; }
+
+/* ---- counter pills: a count that is a route into the work, not a badge ---- */
+.p-counters { display: inline-flex; align-items: center; gap: var(--p-s-2); }
+.p-counter { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: var(--p-r-1); font-size: var(--p-fs-2); font-weight: 500; border: 1px solid; background: var(--p-panel); }
+.p-counter b { font-variant-numeric: tabular-nums; font-weight: 700; }
+.p-counter::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
+.p-counter.must { color: var(--p-danger); border-color: var(--p-danger-line); background: var(--p-danger-bg); }
+.p-counter.should { color: var(--p-warning); border-color: var(--p-warning-line); background: var(--p-warning-bg); }
+.p-counter.ok { color: var(--p-success); border-color: var(--p-success-line); background: var(--p-success-bg); }
+.p-counter.quiet { color: var(--p-ink-2); border-color: var(--p-line-strong); }
+
+/* ---- the roster grid ---- */
+.p-roster { border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); overflow: hidden; box-shadow: var(--p-shadow-1); }
+.p-rgrid { display: grid; grid-template-columns: var(--p-w-name-w) repeat(7, minmax(var(--p-w-col-min), 1fr)); }
+.p-rgrid > * { min-width: 0; border-bottom: 1px solid var(--p-line-2); border-right: 1px solid var(--p-line-2); }
+.p-rgrid > *:nth-child(8n + 1) { border-left: 0; }
+.p-rhead { height: 46px; padding: 6px var(--p-s-3); background: var(--p-panel); border-bottom: 1px solid var(--p-line); display: flex; flex-direction: column; justify-content: center; }
+.p-rhead b { font-size: var(--p-fs-2); font-weight: 600; }
+.p-rhead span { font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rhead.today { background: var(--p-brand-quiet); box-shadow: inset 0 -2px 0 var(--p-brand); }
+.p-rhead .p-caps { margin: 0; }
+
+/* an area band spans the whole week */
+.p-rarea { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--p-s-2); padding: 5px var(--p-s-3); background: var(--p-panel-2); border-bottom: 1px solid var(--p-line); font-size: var(--p-fs-1); font-weight: 600; color: var(--p-ink-2); letter-spacing: .02em; }
+.p-rarea i { width: 8px; height: 8px; border-radius: 2px; flex: none; background: var(--p-ink-3); }
+.p-rarea .p-rarea-sum { margin-left: auto; font-weight: 400; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+
+/* the person cell is the frozen first column */
+.p-rname { padding: 8px var(--p-s-3); display: flex; align-items: center; gap: var(--p-s-2); min-height: var(--p-w-lane-h); background: var(--p-panel); }
+.p-rname .p-grow { min-width: 0; }
+.p-rname b { display: block; font-size: var(--p-fs-2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.p-rname span { display: block; font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rname.flagged { background: var(--p-danger-bg); }
+
+.p-cell { min-height: var(--p-w-lane-h); padding: 4px; display: flex; flex-direction: column; gap: 3px; }
+.p-cell.empty::after { content: "+"; color: var(--p-line-strong); font-size: 15px; line-height: 1; margin: auto; opacity: .55; }
+.p-cell.hatched { background: repeating-linear-gradient(135deg, transparent 0 5px, var(--p-w-hatch) 5px 6px); }
+
+/* a shift chip. Grey by default, on purpose. */
+.p-shift { border-radius: 5px; padding: 4px 6px; font-size: 11.5px; line-height: 1.25; border: 1px solid var(--p-w-shift-line); background: var(--p-w-shift-bg); color: var(--p-w-shift); border-left-width: 3px; }
+.p-shift b { display: block; font-weight: 600; font-variant-numeric: tabular-nums; }
+.p-shift span { display: block; color: var(--p-ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.p-shift.open { background: var(--p-w-open-bg); border-style: dashed; border-color: var(--p-w-open-line); color: var(--p-w-open); }
+.p-shift.leave { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); color: var(--p-w-leave); }
+.p-shift.training { background: var(--p-w-training-bg); border-color: var(--p-w-training-line); color: var(--p-w-training); }
+.p-shift.risk { background: var(--p-w-break-risk-bg); border-color: var(--p-warning-line); color: var(--p-w-break-risk); }
+.p-shift.over { background: var(--p-w-overtime-bg); border-color: var(--p-danger-line); color: var(--p-w-overtime); }
+.p-shift.sel { box-shadow: 0 0 0 2px var(--p-ink); border-color: var(--p-ink); }
+/* the flag is a shape as well as a colour, so the state survives a greyscale print */
+.p-shift .p-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 2px; font-size: 10px; font-weight: 600; }
+.p-shift .p-flag::before { content: "!"; display: grid; place-items: center; width: 12px; height: 12px; border-radius: 50%; background: currentColor; color: var(--p-panel); font: 700 10px/1 var(--p-font); }
+.p-shift.leave .p-flag::before { content: "\2713"; font-size: 8px; }
+
+/* ---- the legend strip along the bottom of the roster ---- */
+.p-legendbar { display: flex; align-items: center; gap: var(--p-s-4); flex-wrap: wrap; padding: 9px var(--p-s-4); border-top: 1px solid var(--p-line); background: var(--p-panel-2); font-size: var(--p-fs-1); color: var(--p-ink-2); }
+.p-legendbar span { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+.p-legendbar span::before { content: ""; width: 9px; height: 9px; border-radius: 2px; border: 1px solid var(--p-line-strong); background: var(--p-panel); flex: none; }
+.p-legendbar span.f::before { background: var(--p-w-shift-bg); border-color: var(--p-w-shift-line); }
+.p-legendbar span.o::before { background: var(--p-panel); border-style: dashed; }
+.p-legendbar span.l::before { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); }
+.p-legendbar span.t::before { background: var(--p-w-training-bg); border-color: var(--p-w-training-line); }
+.p-legendbar span.r::before { background: var(--p-w-break-risk-bg); border-color: var(--p-warning-line); }
+.p-legendbar span.x::before { background: var(--p-w-overtime-bg); border-color: var(--p-danger-line); }
+.p-legendbar .p-spacer { flex: 1; }
+
+/* ---- severity tabs ---- */
+.p-sevtabs { display: flex; gap: var(--p-s-1); border-bottom: 1px solid var(--p-line); margin-bottom: var(--p-s-4); }
+.p-sevtabs button { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 var(--p-s-3); border: 0; background: none; font: 500 var(--p-fs-3) var(--p-font); color: var(--p-ink-2); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.p-sevtabs button b { font-variant-numeric: tabular-nums; font-weight: 700; font-size: var(--p-fs-2); padding: 1px 7px; border-radius: var(--p-r-pill); background: var(--p-neutral-bg); }
+.p-sevtabs button[aria-selected="true"] { color: var(--p-ink); font-weight: 600; border-bottom-color: var(--p-ink); }
+.p-sevtabs button.must b { background: var(--p-danger-bg); color: var(--p-danger); }
+.p-sevtabs button.should b { background: var(--p-warning-bg); color: var(--p-warning); }
+.p-sevtabs button.info b { background: var(--p-info-bg); color: var(--p-info); }
+
+/* ---- the triage split: shape before rows ---- */
+.p-triage { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr); gap: var(--p-s-4); margin-bottom: var(--p-s-4); }
+.p-triage-panel { padding: var(--p-s-4); }
+.p-triage-panel .p-tri-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--p-s-3); }
+.p-triage-panel .p-tri-head b { font-size: var(--p-fs-4); font-weight: 600; }
+.p-triage-panel .p-tri-head em { font-style: normal; font-size: var(--p-fs-7); font-weight: 600; letter-spacing: var(--p-tracking-display); font-variant-numeric: tabular-nums; line-height: 1; }
+.p-bar { height: 8px; border-radius: 4px; background: var(--p-neutral-bg); overflow: hidden; display: flex; margin: var(--p-s-3) 0 var(--p-s-2); }
+.p-bar i { display: block; height: 100%; }
+.p-bar i.must { background: var(--p-danger); }
+.p-bar i.should { background: var(--p-warning); }
+.p-bar i.ok { background: var(--p-success); }
+.p-breakdown { display: grid; gap: 7px; margin-top: var(--p-s-3); }
+.p-breakdown div { display: flex; align-items: center; gap: var(--p-s-2); font-size: var(--p-fs-2); color: var(--p-ink-2); }
+.p-breakdown div::before { content: ""; width: 7px; height: 7px; border-radius: 50%; flex: none; background: var(--p-ink-3); }
+.p-breakdown div.must::before { background: var(--p-danger); }
+.p-breakdown div.should::before { background: var(--p-warning); }
+.p-breakdown div.ok::before { background: var(--p-success); }
+.p-breakdown div b { margin-left: auto; font-variant-numeric: tabular-nums; color: var(--p-ink); font-weight: 600; }
+
+/* ---- the original struck through above the actual ---- */
+.p-diff { display: inline-flex; flex-direction: column; gap: 1px; font-variant-numeric: tabular-nums; line-height: 1.25; }
+.p-diff s { color: var(--p-ink-3); font-size: var(--p-fs-1); text-decoration-thickness: 1px; }
+.p-diff b { font-weight: 600; font-size: var(--p-fs-2); color: var(--p-danger); }
+.p-diff.settled b { color: var(--p-ink); }
+/* the cell that holds one: two lines of times, so it sets its own rhythm rather
+   than inheriting the single-line row height and clipping the struck-through time */
+.p-table td.p-diff-cell { padding-top: var(--p-s-2); padding-bottom: var(--p-s-2); white-space: nowrap; }
+
+/* ---- money impact: what this costs, before you commit it ---- */
+.p-impact { border: 1px solid var(--p-line); border-radius: var(--p-r-1); overflow: hidden; }
+.p-impact dl { display: grid; grid-template-columns: 1fr auto; gap: 0; margin: 0; }
+.p-impact dt, .p-impact dd { margin: 0; padding: 9px var(--p-s-3); font-size: var(--p-fs-2); border-bottom: 1px solid var(--p-line-2); }
+.p-impact dt { color: var(--p-ink-2); }
+.p-impact dd { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.p-impact .tot { background: var(--p-panel-2); font-weight: 600; border-bottom: 0; }
+.p-impact dd.good { color: var(--p-success); }
+.p-impact dd.bad { color: var(--p-danger); }
+
+/* ---- the deployment board: the laminated chart, generated ---- */
+.p-board { display: grid; grid-template-columns: repeat(auto-fit, minmax(214px, 1fr)); gap: var(--p-s-3); align-items: start; }
+.p-lane { border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); overflow: hidden; }
+.p-lane-head { display: flex; align-items: center; gap: var(--p-s-2); padding: 8px var(--p-s-3); background: var(--p-panel-2); border-bottom: 1px solid var(--p-line); font-size: var(--p-fs-2); font-weight: 600; }
+.p-lane-head .p-count { margin-left: auto; font-weight: 400; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-lane-head i { width: 8px; height: 8px; border-radius: 2px; background: var(--p-ink-3); flex: none; }
+.p-post { display: flex; align-items: center; gap: var(--p-s-2); padding: 8px var(--p-s-3); border-bottom: 1px solid var(--p-line-2); font-size: var(--p-fs-2); }
+.p-post:last-child { border-bottom: 0; }
+.p-post .p-grow { min-width: 0; }
+.p-post b { display: block; font-weight: 500; }
+.p-post span { display: block; font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-post .p-brk { font-family: var(--p-font-mono); font-size: 10.5px; padding: 2px 5px; border-radius: 4px; background: var(--p-neutral-bg); color: var(--p-ink-2); white-space: nowrap; }
+.p-post .p-brk.due { background: var(--p-warning-bg); color: var(--p-warning); font-weight: 600; }
+.p-post .p-brk.done { background: var(--p-success-bg); color: var(--p-success); }
+.p-post.gap { background: repeating-linear-gradient(135deg, transparent 0 5px, var(--p-w-hatch) 5px 6px); color: var(--p-ink-3); }
+
+/* ---- the report rail ---- */
+.p-railed { display: grid; grid-template-columns: 224px minmax(0, 1fr); gap: var(--p-s-5); align-items: start; }
+.p-rail { border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); overflow: hidden; }
+.p-rail-group { padding: var(--p-s-3) var(--p-s-3) 4px; }
+.p-rail a { display: flex; align-items: center; gap: var(--p-s-2); padding: 7px var(--p-s-3); font-size: var(--p-fs-2); color: var(--p-ink-2); text-decoration: none; border-left: 2px solid transparent; }
+.p-rail a:hover { background: var(--p-panel-2); text-decoration: none; color: var(--p-ink); }
+.p-rail a[aria-current="page"] { background: var(--p-brand-quiet); border-left-color: var(--p-brand); color: var(--p-ink); font-weight: 600; }
+.p-rail a .p-count { margin-left: auto; font-size: 10.5px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rail a.new::after { content: "New"; font-family: var(--p-font-mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--p-success); background: var(--p-success-bg); padding: 1px 5px; border-radius: 3px; margin-left: auto; }
+
+/* ---- a switch, for the feature console ---- */
+.p-switch { width: 34px; height: 20px; border-radius: 999px; background: var(--p-line-strong); position: relative; flex: none; display: inline-block; }
+.p-switch::after { content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: left var(--p-t-fast) var(--p-ease); }
+.p-switch.on { background: var(--p-success); }
+.p-switch.on::after { left: 16px; }
+.p-switch.locked { background: var(--p-neutral-bg); box-shadow: inset 0 0 0 1px var(--p-line-strong); }
+.p-switch.locked::after { background: var(--p-line-strong); box-shadow: none; }
+.p-togglerow { display: flex; align-items: center; gap: var(--p-s-3); padding: 11px var(--p-s-4); border-bottom: 1px solid var(--p-line-2); font-size: var(--p-fs-2); }
+.p-togglerow:last-child { border-bottom: 0; }
+.p-togglerow .p-grow { min-width: 0; }
+.p-togglerow b { display: block; font-weight: 500; font-size: var(--p-fs-3); }
+.p-togglerow span { display: block; color: var(--p-ink-3); font-size: var(--p-fs-1); margin-top: 1px; }
+.p-togglerow .p-scope { font-family: var(--p-font-mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); border: 1px solid var(--p-line); border-radius: 3px; padding: 1px 5px; white-space: nowrap; }
+
+/* ---- consent, captured rather than assumed ---- */
+.p-consent { border: 1px solid var(--p-info-line); background: var(--p-info-bg); border-radius: var(--p-r-2); padding: var(--p-s-3) var(--p-s-4); }
+.p-consent b { display: block; font-weight: 600; font-size: var(--p-fs-3); margin-bottom: 3px; }
+.p-consent p { font-size: var(--p-fs-2); color: #163a9c; }
+.p-consent .p-sent { display: flex; align-items: center; gap: 7px; margin-top: 10px; font-size: var(--p-fs-1); color: var(--p-ink-2); font-variant-numeric: tabular-nums; }
+
+/* ---- a small inline sparkline row, for the labour figures ---- */
+.p-figs { display: flex; gap: var(--p-s-6); flex-wrap: wrap; }
+.p-fig { min-width: 128px; }
+.p-fig .p-fig-l { font-size: var(--p-fs-1); color: var(--p-ink-3); }
+.p-fig .p-fig-v { font-size: var(--p-fs-6); font-weight: 600; letter-spacing: var(--p-tracking-display); font-variant-numeric: tabular-nums; line-height: 1.1; margin-top: 3px; }
+.p-fig .p-fig-d { font-size: var(--p-fs-1); margin-top: 3px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-fig .p-fig-d b { font-weight: 600; }
+.p-fig .p-fig-d .up { color: var(--p-danger); }
+.p-fig .p-fig-d .down { color: var(--p-success); }
+.p-fig.live .p-fig-l::after { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--p-success); margin-left: 6px; vertical-align: 1px; }
+
+/* ---- a time clock is a wall-mounted screen, not a page ---- */
+.p-clock { width: 1024px; background: var(--p-panel); border-radius: var(--p-r-3); overflow: hidden; border: 1px solid var(--p-line-strong); }
+.p-clock-head { display: flex; align-items: center; gap: var(--p-s-4); padding: var(--p-s-4) var(--p-s-5); background: var(--p-sidebar); color: var(--p-ink-on-sidebar); }
+.p-clock-head h1 { font-size: var(--p-fs-5); font-weight: 600; }
+.p-clock-head .p-spacer { flex: 1; }
+.p-clock-head time { font-family: var(--p-font-mono); font-size: var(--p-fs-5); font-variant-numeric: tabular-nums; }
+.p-clock-body { padding: var(--p-s-4) var(--p-s-5) var(--p-s-5); }
+
+/* ---- narrow: the week scrolls sideways rather than crushing ---- */
+.p-scrollx { overflow-x: auto; }
+.p-brand-inline { display: flex; align-items: center; gap: var(--p-s-2); font-size: var(--p-fs-3); font-weight: 600; white-space: nowrap; }
+.p-brand-inline .p-brand-mark { width: 26px; height: 26px; border-radius: 6px; font-size: 12px; }
+
+/* an open shift has no person, so it gets a hole rather than initials */
+.p-avatar-open { border-style: dashed; background: none; }
+/* the shortfall note sits on the person, in the same shape a shift flag uses */
+.p-rname .p-flag { display: inline-flex; align-items: center; gap: 4px; margin-top: 3px; font-size: 10px; font-weight: 600; color: var(--p-danger); }
+.p-rname .p-flag::before { content: "!"; display: grid; place-items: center; width: 12px; height: 12px; border-radius: 50%; background: currentColor; color: var(--p-panel); font: 700 10px/1 var(--p-font); flex: none; }
+
+/* ---------------------------------------------------------------------------
+   CREW APP
+   The team member's half of the product. Everything here answers something the
+   research found people could not see: their own punch times, how long is left
+   of a break, what their leave balance actually is today, and whether a leave
+   day shows up on their shift list at all.
+
+   It is a separate surface, not a shrunken console. A manager reads a grid; a
+   team member checks one thing, standing up, in thirty seconds, often on a
+   personal phone in a restaurant whose phone policy is not generous.
+   --------------------------------------------------------------------------- */
+.p-mhead { padding: 2px 16px 12px; }
+.p-mhead h1 { font-size: var(--p-fs-6); letter-spacing: var(--p-tracking-display); }
+.p-mhead p { font-size: var(--p-fs-2); color: var(--p-ink-3); margin-top: 3px; }
+
+/* the week strip: the next shift is never more than one tap away */
+.p-datestrip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0 0 16px; }
+.p-datestrip div { text-align: center; padding: 7px 0 8px; border-radius: var(--p-r-2); background: var(--p-panel-2); border: 1px solid var(--p-line); }
+.p-datestrip div i { display: block; font-style: normal; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
+.p-datestrip div b { display: block; font-size: var(--p-fs-4); font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
+.p-datestrip div.on { background: var(--p-ink); border-color: var(--p-ink); }
+.p-datestrip div.on i, .p-datestrip div.on b { color: #fff; }
+.p-datestrip div.off { opacity: .45; }
+.p-datestrip div.leave { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); }
+
+/* a shift in the list: a date block, then what and when */
+.p-mrow { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); margin-bottom: 8px; }
+.p-mrow .p-mdate { width: 44px; flex: none; text-align: center; }
+.p-mrow .p-mdate i { display: block; font-style: normal; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
+.p-mrow .p-mdate b { display: block; font-size: 22px; font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.p-mrow .p-grow { min-width: 0; }
+.p-mrow .p-grow b { display: block; font-size: var(--p-fs-3); font-weight: 600; }
+.p-mrow .p-grow span { display: block; font-size: var(--p-fs-2); color: var(--p-ink-2); font-variant-numeric: tabular-nums; margin-top: 1px; }
+.p-mrow .p-grow em { display: block; font-style: normal; font-size: var(--p-fs-1); color: var(--p-ink-3); margin-top: 3px; }
+.p-mrow.leave { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); }
+.p-mrow.leave .p-mdate b, .p-mrow.leave .p-grow b { color: var(--p-w-leave); }
+.p-mrow.next { border-color: var(--p-ink); box-shadow: inset 0 0 0 1px var(--p-ink); }
+.p-mrow.pending { background: var(--p-warning-bg); border-color: var(--p-warning-line); }
+
+/* the break countdown: a ring, because a number alone does not read across a kitchen */
+.p-ring { display: grid; place-items: center; width: 168px; height: 168px; margin: 8px auto 16px; border-radius: 50%; background: conic-gradient(var(--p-success) var(--p-pct, 60%), var(--p-line-2) 0); position: relative; }
+.p-ring::before { content: ""; position: absolute; inset: 13px; border-radius: 50%; background: var(--p-panel); }
+.p-ring div { position: relative; text-align: center; }
+.p-ring b { display: block; font-size: 38px; font-weight: 600; letter-spacing: var(--p-tracking-display); font-variant-numeric: tabular-nums; line-height: 1; }
+.p-ring span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-3); margin-top: 5px; }
+.p-ring.due { background: conic-gradient(var(--p-warning) var(--p-pct, 90%), var(--p-line-2) 0); }
+
+/* the figures a team member asked for and could not get */
+.p-mstat { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--p-line-2); }
+.p-mstat:last-child { border-bottom: 0; }
+.p-mstat .p-mstat-l { font-size: var(--p-fs-2); color: var(--p-ink-2); }
+.p-mstat .p-mstat-l span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-3); }
+.p-mstat .p-mstat-v { font-size: var(--p-fs-4); font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.p-mstat .p-mstat-v.good { color: var(--p-success); }
+
+/* punch history, the thing the app simply did not show */
+.p-punch { display: grid; grid-template-columns: 52px 1fr auto; gap: 8px 10px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--p-line-2); font-size: var(--p-fs-2); font-variant-numeric: tabular-nums; }
+.p-punch:last-child { border-bottom: 0; }
+.p-punch .p-pd { font-size: var(--p-fs-1); color: var(--p-ink-3); }
+.p-punch b { font-weight: 600; }
+.p-punch .p-pb { font-size: var(--p-fs-1); color: var(--p-ink-3); display: block; margin-top: 2px; }
+.p-punch .p-ph { font-weight: 600; }
+.p-punch.amended { background: var(--p-info-bg); margin: 0 -8px; padding: 10px 8px; border-radius: var(--p-r-1); }
+
+/* the bottom bar */
+.p-tabbar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--p-line); background: var(--p-panel); padding: 8px 0 30px; }
+.p-tabbar a { display: grid; justify-items: center; gap: 4px; font-size: 10px; color: var(--p-ink-3); text-decoration: none; }
+.p-tabbar a[aria-current="page"] { color: var(--p-ink); font-weight: 600; }
+.p-tabbar a[aria-current="page"] .p-ico { color: var(--p-brand); }
+.p-tabbar .p-ico { width: 20px; height: 20px; }
+.p-tabbar .p-dot { position: relative; }
+.p-tabbar .p-dot::after { content: ""; position: absolute; top: -2px; right: -4px; width: 7px; height: 7px; border-radius: 50%; background: var(--p-brand); }

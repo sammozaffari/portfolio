@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pay period, before close &middot; Workforce platform concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>html,body{width:1440px}</style>
+</head><body class="p-app">
+<div class="p-shell-top" style="position:relative">
+  <header class="p-appbar">
+    <div class="p-brand-inline"><div class="p-brand-mark">W</div><b>Workforce</b></div>
+    <nav class="p-modnav"><a href="#">Roster</a><a href="#">Time and attendance</a><a href="#">Compliance<span class="p-count attn">4</span></a><a href="#">Leave<span class="p-count ">2</span></a><a href="#" aria-current="page">Pay</a><a href="#">Reports</a></nav>
+    <div class="p-spacer"></div>
+    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <span class="p-avatar">AM</span>
+  </header>
+  
+  <div class="p-work">
+    <div class="p-work-head">
+      <h1>Pay period</h1>
+      <div class="p-spacer"></div>
+      <button class="p-btn p-btn-secondary p-btn-sm">Export for payroll</button><button class="p-btn p-btn-primary p-btn-sm">Close the period</button>
+    </div>
+    <p class="p-work-sub">Three punches need a decision before Tuesday. Rostered and worked are shown together, because the gap between them is the only thing worth reading.</p>
+    
+    <div class="p-grid p-grid-4" style="margin-bottom:20px">
+      <div class="p-card p-stat"><div class="p-stat-label">Pay period</div><div class="p-stat-value" style="font-size:var(--p-fs-5)">28 Oct &ndash; 10 Nov</div><div class="p-stat-delta">Closes Tue 12 Nov, 10:00</div></div>
+      <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Punches approved</div><div class="p-stat-value">61 / 64</div><div class="p-stat-delta">Three left, all on the same day</div></div>
+      <div class="p-card p-stat p-stat-accent warning"><div class="p-stat-label">Exceptions</div><div class="p-stat-value">3</div><div class="p-stat-delta">One missed clock-out, two early finishes</div></div>
+      <div class="p-card p-stat"><div class="p-stat-label">Corrections after close</div><div class="p-stat-value">0</div><div class="p-stat-delta">Available for 21 days without reopening</div></div>
+    </div><div class="p-table-wrap"><table class="p-table"><thead><tr><th>Person</th><th>Day</th><th>Rostered against worked</th><th>Break</th><th class="p-num">Hours</th><th>State</th><th></th></tr></thead><tbody>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">DR</span>Dan R.</span><span class="p-sub">Cook</span></td>
+        <td>Thu 7 Nov</td><td class="p-diff-cell"><span class="p-diff settled"><s>09:00&ndash;17:00 rostered</s><b>09:02&ndash;17:04 worked</b></span></td>
+        <td>30 min unpaid</td><td class="p-num">7.53</td><td><span class="p-badge p-badge-success">Approved</span></td><td></td></tr>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">CB</span>Chiara B.</span><span class="p-sub">Shift supervisor</span></td>
+        <td>Fri 8 Nov</td><td><span class="p-diff"><s>14:00&ndash;23:00 rostered</s><b>14:00&ndash;&mdash;&mdash; no clock-out</b></span></td>
+        <td>30 min unpaid</td><td class="p-num">&mdash;</td><td><span class="p-badge p-badge-danger">Missed clock-out</span></td>
+        <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Set the finish</button></td></tr>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">PS</span>Priya S.</span><span class="p-sub">Team member</span></td>
+        <td>Fri 8 Nov</td><td><span class="p-diff"><s>11:00&ndash;15:00 rostered</s><b>11:00&ndash;14:12 worked</b></span></td>
+        <td>None</td><td class="p-num">3.20</td><td><span class="p-badge p-badge-warning">Finished early</span></td>
+        <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Ask why</button></td></tr>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">NF</span>Natalia F.</span><span class="p-sub">Team member</span></td>
+        <td>Sat 9 Nov</td><td><span class="p-diff"><s>17:00&ndash;20:00 rostered</s><b>17:00&ndash;19:40 worked</b></span></td>
+        <td>None</td><td class="p-num">2.67</td><td><span class="p-badge p-badge-warning">Finished early</span></td>
+        <td class="p-nowrap"><button class="p-btn p-btn-secondary p-btn-sm">Ask why</button></td></tr>
+      <tr><td class="p-primary-cell"><span class="p-person"><span class="p-avatar sm">MT</span>Mia T.</span><span class="p-sub">Shared with Ashgrove</span></td>
+        <td>Sat 9 Nov</td><td><span class="p-diff settled"><s>16:00&ndash;23:00 rostered</s><b>16:00&ndash;23:06 worked</b></span></td>
+        <td>30 min unpaid</td><td class="p-num">6.60</td><td><span class="p-badge p-badge-success">Approved</span></td>
+        <td class="p-meta">Ashgrove punches included</td></tr></tbody></table><div class="p-table-foot"><span>Showing the five shifts with something to say. 59 more are clean.</span></div></div>
+  </div>
+</div>
+</body></html>

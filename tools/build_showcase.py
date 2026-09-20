@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
-"""Build articles/57/showcase/index.html from showcase.json, the annotation
-files and the Mobbin reference tables. Annotations are an HTML layer over each
-PNG, so callouts stay live text and scale with the frame. No iframes.
-Usage: build_showcase.py"""
-import json, re, pathlib, html, struct
+"""Build a showcase index.html from its showcase.json, the annotation files and
+the Mobbin reference tables. Annotations are an HTML layer over each PNG, so
+callouts stay live text and scale with the frame. No iframes.
+
+One generator, several showcases: the safety reporting product and the workforce
+platform are different products on the same design system, so they are the same
+page mechanism with different specs.
+
+Usage: build_showcase.py [showcase-dir]   (default articles/57/showcase)"""
+import json, re, pathlib, html, struct, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SC = ROOT / "articles/57/showcase"
+SC = ROOT / (sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "articles/57/showcase")
+if not (SC / "showcase.json").exists():
+    raise SystemExit("no showcase.json in " + str(SC))
 e = lambda s: html.escape(str(s), quote=False)
 
 def png_size(p):
@@ -275,8 +282,7 @@ page = f"""<!doctype html>
 </div></section>
 
 <div class="sc-wrap"><div class="sc-foot-nav">
-  <a class="btn-ink" href="../index.html">Back to the case study</a>
-  <a class="btn-ghost" href="../prototype/index.html">Open the form prototype</a>
+  {''.join(f'<a class="{e(l.get("kind","btn-ghost"))}" href="{e(l["href"])}">{e(l["text"])}</a>' for l in spec.get("footNav", [{"kind": "btn-ink", "href": "../index.html", "text": "Back to the case study"}]))}
 </div></div>
 </main>
 <script src="../../../assets/scrollytell.js?v=13"></script>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leave, consent captured &middot; Workforce platform concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>html,body{width:1440px}</style>
+</head><body class="p-app">
+<div class="p-shell-top" style="position:relative">
+  <header class="p-appbar">
+    <div class="p-brand-inline"><div class="p-brand-mark">W</div><b>Workforce</b></div>
+    <nav class="p-modnav"><a href="#">Roster</a><a href="#">Time and attendance</a><a href="#">Compliance<span class="p-count attn">4</span></a><a href="#" aria-current="page">Leave<span class="p-count ">2</span></a><a href="#">Pay</a><a href="#">Reports</a></nav>
+    <div class="p-spacer"></div>
+    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <span class="p-avatar">NA</span>
+  </header>
+  
+  <div class="p-work">
+    <div class="p-work-head">
+      <h1>Leave</h1>
+      <div class="p-spacer"></div>
+      <button class="p-btn p-btn-secondary p-btn-sm">Leave calendar</button>
+      <button class="p-btn p-btn-primary p-btn-sm">Enter leave</button>
+    </div>
+    <p class="p-work-sub">Approving leave writes the shifts. Entering leave for somebody else asks them first. Dropping a shift asks what it should become.</p>
+    
+    <div class="p-grid p-grid-8-4">
+      <div class="p-card">
+        <div class="p-card-head"><h3>Entering leave for somebody else</h3><span class="p-badge p-badge-warning">Consent needed</span></div>
+        <div class="p-card-body">
+          <p class="p-meta" style="margin-bottom:16px">You are entering annual leave on behalf of Natalia F. for Thu 7 Nov. Because you are not the person taking the leave, she has to agree to it before it is written.</p>
+          <div class="p-consent">
+            <b>Natalia will get one notification</b>
+            <p>It names the day, the hours, the leave type and who asked. She taps agree or asks a question. Nothing is written to the roster or the pay run until she does.</p>
+            <div class="p-sent"><span class="p-avatar sm">NF</span>Sent to Natalia F. at 09:44 &middot; not yet answered</div>
+          </div>
+          <h4 style="font-size:var(--p-fs-3);margin:20px 0 8px">What she is being asked to agree to</h4>
+          <div class="p-impact"><dl>
+            <dt>Day</dt><dd>Thu 7 Nov 2024</dd>
+            <dt>Shift being replaced</dt><dd>17:00 &ndash; 21:00, counter</dd>
+            <dt>Leave type</dt><dd>Annual leave, paid</dd>
+            <dt>Hours drawn from her balance</dt><dd>4.0 hrs</dd>
+            <dt class="tot">Balance after</dt><dd class="tot">21.5 hrs</dd>
+          </dl></div>
+          <div class="p-actions" style="margin-top:16px"><button class="p-btn p-btn-secondary">Send a reminder</button><button class="p-btn p-btn-ghost">Withdraw the request</button></div>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-card">
+          <div class="p-card-head"><h3>Why consent is a screen</h3></div>
+          <div class="p-card-body">
+            <p class="p-meta">The research found leave being entered on people&rsquo;s behalf with nothing recorded, which is a problem the week somebody disputes a balance. Nobody was acting badly. There was simply no place in the product to capture the agreement, so the agreement happened in a conversation at the pass and then evaporated.</p>
+            <p class="p-meta" style="margin-top:10px">Making consent a step costs the manager one tap and produces a record that survives both of them leaving.</p>
+          </div>
+        </div>
+        <div class="p-card">
+          <div class="p-card-head"><h3>Consent on file</h3><span class="p-meta">Last 90 days</span></div>
+          <div class="p-list">
+            <div class="p-list-row"><div class="p-grow"><b>Agreed</b><span class="p-sub">11 requests, median 14 minutes to answer</span></div><span class="p-badge p-badge-success">11</span></div>
+            <div class="p-list-row"><div class="p-grow"><b>Questioned</b><span class="p-sub">Answered by the manager, then agreed</span></div><span class="p-badge p-badge-warning">2</span></div>
+            <div class="p-list-row"><div class="p-grow"><b>Waiting</b><span class="p-sub">Reminder goes out after 24 hours</span></div><span class="p-badge p-badge-neutral">1</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

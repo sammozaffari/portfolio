@@ -421,5 +421,17 @@
    "img": "img/knowledge.png",
    "noteLimit": 3
   }
+ ],
+ "footNav": [
+  {
+   "kind": "btn-ink",
+   "href": "../index.html",
+   "text": "Back to the case study"
+  },
+  {
+   "kind": "btn-ghost",
+   "href": "../prototype/index.html",
+   "text": "Open the form prototype"
+  }
  ]
 }

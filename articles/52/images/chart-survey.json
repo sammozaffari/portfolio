@@ -1,0 +1,7 @@
+{"type":"ranked","width":960,
+ "title":"Who answered the field survey","subtitle":"200 responses from across the restaurant network, gated by role at the first question.",
+ "categories":["Team member","Assistant restaurant manager","Shift supervisor","Restaurant general manager"],
+ "series":[{"name":"Share of responses","values":[67,20,12,1],"colour":"ochre"}],
+ "unit":"%","highlight":[0],
+ "note":"Two thirds were team members, the group the platform gave the least back to. Area coaches and franchisees returned nothing, so those roles were covered by interview instead.",
+ "source":"Field survey, 200 responses, Time and Attendance Findings Report, October 2024."}

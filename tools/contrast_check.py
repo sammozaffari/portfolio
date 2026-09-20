@@ -26,7 +26,20 @@ TEXT = [  # (foreground, background, label)
     ("--p-info", "--p-info-bg"), ("--p-neutral", "--p-neutral-bg"),
     ("--p-danger", "--p-panel"), ("--p-warning", "--p-panel"), ("--p-success", "--p-panel"), ("--p-info", "--p-panel"),
 ]
-BORDER = [("--p-line-strong", "--p-panel"), ("--p-line-strong", "--p-canvas")]
+# the workforce product: a shift chip is read at a glance across a whole week,
+# so its label has to clear 4.5:1 on its own ground, not only on white
+TEXT += [
+    ("--p-w-shift", "--p-w-shift-bg"), ("--p-w-shift", "--p-panel"),
+    ("--p-w-open", "--p-w-open-bg"), ("--p-w-open", "--p-panel"),
+    ("--p-w-overtime", "--p-w-overtime-bg"), ("--p-w-overtime", "--p-panel"),
+    ("--p-w-break-risk", "--p-w-break-risk-bg"), ("--p-w-break-risk", "--p-panel"),
+    ("--p-w-leave", "--p-w-leave-bg"), ("--p-w-leave", "--p-panel"),
+    ("--p-w-training", "--p-w-training-bg"), ("--p-w-training", "--p-panel"),
+    ("--p-w-actual", "--p-panel"),
+]
+BORDER = [("--p-line-strong", "--p-panel"), ("--p-line-strong", "--p-canvas"),
+          ("--p-w-open-line", "--p-panel"), ("--p-w-open-line", "--p-canvas"),
+          ("--p-w-forecast", "--p-panel")]
 bad = 0
 for fg, bg in TEXT:
     r = ratio(tokens[fg], tokens[bg]); ok = r >= 4.5

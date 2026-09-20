@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leave, entered once &middot; Workforce platform concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>html,body{width:1440px}</style>
+</head><body class="p-app">
+<div class="p-shell-top" style="position:relative">
+  <header class="p-appbar">
+    <div class="p-brand-inline"><div class="p-brand-mark">W</div><b>Workforce</b></div>
+    <nav class="p-modnav"><a href="#">Roster</a><a href="#">Time and attendance</a><a href="#">Compliance<span class="p-count attn">4</span></a><a href="#" aria-current="page">Leave<span class="p-count ">2</span></a><a href="#">Pay</a><a href="#">Reports</a></nav>
+    <div class="p-spacer"></div>
+    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <span class="p-avatar">NA</span>
+  </header>
+  
+  <div class="p-work">
+    <div class="p-work-head">
+      <h1>Leave</h1>
+      <div class="p-spacer"></div>
+      <button class="p-btn p-btn-secondary p-btn-sm">Leave calendar</button>
+      <button class="p-btn p-btn-primary p-btn-sm">Enter leave</button>
+    </div>
+    <p class="p-work-sub">Approving leave writes the shifts. Entering leave for somebody else asks them first. Dropping a shift asks what it should become.</p>
+    
+    <div class="p-grid p-grid-8-4">
+      <div class="p-card">
+        <div class="p-card-head"><h3>Annual leave &middot; Omar H.</h3><span class="p-badge p-badge-info">Awaiting approval</span></div>
+        <div class="p-card-body">
+          <div class="p-grid p-grid-2" style="margin-bottom:18px">
+            <label class="p-field"><span>First day</span><input class="p-input" value="Fri 8 Nov 2024"></label>
+            <label class="p-field"><span>Last day</span><input class="p-input" value="Sun 10 Nov 2024"></label>
+          </div>
+          <h4 style="font-size:var(--p-fs-3);margin-bottom:8px">The three shifts this covers</h4>
+          <p class="p-meta" style="margin-bottom:10px">Built from the published roster the moment the dates were entered. Approving the request writes these; nobody types them.</p>
+          <div class="p-table-wrap"><table class="p-table"><tbody>
+            <tr><td class="p-primary-cell">Fri 8 Nov<span class="p-sub">Drive thru</span></td><td>15:00&ndash;21:00</td><td class="p-num">6.0 hrs</td><td><span class="p-badge p-badge-success">Will become leave</span></td></tr>
+            <tr><td class="p-primary-cell">Sat 9 Nov<span class="p-sub">Drive thru</span></td><td>15:00&ndash;21:00</td><td class="p-num">6.0 hrs</td><td><span class="p-badge p-badge-success">Will become leave</span></td></tr>
+            <tr><td class="p-primary-cell">Sun 10 Nov<span class="p-sub">Drive thru</span></td><td>15:00&ndash;21:00</td><td class="p-num">6.0 hrs</td><td><span class="p-badge p-badge-success">Will become leave</span></td></tr>
+          </tbody></table></div>
+          <div class="p-alert p-alert-info" style="margin-top:16px"><b>Sat 9 Nov leaves the drive thru one short.</b> An open shift was created on the roster rather than left silent. <a href="#">Fill it</a></div>
+          <div class="p-actions"><button class="p-btn p-btn-primary">Approve and write the leave</button><button class="p-btn p-btn-secondary">Decline</button></div>
+        </div>
+      </div>
+      <div class="p-grid">
+        <div class="p-card p-stat p-stat-accent success">
+          <div class="p-stat-label">Annual leave available<span class="p-meta">Live</span></div>
+          <div class="p-stat-value">54.2</div>
+          <div class="p-stat-delta">hours, updated after Omar&rsquo;s shift last night. This request uses <b>18.0</b>, leaving <b>36.2</b>.</div>
+        </div>
+        <div class="p-card">
+          <div class="p-card-head"><h3>What this replaced</h3></div>
+          <div class="p-card-body">
+            <p class="p-meta">Approving used to be the start of the work, not the end of it. A manager then opened the roster and created a leave shift by hand, one day at a time. A week of leave was five entries. Parental leave for a year was, in the words of one rostering manager, entered shift by shift.</p>
+            <p class="p-meta" style="margin-top:10px">The balance was also a fortnight old, because it only moved at the pay run. Payroll absorbed the enquiries that caused.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

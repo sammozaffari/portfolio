@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compliance &middot; Workforce platform concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
+<style>html,body{width:1440px}</style>
+</head><body class="p-app">
+<div class="p-shell-top" style="position:relative">
+  <header class="p-appbar">
+    <div class="p-brand-inline"><div class="p-brand-mark">W</div><b>Workforce</b></div>
+    <nav class="p-modnav"><a href="#">Roster</a><a href="#">Time and attendance</a><a href="#" aria-current="page">Compliance<span class="p-count attn">4</span></a><a href="#">Leave<span class="p-count ">2</span></a><a href="#">Pay</a><a href="#">Reports</a></nav>
+    <div class="p-spacer"></div>
+    <div class="p-where"><b>Northgate</b> &middot; 0731 &middot; equity</div>
+    <span class="p-avatar">NA</span>
+  </header>
+  
+  <div class="p-work">
+    <div class="p-work-head">
+      <h1>Compliance</h1>
+      <div class="p-weekpick"><button>&lsaquo;</button><b>Wk 45</b><button>&rsaquo;</button></div>
+      <div class="p-spacer"></div>
+      <button class="p-btn p-btn-secondary p-btn-sm">Dismissal report</button>
+      <button class="p-btn p-btn-secondary p-btn-sm">Export</button>
+    </div>
+    <p class="p-work-sub">Six things need a decision this week, out of 64 shifts. The list used to run to several screens because every rule reported at the same volume, whether it stopped the payroll or not.</p>
+    <div class="p-triage">
+      <div class="p-card p-triage-panel">
+        <div class="p-tri-head"><b>Clear</b><em>58</em></div>
+        <div class="p-bar"><i class="ok" style="width:90.6%"></i><i class="should" style="width:4.7%"></i><i class="must" style="width:3.1%"></i></div>
+        <p class="p-meta">58 of 64 published shifts this week raise nothing. Last week it was 61.</p>
+        <div class="p-breakdown">
+          <div class="ok">Checked against the agreement<b>64</b></div>
+          <div class="ok">Checked against state rules for minors<b>11</b></div>
+          <div class="ok">Checked across restaurants<b>7</b></div>
+        </div>
+      </div>
+      <div class="p-card p-triage-panel">
+        <div class="p-tri-head"><b>Needs a decision</b><em>6</em></div>
+        <p class="p-meta" style="margin-top:8px">Sorted by what happens if nobody does anything, not by when the warning appeared.</p>
+        <div class="p-breakdown">
+          <div class="must">Stops the roster publishing or costs money<b>2</b></div>
+          <div class="should">Breaches a rule, no automatic cost<b>3</b></div>
+          <div class="ok">Worth knowing, no action needed yet<b>1</b></div>
+        </div>
+        <div class="p-actions" style="margin-top:16px">
+          <button class="p-btn p-btn-primary p-btn-sm">Fix the two must-fixes</button>
+          <span class="p-meta">Both are Nadia&rsquo;s and both are on Wednesday</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-sevtabs">
+      <button aria-selected="true">Everything <b>6</b></button>
+      <button class="must">Must fix <b>2</b></button>
+      <button class="should">Should fix <b>3</b></button>
+      <button class="info">For information <b>1</b></button>
+      <button>Dismissed this month <b>4</b></button>
+    </div>
+    <div class="p-filters">
+      <button class="p-chip on">This restaurant</button>
+      <button class="p-chip">Rule<span class="p-chev">&#9662;</span></button>
+      <button class="p-chip">Person<span class="p-chev">&#9662;</span></button>
+      <button class="p-chip">Owner<span class="p-chev">&#9662;</span></button>
+      <div class="p-spacer"></div>
+      <span class="p-meta">Rules refreshed when this screen loaded, 09:41</span>
+    </div>
+    <div class="p-table-wrap"><table class="p-table"><thead><tr><th style="width:34px"></th><th>What is wrong</th><th>Who and when</th><th>Why it matters</th><th>Owner</th><th>Fix by</th><th style="width:170px"></th></tr></thead><tbody><tr><td><span class="p-badge p-badge-danger p-badge-plain" style="width:22px;padding:0;justify-content:center">!</span></td><td class="p-primary-cell">No break on a 9.5 hour shift<span class="p-sub">Blocks publish</span></td><td class="p-nowrap">Chiara B. &middot; Wed 6 Nov</td><td>Shift supervisor, meal break required over 9 hrs</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">NA</span>Nadia A.</span></td><td class="p-nowrap">Before publish</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>Must fix</td></tr><tr><td><span class="p-badge p-badge-danger p-badge-plain" style="width:22px;padding:0;justify-content:center">!</span></td><td class="p-primary-cell">Under contracted hours<span class="p-sub">Costs $38.61</span></td><td class="p-nowrap">Natalia F. &middot; week 45</td><td>12.25 of 15.0 hrs. Make-up pay $38.61 at the pay run</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">NA</span>Nadia A.</span></td><td class="p-nowrap">Before Sun 10 Nov</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>Must fix</td></tr><tr><td><span class="p-badge p-badge-warning p-badge-plain" style="width:22px;padding:0;justify-content:center">!</span></td><td class="p-primary-cell">Break rule unclear, 5.25 hour shift<span class="p-sub">Rest pause owed</span></td><td class="p-nowrap">Natalia F. &middot; Wed 6 Nov</td><td>Between 5 and 5.49 hrs. A 10 minute rest pause applies</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">NA</span>Nadia A.</span></td><td class="p-nowrap">Before the shift</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>Should fix</td></tr><tr><td><span class="p-badge p-badge-warning p-badge-plain" style="width:22px;padding:0;justify-content:center">!</span></td><td class="p-primary-cell">Rostered past 21:00 on a school night<span class="p-sub">Breaches the rule</span></td><td class="p-nowrap">Jaxon R. &middot; Thu 7 Nov</td><td>Under 18. School calendar says term time</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">NA</span>Nadia A.</span></td><td class="p-nowrap">Before the shift</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>Should fix</td></tr><tr><td><span class="p-badge p-badge-warning p-badge-plain" style="width:22px;padding:0;justify-content:center">!</span></td><td class="p-primary-cell">Hours across two restaurants<span class="p-sub">Overtime from 38 hrs</span></td><td class="p-nowrap">Mia T. &middot; week 45</td><td>38.5 hrs counting the second restaurant. Overtime starts at 38</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">S</span>Sarah</span></td><td class="p-nowrap">Before Sat 9 Nov</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>Should fix</td></tr><tr><td><span class="p-badge p-badge-info p-badge-plain" style="width:22px;padding:0;justify-content:center">i</span></td><td class="p-primary-cell">Training not yet recorded<span class="p-sub">Watch only</span></td><td class="p-nowrap">Dev P. &middot; from Mon 11 Nov</td><td>Cook certification pending. Rostered as cook from Monday</td><td class="p-nowrap"><span class="p-person"><span class="p-avatar sm">NA</span>Nadia A.</span></td><td class="p-nowrap">Before Mon 11 Nov</td><td class="p-nowrap"><div class="p-actions"><button class="p-btn p-btn-secondary p-btn-sm">Open the shift</button><button class="p-btn p-btn-ghost p-btn-sm">Dismiss</button></div></td></tr><tr style="display:none"><td>For information</td></tr></tbody></table></div>
+  </div>
+  
+</div>
+</body></html>
