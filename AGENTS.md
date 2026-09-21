@@ -35,6 +35,8 @@ token.
 | Component registry | `tools/lint_site.py` | A `p-` class that is not declared anywhere |
 | Site content | `tools/lint_site.py` | Blocked vendor names, wrong counts, broken local links, cropped artefacts, em dashes |
 | Visual regression | `tools/visual_check.py` | A screen that has changed against its committed baseline |
+| Side gutter | `tools/check_layout.py` | Any text under `main` within 16px of the window edge, or a page that scrolls sideways, at 390 and 1280 (pages are loaded in an iframe of that width, because headless Chrome will not lay out under about 500px) |
+| Safety facts | `tools/check_safety_facts.py` | A weekday that does not match its date in the safety screens, initials that do not match the name, a reference used for two records, counts that disagree between screens |
 
 Run `tools/lint_site.py` before you consider anything finished.
 
