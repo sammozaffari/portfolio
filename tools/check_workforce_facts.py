@@ -155,11 +155,40 @@ for _area, _sw, people in R.AREAS:
 total_chips = sum(counts.values())
 wk = text("roster-week.html")
 for key, word in (("filled", "clear"), ("open", "open"), ("leave", "leave"),
-                  ("training", "training"), ("risk", "break question"), ("over", "over threshold")):
+                  ("training", "training"), ("risk", "flagged"), ("over", "over threshold")):
     if f"{counts[key]} {word}" not in wk:
         fails.append(f"roster-week.html: legend should say '{counts[key]} {word}' from the data")
 notes.append(f"roster grid: {total_chips} chips, {counts['filled']} clear, "
              f"{counts['risk'] + counts['over']} flagged")
+
+# --------------------------------------------- 5b. counts typed on other screens
+# "64 shifts" appeared on three screens over a roster that draws 42. Every
+# screen that quotes the week or the fortnight now quotes the roster's count.
+W, F = R.WEEK_SHIFTS, R.FORTNIGHT_SHIFTS
+want("compliance-list.html", f"out of {W} shifts", "the compliance list counts the roster's shifts")
+want("compliance-list.html", f"{W - 6} of {W} published shifts", "and its clear figure is the same count minus the six decisions")
+want("reports-group.html", f"{W}", "the area report publishes the same weekly count for Riverside")
+want("payperiod-open.html", f"{F - 3} / {F}", "the fortnight is two roster weeks of punches")
+want("payperiod-closed.html", f"{F} / {F}", "and the closed period sends the same fortnight to payroll")
+for n in ("compliance-list.html", "reports-group.html", "payperiod-open.html", "payperiod-closed.html"):
+    if re.search(r"(?<![$.\d])64(?![.\d])", text(n)) and W != 64 and F != 64:
+        fails.append(f"{n}: still says 64 somewhere, which is not the roster's count")
+
+# ------------------------------------------------ 5c. the board and the clock
+# Everyone on the deployment board has a shift on the roster today, and the live
+# labour figures are the roster's arithmetic at 13:04, not typed numbers.
+today_people = {n for _a, _sw, people in R.AREAS for n, _r, week in people
+                if week[R.TODAY] and week[R.TODAY][3] not in ("leave", "open")}
+for who in re.findall(r"\b([A-Z][a-z]+ [A-Z])\.", text("timeclock-board.html")):
+    if who + "." not in today_people:
+        fails.append(f"timeclock-board.html: {who}. is on a station but has no shift on the roster today")
+worked, rostered = R.on_today("13:04")
+want("labour-live.html", f"{worked:.1f}", "hours worked by 13:04 come from the roster")
+want("labour-live.html", f"Rostered {rostered:.1f}", "hours rostered today come from the roster")
+if worked > rostered:
+    fails.append("labour-live.html: hours worked exceed hours rostered, which cannot happen")
+want_not(r"\bSarah\b", "is an owner who is in no cast; owners are First L. and come from the registry")
+want_not(r"break unclear|Break rule unclear", "hedges a rule the product decides: a 5.25 hour shift attracts a meal break")
 
 # ------------------------------------------------------- 6. things never said
 want_not(r"[vendor names removed]",
@@ -190,22 +219,16 @@ for f in ("phone-home.html", "phone-break.html", "phone-shifts.html", "phone-hou
 # still said another, and every text gate passed. A capture older than the
 # screen it came from is now a failure, not something a reader has to notice.
 IMG = ROOT / "articles/52/showcase/img"
-CSS_MTIME = max((ROOT / "assets/product/tokens.css").stat().st_mtime,
-                (ROOT / "assets/product/components.css").stat().st_mtime)
+from freshness import stale_reason  # noqa: E402
 for n in ALL:
-    png = IMG / (n[:-5] + ".png")
-    if not png.exists():
-        fails.append(f"{n}: no capture at img/{png.name}")
-        continue
     # Every screen depends on the two stylesheets as much as on its own markup,
     # so a token or component change makes every capture stale, not just the
     # ones whose HTML moved. Missing that is how a switch that read as off
-    # survived a green build.
-    newest_source = max((SCR / n).stat().st_mtime, CSS_MTIME)
-    if png.stat().st_mtime < newest_source:
-        why = "the screen" if (SCR / n).stat().st_mtime >= CSS_MTIME else "the stylesheets it uses"
-        fails.append(f"img/{png.name}: captured before {n} or its design system was last "
-                     f"written, so the picture is older than {why}")
+    # survived a green build. The comparison is a content hash recorded when
+    # the PNG was captured, so it holds on a fresh clone as well as here.
+    why = stale_reason(IMG, n[:-5] + ".png", SCR / n)
+    if why:
+        fails.append(f"img/{n[:-5]}.png: {why}")
 notes.append(f"captures: {sum(1 for n in ALL if (IMG / (n[:-5] + '.png')).exists())} of {len(ALL)} present")
 
 # ------------------------------------------------------------------- report

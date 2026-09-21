@@ -14,7 +14,7 @@
   },
   {
    "dt": "How it is built",
-   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting product, extended with a rostering layer. Gated by a contrast script, a component manifest and a site lint. Every component was checked against shipped products on Mobbin before it was drawn."
+   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting product, extended with a rostering layer. Gated by a contrast script, a component manifest and a site lint. Components were checked against shipped products before they were drawn; the reference list is in the repository."
   },
   {
    "dt": "Confidentiality",

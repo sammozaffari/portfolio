@@ -12,16 +12,19 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from build_workforce import shell, write  # noqa: E402
 
 # ------------------------------------------------------- the time clock board
-# Journey 1 in the report: during the dinner rush the assistant manager looks
+# Journey 1 in the report: during the dinner rush the rostering manager looks
 # over at the time clock and all she can see is a list of red compliance
 # warnings. This board is what replaces that. It answers the question she
 # actually has, which is who is standing where and who is owed a break, and it
 # is generated from the published roster instead of being written out by hand
 # onto a laminated sheet once or twice a day. The station names are the ones
-# photographed on the charts in the restaurants.
+# photographed on the charts in the restaurants. Only people with a shift on
+# the roster today can stand on a station: the board once carried two people
+# who were not rostered, and the checker now asserts every name against the
+# roster table.
 LANES = [
     ("Lane 1", "#24405e", [
-        ("Expo 1", "Tessa W.", "11:00&ndash;15:00", "10 min taken", "done"),
+        ("Expo 1", None, "", "", ""),
         ("L1 QT", "Bridget K.", "10:45&ndash;16:00", "30 min at 13:00", "due"),
         ("Money taker", "Jaxon R.", "16:00&ndash;20:00", "10 min at 18:00", ""),
         ("Burger 1", "Kwame P.", "12:00&ndash;18:00", "30 min taken", "done"),
@@ -29,7 +32,7 @@ LANES = [
     ]),
     ("Lane 2", "#7d5300", [
         ("Expo 2", "Omar H.", "15:00&ndash;21:00", "30 min at 18:00", ""),
-        ("L2 QT", "Rosa V.", "16:00&ndash;22:00", "10 min at 18:30", ""),
+        ("L2 QT", None, "", "", ""),
         ("Checker", "Chiara B.", "14:00&ndash;23:30", "30 min at 18:00", "due"),
         ("Burger 2", None, "", "", ""),
         ("Pack 2", None, "", "", ""),
@@ -41,10 +44,15 @@ LANES = [
         ("Chip 2", "Nadia A.", "06:00&ndash;14:30", "30 min taken", "done"),
     ]),
     ("Delivery and support", "#1a6042", [
-        ("Delivery", "Rosa V.", "From 19:00", "Moves off L2 QT", ""),
+        ("Delivery", "Omar H.", "From 19:00", "Moves off Expo 2", ""),
         ("Floor support", "Nadia A.", "Until 14:30", "", ""),
     ]),
 ]
+
+
+ON_SHIFT = len({post[1] for _l, _s, posts in LANES for post in posts if post[1]})
+BREAKS_DONE = len({post[1] for _l, _s, posts in LANES for post in posts if post[1] and post[4] == "done"})
+BREAKS_DUE = len({post[1] for _l, _s, posts in LANES for post in posts if post[1] and post[4] == "due"})
 
 
 def timeclock():
@@ -74,9 +82,9 @@ def timeclock():
         '<h1>Deployment, Wednesday 6 November</h1>'
         '<div class="p-spacer"></div>'
         '<div class="p-counters">'
-        '<span class="p-counter ok"><b>9</b> on shift</span>'
-        '<span class="p-counter quiet"><b>4</b> breaks done</span>'
-        '<span class="p-counter should"><b>2</b> due a break</span>'
+        f'<span class="p-counter ok"><b>{ON_SHIFT}</b> on shift</span>'
+        f'<span class="p-counter quiet"><b>{BREAKS_DONE}</b> breaks done</span>'
+        f'<span class="p-counter should"><b>{BREAKS_DUE}</b> due a break</span>'
         '<span class="p-counter must"><b>0</b> late</span>'
         '</div>'
         '<button class="p-btn p-btn-secondary p-btn-sm">Print for the wall</button>'
@@ -105,6 +113,10 @@ def timeclock():
 
 
 # ------------------------------------------------------------ labour on shift
+# Hours worked so far and hours rostered today come from the roster table at the
+# time on the screen, not from a figure typed in by hand.
+import build_roster as R  # noqa: E402
+WORKED, ROSTERED = R.on_today("13:04")
 CHART = '''<svg class="p-chart" viewBox="0 0 720 268" role="img" aria-label="Sales by hour as columns on the left axis, with labour cost drawn solid to the current hour and dashed beyond it on the right axis">
   <g class="grid"><line x1="56" y1="28" x2="664" y2="28"/><line x1="56" y1="89" x2="664" y2="89"/><line x1="56" y1="150" x2="664" y2="150"/></g>
   <text x="48" y="32" text-anchor="end">$600</text><text x="48" y="93" text-anchor="end">$400</text><text x="48" y="154" text-anchor="end">$200</text><text x="48" y="215" text-anchor="end">$0</text>
@@ -150,8 +162,8 @@ def labour():
         '<div class="p-fig-d">Target <b>$74.00</b> &middot; <span class="bad">3.5% under</span></div></div>'
         '<div class="p-fig live"><div class="p-fig-l">Labour cost, today so far</div><div class="p-fig-v">$1,284</div>'
         '<div class="p-fig-d">Forecast to close at <b>$2,910</b> &middot; <span class="bad">$118 over</span></div></div>'
-        '<div class="p-fig live"><div class="p-fig-l">Hours worked, today</div><div class="p-fig-v">46.2</div>'
-        '<div class="p-fig-d">Rostered <b>52.0</b> &middot; 5.8 still to come</div></div>'
+        f'<div class="p-fig live"><div class="p-fig-l">Hours worked, today</div><div class="p-fig-v">{WORKED:.1f}</div>'
+        f'<div class="p-fig-d">Rostered <b>{ROSTERED:.1f}</b> &middot; {ROSTERED - WORKED:.1f} still to come</div></div>'
         '<div class="p-fig"><div class="p-fig-l">Sales, today so far</div><div class="p-fig-v">$3,298</div>'
         '<div class="p-fig-d">Forecast <b>$3,410</b> &middot; <span class="bad">3.3% behind</span></div></div>'
         '</div></div>'
@@ -188,7 +200,7 @@ def labour():
 
 # --------------------------------------------------- reporting at every level
 GROUP = [
-    ("Riverside", "0412", "equity", "64", "6", "9.4%", "$71.40", "ok"),
+    ("Riverside", "0412", "equity", str(R.WEEK_SHIFTS), "6", f"{100 * 6 / R.WEEK_SHIFTS:.1f}%", "$71.40", "ok"),
     ("Lakeside", "0418", "equity", "71", "4", "5.6%", "$76.10", "ok"),
     ("Parkway", "0433", "franchise", "58", "19", "32.8%", "$62.90", "bad"),
     ("Fairwater", "0455", "franchise", "66", "11", "16.7%", "$69.80", "warn"),
@@ -255,13 +267,13 @@ def reports():
         '</div>'
         '<div class="p-table-wrap"><table class="p-table"><thead><tr><th>Restaurant</th>'
         '<th class="p-num">Published</th><th class="p-num">Issues</th><th class="p-num">Rate</th>'
-        '<th class="p-num">Sales per hour</th><th class="p-num">Target</th><th>State</th></tr></thead>'
+        '<th class="p-num">Sales per labour hour</th><th class="p-num">Target</th><th>State</th></tr></thead>'
         '<tbody>' + "".join(rows) + '</tbody></table>'
         '<div class="p-table-foot"><span>Seven restaurants, one row each. Two franchise sites carry most of '
         'the exceptions, which is a conversation about process rather than about rostering.</span></div>'
         '</div></div></div>')
     return shell("Reporting at every level", "Reports", body, who="SA",
-                 where="<b>Area 12</b> &middot; 7 restaurants")
+                 where="<b>Area 12</b> &middot; 7 restaurants", badges=False)
 
 
 # ------------------------------------------ feature enablement, per restaurant
@@ -308,7 +320,7 @@ def features():
         '<div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">On the area baseline</div>'
         '<div class="p-stat-value">6 / 8</div><div class="p-stat-delta">The two that are not are opt-in by design</div></div>'
         '<div class="p-card p-stat p-stat-accent warning"><div class="p-stat-label">Restaurants off the baseline</div>'
-        '<div class="p-stat-value">3</div><div class="p-stat-delta">One franchise group, three sites, messaging off</div></div>'
+        '<div class="p-stat-value">3</div><div class="p-stat-delta">Shift swap off at two sites, break alerts off at one</div></div>'
         '<div class="p-card p-stat"><div class="p-stat-label">Changed in the last 90 days</div>'
         '<div class="p-stat-value">11</div><div class="p-stat-delta">Each one recorded with who and why</div></div>'
         '</div>'
@@ -321,7 +333,7 @@ def features():
         'ones their neighbours were already using.</p>'
         '</div>')
     return shell("Features, by restaurant", "Compliance", body, who="SA",
-                 where="<b>Area 12</b> &middot; 7 restaurants")
+                 where="<b>Area 12</b> &middot; 7 restaurants", badges=False)
 
 
 if __name__ == "__main__":

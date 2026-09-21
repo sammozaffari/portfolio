@@ -27,14 +27,14 @@ TODAY = 1  # Wednesday: the manager is building next week while this one runs
 #   risk      a break question                over      past a threshold
 AREAS = [
     ("Management", "#24405e", [
-        ("Nadia A.", "Assistant manager", [
-            ("06:00", "14:30", "Manager", "", ""),
-            ("06:00", "14:30", "Manager", "", ""),
+        ("Nadia A.", "Rostering manager", [
+            ("06:00", "14:30", "Rostering", "", ""),
+            ("06:00", "14:30", "Rostering", "", ""),
             None,
-            ("06:00", "14:30", "Manager", "", ""),
-            ("06:00", "14:30", "Manager", "", ""),
+            ("06:00", "14:30", "Rostering", "", ""),
+            ("06:00", "14:30", "Rostering", "", ""),
             None,
-            ("06:00", "14:30", "Manager", "", ""),
+            ("06:00", "14:30", "Rostering", "", ""),
         ]),
         ("Chiara B.", "Shift supervisor · 19", [
             ("14:00", "22:30", "Shift sup.", "", ""),
@@ -49,7 +49,7 @@ AREAS = [
     ("Front counter", "#7d5300", [
         ("Bridget K.", "Team member · part time, 15 hrs", [
             ("17:00", "21:00", "Counter", "", ""),
-            ("10:45", "16:00", "Counter", "risk", "5.25 hrs, break unclear"),
+            ("10:45", "16:00", "Counter", "risk", "5.25 hrs, meal break due"),
             None,
             None,
             ("17:00", "20:00", "Counter", "", ""),
@@ -80,10 +80,15 @@ AREAS = [
             ("15:00", "21:00", "Drive thru", "", ""),
             ("15:00", "21:00", "Drive thru", "", ""),
             ("15:00", "21:00", "Drive thru", "", ""),
-            ("00:00", "00:00", "Annual leave", "leave", "Auto-filled"),
-            ("00:00", "00:00", "Annual leave", "leave", "Auto-filled"),
-            ("00:00", "00:00", "Annual leave", "leave", "Auto-filled"),
+            ("00:00", "00:00", "Annual leave", "leave", "Awaiting approval"),
+            ("00:00", "00:00", "Annual leave", "leave", "Awaiting approval"),
+            ("00:00", "00:00", "Annual leave", "leave", "Awaiting approval"),
             ("15:00", "21:00", "Drive thru", "", ""),
+        ]),
+        ("Open shift", "Nobody rostered", [
+            None, None, None, None,
+            ("15:00", "21:00", "Drive thru", "open", ""),
+            None, None,
         ]),
         ("Rosa V.", "Team member · shared", [
             ("16:00", "22:00", "Drive thru", "", ""),
@@ -114,11 +119,6 @@ AREAS = [
             ("12:00", "18:00", "Cook", "", ""),
             None,
         ]),
-        ("Open shift", "Nobody rostered", [
-            None, None, None, None,
-            ("17:00", "23:00", "Cook", "open", ""),
-            None, None,
-        ]),
     ]),
 ]
 
@@ -126,6 +126,35 @@ AREAS = [
 # her contracted hours because Thursday came off, which is the make-up pay
 # trap the research found managers being warned about after the fact.
 SHORTFALL = {"Bridget K.": ("12.25 / 15.0 hrs", "Make-up pay $70.54")}
+
+
+# Every screen that quotes a shift count reads it from here, so the compliance
+# list, the area report and the pay period cannot say 64 over a roster that
+# draws 42. The week is every entry on the grid; the pay period is two of them.
+def _count_chips():
+    return sum(1 for _a, _sw, people in AREAS for _n, _r, week in people for s in week if s)
+
+
+WEEK_SHIFTS = _count_chips()          # 42
+FORTNIGHT_SHIFTS = WEEK_SHIFTS * 2    # the pay period 28 Oct to 10 Nov
+
+
+def on_today(now="13:04"):
+    """Hours worked so far and hours rostered for TODAY, from the shift table.
+    The live labour screen showed 46.2 hours worked at 13:04 when the roster
+    could not have produced 17 by then."""
+    mins = int(now[:2]) * 60 + int(now[3:])
+    worked = rostered = 0.0
+    for _a, _sw, people in AREAS:
+        for _n, _r, week in people:
+            s = week[TODAY]
+            if not s or s[3] in ("leave", "open"):
+                continue
+            a = int(s[0][:2]) * 60 + int(s[0][3:]); b = int(s[1][:2]) * 60 + int(s[1][3:])
+            rostered += (b - a) / 60
+            if mins > a:
+                worked += (min(mins, b) - a) / 60
+    return round(worked, 1), round(rostered, 1)
 
 
 def hours(s):
@@ -210,7 +239,7 @@ def build(state):
               f'<span class="o">{counts["open"]} open</span>'
               f'<span class="l">{counts["leave"]} leave</span>'
               f'<span class="t">{counts["training"]} training</span>'
-              f'<span class="r">{counts["risk"]} break question</span>'
+              f'<span class="r">{counts["risk"]} flagged</span>'
               f'<span class="x">{counts["over"]} over threshold</span>'
               f'<div class="p-spacer"></div>'
               f'<span style="border:0;padding:0">Rules last checked 09:41, on load</span></div>')
@@ -260,7 +289,7 @@ def build(state):
     <nav class="p-modnav">
       <a href="#" aria-current="page">Roster</a>
       <a href="#">Time and attendance</a>
-      <a href="#">Compliance<span class="p-count attn">4</span></a>
+      <a href="#">Compliance<span class="p-count attn">{must + should}</span></a>
       <a href="#">Leave<span class="p-count">2</span></a>
       <a href="#">Pay</a>
       <a href="#">Reports</a>

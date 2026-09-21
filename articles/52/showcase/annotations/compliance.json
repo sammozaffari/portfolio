@@ -14,7 +14,7 @@
   {
    "title": "A warning belongs to a person",
    "finding": "Warnings belonged to the screen. Nobody owned one, so nobody was accountable for clearing it, and area coaches compiled their own spot checks by hand.",
-   "decision": "Every row carries an owner and a date to fix it by. Five of the six are the assistant manager's and two of them are on the same day, which is a morning's work rather than a backlog.",
+   "decision": "Every row carries an owner and a date to fix it by. Five of the six are the rostering manager's and two of them are on the same day, which is a morning's work rather than a backlog.",
    "rejected": "A send-a-message action as the only response, which chases the person rather than changing the roster.",
    "n": 2,
    "x": 50.0,

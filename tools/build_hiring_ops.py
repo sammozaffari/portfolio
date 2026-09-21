@@ -32,7 +32,7 @@ NAV = [("Pipeline", (str(D.IN_PROGRESS), "")), ("Interviews", None), ("Work righ
 WHERE = f"<b>{D.RESTAURANT}</b> &middot; {D.RESTAURANT_NO} &middot; equity"
 
 
-def shell(title, current, body, width=1440, who="KB", extra=""):
+def shell(title, current, body, width=1440, who="PM", extra=""):
     nav = []
     for label, count in NAV:
         cur = ' aria-current="page"' if label == current else ""
@@ -106,7 +106,7 @@ pipeline_body = f'''
   <div class="p-kanban" style="grid-template-columns:repeat(5,minmax(0,1fr))">{"".join(cols)}</div>
   <div class="p-grid p-grid-3" style="margin-top:22px">
     <div class="p-card p-stat p-stat-accent warning"><div class="p-stat-label">Longest wait right now</div>
-      <div class="p-stat-value">2 days</div>
+      <div class="p-stat-value">{D.OTIS_WAIT}</div>
       <div class="p-stat-delta">{D.CAST["otis"]["name"]}, held on a document, not on a decision</div></div>
     <div class="p-card p-stat"><div class="p-stat-label">Applied to offer</div>
       <div class="p-stat-value">{D.APPLY_TO_OFFER}</div>
@@ -139,7 +139,7 @@ queue_body = f'''
   <div class="p-grid p-grid-8-4">
     <div class="p-card">
       <div class="p-card-head"><h2>{D.CAST["otis"]["name"]}</h2>
-        <span class="p-badge p-badge-warning p-badge-plain">Waiting 2 days</span></div>
+        <span class="p-badge p-badge-warning p-badge-plain">Waiting {D.OTIS_WAIT}</span></div>
       <div class="p-card-body">
         <p class="p-meta" style="margin-bottom:12px">Answered all five on {D.DAYS["apply"][1]}. The rule is {D.AUTO_RULE}. He meets it on shifts and misses it on the last question only, so he is a decision, not a rejection.</p>
         <div class="p-list">{otis_rows}</div>
@@ -197,7 +197,7 @@ human_body = f'''
   <div class="p-grid p-grid-8-4">
     <div class="p-card">
       <div class="p-card-head"><h2>{D.CAST["otis"]["name"]}</h2>
-        <span class="p-badge p-badge-warning p-badge-plain">2 days in the lane</span></div>
+        <span class="p-badge p-badge-warning p-badge-plain">{D.OTIS_WAIT} in the lane</span></div>
       <div class="p-card-body">
         {"".join(rows)}
         <div class="p-alert p-alert-warning p-mt-4">

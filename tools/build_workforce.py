@@ -17,16 +17,23 @@ e = lambda s: html.escape(str(s), quote=False)
 
 # The one place the module nav is declared. Counts here are the counts on the
 # screens below; change one and the other is wrong, which is the point.
-NAV = [("Roster", None), ("Time and attendance", None), ("Compliance", ("4", "attn")),
+# The compliance count is the list after the shift was extended: two must-fix
+# and three should-fix. The roster screen before the extension draws its own.
+NAV = [("Roster", None), ("Time and attendance", None), ("Compliance", ("5", "attn")),
        ("Leave", ("2", "")), ("Pay", None), ("Reports", None)]
+sys_path = __import__("sys").path
+sys_path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import build_roster as R  # noqa: E402
 WHERE = "<b>Riverside</b> &middot; 0412 &middot; equity"
 
 
-def shell(title, current, body, width=1440, who="NA", where=WHERE, extra=""):
+def shell(title, current, body, width=1440, who="NA", where=WHERE, extra="", badges=True):
+    # an area-level screen carries no restaurant counts in its nav; the area
+    # report used to keep Riverside's compliance and leave badges in area view
     nav = []
     for label, count in NAV:
         cur = ' aria-current="page"' if label == current else ""
-        c = f'<span class="p-count {count[1]}">{count[0]}</span>' if count else ""
+        c = f'<span class="p-count {count[1]}">{count[0]}</span>' if (count and badges) else ""
         nav.append(f'<a href="#"{cur}>{e(label)}{c}</a>')
     return f'''<!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,12 +81,12 @@ COMP_ROWS = [
      "Shift supervisor, meal break required over 9 hrs", "Nadia A.", "Before publish", "Blocks publish"),
     ("must", "Under contracted hours", "Bridget K. &middot; this week",
      "12.25 of 15.0 hrs. Make-up pay $70.54 at the pay run", "Nadia A.", "Before Sun 10 Nov", "Costs $70.54"),
-    ("should", "Break rule unclear, 5.25 hour shift", "Bridget K. &middot; Wed 6 Nov",
-     "Between 5 and 5.49 hrs. A 10 minute rest pause applies", "Nadia A.", "Before the shift", "Rest pause owed"),
+    ("should", "Meal break due, 5.25 hour shift", "Bridget K. &middot; Wed 6 Nov",
+     "Over 5 hrs. A 30 minute unpaid meal break applies, and it has to start before 13:15", "Nadia A.", "Before 13:15", "Meal break owed"),
     ("should", "Rostered past 21:00 on a school night", "Jaxon R. &middot; Thu 7 Nov",
      "Under 18. School calendar says term time", "Nadia A.", "Before the shift", "Breaches the rule"),
     ("should", "Hours across two restaurants", "Rosa V. &middot; this week",
-     "38.5 hrs counting Lakeside. Overtime starts at 38", "Sarah", "Before Sat 9 Nov", "Overtime from 38 hrs"),
+     "38.5 hrs counting Lakeside. Overtime starts at 38", "Ravi N.", "Before Sat 9 Nov", "Overtime from 38 hrs"),
     ("info", "Training not yet recorded", "Kwame P. &middot; Mon 11 Nov",
      "Cook certification pending. Rostered as cook from Monday", "Nadia A.", "Before Mon 11 Nov", "Watch only"),
 ]
@@ -140,14 +147,14 @@ def compliance(state):
       <button class="p-btn p-btn-secondary p-btn-sm">Dismissal report</button>
       <button class="p-btn p-btn-secondary p-btn-sm">Export</button>
     </div>
-    <p class="p-work-sub">Six things need a decision this week, out of 64 shifts. The list used to run to several screens because every rule reported at the same volume, whether it stopped the payroll or not.</p>
+    <p class="p-work-sub">Six things need a decision this week, out of {R.WEEK_SHIFTS} shifts. The list used to run to several screens because every rule reported at the same volume, whether it stopped the payroll or not.</p>
     <div class="p-triage">
       <div class="p-card p-triage-panel">
-        <div class="p-tri-head"><b>Clear</b><em>58</em></div>
-        <div class="p-bar"><i class="ok" style="width:90.6%"></i><i class="should" style="width:4.7%"></i><i class="must" style="width:3.1%"></i></div>
-        <p class="p-meta">58 of 64 published shifts this week raise nothing. Last week it was 61.</p>
+        <div class="p-tri-head"><b>Clear</b><em>{R.WEEK_SHIFTS - 6}</em></div>
+        <div class="p-bar"><i class="ok" style="width:{100 * (R.WEEK_SHIFTS - 6) / R.WEEK_SHIFTS:.1f}%"></i><i class="should" style="width:{100 * 4 / R.WEEK_SHIFTS:.1f}%"></i><i class="must" style="width:{100 * 2 / R.WEEK_SHIFTS:.1f}%"></i></div>
+        <p class="p-meta">{R.WEEK_SHIFTS - 6} of {R.WEEK_SHIFTS} published shifts this week raise nothing. Last week it was {R.WEEK_SHIFTS - 3}.</p>
         <div class="p-breakdown">
-          <div class="ok">Checked against the agreement<b>64</b></div>
+          <div class="ok">Checked against the agreement<b>{R.WEEK_SHIFTS}</b></div>
           <div class="ok">Checked against state rules for minors<b>11</b></div>
           <div class="ok">Checked across restaurants<b>7</b></div>
         </div>
@@ -162,7 +169,7 @@ def compliance(state):
         </div>
         <div class="p-actions" style="margin-top:16px">
           <button class="p-btn p-btn-primary p-btn-sm">Fix the two must-fixes</button>
-          <span class="p-meta">Both are Nadia&rsquo;s and both are on Wednesday</span>
+          <span class="p-meta">Both are Nadia&rsquo;s and one is on Wednesday</span>
         </div>
       </div>
     </div>
@@ -280,7 +287,7 @@ def leave(state):
           <p class="p-meta" style="margin-bottom:12px">This is the question the product never asked. A dropped shift simply vanished, and the consequence turned up at the pay run as a compliance warning about contracted hours.</p>
           <fieldset class="p-fieldset">
             <div class="p-choices one">
-              <div class="p-choice"><input type="radio" id="d1" name="d" checked><label for="d1"><span class="p-glyph">A</span><div><b>Annual leave, paid</b><span>Draws 2.75 hrs from her balance of 25.5. Contracted hours met, no make-up pay.</span></div></label></div>
+              <div class="p-choice"><input type="radio" id="d1" name="d" checked><label for="d1"><span class="p-glyph">A</span><div><b>Annual leave, paid</b><span>Draws 4.0 hrs from her balance of 25.5. Contracted hours met, no make-up pay.</span></div></label></div>
               <div class="p-choice"><input type="radio" id="d2" name="d"><label for="d2"><span class="p-glyph">U</span><div><b>Leave without pay</b><span>Contracted hours waived for the week by agreement. Needs her consent.</span></div></label></div>
               <div class="p-choice"><input type="radio" id="d3" name="d"><label for="d3"><span class="p-glyph">O</span><div><b>Offer the shift to the team</b><span>Goes to the three people qualified for counter who are under their hours.</span></div></label></div>
               <div class="p-choice"><input type="radio" id="d4" name="d"><label for="d4"><span class="p-glyph">M</span><div><b>Leave it short and pay the difference</b><span>Records the decision and the $70.54 now, rather than finding it later.</span></div></label></div>
@@ -328,10 +335,10 @@ def leave(state):
 # ------------------------------------------------------------------ pay period
 def payperiod(state):
     if state == "open":
-        head = '''
+        head = f'''
     <div class="p-grid p-grid-4" style="margin-bottom:20px">
       <div class="p-card p-stat"><div class="p-stat-label">Pay period</div><div class="p-stat-value" style="font-size:var(--p-fs-5)">28 Oct &ndash; 10 Nov</div><div class="p-stat-delta">Closes Tue 12 Nov, 10:00</div></div>
-      <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Punches approved</div><div class="p-stat-value">61 / 64</div><div class="p-stat-delta">Three left, all on the same day</div></div>
+      <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Punches approved</div><div class="p-stat-value">{R.FORTNIGHT_SHIFTS - 3} / {R.FORTNIGHT_SHIFTS}</div><div class="p-stat-delta">Three left, all on the same day</div></div>
       <div class="p-card p-stat p-stat-accent warning"><div class="p-stat-label">Exceptions</div><div class="p-stat-value">3</div><div class="p-stat-delta">One missed clock-out, two early finishes</div></div>
       <div class="p-card p-stat"><div class="p-stat-label">Corrections after close</div><div class="p-stat-value">0</div><div class="p-stat-delta">Available for 21 days without reopening</div></div>
     </div>'''
@@ -406,10 +413,10 @@ def payperiod(state):
     </div>'''
         title = "Pay period, correcting after close"
     else:  # closed
-        head = '''
+        head = f'''
     <div class="p-grid p-grid-4" style="margin-bottom:20px">
       <div class="p-card p-stat"><div class="p-stat-label">Pay period</div><div class="p-stat-value" style="font-size:var(--p-fs-5)">28 Oct &ndash; 10 Nov</div><div class="p-stat-delta">Closed Tue 12 Nov, 09:58, by Nadia A.</div></div>
-      <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Sent to payroll</div><div class="p-stat-value">64 / 64</div><div class="p-stat-delta">No shift left unapproved</div></div>
+      <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Sent to payroll</div><div class="p-stat-value">{R.FORTNIGHT_SHIFTS} / {R.FORTNIGHT_SHIFTS}</div><div class="p-stat-delta">No shift left unapproved</div></div>
       <div class="p-card p-stat p-stat-accent success"><div class="p-stat-label">Corrections</div><div class="p-stat-value">1</div><div class="p-stat-delta">Paid in the period it was worked</div></div>
       <div class="p-card p-stat"><div class="p-stat-label">Reopened</div><div class="p-stat-value">0</div><div class="p-stat-delta">The period never had to be reopened</div></div>
     </div>'''

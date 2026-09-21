@@ -22,7 +22,7 @@ def text_of(s):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>', ' ', s, flags=re.S)
     return html.unescape(re.sub(r'<[^>]+>', ' ', s))
 errors = []
-pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'docs/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')))
+pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'docs/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')))
 for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     for b in (BANNED if not str(rel).startswith('docs/') else []):
@@ -40,6 +40,11 @@ for f in pages:
     if n_dash and str(rel).startswith(('index','articles.html','about','cv','library','writing')) : errors.append(f'{rel}: {n_dash} em dashes in prose')
     if str(rel).startswith('articles/57') and n_dash: errors.append(f'{rel}: {n_dash} em dashes in prose')
     if re.search(r'<span class="kicker">0\d\s*[—·]', s): errors.append(f'{rel}: numbered kicker')
+    # every image on a case or showcase page says what it is; fifty-eight module
+    # screens shipped with alt="" and captions that describe the argument, not the screen
+    if str(rel).startswith('articles/'):
+        for m in re.finditer(r'<img[^>]*\balt=""', s):
+            errors.append(f'{rel}: image with an empty alt ({m.group(0)[:60]})')
 
     # v9: artefacts must not be cropped or scroll inside their container
     for m in re.finditer(r'<iframe[^>]*height:\s*\d+px', s):
@@ -83,7 +88,7 @@ if _llms.exists():
             errors.append(f'llms.txt: blocked name {b}')
     if '\u2014' in _t:
         errors.append(f'llms.txt: {_t.count(chr(8212))} em dashes')
-    if re.search(r'has not (shipped|built|delivered|led|run)', _t, flags=re.I):
+    if re.search(r'(has not (shipped|built|delivered|led|run)|does not (manage|lead|run))', _t, flags=re.I):
         errors.append('llms.txt: describes Sam by what he has not done')
 
 # the artefact pages a case study links to are read by the same people, so they

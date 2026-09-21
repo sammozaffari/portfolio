@@ -2,7 +2,7 @@
  "$description": "Every component class the safety reporting design system defines. An agent must search this before writing a new component. tools/lint_site.py fails the build on any p- class used in a screen that is neither declared here nor defined in that screen's own style block.",
  "source": "assets/product/components.css",
  "tokens": "assets/product/tokens.dtcg.json",
- "count": 232,
+ "count": 233,
  "components": [
   {
    "class": "p-actions",
@@ -34,7 +34,7 @@
   },
   {
    "class": "p-app-bar",
-   "group": "Phone frame for mobile screens"
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-appbar",
@@ -54,7 +54,7 @@
   },
   {
    "class": "p-back",
-   "group": "Phone frame for mobile screens"
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-badge",
@@ -258,7 +258,7 @@
   },
   {
    "class": "p-cta",
-   "group": "Phone frame for mobile screens"
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-datestrip",
@@ -386,7 +386,7 @@
   },
   {
    "class": "p-home",
-   "group": "Phone frame for mobile screens"
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-ico",
@@ -698,7 +698,7 @@
   },
   {
    "class": "p-screen",
-   "group": "Phone frame for mobile screens"
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-scrollx",
@@ -799,6 +799,10 @@
   {
    "class": "p-status",
    "group": "Phone frame for mobile screens"
+  },
+  {
+   "class": "p-status-icons",
+   "group": "The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake."
   },
   {
    "class": "p-stepper",

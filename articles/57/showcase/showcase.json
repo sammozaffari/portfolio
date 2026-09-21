@@ -14,7 +14,7 @@
   },
   {
    "dt": "How it is built",
-   "dd": "Hand-written HTML and CSS on a token-based design system, gated by a contrast script and a site lint. Every component was checked against shipped products on Mobbin before it was drawn."
+   "dd": "Hand-written HTML and CSS on a token-based design system, gated by a contrast script and a site lint. Components were checked against shipped products before they were drawn; the reference list is in the repository."
   },
   {
    "dt": "Confidentiality",
@@ -45,7 +45,7 @@
   "title": "What was checked against what",
   "body": [
    "Before each component was drawn, one search on Mobbin for the pattern, then two or three references read and reduced to what to take and what to leave. Recording the rejection matters as much as the reference: most of these products are for office workers with a mouse and a mailbox, and this one is for someone standing at a fryer.",
-   "Every row links to the screen on Mobbin."
+   "The reference list stays in the repository as working material."
   ]
  },
  "modules": [

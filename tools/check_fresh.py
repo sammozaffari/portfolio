@@ -10,14 +10,17 @@ every PNG still had the old name baked into the pixels.
 Driven by the capture specs rather than by filename, because one screen can
 produce several PNGs through a state parameter and the names do not match.
 
-Comparing modification times makes this a staleness check rather than a
-correctness one, which is the right trade: it is cheap, and re-capturing is
-the fix either way.
+Comparing a content hash recorded at capture time (the screen plus both
+product stylesheets) makes this a staleness check rather than a correctness
+one, which is the right trade: it is cheap, portable to a fresh clone, and
+re-capturing is the fix either way.
 
 Usage: check_fresh.py            check every capture spec
        check_fresh.py 52 57      check these articles only
 """
 import pathlib, sys, glob, json
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from freshness import stale_reason  # noqa: E402
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 want = set(sys.argv[1:])
@@ -45,13 +48,12 @@ for spec_path in sorted(glob.glob(str(ROOT / "articles/*/showcase/capture*.json"
             bad.append(f"{rel}: never captured")
             continue
         n += 1
-        # A capture written in the same second as its source is not stale; it is
-        # the same edit. Anything under a second is also what a git checkout
-        # produces when it rewrites a working tree and reorders mtimes, which
-        # would otherwise fail this gate on files nobody has touched.
-        drift = src.stat().st_mtime - out.stat().st_mtime
-        if drift >= 1:
-            bad.append(f"{rel}: {drift:.0f}s older than {src.name}; re-capture it")
+        # Content hashes recorded at capture time, not modification times: a git
+        # checkout writes files in any order it likes, which made the mtime
+        # version of this check fail on every fresh clone.
+        why = stale_reason(out.parent, out.name, src)
+        if why:
+            bad.append(f"{rel}: {why}")
 
 # a screen nobody captures is a screen the page cannot show
 for sc in sorted(glob.glob(str(ROOT / "articles/*/showcase/screens/*.html"))):

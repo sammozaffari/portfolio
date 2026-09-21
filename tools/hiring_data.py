@@ -29,7 +29,7 @@ CAST = {
                "role": "Candidate, first job", "age": 16},
     "nina":   {"name": "Nina M.",   "first": "Nina",   "initials": "NM",
                "role": "Parent or guardian"},
-    "keira":  {"name": "Keira B.",  "first": "Keira",  "initials": "KB",
+    "keira":  {"name": "Priya M.",  "first": "Priya",  "initials": "PM",
                "role": "Restaurant manager"},
     "vikram": {"name": "Vikram S.", "first": "Vikram", "initials": "VS",
                "role": "Payroll administrator"},
@@ -58,8 +58,21 @@ def rate_for(age):
     return cents / 100.0
 
 
-TIA_RATE = rate_for(16)      # $12.83
-OTIS_RATE = rate_for(24)     # $25.65
+# Both offers are casual, so the hourly rate carries the 25 per cent casual
+# loading the award adds on top of the base rate. A casual offer at the
+# permanent junior rate is what shipped first, and a people-function reader
+# caught it.
+CASUAL_LOADING = 0.25
+
+
+def casual_rate_for(age):
+    cents = int(ADULT_RATE * JUNIOR_PCT.get(age, 1.00) * (1 + CASUAL_LOADING) * 100 + 0.5)
+    return cents / 100.0
+
+
+TIA_BASE_RATE = rate_for(16)         # $12.83, the junior rate before loading
+TIA_RATE = casual_rate_for(16)       # $16.03, what a casual sixteen year old is paid
+OTIS_RATE = casual_rate_for(24)      # $32.06
 
 # ------------------------------------------------------------------ the days
 # Real weekdays in November 2024, in the order the service happens.
@@ -118,7 +131,7 @@ QUESTIONS = [
      "answer": "After school and weekends",
      "why": "Matched against the shifts the restaurant is short of."},
     {"id": "shifts", "ask": "How many shifts a week suit you?",
-     "chips": ["1", "2", "3", "4 or more"],
+     "chips": ["1", "2", "3", "4", "5"],
      "answer": "3",
      "why": "Sets the contract offered, so nobody is hired into hours they cannot do."},
     {"id": "peak",  "ask": "Could you do a Friday or Saturday night?",
@@ -129,15 +142,15 @@ QUESTIONS = [
 
 # Otis answered the same five. He falls outside the rule on the last question
 # only, which is exactly why he is a decision and not a rejection.
-OTIS_ANSWERS = ["21 or over", "Visa", "Weekdays", "4 or more", "Neither"]
+OTIS_ANSWERS = ["21 or over", "Visa", "Weekdays", "4", "Neither"]
 
 # The rule that decides whether the conversation books an interview itself or
 # hands the candidate to a person. Tia meets it. Otis does not.
-AUTO_RULE = "available on a Friday or Saturday night and two or more shifts a week"
+AUTO_RULE = "available on a Friday or Saturday night and three to five shifts a week"
 
 # ------------------------------------------------------------ the interview
 INTERVIEW_SLOTS = [
-    {"day": "Wed 6 Nov", "slots": [], "note": "Keira is on close, no interview times"},
+    {"day": "Wed 6 Nov", "slots": [], "note": "Priya is on close, no interview times"},
     {"day": "Thu 7 Nov", "slots": ["3:30pm", "4:00pm", "4:30pm"], "picked": "4:00pm"},
     {"day": "Fri 8 Nov", "slots": ["10:00am", "10:30am"]},
 ]
@@ -165,6 +178,11 @@ OTIS_CHECKS = [
      "note": "Student visa, 48 hours a fortnight, needs a person"},
 ]
 
+# Otis applied on Monday and it is Friday, so his wait is four days on every
+# screen that shows it: the pipeline card, the queue, the human lane and the
+# longest-wait figure. One value, so they cannot disagree.
+OTIS_WAIT = "4 days"
+
 # -------------------------------------------------------------- the pipeline
 # A person is in exactly one stage. Tia's card carries her trail instead, so the
 # board shows how fast she moved without putting her in four columns at once.
@@ -172,7 +190,7 @@ OTIS_CHECKS = [
 # it with invented names would be a worse lie than an honest empty column.
 PIPELINE = [
     ("Applied", [
-        {"who": "otis", "waited": "2 days", "flag": "warn",
+        {"who": "otis", "waited": OTIS_WAIT, "flag": "warn",
          "sub": "Work rights need a person, not a decision"},
     ]),
     ("Screened", []),

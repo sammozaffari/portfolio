@@ -4,8 +4,8 @@
 
 ## Who
 
-- Experience Designer at KFC South Pacific, July 2024 to present. Leads and co-leads service-improvement projects across safety reporting, workforce-management tools, hiring and onboarding, learning platforms and employee experience.
-- Conducts interviews and user testing, creates service blueprints, facilitates stakeholder workshops, prioritises improvements with evidence. Project and stakeholder leadership; does not manage a team of designers.
+- Experience Designer at KFC South Pacific, July 2024 to present. Leads and co-leads service-improvement projects across safety reporting, workforce-management tools, hiring and onboarding and employee experience.
+- Conducts interviews and user testing, creates service blueprints, facilitates stakeholder workshops, prioritises improvements with evidence. Leads and co-leads projects; project and stakeholder leadership.
 - Uses AI daily in research synthesis and built an internal tool that extracts and classifies interview insights with AI, each record reviewed by hand. Designs and builds custom harnesses and agents for specific design tasks, on a token-based design system with deterministic build gates.
 - Earlier: product designer in electrical hardware and digital products (2021 to 2024); UX designer on public-sector forms (part-time, 2020 to 2023); product designer in retail environments (2019 to 2021).
 

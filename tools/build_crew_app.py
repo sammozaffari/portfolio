@@ -36,17 +36,34 @@ def tabbar(current):
     return '<nav class="p-tabbar">' + "".join(out) + '</nav>'
 
 
-def phone(title, screen, current, cta=""):
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from statusbar import status_bar  # noqa: E402
+
+
+# The clock on each screen sits just after the last thing the screen says
+# happened: the break due at 13:15 is twelve minutes away, the clock-in at
+# 10:38 has just been made, the leave was agreed at 10:02 this morning.
+TIMES = {
+    "phone-home.html": "13:03",
+    "phone-break.html": "13:04",
+    "phone-shifts.html": "13:06",
+    "phone-hours.html": "13:40",
+    "phone-clockin.html": "10:38",
+}
+
+
+def phone(title, screen, current, cta="", time="9:41"):
     return f'''<!doctype html>
 <html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{title} &middot; Workforce crew app concept</title>
+<title>{title} &middot; Workforce team member app concept</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../../assets/product/tokens.css"><link rel="stylesheet" href="../../../../assets/product/components.css">
 <style>html,body{{width:393px;height:852px;overflow:hidden}}
 .p-phone{{width:393px;height:852px;border:0;border-radius:0;box-shadow:none}}</style>
 </head><body class="p-app">
 <div class="p-phone">
-  <div class="p-status"><span>9:41</span><span>KFC Riverside</span></div>
+  {status_bar(time)}
   <div class="p-screen" style="padding:0 0 0;display:flex;flex-direction:column">
     <div style="flex:1;overflow:hidden;padding:0 16px">{screen}</div>
     {cta}
@@ -69,14 +86,14 @@ HOME = '''
 <div class="p-card" style="padding:4px 14px 8px;margin-bottom:12px">
   <div class="p-mstat"><div class="p-mstat-l">This week so far<span>Of your 15 contracted hours</span></div><div class="p-mstat-v">9.25 hrs</div></div>
   <div class="p-mstat"><div class="p-mstat-l">Expected pay this week<span>Updates when you clock out</span></div><div class="p-mstat-v">$253.45</div></div>
-  <div class="p-mstat"><div class="p-mstat-l">Annual leave available<span>Updated after your last shift</span></div><div class="p-mstat-v good">25.5 hrs</div></div>
+  <div class="p-mstat"><div class="p-mstat-l">Annual leave available<span>After Thursday, agreed at 10:02</span></div><div class="p-mstat-v good">21.5 hrs</div></div>
 </div>
 <div class="p-card" style="padding:12px 14px">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-    <div><b style="font-size:var(--p-fs-3)">Thursday off, still unpaid</b>
-    <div class="p-meta" style="margin-top:2px">Nadia A., your rostering manager, asked whether to make it annual leave. One tap either way.</div></div>
+    <div><b style="font-size:var(--p-fs-3)">Thursday is now paid annual leave</b>
+    <div class="p-meta" style="margin-top:2px">Nadia A., your rostering manager, asked this morning whether to make it annual leave. You agreed at 10:02, and 4 hrs come off your balance.</div></div>
   </div>
-  <div class="p-actions" style="margin-top:10px"><button class="p-btn p-btn-primary p-btn-sm">Use annual leave</button><button class="p-btn p-btn-secondary p-btn-sm">Leave it unpaid</button></div>
+  <div class="p-actions" style="margin-top:10px"><button class="p-btn p-btn-secondary p-btn-sm">See the leave</button><button class="p-btn p-btn-ghost p-btn-sm">Change my answer</button></div>
 </div>
 '''
 
@@ -189,7 +206,7 @@ if __name__ == "__main__":
         ("phone-clockin.html", "Clock in", CLOCKIN, "home", CLOCKIN_CTA),
     ):
         f = SCR / name
-        body = phone(title, screen, cur, cta)
+        body = phone(title, screen, cur, cta, TIMES[name])
         changed = not (f.exists() and f.read_text() == body)
         if changed:
             f.write_text(body)

@@ -118,8 +118,20 @@ want("offer.html", f"${D.ADULT_RATE:.2f}", "and the adult rate it is a percentag
 want("offer.html", f"{int(D.JUNIOR_PCT[16] * 100)}%", "and the percentage itself, so the figure can be checked")
 want("consent.html", f"${D.TIA_RATE:.2f}", "a guardian agreeing to employment can see the rate")
 # The arithmetic has to hold, not just appear.
-if abs(D.TIA_RATE - D.ADULT_RATE * D.JUNIOR_PCT[16]) > 0.01:
-    fails.append(f"hiring_data: ${D.TIA_RATE:.2f} is not {int(D.JUNIOR_PCT[16]*100)}% of ${D.ADULT_RATE:.2f}")
+# A casual is paid the junior percentage plus the casual loading, not the
+# permanent junior rate. Both parts of the arithmetic have to hold.
+if abs(D.TIA_BASE_RATE - D.ADULT_RATE * D.JUNIOR_PCT[16]) > 0.01:
+    fails.append(f"hiring_data: ${D.TIA_BASE_RATE:.2f} is not {int(D.JUNIOR_PCT[16]*100)}% of ${D.ADULT_RATE:.2f}")
+if abs(D.TIA_RATE - D.TIA_BASE_RATE * (1 + D.CASUAL_LOADING)) > 0.01:
+    fails.append(f"hiring_data: ${D.TIA_RATE:.2f} is not the junior rate plus {int(D.CASUAL_LOADING*100)}% casual loading")
+for n in ("offer.html", "consent.html"):
+    if f"${D.TIA_RATE:.2f}" in text(n) and f"{int(D.CASUAL_LOADING*100)}% casual loading" not in text(n):
+        fails.append(f"{n}: quotes the casual rate without naming the casual loading")
+# The auto-schedule rule on the queue must be the rule the case specification states.
+want("queue.html", "three to five shifts a week", "the queue states the rule the specification versions (3, 4 or 5 shifts)")
+# Otis's wait is one figure on every screen that shows it.
+for n in ("pipeline.html", "queue.html", "humanlane.html"):
+    want(n, D.OTIS_WAIT, "the wait is one number across the board, the queue and the lane")
 if D.ADULT_RATE < 24.10:
     fails.append(f"hiring_data: ${D.ADULT_RATE:.2f} is below the adult minimum wage for 2024")
 # A junior rate must never appear without the percentage that explains it.
@@ -205,22 +217,18 @@ else:
 # The lint reads markup, so a screen can be corrected and still ship the old
 # picture. Both stylesheets count as sources: a token change makes every capture
 # stale, not only the ones whose own markup moved.
-CSS_MTIME = max((ROOT / "assets/product/tokens.css").stat().st_mtime,
-                (ROOT / "assets/product/components.css").stat().st_mtime)
+# The comparison is a content hash recorded at capture time, so it holds on a
+# fresh clone, where modification times are whatever git wrote.
+from freshness import stale_reason  # noqa: E402
 for n in ALL:
-    png = IMG / (n[:-5] + ".png")
-    if not png.exists():
-        fails.append(f"{n}: no capture at img/{png.name}")
-        continue
-    newest = max((SCR / n).stat().st_mtime, CSS_MTIME)
-    if png.stat().st_mtime < newest:
-        why = "the screen" if (SCR / n).stat().st_mtime >= CSS_MTIME else "the stylesheets it uses"
-        fails.append(f"img/{png.name}: captured before {why} was last written")
+    why = stale_reason(IMG, n[:-5] + ".png", SCR / n)
+    if why:
+        fails.append(f"img/{n[:-5]}.png: {why}")
 
 # ---------------------------------------------------------------------- done
 print(f"checked {len(ALL)} screens")
 print(f"  cast: {len(D.CAST)} people and one assistant")
-print(f"  rates: ${D.TIA_RATE:.2f} is {int(D.JUNIOR_PCT[16]*100)}% of ${D.ADULT_RATE:.2f}")
+print(f"  rates: ${D.TIA_RATE:.2f} is {int(D.JUNIOR_PCT[16]*100)}% of ${D.ADULT_RATE:.2f} plus {int(D.CASUAL_LOADING*100)}% casual loading")
 print(f"  pipeline: {n_cards} cards across {len(D.PIPELINE)} stages")
 if fails:
     print(f"\nFACT CHECK FAILED, {len(fails)} disagreement(s):\n")

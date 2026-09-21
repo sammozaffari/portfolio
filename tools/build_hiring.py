@@ -18,6 +18,15 @@ Usage: build_hiring.py
 """
 import pathlib
 import hiring_data as D
+from statusbar import status_bar
+
+# The clock on each screen: a sixteen year old applies after school, a parent
+# consents in the evening (Nina agreed at 6:48pm), the offer is read after
+# school on Friday and the work-rights check is a Saturday morning.
+TIMES = {
+    "find": "16:12", "questions": "16:15", "consent": "18:46", "book": "18:52",
+    "rights": "10:20", "offer": "15:41", "before": "19:05",
+}
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SCR = ROOT / "articles/55/showcase/screens"
@@ -52,7 +61,7 @@ def phone(slug, title, body, cta="", step=None, bar=None):
 .p-phone{{width:393px;height:852px;border:0;border-radius:0;box-shadow:none}}</style>
 </head><body class="p-app">
 <div class="p-phone">
-  <div class="p-status"><span>9:41</span><span>KFC Careers</span></div>
+  {status_bar(TIMES.get(slug, "16:12"))}
   {appbar}
   <div class="p-screen" style="display:flex;flex-direction:column;padding-bottom:0">
     <div style="flex:1;overflow:hidden">{stepper}{body}</div>
@@ -154,7 +163,7 @@ consent_body = f'''
 </div>
 <div class="p-list" style="margin-top:18px">
   <div class="p-list-row"><div class="p-grow"><b>What they are agreeing to</b>
-    <span class="p-sub">The hours a 16 year old can work, the junior rate of ${D.TIA_RATE:.2f} an hour, and that you can stop at any time.</span></div></div>
+    <span class="p-sub">The hours a 16 year old can work, the casual junior rate of ${D.TIA_RATE:.2f} an hour, and that you can stop at any time.</span></div></div>
   <div class="p-list-row"><div class="p-grow"><b>What happens if they do not</b>
     <span class="p-sub">Nothing on your record. No rejection, and you can come back when you turn 17.</span></div></div>
 </div>
@@ -164,7 +173,7 @@ consent_body = f'''
   <li>You pick an interview time that suits you</li>
   <li>You meet {D.CAST["keira"]["name"]} at the restaurant</li>
 </ol>
-<p class="p-meta" style="margin-top:14px">Your rate is {int(D.JUNIOR_PCT[16]*100)}% of the adult Level 1 rate of ${D.ADULT_RATE:.2f}, and it steps up on each birthday.</p>
+<p class="p-meta" style="margin-top:14px">Your rate is {int(D.JUNIOR_PCT[16]*100)}% of the adult Level 1 rate of ${D.ADULT_RATE:.2f}, plus {int(D.CASUAL_LOADING*100)}% casual loading, and it steps up on each birthday.</p>
 '''
 phone("consent", "Consent first", consent_body,
       cta("Remind Nina", secondary="Use a different contact"), step=(4, 5), bar="Almost there")
@@ -225,7 +234,7 @@ offer_body = f'''
 </div>
 <div class="p-list" style="border:1px solid var(--p-line);border-radius:var(--p-r-2);padding:2px 14px;margin-bottom:16px">
   <div class="p-list-row"><div class="p-grow"><b>Crew member, KFC {D.RESTAURANT}</b><span class="p-sub">Casual</span></div></div>
-  <div class="p-list-row"><div class="p-grow"><b>${D.TIA_RATE:.2f} an hour</b><span class="p-sub">{int(D.JUNIOR_PCT[16]*100)}% of the adult Level 1 rate of ${D.ADULT_RATE:.2f}, stepping up each birthday</span></div></div>
+  <div class="p-list-row"><div class="p-grow"><b>${D.TIA_RATE:.2f} an hour</b><span class="p-sub">{int(D.JUNIOR_PCT[16]*100)}% of the adult Level 1 rate of ${D.ADULT_RATE:.2f}, plus {int(D.CASUAL_LOADING*100)}% casual loading, stepping up each birthday</span></div></div>
   <div class="p-list-row"><div class="p-grow"><b>3 shifts a week</b><span class="p-sub">After school and Saturdays, the hours you said suited you</span></div></div>
   <div class="p-list-row"><div class="p-grow"><b>Starts {D.DAYS["start"][1]}</b><span class="p-sub">4:00pm to 8:00pm</span></div></div>
 </div>

@@ -197,6 +197,9 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 /* Phone frame for mobile screens */
 .p-phone { width: 393px; min-height: 852px; background: var(--p-panel); border: 1px solid var(--p-line-strong); border-radius: 36px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--p-shadow-2); }
 .p-phone .p-status { height: 54px; display: flex; align-items: flex-start; justify-content: space-between; padding: 13px 26px 0; font-size: 13px; font-weight: 600; }
+/* The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake. */
+.p-phone .p-status-icons { display: inline-flex; align-items: center; gap: 6px; }
+.p-phone .p-status-icons svg { display: block; height: 12px; width: auto; }
 .p-phone .p-app-bar { display: flex; align-items: center; gap: var(--p-s-3); padding: 6px 16px 10px; }
 .p-phone .p-app-bar h1 { font-size: var(--p-fs-5); }
 .p-phone .p-app-bar .p-back { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--p-line); display: grid; place-items: center; background: var(--p-panel); }

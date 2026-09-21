@@ -2,10 +2,31 @@
 """Capture showcase screens to 2x PNGs with headless Chrome.
 Usage: capture.py manifest.json   where manifest is a list of {"src": html path, "w": px, "h": px, "out": png path}.
 """
-import json, os, signal, subprocess, sys, pathlib, tempfile, shutil, time
+import json, os, signal, subprocess, sys, pathlib, tempfile, shutil, time, hashlib
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 items = json.load(open(sys.argv[1]))
+
+
+def source_hash(src_path):
+    """What a capture depends on: the screen and the two product stylesheets.
+    Recorded beside the PNGs at capture time, so a checker on a fresh clone can
+    tell a stale capture from a fresh one without trusting modification times,
+    which git does not preserve."""
+    h = hashlib.sha1()
+    for f in (src_path, ROOT / "assets/product/tokens.css", ROOT / "assets/product/components.css"):
+        h.update(f.read_bytes() if f.exists() else b"")
+    return h.hexdigest()[:16]
+
+
+def record_hash(out, src_path):
+    store = out.parent / "sources.json"
+    try:
+        d = json.loads(store.read_text()) if store.exists() else {}
+    except json.JSONDecodeError:
+        d = {}
+    d[out.name] = source_hash(src_path)
+    store.write_text(json.dumps(dict(sorted(d.items())), indent=1) + "\n")
 MIN_W = 500  # headless Chrome lays out at about 500px minimum and crops below it,
              # so a narrower request silently returns a cropped desktop layout
 for it in items:
@@ -45,6 +66,7 @@ for it in items:
     proc.wait()
     shutil.rmtree(ud, ignore_errors=True)
     if out.exists() and out.stat().st_mtime > before:
+        record_hash(out, src)
         print("ok", it["out"], os.path.getsize(out))
     else:
         print("FAILED", it["out"])

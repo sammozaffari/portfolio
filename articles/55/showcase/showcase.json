@@ -14,7 +14,7 @@
   },
   {
    "dt": "How it is built",
-   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting and workforce products, gated by a contrast script, a component manifest, a consistency check and a site lint. Every component was checked against shipped products on Mobbin before it was drawn."
+   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting and workforce products, gated by a contrast script, a component manifest, a consistency check and a site lint. Components were checked against shipped products before they were drawn; the reference list is in the repository."
   },
   {
    "dt": "Confidentiality",
@@ -36,7 +36,7 @@
   "body": [
    "This is the third product on the same token file and component library as the safety reporting and workforce platforms. A badge, a table row and a primary button behave identically across all three, because the same restaurant manager uses all three in the same week.",
    "What differs here is the surface. Seven of the ten modules are public-facing, met by a sixteen year old applying for a first job, so they are built on the brand's own system rather than the product's neutral one: black and red as fields rather than accents, the brand's cut-corner speech-bubble shape, and the hard black ledge under a white card that is the careers site's most distinctive move.",
-   "That choice is the argument the assistant module makes. The careers site advertises the assistant in black and red with the brand display face and a confident phone mock. The thing that actually loads is a vendor skin in pale mint with grey body text and a crimson that is not the brand's red. The concept builds the one that was promised."
+   "That choice is the argument the assistant module makes. The careers site advertises the assistant in black and red with the brand display face and a confident phone mock. What candidates met did not look like that brand, and it asked them to accept terms before it asked a question. The concept builds the one that was promised."
   ]
  },
  "footNav": [
@@ -74,8 +74,8 @@
    "findingLabel": "What the research found",
    "finding": "The old application asked more than it decided, across more than one system. Screening reduces to five things that actually change a decision: minimum age, work rights, availability, shifts per week, and the high-demand shift.",
    "body": [
-    "The assistant says what it is in its first line, and says that nothing in the conversation is a decision on its own. That is not a courtesy. It is the design rule the work-rights finding produced, written where the candidate can see it.",
-    "The careers site advertises this assistant in black and red with the brand display face. What loads is a vendor skin in pale mint with grey body text and an off-brand crimson, behind a disabled composer and a terms gate. This module builds the one the brand promised."
+    "The assistant says what it is in its first line, and says that nothing in the conversation is a decision on its own. That line is the work-rights rule, put where the candidate can see it.",
+    "The careers site advertises this assistant in black and red with the brand display face. What candidates met did not look like the brand that advertised it, and sat behind a disabled composer and a terms gate. This module builds the one the brand promised."
    ],
    "caption": "The five questions, as tappable answers rather than a form. The progress is visible and any answer can be changed before the end.",
    "img": "img/questions.png",

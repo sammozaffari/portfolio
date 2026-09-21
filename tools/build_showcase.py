@@ -51,6 +51,8 @@ def md_tables(paths):
 def md_inline(s):
     s = e(s)
     s = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', s)
+    # a relative link renders too; the intro of one showcase shipped one as raw markdown
+    s = re.sub(r'\[([^\]]+)\]\(((?:\.{1,2}/|#)[^)]+)\)', r'<a href="\2">\1</a>', s)
     s = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', s)
     return s
 
@@ -63,24 +65,36 @@ def ref_link(s):
         return f'<a href="{e(m.group(1))}" target="_blank" rel="noopener">{e(str(s).replace(m.group(1), "").strip(" —-"))}</a>'
     return e(s)
 
-def shot(img, markers=None, phone=False):
+def first_sentence(s):
+    s = re.sub(r'\*\*|\[([^\]]+)\]\([^)]+\)', r'\1', str(s)).strip()
+    m = re.match(r'(.+?[.!?])(\s|$)', s)
+    return (m.group(1) if m else s).strip()
+
+def shot(img, markers=None, phone=False, alt=""):
+    # every screen carries an alt that says what it is; the caption carries the
+    # argument, and a screen reader got nothing from fifty-eight empty alts
     w, h = png_size(img)
     if phone:
         # a real device frame: the display size, corner radius, island and safe
         # areas are the iPhone 15 specification scaled, not an eyeballed crop
         return (f'<div class="dv-phone"><div class="dv-screen">'
-                f'<img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy">'
+                f'<img src="{e(img)}" width="{w//2}" height="{h//2}" alt="{e(alt)}" loading="lazy">'
                 f'</div></div>')
-    return (f'<div class="shot reveal"><img src="{e(img)}" width="{w//2}" height="{h//2}" alt="" loading="lazy"></div>')
+    return (f'<div class="shot reveal"><img src="{e(img)}" width="{w//2}" height="{h//2}" alt="{e(alt)}" loading="lazy"></div>')
 
 def notes_block(d, limit=None):
     o = ['<div class="notes">']
     for m in (d["markers"][:limit] if limit else d["markers"]):
         o.append(f'<div class="note"><span class="n">{m["n"]}</span><div>')
-        dd = str(m.get("finding", "")).strip().lower() in ("design decision", "design decision.")
-        o.append(f'<h4>{e(m["title"])}{" <span class=\'dd\'>Design decision</span>" if dd else ""}</h4>')
-        if m.get("finding") and not dd:
-            o.append(f'<p><b>Finding</b>{e(m["finding"])}</p>')
+        # "Design decision" is a kicker, not part of the heading sentence and not
+        # the first words of a finding; it rendered as both, four times, on one page
+        finding = str(m.get("finding", "")).strip()
+        dd = finding.lower().startswith("design decision")
+        if dd:
+            finding = re.sub(r'^design decision[.,]?\s*', '', finding, flags=re.I)
+        o.append(f'<h4>{e(m["title"])}</h4>{"<span class=\'dd\'>Design decision</span>" if dd else ""}')
+        if finding:
+            o.append(f'<p><b>Finding</b>{e(finding)}</p>')
         if m.get("decision"):
             o.append(f'<p><b>Decision</b>{e(m["decision"])}</p>')
         if m.get("rejected"):
@@ -172,7 +186,7 @@ def story_block(mod, notes):
         for i, sh in enumerate(st_dev["shots"]):
             w, h = png_size(sh)
             on = " is-on" if (si == 0 and i == 0) else ""
-            o.append(f'<img class="st-shot{on}" src="{e(sh)}" width="{w//2}" height="{h//2}" alt="" decoding="async">')
+            o.append(f'<img class="st-shot{on}" src="{e(sh)}" width="{w//2}" height="{h//2}" alt="{e(mod["kicker"])}, {e(mod["title"])}, screen {i + 1}" decoding="async">')
         o.append('</div></div>')
     o.append('</div></div>')
     o.append('<ol class="st-copy">')
@@ -215,7 +229,7 @@ for mod in spec["modules"]:
         # only pin what the page goes on to explain, so no number is left orphaned
         limit = mod.get("noteLimit", 4)
         pins = d["markers"][:limit] if d else None
-        parts.append(shot(img, pins, mod.get("phone")))
+        parts.append(shot(img, pins, mod.get("phone"), alt=f'{mod["kicker"]}, {mod["title"]}: {first_sentence(mod["caption"])}'))
     parts.append(f'<p class="shot-cap"><span class="fignum">{e(mod["figure"])}</span>{md_inline(mod["caption"])}</p>')
     if d and not sb:
         # a module without a story shows the decisions that carry it, not all of them
@@ -234,7 +248,7 @@ for mod in spec["modules"]:
         parts.append('<div class="states phones">' if mod.get("phone") else '<div class="states">')
         for s in states:
             sd = load_notes(s["annotations"]) if s.get("annotations") else None
-            parts.append(f'<figure>{shot(s["img"], sd["markers"] if sd else None, mod.get("phone"))}<figcaption><b>{e(s["title"])}</b>{md_inline(s["cap"])}</figcaption></figure>')
+            parts.append(f'<figure>{shot(s["img"], sd["markers"] if sd else None, mod.get("phone"), alt=s["title"] + ": " + first_sentence(s["cap"]))}<figcaption><b>{e(s["title"])}</b>{md_inline(s["cap"])}</figcaption></figure>')
             if sd:
                 state_notes.append((s["title"], sd))
         parts.append("</div>")
@@ -253,6 +267,7 @@ page = f"""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{e(spec['description'])}">
 <title>{e(spec['title'])} · Sam Mozaffari</title>
+<meta property="og:type" content="website"><meta property="og:title" content="{e(spec['title'])} · Sam Mozaffari"><meta property="og:description" content="{e(spec['description'])}"><meta property="og:url" content="https://sammozaffari.github.io/the-agentic-service-designer-site/{SC.relative_to(ROOT)}/index.html"><meta property="og:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(spec['title'])} · Sam Mozaffari"><meta name="twitter:description" content="{e(spec['description'])}"><meta name="twitter:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/style.css?v=9">
 <link rel="stylesheet" href="../../../assets/showcase.css?v=9">

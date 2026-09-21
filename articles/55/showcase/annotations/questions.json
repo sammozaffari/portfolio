@@ -7,9 +7,9 @@
    "x": 50.0,
    "y": 50.0,
    "title": "The advertised assistant and the real one are two different products",
-   "finding": "The careers homepage advertises this assistant in black and red, in the brand's heavy italic display face, with a phone mock showing black assistant bubbles answered in red. The assistant that actually loads is a 338 by 324 vendor popover in pale mint with grey body text and a crimson send button that is not the brand's red. On the apply page the composer is disabled until a terms card is opened, so the first thing a candidate meets is not a question.",
-   "decision": "Build the one the brand promised. Black bubbles, red answers, the brand's own speech-bubble shape, and the first thing on screen is the first question.",
-   "rejected": "Restyling the vendor widget, which leaves a 338 by 324 box floating over an art-directed page and still opens on a terms dialog."
+   "finding": "Candidates met a terms gate and a disabled composer before the first question, in a widget that did not look like the brand that advertised it.",
+   "decision": "Build the one the brand promised: black bubbles, red answers, and the first thing on screen is the first question.",
+   "rejected": "Restyling the vendor widget, which still opens on a terms dialog."
   },
   {
    "title": "Five, because five is what changes a decision",
