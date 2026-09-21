@@ -18,27 +18,34 @@ BLOCKED = _dec("TGlmZWxlbnp8TWFjcm9tYXRpeHxWYXVsdHxZdW18RG9uZXNhZmV8Q2xldmVyIEZp
 # Real suburbs and a real area code that reached a draft once. Same reasoning.
 PLACES = _dec("Tm9ydGhnYXRlfEFzaGdyb3ZlfDA3MzE=")
 WRONG_COUNTS = [r'\b80 (?:methods|skills)', r'\b30(?:-tool| tools| runtime tools)', r'\b(?:38|39) (?:registered |runtime )?(?:artifact|template) kinds', r'\b12 (?:emitted|platform|distribution)', r'\b232 (?:corpus )?resources', r'\b(?:51|50) published', r'\b43 practice']
-def text_of(s):
-    s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>|<svg.*?</svg>', ' ', s, flags=re.S)
+def text_of(s, keep_svg=False):
+    # SVG text is text a reader sees; a wrong tool count sat inside an SVG for
+    # a month because this stripped it. Counts are checked with the SVG kept.
+    s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>' + ('' if keep_svg else '|<svg.*?</svg>'), ' ', s, flags=re.S)
     return html.unescape(re.sub(r'<[^>]+>', ' ', s))
 errors = []
-pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'docs/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')))
+pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')) + glob.glob(str(ROOT/'articles/*/artifacts/*.html')))
 for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
-    for b in (BANNED if not str(rel).startswith('docs/') else []):
+    for b in BANNED:
         for m in re.finditer(re.escape(b), t, flags=re.I): errors.append(f'{rel}: banned "{b}"')
     for b in BLOCKED:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: blocked name {b}')
     for b in PLACES:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: real place or store code {b}')
     for pat in WRONG_COUNTS:
-        if re.search(pat, t): errors.append(f'{rel}: wrong tooling count {pat}')
+        if re.search(pat, text_of(s, keep_svg=True)): errors.append(f'{rel}: wrong tooling count {pat}')
     if '<html lang="en-AU">' not in s: errors.append(f'{rel}: lang is not en-AU')
     if re.search(r'<nav class="main-nav">(?:(?!</nav>).)*library\.html', s, flags=re.S): errors.append(f'{rel}: Library in header nav')
     if re.search(r'brand-title">The Agentic Service Designer', s): errors.append(f'{rel}: wrong brand block')
-    n_dash = len(re.findall(r'—', t))
-    if n_dash and str(rel).startswith(('index','articles.html','about','cv','library','writing')) : errors.append(f'{rel}: {n_dash} em dashes in prose')
-    if str(rel).startswith('articles/57') and n_dash: errors.append(f'{rel}: {n_dash} em dashes in prose')
+    # every page on the site, not a list of the ones that used to matter: the
+    # Library carried about 190 em dashes while the rule ran on seven pages
+    n_dash = len(re.findall(r'—', t)) + len(re.findall(r'—', ' '.join(re.findall(r'<svg.*?</svg>', s, flags=re.S))))
+    if n_dash: errors.append(f'{rel}: {n_dash} em dashes in prose')
+    # a quotation may keep its contraction: the comment category a guest wrote is theirs
+    _unquoted = re.sub(r'["\u201c][^"\u201d]{0,120}["\u201d]', ' ', t)
+    for m in re.finditer(r"\b(?:don't|doesn't|didn't|isn't|aren't|wasn't|weren't|won't|can't|couldn't|shouldn't|wouldn't|hasn't|haven't|it's|that's|what's|there's|here's|let's|we're|they're|you're|I'm|I've|we've)\b", _unquoted):
+        errors.append(f'{rel}: contraction \"{m.group(0)}\"')
     if re.search(r'<span class="kicker">0\d\s*[—·]', s): errors.append(f'{rel}: numbered kicker')
     # every image on a case or showcase page says what it is; fifty-eight module
     # screens shipped with alt="" and captions that describe the argument, not the screen
