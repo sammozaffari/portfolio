@@ -1,7 +1,7 @@
 /* Product design tokens for the safety reporting concept.
    One source for the showcase screens, the prototype and the research explorer.
 
-   Colour: the brand red is the client's, and it does one job, the primary action.
+   Colour: the brand red is the brand's, and it does one job, the primary action.
    Status colour is a separate, quieter family, deliberately lower in chroma so a
    red action never competes with a red state. Every text/surface pair below clears
    WCAG AA 4.5:1 and every control border clears 3:1 (tools/contrast_check.py).

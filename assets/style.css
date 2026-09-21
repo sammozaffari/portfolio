@@ -263,12 +263,12 @@ code, kbd, pre { font-family: var(--mono); }
   color: var(--ink-soft);
   background: transparent;
 }
-.category-label.label-client {
+.category-label.label-work {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
 }
-.card.dark .category-label.label-client {
+.card.dark .category-label.label-work {
   background: var(--dark-ink);
   border-color: var(--dark-ink);
   color: var(--dark);
@@ -888,10 +888,10 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .metrics-row dd { margin: 0; font-size: var(--t-5); font-weight: 600; color: var(--ink); }
 .metrics-row dd.status-available { color: #3f6b3a; }
 
-/* ---------- client-work band ---------- */
-.client-band { padding: 72px 0 12px; }
-.client-band .band-head p.client-lede { max-width: none; }
-.client-band .portfolio-grid { padding-bottom: 24px; }
+/* ---------- work band ---------- */
+.work-band { padding: 72px 0 12px; }
+.work-band .band-head p.work-lede { max-width: none; }
+.work-band .portfolio-grid { padding-bottom: 24px; }
 
 /* =============================================================
    RESPONSIVE — consolidated breakpoints (rule order preserves the
@@ -985,8 +985,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 
 
 /* ---------- v7: link affordance, feature image, tiles ---------- */
-.art-body a:not(.card-cta), .sec p a, .sec-head p a, .client-lede a, .status-line a, .lede a, .cv-wrap a, .review-note a, .about-intro a, .feature-caption a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
-.art-body a:not(.card-cta):hover, .sec p a:hover, .sec-head p a:hover, .client-lede a:hover, .lede a:hover, .cv-wrap a:hover, .about-intro a:hover { text-decoration-color: var(--ink); }
+.art-body a:not(.card-cta), .sec p a, .sec-head p a, .work-lede a, .status-line a, .lede a, .cv-wrap a, .review-note a, .about-intro a, .feature-caption a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line-strong); }
+.art-body a:not(.card-cta):hover, .sec p a:hover, .sec-head p a:hover, .work-lede a:hover, .lede a:hover, .cv-wrap a:hover, .about-intro a:hover { text-decoration-color: var(--ink); }
 .feature-fig { background: #f4f3ee; min-height: 0; }
 .feature-fig img { position: static; width: 100%; height: 100%; object-fit: contain; object-position: center; display: block; }
 @media (max-width: 900px) { .feature-fig { aspect-ratio: 16 / 10; border-top: 1px solid rgba(255,255,255,.12); } .feature-fig img { object-fit: cover; object-position: 0 0; } }

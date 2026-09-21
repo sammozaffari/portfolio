@@ -6,7 +6,7 @@ import re, sys, pathlib, glob, html, struct
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 BANNED = ['under review', 'unconfirmed', 'illustrative', 'not verified', 'cannot confirm', 'would be fabrication',
           'being confirmed', 'being re-checked', 'Failed at nothing', 'Friday ritual', 'client engagements', 'practice studies',
-          'Whether this write-up']
+          'Whether this write-up', 'the client', 'agreed with the client', 'client stakeholders', 'Engagement ·']
 # GitHub Pages serves this repository from its root, so every file here is a page
 # on the public site, including this one. Spelling the vendor names out in source
 # would publish, at a fetchable URL and beside the client's name, the exact list

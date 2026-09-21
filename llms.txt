@@ -21,7 +21,7 @@
 - [Work](https://sammozaffari.github.io/the-agentic-service-designer-site/articles.html)
 - [About](https://sammozaffari.github.io/the-agentic-service-designer-site/about.html)
 - [CV](https://sammozaffari.github.io/the-agentic-service-designer-site/cv.html)
-- [Library](https://sammozaffari.github.io/the-agentic-service-designer-site/library.html): a book and open tooling on running service design with AI agents. Personal projects with fictional examples, not client work.
+- [Library](https://sammozaffari.github.io/the-agentic-service-designer-site/library.html): a book and open tooling on running service design with AI agents. Personal projects with fictional examples, separate from employment work.
 
 ## Contact
 
