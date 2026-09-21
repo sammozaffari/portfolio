@@ -167,6 +167,21 @@ for _p in ROOT.rglob('*'):
             and str(_rel) not in _ALLOWED_MD):
         errors.append(f'{_rel}: internal notes under a served path; keep them outside the repository')
 
+# --- nothing scrolls inside its container ------------------------------
+# The rule was matched against inline styles only, so a class that set
+# overflow-x: auto on the blueprint wrapper put an 1100px table in a 292px
+# box on every phone. Any served stylesheet or page style block that sets
+# overflow-x to auto or scroll fails, except the vendor directory.
+# Code blocks may scroll (a long line of configuration is not an artefact), and
+# the product stylesheet is exempt because screens are published as pictures.
+for _f in glob.glob(str(ROOT / 'assets/*.css')) + glob.glob(str(ROOT / '*.html')) + glob.glob(str(ROOT / 'articles/*/index.html')) + glob.glob(str(ROOT / 'articles/*/artifacts/*.html')):
+    _p = pathlib.Path(_f); _rel = _p.relative_to(ROOT); _css = _p.read_text(errors='ignore')
+    for _m in re.finditer(r'overflow-x\s*:\s*(auto|scroll)', _css):
+        _sel = _css[max(0, _css.rfind('}', 0, _m.start())):_m.start()].split('{')[0].strip()
+        if re.search(r'\b(pre|code)\b', _sel):
+            continue
+        errors.append(f'{_rel}: overflow-x: {_m.group(1)} on "{_sel[-60:]}" lets something scroll inside its container')
+
 # --- design system gates -------------------------------------------------
 import subprocess, json as _json
 _ds = []

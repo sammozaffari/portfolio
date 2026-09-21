@@ -166,7 +166,7 @@
 /* ---------- About (Pentagram split) ---------- */
 .pf-about { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 88px); padding-block: clamp(64px, 8vw, 104px) clamp(34px, 4vw, 56px); align-items: start; }
 .pf-about h1 { font-size: var(--pf-h1); line-height: 1.02; letter-spacing: -0.028em; font-weight: 700; margin: 0; max-width: 12ch; }
-.pf-about-body p { font-size: var(--pf-lead); line-height: 1.58; color: var(--ink-soft); margin: 0 0 20px; max-width: var(--pf-measure); }
+.pf-about-body p { font-size: var(--pf-lead); line-height: 1.58; color: var(--ink-soft); margin: 0 0 20px; max-width: 56ch; }
 .pf-about-body p:first-child { color: var(--ink); }
 .pf-about-body p:last-child { margin-bottom: 0; }
 

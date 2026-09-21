@@ -75,6 +75,7 @@
 
 .sc-foot-nav { display: flex; gap: 14px; flex-wrap: wrap; padding-block: 34px 60px; border-top: 1px solid var(--line); margin-top: 40px; }
 
+@media (max-width: 480px) { .sc-hero-facts { grid-template-columns: 1fr; } }
 @media (max-width: 720px) {
   .sc-hero-facts div { border-right: 0; border-bottom: 1px solid var(--line); padding-left: 0; }
   .notes { grid-template-columns: 1fr; }

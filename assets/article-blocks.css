@@ -40,7 +40,7 @@
   .ds-gallery { grid-template-columns: 1fr; }
 }
 
-.ds-table-scroll { overflow-x: auto; margin: 24px 0; }
+
 .ds-tokens, .ds-iter {
   width: 100%;
   border-collapse: collapse;

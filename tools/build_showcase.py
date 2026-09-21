@@ -50,7 +50,7 @@ def md_tables(paths):
 
 def md_inline(s):
     s = e(s)
-    s = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', s)
+    s = re.sub(r'\[([^\]]+)\]\((https?://[^)]+)\)', r'<a href="\2">\1</a>', s)
     # a relative link renders too; the intro of one showcase shipped one as raw markdown
     s = re.sub(r'\[([^\]]+)\]\(((?:\.{1,2}/|#)[^)]+)\)', r'<a href="\2">\1</a>', s)
     s = re.sub(r'\*\*([^*]+)\*\*', r'<b>\1</b>', s)
@@ -59,10 +59,10 @@ def md_inline(s):
 def ref_link(s):
     m = re.match(r'(.*?)\s+[—-]\s+(https?://\S+)$', str(s).strip())
     if m:
-        return f'<a href="{e(m.group(2))}" target="_blank" rel="noopener">{e(m.group(1))}</a>'
+        return f'<a href="{e(m.group(2))}">{e(m.group(1))}</a>'
     m = re.search(r'(https?://\S+)', str(s))
     if m:
-        return f'<a href="{e(m.group(1))}" target="_blank" rel="noopener">{e(str(s).replace(m.group(1), "").strip(" —-"))}</a>'
+        return f'<a href="{e(m.group(1))}">{e(str(s).replace(m.group(1), "").strip(" —-"))}</a>'
     return e(s)
 
 def first_sentence(s):
@@ -314,7 +314,7 @@ page = f"""<!doctype html>
 <script src="../../../assets/playonce.js?v=12"></script>
 <footer class="footer">
   <span>Sam Mozaffari · Experience Designer, Sydney.</span>
-  <span><a href="../../../library.html">Library</a> · <a href="../../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari" target="_blank" rel="noopener">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7" target="_blank" rel="noopener">LinkedIn</a></span>
+  <span><a href="../../../library.html">Library</a> · <a href="../../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7">LinkedIn</a></span>
 </footer>
 </body></html>
 """

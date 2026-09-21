@@ -47,8 +47,8 @@
   },
   {
    "kind": "btn-ghost",
-   "href": "../prototypes/service-blueprint.html",
-   "text": "Open the service blueprint"
+   "href": "../artifacts/proposals.html",
+   "text": "Open the scored proposals"
   }
  ],
  "modules": [
@@ -265,7 +265,7 @@
    "findingLabel": "What the research found",
    "finding": "There was no standard baseline of enabled features across the business. Shift swaps and messaging were configured differently by location, managers did not know what was available to them, and an area coach could not enable a feature for a single restaurant inside a larger franchise group.",
    "body": [
-    "This is the module that came out of the twenty-six per cent of pain points tagged as education. The report asked for the configurable options to be published clearly so managers know what is available to them, and a screen is the honest way to publish them.",
+    "This is the module that came out of the 26 per cent of pain points tagged as education. The report asked for the configurable options to be published clearly so managers know what is available to them, and a screen is the honest way to publish them.",
     "Franchise autonomy is real and is not being designed away. What the console changes is that the variation becomes visible and deliberate, instead of being discovered by a manager who assumed a feature did not exist."
    ],
    "caption": "Every configurable feature against every restaurant in the group, with who can change it and what happens when it is off.",
