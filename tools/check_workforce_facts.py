@@ -187,6 +187,11 @@ want("labour-live.html", f"{worked:.1f}", "hours worked by 13:04 come from the r
 want("labour-live.html", f"Rostered {rostered:.1f}", "hours rostered today come from the roster")
 if worked > rostered:
     fails.append("labour-live.html: hours worked exceed hours rostered, which cannot happen")
+# The open shift that Omar's leave creates is his shift: same role, same time.
+open_shifts = [(n, s) for _a, _sw, people in R.AREAS for n, _r, week in people for s in week if s and s[3] == "open"]
+if len(open_shifts) != 1 or open_shifts[0][1][:3] != ("15:00", "21:00", "Drive thru"):
+    fails.append(f"build_roster: the open shift is {open_shifts}, and the leave screen says Sat 9 Nov, 15:00 to 21:00, drive thru")
+want("leave-range.html", "Sat 9 Nov leaves the drive thru one short", "the leave screen names the gap the open shift fills")
 want_not(r"\bSarah\b", "is an owner who is in no cast; owners are First L. and come from the registry")
 want_not(r"break unclear|Break rule unclear", "hedges a rule the product decides: a 5.25 hour shift attracts a meal break")
 
