@@ -15,16 +15,16 @@ body.p-app { background: var(--p-canvas); color: var(--p-ink); font: 400 var(--p
 .p-muted { color: var(--p-ink-3); }
 .p-meta { font-size: var(--p-fs-1); color: var(--p-ink-3); }
 .p-app a.p-meta { color: var(--p-ink-2); text-decoration-color: var(--p-line); }
-.p-caps { font-family: var(--p-font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-3); }
+.p-caps { font-family: var(--p-font-mono); font-size: var(--p-fs-0); font-weight: 500; letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-3); }
 
 /* App shell */
 .p-shell { display: grid; grid-template-columns: var(--p-sidebar-w) minmax(0, 1fr); min-height: 100vh; }
 .p-sidebar { background: var(--p-sidebar); color: var(--p-ink-on-sidebar); display: flex; flex-direction: column; padding: var(--p-s-4) var(--p-s-3); gap: var(--p-s-2); position: sticky; top: 0; height: 100vh; }
 .p-brand { display: flex; align-items: center; gap: var(--p-s-3); padding: var(--p-s-2) var(--p-s-2) var(--p-s-4); }
-.p-brand .p-brand-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--p-brand); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; letter-spacing: -0.02em; }
+.p-brand .p-brand-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--p-brand); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: var(--p-fs-3); letter-spacing: -0.02em; }
 .p-brand b { display: block; font-size: var(--p-fs-3); font-weight: 600; }
 .p-brand span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-on-sidebar-2); }
-.p-nav-label { padding: var(--p-s-3) var(--p-s-2) var(--p-s-1); font-size: 11px; letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-on-sidebar-2); }
+.p-nav-label { padding: var(--p-s-3) var(--p-s-2) var(--p-s-1); font-size: var(--p-fs-0); letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-on-sidebar-2); }
 .p-nav a, .p-nav button { display: flex; align-items: center; gap: var(--p-s-3); width: 100%; padding: 9px var(--p-s-3); border-radius: var(--p-r-1); color: var(--p-ink-on-sidebar); font: inherit; font-size: var(--p-fs-3); background: none; border: 0; text-align: left; cursor: pointer; text-decoration: none; }
 .p-nav a:hover { background: var(--p-sidebar-hover); text-decoration: none; }
 .p-nav a[aria-current="page"] { background: var(--p-sidebar-active); font-weight: 600; }
@@ -118,7 +118,7 @@ body.p-app { background: var(--p-canvas); color: var(--p-ink); font: 400 var(--p
 /* Tables */
 .p-table-wrap { overflow: hidden; border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); box-shadow: var(--p-shadow-1); }
 table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2); }
-.p-table th { text-align: left; font-family: var(--p-font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-3); background: var(--p-panel); padding: 0 var(--p-s-3); height: 38px; border-bottom: 1px solid var(--p-line); position: sticky; top: 0; z-index: 1; }
+.p-table th { text-align: left; font-family: var(--p-font-mono); font-size: var(--p-fs-0); font-weight: 500; letter-spacing: var(--p-tracking-caps); text-transform: uppercase; color: var(--p-ink-3); background: var(--p-panel); padding: 0 var(--p-s-3); height: 38px; border-bottom: 1px solid var(--p-line); position: sticky; top: 0; z-index: 1; }
 .p-table td { padding: 11px var(--p-s-3); min-height: var(--p-row-h); border-bottom: 1px solid var(--p-line-2); vertical-align: middle; }
 .p-table td .p-badge, .p-table td.p-nowrap { white-space: nowrap; }
 .p-table tr:last-child td { border-bottom: 0; }
@@ -134,8 +134,8 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-pager button[aria-current="page"] { background: var(--p-ink); color: #fff; border-color: var(--p-ink); }
 
 /* Avatars and people */
-.p-avatar { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--p-neutral-bg); color: var(--p-ink-2); font-size: 11px; font-weight: 600; border: 1px solid var(--p-line); flex: none; }
-.p-avatar.sm { width: 22px; height: 22px; font-size: 10px; }
+.p-avatar { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--p-neutral-bg); color: var(--p-ink-2); font-size: var(--p-fs-0); font-weight: 600; border: 1px solid var(--p-line); flex: none; }
+.p-avatar.sm { width: 22px; height: 22px; font-size: var(--p-fs-0); }
 .p-person { display: inline-flex; align-items: center; gap: 8px; }
 
 /* Lists and timelines */
@@ -196,7 +196,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 
 /* Phone frame for mobile screens */
 .p-phone { width: 393px; min-height: 852px; background: var(--p-panel); border: 1px solid var(--p-line-strong); border-radius: 36px; overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--p-shadow-2); }
-.p-phone .p-status { height: 54px; display: flex; align-items: flex-start; justify-content: space-between; padding: 13px 26px 0; font-size: 13px; font-weight: 600; }
+.p-phone .p-status { height: 54px; display: flex; align-items: flex-start; justify-content: space-between; padding: 13px 26px 0; font-size: var(--p-fs-2); font-weight: 600; }
 /* The right side of the status bar is the real cluster, signal, wifi and battery, drawn as strokes in the current ink; a text label there read as a fake. */
 .p-phone .p-status-icons { display: inline-flex; align-items: center; gap: 6px; }
 .p-phone .p-status-icons svg { display: block; height: 12px; width: auto; }
@@ -231,7 +231,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 
 /* Charts (inline SVG built to the dataviz rules) */
 .p-chart { width: 100%; height: auto; display: block; font-family: var(--p-font); }
-.p-chart text { font-size: 11px; fill: var(--p-ink-3); }
+.p-chart text { font-size: var(--p-fs-0); fill: var(--p-ink-3); }
 .p-chart .grid { stroke: var(--p-c-grid); stroke-width: 1; }
 .p-chart .axis { stroke: var(--p-line-strong); stroke-width: 1; }
 .p-legend { display: flex; gap: var(--p-s-4); font-size: var(--p-fs-1); color: var(--p-ink-3); margin-top: var(--p-s-2); }
@@ -307,7 +307,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-table tr.p-note-row td { background: var(--p-danger-bg); border-left: 3px solid var(--p-danger); color: var(--p-danger); font-size: var(--p-fs-2); padding-top: var(--p-s-2); padding-bottom: var(--p-s-2); }
 
 /* Alias, because a bare .sm modifier collides with any screen-local .sm rule */
-.p-avatar-sm { width: 22px; height: 22px; font-size: 10px; }
+.p-avatar-sm { width: 22px; height: 22px; font-size: var(--p-fs-0); }
 
 /* The persistent report action lives on the dark sidebar, so the quiet brand
    button needs a dark-surface form: a pale pink block on black reads as a
@@ -365,7 +365,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-shift.leave { background: var(--p-w-leave-bg); border-color: var(--p-w-leave-line); border-left-color: var(--p-w-leave); color: var(--p-w-leave); }
 .p-shift.training { background: var(--p-w-training-bg); border-color: var(--p-w-training-line); border-left-color: var(--p-w-training); color: var(--p-w-training); }
 .p-shift.ghost { opacity: .45; }
-.p-shift-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 3px; font-weight: 600; font-size: 10.5px; letter-spacing: .01em; }
+.p-shift-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 3px; font-weight: 600; font-size: var(--p-fs-0); letter-spacing: .01em; }
 
 /* the totals strip: hours and cost per day, against the target the forecast set */
 .p-roster-grid > .p-rf { border-right: 1px solid var(--p-line-2); border-top: 1px solid var(--p-line); background: var(--p-panel-2); padding: var(--p-s-2) var(--p-s-3); font-size: var(--p-fs-1); font-variant-numeric: tabular-nums; }
@@ -379,7 +379,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-demand .fc { fill: var(--p-w-forecast); opacity: .22; }
 .p-demand .ac { fill: none; stroke: var(--p-w-actual); stroke-width: 2; }
 .p-demand .gap { fill: var(--p-w-overtime); opacity: .16; }
-.p-demand text { font-family: var(--p-font); font-size: 10px; fill: var(--p-ink-3); }
+.p-demand text { font-family: var(--p-font); font-size: var(--p-fs-0); fill: var(--p-ink-3); }
 
 /* coverage: how the hour-by-hour roster sits against what the forecast asked for */
 .p-cover { display: grid; gap: 2px; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: end; height: 34px; }
@@ -427,7 +427,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-modnav a { display: flex; align-items: center; padding: 0 var(--p-s-3); font-size: var(--p-fs-3); color: var(--p-ink-2); text-decoration: none; border-bottom: 2px solid transparent; white-space: nowrap; }
 .p-modnav a:hover { color: var(--p-ink); text-decoration: none; }
 .p-modnav a[aria-current="page"] { color: var(--p-ink); font-weight: 600; border-bottom-color: var(--p-brand); }
-.p-modnav a .p-count { margin-left: 6px; font-size: 11px; font-variant-numeric: tabular-nums; background: var(--p-neutral-bg); color: var(--p-ink-2); padding: 1px 6px; border-radius: var(--p-r-pill); }
+.p-modnav a .p-count { margin-left: 6px; font-size: var(--p-fs-0); font-variant-numeric: tabular-nums; background: var(--p-neutral-bg); color: var(--p-ink-2); padding: 1px 6px; border-radius: var(--p-r-pill); }
 .p-modnav a .p-count.attn { background: var(--p-warning-bg); color: var(--p-warning); }
 .p-where { display: flex; align-items: center; gap: var(--p-s-2); font-size: var(--p-fs-2); color: var(--p-ink-2); padding: 0 var(--p-s-3); height: 30px; border: 1px solid var(--p-line-strong); border-radius: var(--p-r-1); background: var(--p-panel); }
 .p-where b { color: var(--p-ink); font-weight: 600; }
@@ -441,7 +441,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 
 /* ---- the week stepper ---- */
 .p-weekpick { display: inline-flex; align-items: center; border: 1px solid var(--p-line-strong); border-radius: var(--p-r-1); background: var(--p-panel); height: 30px; overflow: hidden; }
-.p-weekpick button { width: 28px; height: 28px; border: 0; background: none; color: var(--p-ink-2); cursor: pointer; font-size: 13px; line-height: 1; }
+.p-weekpick button { width: 28px; height: 28px; border: 0; background: none; color: var(--p-ink-2); cursor: pointer; font-size: var(--p-fs-2); line-height: 1; }
 .p-weekpick b { padding: 0 var(--p-s-3); font-size: var(--p-fs-2); font-weight: 600; font-variant-numeric: tabular-nums; border-left: 1px solid var(--p-line); border-right: 1px solid var(--p-line); line-height: 28px; }
 
 /* ---- counter pills: a count that is a route into the work, not a badge ---- */
@@ -461,7 +461,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-rgrid > *:nth-child(8n + 1) { border-left: 0; }
 .p-rhead { height: 46px; padding: 6px var(--p-s-3); background: var(--p-panel); border-bottom: 1px solid var(--p-line); display: flex; flex-direction: column; justify-content: center; }
 .p-rhead b { font-size: var(--p-fs-2); font-weight: 600; }
-.p-rhead span { font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rhead span { font-size: var(--p-fs-0); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
 .p-rhead.today { background: var(--p-brand-quiet); box-shadow: inset 0 -2px 0 var(--p-brand); }
 .p-rhead .p-caps { margin: 0; }
 
@@ -474,15 +474,15 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-rname { padding: 8px var(--p-s-3); display: flex; align-items: center; gap: var(--p-s-2); min-height: var(--p-w-lane-h); background: var(--p-panel); }
 .p-rname .p-grow { min-width: 0; }
 .p-rname b { display: block; font-size: var(--p-fs-2); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.p-rname span { display: block; font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rname span { display: block; font-size: var(--p-fs-0); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
 .p-rname.flagged { background: var(--p-danger-bg); }
 
 .p-cell { min-height: var(--p-w-lane-h); padding: 4px; display: flex; flex-direction: column; gap: 3px; }
-.p-cell.empty::after { content: "+"; color: var(--p-line-strong); font-size: 15px; line-height: 1; margin: auto; opacity: .55; }
+.p-cell.empty::after { content: "+"; color: var(--p-line-strong); font-size: var(--p-fs-4); line-height: 1; margin: auto; opacity: .55; }
 .p-cell.hatched { background: repeating-linear-gradient(135deg, transparent 0 5px, var(--p-w-hatch) 5px 6px); }
 
 /* a shift chip. Grey by default, on purpose. */
-.p-shift { border-radius: 5px; padding: 4px 6px; font-size: 11.5px; line-height: 1.25; border: 1px solid var(--p-w-shift-line); background: var(--p-w-shift-bg); color: var(--p-w-shift); border-left-width: 3px; }
+.p-shift { border-radius: 5px; padding: 4px 6px; font-size: var(--p-fs-0); line-height: 1.25; border: 1px solid var(--p-w-shift-line); background: var(--p-w-shift-bg); color: var(--p-w-shift); border-left-width: 3px; }
 .p-shift b { display: block; font-weight: 600; font-variant-numeric: tabular-nums; }
 .p-shift span { display: block; color: var(--p-ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .p-shift.open { background: var(--p-w-open-bg); border-style: dashed; border-color: var(--p-w-open-line); color: var(--p-w-open); }
@@ -492,9 +492,9 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-shift.over { background: var(--p-w-overtime-bg); border-color: var(--p-danger-line); color: var(--p-w-overtime); }
 .p-shift.sel { box-shadow: 0 0 0 2px var(--p-ink); border-color: var(--p-ink); }
 /* the flag is a shape as well as a colour, so the state survives a greyscale print */
-.p-shift .p-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 2px; font-size: 10px; font-weight: 600; }
+.p-shift .p-flag { display: inline-flex; align-items: center; gap: 3px; margin-top: 2px; font-size: var(--p-fs-0); font-weight: 600; }
 .p-shift .p-flag::before { content: "!"; display: grid; place-items: center; width: 12px; height: 12px; border-radius: 50%; background: currentColor; color: var(--p-panel); font: 700 10px/1 var(--p-font); }
-.p-shift.leave .p-flag::before { content: "\2713"; font-size: 8px; }
+.p-shift.leave .p-flag::before { content: "\2713"; font-size: var(--p-fs-0); }
 
 /* ---- the legend strip along the bottom of the roster ---- */
 .p-legendbar { display: flex; align-items: center; gap: var(--p-s-4); flex-wrap: wrap; padding: 9px var(--p-s-4); border-top: 1px solid var(--p-line); background: var(--p-panel-2); font-size: var(--p-fs-1); color: var(--p-ink-2); }
@@ -565,8 +565,8 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-post:last-child { border-bottom: 0; }
 .p-post .p-grow { min-width: 0; }
 .p-post b { display: block; font-weight: 500; }
-.p-post span { display: block; font-size: 11px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
-.p-post .p-brk { font-family: var(--p-font-mono); font-size: 10.5px; padding: 2px 5px; border-radius: 4px; background: var(--p-neutral-bg); color: var(--p-ink-2); white-space: nowrap; }
+.p-post span { display: block; font-size: var(--p-fs-0); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-post .p-brk { font-family: var(--p-font-mono); font-size: var(--p-fs-0); padding: 2px 5px; border-radius: 4px; background: var(--p-neutral-bg); color: var(--p-ink-2); white-space: nowrap; }
 .p-post .p-brk.due { background: var(--p-warning-bg); color: var(--p-warning); font-weight: 600; }
 .p-post .p-brk.done { background: var(--p-success-bg); color: var(--p-success); }
 .p-post.gap { background: repeating-linear-gradient(135deg, transparent 0 5px, var(--p-w-hatch) 5px 6px); color: var(--p-ink-3); }
@@ -578,8 +578,8 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-rail a { display: flex; align-items: center; gap: var(--p-s-2); padding: 7px var(--p-s-3); font-size: var(--p-fs-2); color: var(--p-ink-2); text-decoration: none; border-left: 2px solid transparent; }
 .p-rail a:hover { background: var(--p-panel-2); text-decoration: none; color: var(--p-ink); }
 .p-rail a[aria-current="page"] { background: var(--p-brand-quiet); border-left-color: var(--p-brand); color: var(--p-ink); font-weight: 600; }
-.p-rail a .p-count { margin-left: auto; font-size: 10.5px; color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
-.p-rail a.new::after { content: "New"; font-family: var(--p-font-mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--p-success); background: var(--p-success-bg); padding: 1px 5px; border-radius: 3px; margin-left: auto; }
+.p-rail a .p-count { margin-left: auto; font-size: var(--p-fs-0); color: var(--p-ink-3); font-variant-numeric: tabular-nums; }
+.p-rail a.new::after { content: "New"; font-family: var(--p-font-mono); font-size: var(--p-fs-0); letter-spacing: .06em; text-transform: uppercase; color: var(--p-success); background: var(--p-success-bg); padding: 1px 5px; border-radius: 3px; margin-left: auto; }
 
 /* ---- a switch, for the feature console ---- */
 .p-switch { width: 34px; height: 20px; border-radius: 999px; background: var(--p-line-strong); position: relative; flex: none; display: inline-block; }
@@ -596,7 +596,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-togglerow .p-grow { flex: 1; min-width: 0; }
 .p-togglerow b { display: block; font-weight: 500; font-size: var(--p-fs-3); }
 .p-togglerow span { display: block; color: var(--p-ink-3); font-size: var(--p-fs-1); margin-top: 1px; }
-.p-togglerow .p-scope { flex: none; width: 132px; text-align: center; font-family: var(--p-font-mono); font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); border: 1px solid var(--p-line); border-radius: 3px; padding: 2px 5px; white-space: nowrap; }
+.p-togglerow .p-scope { flex: none; width: 132px; text-align: center; font-family: var(--p-font-mono); font-size: var(--p-fs-0); letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); border: 1px solid var(--p-line); border-radius: 3px; padding: 2px 5px; white-space: nowrap; }
 
 /* ---- consent, captured rather than assumed ---- */
 .p-consent { border: 1px solid var(--p-info-line); background: var(--p-info-bg); border-radius: var(--p-r-2); padding: var(--p-s-3) var(--p-s-4); }
@@ -628,12 +628,12 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 /* ---- narrow: the week scrolls sideways rather than crushing ---- */
 .p-scrollx { overflow-x: auto; }
 .p-brand-inline { display: flex; align-items: center; gap: var(--p-s-2); font-size: var(--p-fs-3); font-weight: 600; white-space: nowrap; }
-.p-brand-inline .p-brand-mark { width: 26px; height: 26px; border-radius: 6px; font-size: 12px; }
+.p-brand-inline .p-brand-mark { width: 26px; height: 26px; border-radius: 6px; font-size: var(--p-fs-1); }
 
 /* an open shift has no person, so it gets a hole rather than initials */
 .p-avatar-open { border-style: dashed; background: none; }
 /* the shortfall note sits on the person, in the same shape a shift flag uses */
-.p-rname .p-flag { display: inline-flex; align-items: center; gap: 4px; margin-top: 3px; font-size: 10px; font-weight: 600; color: var(--p-danger); }
+.p-rname .p-flag { display: inline-flex; align-items: center; gap: 4px; margin-top: 3px; font-size: var(--p-fs-0); font-weight: 600; color: var(--p-danger); }
 .p-rname .p-flag::before { content: "!"; display: grid; place-items: center; width: 12px; height: 12px; border-radius: 50%; background: currentColor; color: var(--p-panel); font: 700 10px/1 var(--p-font); flex: none; }
 
 /* ---------------------------------------------------------------------------
@@ -654,7 +654,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 /* the week strip: the next shift is never more than one tap away */
 .p-datestrip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin: 0 0 16px; }
 .p-datestrip div { text-align: center; padding: 7px 0 8px; border-radius: var(--p-r-2); background: var(--p-panel-2); border: 1px solid var(--p-line); }
-.p-datestrip div i { display: block; font-style: normal; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
+.p-datestrip div i { display: block; font-style: normal; font-size: var(--p-fs-0); letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
 .p-datestrip div b { display: block; font-size: var(--p-fs-4); font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
 .p-datestrip div.on { background: var(--p-ink); border-color: var(--p-ink); }
 .p-datestrip div.on i, .p-datestrip div.on b { color: #fff; }
@@ -664,8 +664,8 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 /* a shift in the list: a date block, then what and when */
 .p-mrow { display: flex; gap: 12px; align-items: flex-start; padding: 12px; border: 1px solid var(--p-line); border-radius: var(--p-r-2); background: var(--p-panel); margin-bottom: 8px; }
 .p-mrow .p-mdate { width: 44px; flex: none; text-align: center; }
-.p-mrow .p-mdate i { display: block; font-style: normal; font-size: 10px; letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
-.p-mrow .p-mdate b { display: block; font-size: 22px; font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.p-mrow .p-mdate i { display: block; font-style: normal; font-size: var(--p-fs-0); letter-spacing: .05em; text-transform: uppercase; color: var(--p-ink-3); }
+.p-mrow .p-mdate b { display: block; font-size: var(--p-fs-6); font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
 .p-mrow .p-grow { min-width: 0; }
 .p-mrow .p-grow b { display: block; font-size: var(--p-fs-3); font-weight: 600; }
 .p-mrow .p-grow span { display: block; font-size: var(--p-fs-2); color: var(--p-ink-2); font-variant-numeric: tabular-nums; margin-top: 1px; }
@@ -679,7 +679,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 .p-ring { display: grid; place-items: center; width: 168px; height: 168px; margin: 8px auto 16px; border-radius: 50%; background: conic-gradient(var(--p-success) var(--p-pct, 60%), var(--p-line-2) 0); position: relative; }
 .p-ring::before { content: ""; position: absolute; inset: 13px; border-radius: 50%; background: var(--p-panel); }
 .p-ring div { position: relative; text-align: center; }
-.p-ring b { display: block; font-size: 38px; font-weight: 600; letter-spacing: var(--p-tracking-display); font-variant-numeric: tabular-nums; line-height: 1; }
+.p-ring b { display: block; font-size: var(--p-fs-7); font-weight: 600; letter-spacing: var(--p-tracking-display); font-variant-numeric: tabular-nums; line-height: 1; }
 .p-ring span { display: block; font-size: var(--p-fs-1); color: var(--p-ink-3); margin-top: 5px; }
 .p-ring.due { background: conic-gradient(var(--p-warning) var(--p-pct, 90%), var(--p-line-2) 0); }
 
@@ -702,7 +702,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
 
 /* the bottom bar */
 .p-tabbar { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--p-line); background: var(--p-panel); padding: 8px 0 30px; }
-.p-tabbar a { display: grid; justify-items: center; gap: 4px; font-size: 10px; color: var(--p-ink-3); text-decoration: none; }
+.p-tabbar a { display: grid; justify-items: center; gap: 4px; font-size: var(--p-fs-0); color: var(--p-ink-3); text-decoration: none; }
 .p-tabbar a[aria-current="page"] { color: var(--p-ink); font-weight: 600; }
 .p-tabbar a[aria-current="page"] .p-ico { color: var(--p-brand); }
 .p-tabbar .p-ico { width: 20px; height: 20px; }
@@ -763,7 +763,7 @@ table.p-table { width: 100%; border-collapse: collapse; font-size: var(--p-fs-2)
    again rather than rejecting on a bad photo. */
 .p-vcheck { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: start; padding: 12px 0; border-bottom: 1px solid var(--p-line-2); font-size: var(--p-fs-3); }
 .p-vcheck:last-child { border-bottom: 0; }
-.p-vcheck > i { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 700; margin-top: 1px; }
+.p-vcheck > i { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: var(--p-fs-1); font-weight: 700; margin-top: 1px; }
 .p-vcheck.pass > i { background: var(--p-success-bg); color: var(--p-success); }
 .p-vcheck.review > i { background: var(--p-warning-bg); color: var(--p-warning); }
 .p-vcheck.fail > i { background: var(--p-danger-bg); color: var(--p-danger); }

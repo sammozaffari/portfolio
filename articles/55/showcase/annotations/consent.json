@@ -31,9 +31,9 @@
   },
   {
    "title": "Age and consent are locked in the specification",
-   "finding": "Rules of this kind drift when a release is under time pressure, and the drift is invisible until somebody is hurt by it.",
-   "decision": "This branch cannot be changed without sign-off. It is written into the specification as a locked rule rather than as a default somebody can toggle.",
-   "rejected": "Treating it as configuration, which is how a compliance rule quietly becomes a setting.",
+   "finding": "Seven days after it was signed the consent form expired, and nobody owned the rule that said so.",
+   "decision": "The under-18 branch is compliance-locked in the specification: it cannot change without people-function and compliance sign-off, and the screen says so.",
+   "rejected": "Treating it as configuration, which is how a rule becomes a setting.",
    "n": 4,
    "x": 50.0,
    "y": 50.0

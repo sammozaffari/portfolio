@@ -22,9 +22,9 @@
   },
   {
    "title": "Being the odd one out is visible",
-   "finding": "Communication ran across five channels because the in-app one had unreliable notifications, and nobody could see what their neighbours were doing.",
-   "decision": "The count on the right shows how many of the seven have each feature on, which turns a configuration screen into a quiet comparison.",
-   "rejected": "Naming the restaurants that differ, which makes it an audit rather than a prompt.",
+   "finding": "Managers did not know which features existed, let alone which ones their neighbours were already using.",
+   "decision": "Each row shows how many of the seven restaurants have the feature on, so a manager can see when they are the odd one out.",
+   "rejected": "Naming the restaurants that differ, which turns a prompt into an audit.",
    "n": 3,
    "x": 50.0,
    "y": 50.0

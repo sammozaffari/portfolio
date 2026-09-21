@@ -20,6 +20,7 @@
   --p-tracking-display: -0.03em;  /* Letter spacing in em. DTCG dimension covers px and rem only, so this stays in its authored unit. */
 
   /* Space, radius and layout */
+  --p-fs-0: 11px;  /* The smallest step: badges, kickers and table labels. Nothing on a screen is set below it. */
   --p-fs-1: 12px;
   --p-fs-2: 13px;
   --p-fs-3: 14px;

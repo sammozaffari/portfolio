@@ -22,7 +22,7 @@
   },
   {
    "title": "The thirty day cap is gone",
-   "finding": "Reports could only be generated for a thirty day window, which one participant wanted to be much longer or unlimited.",
+   "finding": "A thirty day window was the most a report could cover, which one participant wanted to be much longer or unlimited.",
    "decision": "Any range, and the two standing reports arrive by themselves on Monday morning and at pay period close.",
    "rejected": "A longer fixed cap, which moves the wall rather than removing it.",
    "n": 3,

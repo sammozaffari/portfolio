@@ -19,9 +19,9 @@
    "x": 27.5,
    "y": 12.4,
    "title": "Filters that state the number they will filter to",
-   "finding": "design decision",
-   "decision": "Each chip carries its own count, so the exceptions are visible before the filter is used and the manager can see there is nothing to do without doing anything. The counts are tinted with the same warning and danger tokens the badges use further down the table.",
-   "rejected": "A plain filter dropdown. It hides the counts behind an interaction and gives the page nothing to say at rest.",
+   "finding": "Design decision.",
+   "decision": "Each chip carries its count, tinted with the badge's own token, so a register with nothing wrong says so before anyone clicks.",
+   "rejected": "A plain dropdown, which gives the page nothing to say at rest.",
    "pattern": "Slite, knowledge management with filter chips — https://mobbin.com/screens/784fd37d-3429-4f47-b58c-0b6fc0ffed07"
   },
   {

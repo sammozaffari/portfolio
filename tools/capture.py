@@ -32,7 +32,7 @@ MIN_W = 500  # headless Chrome lays out at about 500px minimum and crops below i
 for it in items:
     if it["w"] < MIN_W and "phone" not in it["src"] and "quick-add" not in it["src"]:
         print("WARNING", it["out"], f'requested {it["w"]}px; Chrome will lay out at ~{MIN_W}px and crop')
-    path, _, q = it["src"].partition("?"); src = ROOT / path; out = ROOT / it["out"]; out.parent.mkdir(parents=True, exist_ok=True)
+    path, _, q = it["src"].partition("?"); src = ROOT / path; out = pathlib.Path(it["out"]) if pathlib.Path(it["out"]).is_absolute() else ROOT / it["out"]; out.parent.mkdir(parents=True, exist_ok=True)
     url = f"file://{src}" + (f"?{q}" if q else "")
     ud = tempfile.mkdtemp(prefix="cap-")  # own profile per capture so parallel runs never share a lock
     cmd = [CHROME, "--headless=new", "--disable-gpu", "--hide-scrollbars", f"--user-data-dir={ud}", f"--window-size={it['w']},{it['h']}",

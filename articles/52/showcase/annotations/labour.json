@@ -22,7 +22,7 @@
   },
   {
    "title": "The spreadsheet this replaces, named",
-   "finding": "Managers kept a nightly tracker with the store number, the week, last year's sales, the forecast, actual sales, transactions, hours rostered, hours used and the rate against target, typed in by hand. Area coaches kept a second workbook with a tab per measure.",
+   "finding": "Nightly, managers kept a tracker with the store number, the week, last year's sales, the forecast, actual sales, transactions, hours rostered, hours used and the rate against target, typed in by hand. Area coaches kept a second workbook with a tab per measure.",
    "decision": "The four figures those spreadsheets existed to produce sit across the top of the screen, each against its target or its forecast.",
    "rejected": "A configurable dashboard. The people doing this did not want to build a report, they wanted the four numbers they were already copying.",
    "n": 3,

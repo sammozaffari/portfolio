@@ -22,7 +22,7 @@
   },
   {
    "title": "The assistant says what it is before it starts",
-   "finding": "Candidates did not know whether a person was reading their application or how long any of it would take.",
+   "finding": "Nobody told candidates whether a person was reading their application or how long any of it would take.",
    "decision": "Five questions, a name, and the fact that you can stop. Stated before the first question rather than in a policy nobody opens.",
    "rejected": "Opening straight into the first question, which reads as a form wearing a conversation as a costume.",
    "n": 3,

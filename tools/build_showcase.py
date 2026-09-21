@@ -105,41 +105,12 @@ def notes_block(d, limit=None):
     return "".join(o)
 
 def tokens_section():
-    css = (ROOT / "assets/product/tokens.css").read_text()
-    var = dict(re.findall(r'(--p-[a-z0-9-]+)\s*:\s*([^;]+);', css))
-    groups = [
-        ("Surfaces", ["--p-canvas", "--p-panel", "--p-panel-2", "--p-sidebar", "--p-line", "--p-line-strong"]),
-        ("Ink", ["--p-ink", "--p-ink-2", "--p-ink-3", "--p-ink-inverse"]),
-        ("Status", ["--p-danger", "--p-warning", "--p-success", "--p-info", "--p-neutral"]),
-        ("Status grounds", ["--p-danger-bg", "--p-warning-bg", "--p-success-bg", "--p-info-bg", "--p-neutral-bg"]),
-    ]
-    # The family that makes the workforce product what it is. Four content
-    # states drawn low in chroma so a shift is never coloured for being a
-    # shift, two that borrow from the status family because something is
-    # actually wrong, and the two lines on the labour chart. Shown only on the
-    # product that uses it: the safety product shares every token above and
-    # none of these, and listing them there would describe a system it is not
-    # built on.
-    if any((SC / "screens").glob("roster-*.html")):
-        groups.append(("Roster states", ["--p-w-shift", "--p-w-open", "--p-w-leave", "--p-w-training",
-                                         "--p-w-break-risk", "--p-w-overtime", "--p-w-forecast", "--p-w-actual"]))
-    o = []
-    for name, keys in groups:
-        o.append(f"<h3>{name}</h3><div class=\"swatches\">")
-        for k in keys:
-            v = var.get(k, "").strip()
-            if not v:
-                continue
-            o.append(f'<div class="sw"><i style="background:{e(v)}"></i><span><b>{e(k.replace("--p-", ""))}</b>{e(v)}</span></div>')
-        o.append("</div>")
-    scale = [(k, v.strip()) for k, v in var.items() if re.fullmatch(r'--p-fs-\d', k)]
-    o.append('<h3>Type scale</h3><div class="scale">')
-    for k, v in sorted(scale, key=lambda kv: float(re.sub(r'[^\d.]', '', kv[1]) or 0)):
-        px = re.sub(r'[^\d.]', '', v)
-        o.append(f'<div><code>{e(k)}</code><em>{e(v)}</em><span style="font-size:{e(v)}">The manager classifies from the outcome</span></div>')
-    o.append("</div>")
-    return "".join(o)
-
+    """One line and a link, where three copies of a token dump used to sit. The
+    design-system page shows the token file, the manifest, a gate failing and one
+    component on all three products."""
+    return ('<p class="sc-prose"><b>The system itself is on one page.</b> The token file as compiled, the component manifest an agent '
+            'must search, the gates that fail the build and the one that failed for real, and this product\'s table row beside the '
+            'other two: <a href="../../design-system.html">one design system, three products</a>.</p>')
 
 
 def story_block(mod, notes):

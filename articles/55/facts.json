@@ -1,0 +1,12 @@
+{
+ "stages": 9,
+ "lanes": 3,
+ "moments": 7,
+ "failing": 5,
+ "frameworks": 1,
+ "workflows": 1,
+ "modules": 10,
+ "candidate_screens": 7,
+ "manager_screens": 3,
+ "answer_days": 10
+}

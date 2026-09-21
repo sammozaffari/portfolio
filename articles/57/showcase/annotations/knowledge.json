@@ -40,7 +40,7 @@
    "x": 70.1,
    "y": 33.9,
    "title": "Hazard means nobody is hurt yet",
-   "finding": "The same finding: hazard sub-categories contained events rather than conditions, so the two forms could not be told apart from their own labels.",
+   "finding": "Hazard sub-categories contained events rather than conditions too, so the two forms could not be told apart from their own labels.",
    "decision": "The hazard side is defined by its tense. Nobody is hurt yet, and the three examples are all conditions that are true right now.",
    "rejected": "Listing the hazard sub-categories, which would restate the problem rather than resolve it.",
    "pattern": "Amazon, Help topics — https://mobbin.com/screens/29ee3038-b4ed-4679-b1b8-8effef391215"
@@ -50,7 +50,7 @@
    "x": 59.5,
    "y": 58.2,
    "title": "Getting it wrong is not a thing you can do",
-   "finding": "The form asked the reporter for outcome type and regulator notifiability, two things the research showed reporters cannot know in the moment. Misclassified reports were sent back from above, and people learned that reporting was a way to get something wrong.",
+   "finding": "Outcome type and regulator notifiability were asked of the reporter, two things the research showed reporters cannot know in the moment. Misclassified reports were sent back from above, and people learned that reporting was a way to get something wrong.",
    "decision": "The page says the manager works out the classification from what actually happened, so the reporter never carries that risk.",
    "rejected": "A decision tree, which still ends in a choice the reporter has to get right.",
    "pattern": "Intercom, Help Center — https://mobbin.com/screens/dfa39e1e-71de-4850-8459-c9fe4e5da2da"

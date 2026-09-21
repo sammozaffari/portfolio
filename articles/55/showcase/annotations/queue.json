@@ -22,7 +22,7 @@
   },
   {
    "title": "The near miss is visible",
-   "finding": "A binary in-or-out verdict hid how close a candidate was, so managers could not tell a poor fit from a single unlucky answer.",
+   "finding": "Binary in-or-out verdicts hid how close a candidate was, so managers could not tell a poor fit from a single unlucky answer.",
    "decision": "The one answer that put him outside the rule is the one marked. He meets it on shifts and misses it on the last question only.",
    "rejected": "A match percentage, which compresses five real answers into one number nobody can argue with.",
    "n": 3,

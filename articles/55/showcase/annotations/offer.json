@@ -31,7 +31,7 @@
   },
   {
    "title": "Nobody is left waiting",
-   "finding": "Candidates vanished from the process without ever receiving a response, and the business had no view of how many.",
+   "finding": "Some candidates vanished from the process without ever receiving a response, and the business had no view of how many.",
    "decision": "Reminders at 24, 48 and 72 hours, and after ten days an answer either way. The promise is on the offer screen, so it is a commitment rather than a background job.",
    "rejected": "Letting stale applications lapse silently, which costs nothing to run and is the single rudest thing the old process did.",
    "n": 4,

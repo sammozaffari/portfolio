@@ -49,7 +49,7 @@
    "x": 65.8,
    "y": 64.2,
    "title": "The status is the next human act",
-   "finding": "The form asked for incident type and severity first, with options like first aid or lost time that nobody can pick while their hand is under the cold tap, and classification errors were sent back from above.",
+   "finding": "Incident type and severity came first on the form, with options like first aid or lost time that nobody can pick while their hand is under the cold tap, and classification errors were sent back from above.",
    "decision": "A report's status names what a person does next: welfare check due, action assigned, fixed and awaiting sign-off. Classification is an outcome the manager records later, so it never blocks the report.",
    "rejected": "Status as a workflow code (open, triaged, pending classification), which describes the database's state rather than anyone's obligation.",
    "pattern": "incident.io, incident list — https://mobbin.com/screens/1d72b14c-95e4-4d38-affb-039c4dc40139"

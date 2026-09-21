@@ -22,7 +22,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 PAGES = ["index.html", "articles.html", "about.html", "cv.html", "library.html",
          "articles/57/index.html", "articles/52/index.html", "articles/55/index.html", "articles/50/index.html", "articles/51/index.html", "articles/53/index.html", "articles/54/index.html",
-         "articles/57/showcase/index.html", "articles/52/showcase/index.html",
+         "articles/design-system.html", "articles/57/showcase/index.html", "articles/52/showcase/index.html",
          "articles/55/showcase/index.html"]
 WIDTHS = [390, 1280]
 MIN_GUTTER = 16
@@ -32,8 +32,9 @@ const q=new URLSearchParams(location.search);const w=+q.get('w');
 const f=document.createElement('iframe');f.style.cssText='width:'+w+'px;height:900px;border:0';f.src=q.get('page');
 f.onload=()=>{try{const d=f.contentDocument;
 const root=d.querySelector('main')||d.body;const els=[...root.querySelectorAll('*')].filter(e=>e.children.length===0&&e.textContent.trim()&&e.offsetParent!==null);
-let min=1e9,who='';for(const el of els){const r=el.getBoundingClientRect();if(r.width>0&&r.right>0&&r.left<min){min=r.left;who=el.tagName+' '+el.textContent.trim().slice(0,40);}}
-document.body.setAttribute('data-result',JSON.stringify({vw:d.documentElement.clientWidth,min:Math.round(min*10)/10,who,scroll:d.documentElement.scrollWidth}));
+let min=1e9,who='',maxR=0,wide='';for(const el of els){const r=el.getBoundingClientRect();if(r.width>0&&r.right>0&&r.left<min){min=r.left;who=el.tagName+' '+el.textContent.trim().slice(0,40);}}
+for(const el of d.querySelectorAll('body *')){const r=el.getBoundingClientRect();if(r.right>maxR){maxR=r.right;wide=el.tagName+'.'+(el.className||'')+' '+Math.round(r.width)+'px';}}
+document.body.setAttribute('data-result',JSON.stringify({vw:d.documentElement.clientWidth,min:Math.round(min*10)/10,who,scroll:d.documentElement.scrollWidth,wide}));
 }catch(e){document.body.setAttribute('data-result',JSON.stringify({err:String(e)}))}};
 document.body.appendChild(f);</script></body></html>"""
 
@@ -79,7 +80,7 @@ for page in pages:
         if r["min"] < MIN_GUTTER:
             fails.append(f"{page} at {w}px: text starts {r['min']}px from the edge ({r['who']!r}); the gutter must be at least {MIN_GUTTER}px")
         if r["scroll"] > w:
-            fails.append(f"{page} at {w}px: the page scrolls sideways ({r['scroll']}px wide)")
+            fails.append(f"{page} at {w}px: the page scrolls sideways ({r['scroll']}px wide; widest element {r.get('wide')})")
 
 if "--json" in sys.argv or fails:
     for page, w, r in rows:

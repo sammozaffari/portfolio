@@ -22,7 +22,7 @@
   },
   {
    "title": "Every warning carries its price",
-   "finding": "The consequences of ignoring a warning were invisible until the pay run, when make-up pay, overtime and compliance pay appeared without explanation.",
+   "finding": "Ignoring a warning had no visible consequence until the pay run, when make-up pay, overtime and compliance pay appeared without explanation.",
    "decision": "The subtitle on each row is what it costs or what it breaches. A manager triaging six items can see which two are money.",
    "rejected": "A severity word alone, which is a judgement the product is asking the manager to trust rather than a figure they can weigh.",
    "n": 3,

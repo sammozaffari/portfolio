@@ -9,7 +9,7 @@ body{width:393px;min-height:852px}
 .p-phone{width:393px;height:852px;border:0;border-radius:0;box-shadow:none}
 [data-state]{display:none}
 body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state="what"],body[data-show="how"] [data-state="how"],body[data-show="where"] [data-state="where"],body[data-show="done"] [data-state="done"],body[data-show="hazard"] [data-state="hazard"],body[data-show="review"] [data-state="review"]{display:flex;flex-direction:column;height:100%}
-.p-phone .p-screen h1{font-size:22px;letter-spacing:-.02em;margin:6px 0 4px}
+.p-phone .p-screen h1{font-size: var(--p-fs-6);letter-spacing:-.02em;margin:6px 0 4px}
 .p-phone .p-screen .p-lead{color:var(--p-ink-3);font-size:var(--p-fs-3);margin-bottom:var(--p-s-4)}
 .glyph{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;flex:none}
 .g-inc{background:var(--p-danger-bg);color:var(--p-danger)} .g-haz{background:var(--p-warning-bg);color:var(--p-warning)}
@@ -23,9 +23,9 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 .p-phone .p-screen>.p-choices .p-choice label{flex:1}
 .guide{background:var(--p-panel-2);border:1px solid var(--p-line);border-radius:var(--p-r-2);padding:12px 14px;font-size:var(--p-fs-2);color:var(--p-ink-2);margin-top:16px}
 .since{margin-top:18px;border-top:1px solid var(--p-line);padding-top:12px}
-.since .cap{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--p-ink-3);font-weight:600;margin-bottom:8px}
+.since .cap{font-size: var(--p-fs-0);letter-spacing:.06em;text-transform:uppercase;color:var(--p-ink-3);font-weight:600;margin-bottom:8px}
 .since .row{display:flex;gap:10px;align-items:flex-start}
-.since .tick{width:22px;height:22px;border-radius:50%;background:var(--p-success-bg);color:var(--p-success);display:grid;place-items:center;font-size:12px;font-weight:700;flex:none}
+.since .tick{width:22px;height:22px;border-radius:50%;background:var(--p-success-bg);color:var(--p-success);display:grid;place-items:center;font-size: var(--p-fs-1);font-weight:700;flex:none}
 .since b{display:block;font-size:var(--p-fs-3)}
 .since span.sub{display:block;font-size:var(--p-fs-2);color:var(--p-ink-3);margin-top:1px}
 .guide b{display:block;color:var(--p-ink);margin-bottom:4px}
@@ -36,7 +36,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 .summary dt{color:var(--p-ink-3)} .summary dd{margin:0}
 .next li{display:flex;gap:10px;font-size:var(--p-fs-2);padding:8px 0;border-bottom:1px solid var(--p-line)}
 .next li:last-child{border:0}
-.next i{width:20px;height:20px;border-radius:50%;background:var(--p-success-bg);color:var(--p-success);display:grid;place-items:center;font-style:normal;font-size:12px;font-weight:700;flex:none}
+.next i{width:20px;height:20px;border-radius:50%;background:var(--p-success-bg);color:var(--p-success);display:grid;place-items:center;font-style:normal;font-size: var(--p-fs-1);font-weight:700;flex:none}
 </style>
 </head>
 <body class="p-app" data-show="entry">
@@ -60,7 +60,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 
   <!-- 2 What happened -->
   <div data-state="what">
-    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size:18px;margin:0">Report an incident</h1><span class="p-meta">Step 1 of 4 · What happened?</span></div></div>
+    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size: var(--p-fs-5);margin:0">Report an incident</h1><span class="p-meta">Step 1 of 4 · What happened?</span></div></div>
     <div class="p-screen">
       <div class="p-stepper"><span class="now"></span><span></span><span></span><span></span></div>
       <p class="p-lead">Pick the closest. Your manager works out how serious it is later, so you do not have to.</p>
@@ -84,7 +84,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 
   <!-- 3 How, with validation error -->
   <div data-state="how">
-    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size:18px;margin:0">Report an incident</h1><span class="p-meta">Step 2 of 4 · How did it happen?</span></div></div>
+    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size: var(--p-fs-5);margin:0">Report an incident</h1><span class="p-meta">Step 2 of 4 · How did it happen?</span></div></div>
     <div class="p-screen">
       <div class="p-stepper"><span class="done"></span><span class="now"></span><span></span><span></span></div>
       <div class="p-alert p-alert-danger" role="alert"><b>Choose how it happened</b> to continue. If none fit, pick "Other" and describe it.</div>
@@ -102,7 +102,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 
   <!-- 4 Where and when -->
   <div data-state="where">
-    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size:18px;margin:0">Report an incident</h1><span class="p-meta">Step 3 of 4 · When and where</span></div></div>
+    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size: var(--p-fs-5);margin:0">Report an incident</h1><span class="p-meta">Step 3 of 4 · When and where</span></div></div>
     <div class="p-screen">
       <div class="p-stepper"><span class="done"></span><span class="done"></span><span class="done"></span><span class="now"></span></div>
       <div class="p-field"><label for="t">When did this happen?</label><input class="p-input" id="t" value="Today, 10:45"></div>
@@ -132,7 +132,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 
   <!-- 6 Hazard flow -->
   <div data-state="hazard">
-    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size:18px;margin:0">Report a hazard</h1><span class="p-meta">Step 1 of 3 · What kind?</span></div></div>
+    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size: var(--p-fs-5);margin:0">Report a hazard</h1><span class="p-meta">Step 1 of 3 · What kind?</span></div></div>
     <div class="p-screen">
       <div class="p-stepper"><span class="now"></span><span></span><span></span></div>
       <p class="p-lead">Hazards are conditions that could hurt someone. Events go in an incident report.</p>
@@ -156,7 +156,7 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 
   <!-- 7 Manager review -->
   <div data-state="review">
-    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size:18px;margin:0">Welfare check and review</h1><span class="p-meta">INC-0412-031 · Jordan T. · 10:45</span></div></div>
+    <div class="p-app-bar"><span class="p-back">‹</span><div><h1 style="font-size: var(--p-fs-5);margin:0">Welfare check and review</h1><span class="p-meta">INC-0412-031 · Jordan T. · 10:45</span></div></div>
     <div class="p-screen">
       <div class="summary p-mb-4"><dl><dt>What happened</dt><dd>Burn, oil splash while filtering</dd><dt>Body part</dt><dd>Hand or fingers · fryer 2</dd></dl></div>
       <fieldset class="p-fieldset"><legend class="p-legend">Welfare check</legend>

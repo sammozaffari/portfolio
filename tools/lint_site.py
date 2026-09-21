@@ -24,7 +24,7 @@ def text_of(s, keep_svg=False):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>' + ('' if keep_svg else '|<svg.*?</svg>'), ' ', s, flags=re.S)
     return html.unescape(re.sub(r'<[^>]+>', ' ', s))
 errors = []
-pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')) + glob.glob(str(ROOT/'articles/*/artifacts/*.html')))
+pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'articles/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')) + glob.glob(str(ROOT/'articles/*/artifacts/*.html')))
 for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     for b in BANNED:
@@ -174,6 +174,18 @@ for _p in ROOT.rglob('*'):
             and str(_rel) not in _ALLOWED_MD):
         errors.append(f'{_rel}: internal notes under a served path; keep them outside the repository')
 
+# --- the site type scale --------------------------------------------------
+# Twenty-nine distinct sizes rendered across the site pages under stylesheets
+# that claimed a scale. Eight named steps live in style.css; any other pixel
+# font-size on a site page or in a site stylesheet fails, print styles aside.
+def _outside_print(css):
+    return re.sub(r'@media print\s*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}', ' ', css, flags=re.S)
+for _f in glob.glob(str(ROOT / 'assets/*.css')) + glob.glob(str(ROOT / '*.html')) + glob.glob(str(ROOT / 'articles/*/index.html')) + glob.glob(str(ROOT / 'articles/*/showcase/index.html')) + glob.glob(str(ROOT / 'articles/*/artifacts/*.html')):
+    _p = pathlib.Path(_f); _rel = _p.relative_to(ROOT); _s = _p.read_text(errors='ignore')
+    _css = _s if _f.endswith('.css') else ' '.join(re.findall(r'<style>(.*?)</style>', _s, re.S))
+    for _m in re.finditer(r'font-size:\s*([0-9.]+px)', _outside_print(_css)):
+        errors.append(f'{_rel}: font-size {_m.group(1)} is not one of the eight type steps')
+
 # --- nothing scrolls inside its container ------------------------------
 # The rule was matched against inline styles only, so a class that set
 # overflow-x: auto on the blueprint wrapper put an 1100px table in a 292px
@@ -209,6 +221,14 @@ for f in glob.glob(str(ROOT / 'articles/*/showcase/screens/*.html')):
     undeclared = names - _declared - local
     for u in sorted(undeclared):
         _ds.append(f'{p.relative_to(ROOT)}: uses .{u}, which is not in components.manifest.json and not defined locally')
+# Every size on a screen comes from the type scale. Nineteen distinct pixel
+# sizes were rendered under a claim of seven steps; now a pixel font-size in a
+# screen's style block or in the component file fails the build.
+for f in glob.glob(str(ROOT / 'articles/*/showcase/screens/*.html')) + [str(ROOT / 'assets/product/components.css')]:
+    p = pathlib.Path(f); s2 = p.read_text()
+    src = ' '.join(re.findall(r'<style>(.*?)</style>', s2, re.S)) if f.endswith('.html') else s2
+    for m in re.finditer(r'font-size:\s*([0-9.]+px)', src):
+        _ds.append(f'{p.relative_to(ROOT)}: font-size {m.group(1)} is not a type-scale token')
 if _ds:
     print('DESIGN SYSTEM FAILED'); [print(' -', e) for e in _ds]; sys.exit(1)
 

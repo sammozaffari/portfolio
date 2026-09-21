@@ -23,7 +23,7 @@
 }
 .ds-gallery figcaption {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--t-1);
   line-height: 1.5;
   color: var(--muted);
   padding: 10px 12px 12px;
@@ -33,7 +33,7 @@
   display: block;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: var(--t-2);
   margin-bottom: 2px;
 }
 @media (max-width: 720px) {
@@ -44,12 +44,12 @@
 .ds-tokens, .ds-iter {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13.5px;
+  font-size: var(--t-2);
   line-height: 1.5;
 }
 .ds-tokens th, .ds-iter th {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--t-1);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -66,12 +66,12 @@
   color: var(--ink-soft);
 }
 .ds-tokens td:first-child, .ds-iter td:first-child { color: var(--ink); }
-.ds-tokens .tk { font-family: var(--mono); font-size: 12.5px; }
+.ds-tokens .tk { font-family: var(--mono); font-size: var(--t-1); }
 .ds-tokens .tk-val { font-family: var(--mono); }
 .ds-tokens .sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; border: 1px solid var(--line-strong); margin-right: 8px; vertical-align: -1px; }
 .ds-cap {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--t-1);
   color: var(--muted);
   margin: -12px 0 28px;
   line-height: 1.5;
@@ -90,7 +90,7 @@
 }
 .proto-embed figcaption {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: var(--t-1);
   color: var(--muted);
   margin-top: 8px;
   line-height: 1.5;
@@ -104,14 +104,14 @@
   border-radius: var(--radius-card);
   padding: 16px 18px;
   margin: 26px 0;
-  font-size: 14px;
+  font-size: var(--t-3);
   line-height: 1.6;
   color: var(--ink-soft);
 }
 .ds-note b {
   display: block;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: var(--t-1);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink);

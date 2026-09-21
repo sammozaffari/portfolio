@@ -59,7 +59,7 @@
    "x": 83.8,
    "y": 31.8,
    "title": "Closed work stays on the board, quietly",
-   "finding": "A team member had seen logged hazards changed quickly, and that was why he kept reporting.",
+   "finding": "One team member had seen logged hazards changed quickly, and that was why he kept reporting.",
    "decision": "The closed column stays on the board for the whole period in a quieter, dashed treatment, so fixes remain in sight instead of disappearing the moment they are done.",
    "rejected": "Hiding completed actions behind a filter, which is where the evidence of follow-through was being lost.",
    "pattern": "Linear, Issues board — https://mobbin.com/screens/fc208a44-dbf9-4f79-b9b0-db57f9840964"
@@ -69,7 +69,7 @@
    "x": 94.1,
    "y": 42.3,
    "title": "Days to fix, not a count of reports",
-   "finding": "The safety team's view was that putting an incentive behind hazard identification makes everyone report one and the reports will not be real; the research proposed recognising outcomes instead.",
+   "finding": "Put an incentive behind hazard identification, the safety team said, and everyone reports one and the reports will not be real; the research proposed recognising outcomes instead.",
    "decision": "Each closed card shows who reported it and how long the fix took, so the board measures outcomes rather than volume.",
    "rejected": "A leaderboard of report counts, which the safety team warned would produce reports rather than fixes.",
    "pattern": "ClickUp, Board view — https://mobbin.com/screens/0c287f59-753c-4e28-92ad-9dff95fcde36"
@@ -79,7 +79,7 @@
    "x": 88.2,
    "y": 69.6,
    "title": "The fixes notice prints from the board",
-   "finding": "The research proposed a poster or message each period listing what was fixed because someone reported it.",
+   "finding": "Each period, the research proposed, a poster or message would list what was fixed because someone reported it.",
    "decision": "The notice is generated from the actions already closed on this board, so producing it costs a print rather than an evening of writing.",
    "rejected": "A separately written monthly communication, which depends on someone having time to write it.",
    "pattern": "Vanta, Action tracker — https://mobbin.com/screens/9106887f-2b5f-4d68-813d-13944f9a368d"

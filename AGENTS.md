@@ -36,9 +36,10 @@ token.
 | Site content | `tools/lint_site.py` | Blocked vendor names, wrong counts, broken local links, cropped artefacts, em dashes |
 | Visual regression | `tools/visual_check.py` | A screen that has changed against its committed baseline |
 | Side gutter | `tools/check_layout.py` | Any text under `main` within 16px of the window edge, or a page that scrolls sideways, at 390 and 1280 (pages are loaded in an iframe of that width, because headless Chrome will not lay out under about 500px) |
+| Facts across surfaces | `tools/check_facts.py` | A hero number typed differently on the case, the home page, the Work page, the showcase, the CV or llms.txt; a Work headline that miscounts its cards; a stat-strip number missing from the case's facts.json |
 | Safety facts | `tools/check_safety_facts.py` | A weekday that does not match its date in the safety screens, initials that do not match the name, a reference used for two records, counts that disagree between screens |
 
-Run `tools/lint_site.py` before you consider anything finished.
+Run `tools/lint_site.py` before you consider anything finished. The lint also holds the type rules: every font-size on a product screen is one of the `--p-fs-0` to `--p-fs-7` tokens, every font-size on a site page is one of the eight `--t-1` to `--t-8` steps in `style.css` (display headings may use `clamp()`), and nothing outside a code block sets `overflow-x` to auto or scroll.
 
 ## Capturing screens
 

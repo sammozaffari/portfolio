@@ -31,7 +31,7 @@
   },
   {
    "title": "Every question says why it is asked",
-   "finding": "Candidates read a screening question about availability as a test they could fail, and answered what they thought was wanted rather than what was true.",
+   "finding": "A screening question about availability read as a test candidates could fail, so they answered what they thought was wanted rather than what was true.",
    "decision": "One line under each question saying what it decides. An honest answer is more useful than a flattering one, and saying so is what gets it.",
    "rejected": "Explaining nothing, which is how a form full of reasonable questions reads as an interrogation.",
    "n": 4,
@@ -40,7 +40,7 @@
   },
   {
    "title": "The hard question is asked last",
-   "finding": "The high-demand shift is the one the restaurant is genuinely short of, and leading with it reads as the only thing that matters.",
+   "finding": "Of the five, the high-demand shift is the one the restaurant is genuinely short of, and leading with it reads as the only thing that matters.",
    "decision": "It is question five. By then the candidate knows what the job is, and a no on this question is a conversation rather than an exit.",
    "rejected": "Asking it first as a qualifier, which turns the most valuable applicants away before they know what they are turning down.",
    "n": 5,

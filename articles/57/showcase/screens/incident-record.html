@@ -14,9 +14,9 @@ html,body{width:1440px;min-height:1100px}
 /* pipeline */
 .pipe{display:flex;gap:6px;margin-bottom:var(--p-s-4);background:var(--p-panel);border:1px solid var(--p-line);border-radius:var(--p-r-2);padding:6px;box-shadow:var(--p-shadow-1)}
 .pipe > div{flex:1;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:var(--p-r-1);font-size:var(--p-fs-2);color:var(--p-ink-3);position:relative}
-.pipe > div i{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--p-line-strong);display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:600;color:var(--p-ink-3);flex:none;background:var(--p-panel)}
+.pipe > div i{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--p-line-strong);display:grid;place-items:center;font-style:normal;font-size: var(--p-fs-0);font-weight:600;color:var(--p-ink-3);flex:none;background:var(--p-panel)}
 .pipe > div b{display:block;font-weight:500;color:var(--p-ink-2)}
-.pipe > div small{display:block;font-size:11px;color:var(--p-ink-3)}
+.pipe > div small{display:block;font-size: var(--p-fs-0);color:var(--p-ink-3)}
 .pipe > div.done i{background:var(--p-success);border-color:var(--p-success);color:#fff}
 .pipe > div.done b{color:var(--p-ink)}
 .pipe > div.now{background:var(--p-info-bg)}
@@ -25,7 +25,7 @@ html,body{width:1440px;min-height:1100px}
 /* cards */
 .card{margin-bottom:var(--p-s-4)}
 .card .p-card-head h2{display:flex;align-items:center;gap:10px}
-.card .p-card-head h2 .step{font-size:11px;font-weight:600;letter-spacing:var(--p-tracking-caps);text-transform:uppercase;color:var(--p-info);background:var(--p-info-bg);border:1px solid var(--p-info-line);border-radius:var(--p-r-pill);padding:2px 8px}
+.card .p-card-head h2 .step{font-size: var(--p-fs-0);font-weight:600;letter-spacing:var(--p-tracking-caps);text-transform:uppercase;color:var(--p-info);background:var(--p-info-bg);border:1px solid var(--p-info-line);border-radius:var(--p-r-pill);padding:2px 8px}
 .card .p-card-head h2 .step.lock{color:var(--p-ink-3);background:var(--p-neutral-bg);border-color:var(--p-neutral-line)}
 .card .p-card-head h2 .step.ok{color:var(--p-success);background:var(--p-success-bg);border-color:var(--p-success-line)}
 .facts{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:var(--p-s-4)}
@@ -33,7 +33,7 @@ html,body{width:1440px;min-height:1100px}
 .facts .p-kv dd{font-weight:500}
 .photo{border:1px solid var(--p-line);border-radius:var(--p-r-2);overflow:hidden;background:var(--p-panel-2)}
 .photo .ph{height:132px;background:linear-gradient(160deg,var(--p-panel-2),var(--p-neutral-bg));display:grid;place-items:center;color:var(--p-ink-3);font-size:var(--p-fs-1)}
-.photo figcaption{padding:8px 10px;font-size:11px;color:var(--p-ink-3);line-height:1.35}
+.photo figcaption{padding:8px 10px;font-size: var(--p-fs-0);color:var(--p-ink-3);line-height:1.35}
 .desc{margin-top:var(--p-s-3);padding:10px 12px;background:var(--p-panel-2);border:1px solid var(--p-line);border-radius:var(--p-r-1);font-size:var(--p-fs-2);color:var(--p-ink-2)}
 .desc b{color:var(--p-ink);font-weight:500}
 .wform .p-fieldset{margin-bottom:var(--p-s-3)}
@@ -46,15 +46,15 @@ html,body{width:1440px;min-height:1100px}
 .cls .p-choices{grid-template-columns:repeat(4,minmax(0,1fr))}
 .cls .p-choice label{min-height:52px;font-size:var(--p-fs-2);padding:8px 12px;flex-direction:column;align-items:flex-start;gap:2px}
 .cls .p-choice label b{font-size:var(--p-fs-2)}
-.cls .p-choice label span{font-size:11px;margin:0}
+.cls .p-choice label span{font-size: var(--p-fs-0);margin:0}
 .cls-done .p-choice label{min-height:52px;font-size:var(--p-fs-2);padding:8px 12px;flex-direction:column;align-items:flex-start;gap:2px}
 .cls-done .p-choices{grid-template-columns:repeat(4,minmax(0,1fr))}
-.cls-done .p-choice label span{font-size:11px;margin:0}
+.cls-done .p-choice label span{font-size: var(--p-fs-0);margin:0}
 .hint{display:flex;gap:8px;align-items:flex-start;font-size:var(--p-fs-1);color:var(--p-ink-3);margin-top:var(--p-s-3);line-height:1.4}
 .hint svg{flex:none;margin-top:2px}
 .rc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--p-s-3)}
 .rc > div{padding:10px 12px;border:1px solid var(--p-line);border-radius:var(--p-r-1);background:var(--p-panel-2);font-size:var(--p-fs-2)}
-.rc > div span{display:block;font-size:11px;text-transform:uppercase;letter-spacing:var(--p-tracking-caps);color:var(--p-ink-3);margin-bottom:4px;font-weight:600}
+.rc > div span{display:block;font-size: var(--p-fs-0);text-transform:uppercase;letter-spacing:var(--p-tracking-caps);color:var(--p-ink-3);margin-bottom:4px;font-weight:600}
 .rc > div b{font-weight:500;color:var(--p-ink);display:block}
 .rc > div small{display:block;color:var(--p-ink-3);font-size:var(--p-fs-1);margin-top:2px}
 .acts .p-table td{height:52px}
@@ -78,8 +78,8 @@ html,body{width:1440px;min-height:1100px}
 .msg{display:flex;gap:10px;align-items:flex-start}
 .msg .bub{background:var(--p-panel-2);border:1px solid var(--p-line);border-radius:4px 14px 14px 14px;padding:10px 12px;flex:1;min-width:0}
 .msg .bub p{font-size:var(--p-fs-2);line-height:1.5;color:var(--p-ink)}
-.msg .bub .t{display:block;margin-top:6px;font-size:11px;color:var(--p-ink-3)}
-.note{margin-top:10px;font-size:11px;color:var(--p-ink-3);line-height:1.45}
+.msg .bub .t{display:block;margin-top:6px;font-size: var(--p-fs-0);color:var(--p-ink-3)}
+.note{margin-top:10px;font-size: var(--p-fs-0);color:var(--p-ink-3);line-height:1.45}
 .reg{font-size:var(--p-fs-2);line-height:1.5;color:var(--p-ink-2)}
 .reg b{color:var(--p-ink);font-weight:600}
 .stat-row{display:flex;align-items:baseline;gap:8px;margin-bottom:12px}
@@ -94,10 +94,10 @@ html,body{width:1440px;min-height:1100px}
 .ppl .p-list-row b{font-size:var(--p-fs-2)}
 .lnk .p-list-row{padding:10px 16px}
 .lnk .p-list-row b{font-size:var(--p-fs-2);color:var(--p-link)}
-.lnk .glyph{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex:none;font-size:11px;font-weight:600}
+.lnk .glyph{width:26px;height:26px;border-radius:6px;display:grid;place-items:center;flex:none;font-size: var(--p-fs-0);font-weight:600}
 .done-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--p-s-3)}
 .done-sum > div{padding:10px 12px;border:1px solid var(--p-line);border-radius:var(--p-r-1);font-size:var(--p-fs-2)}
-.done-sum > div span{display:block;font-size:11px;color:var(--p-ink-3);margin-bottom:2px}
+.done-sum > div span{display:block;font-size: var(--p-fs-0);color:var(--p-ink-3);margin-bottom:2px}
 .done-sum > div b{font-weight:500;color:var(--p-ink)}
 </style>
 </head>

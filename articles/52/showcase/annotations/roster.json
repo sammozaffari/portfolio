@@ -31,7 +31,7 @@
   },
   {
    "title": "Part-time hours are a running total, not a surprise",
-   "finding": "Managers described thinking the week had gone well, then finding warnings for people who had not met their contracted minimum hours, after the pay run had already priced it.",
+   "finding": "Weeks that seemed to have gone well ended, managers said, in warnings for people who had not met their contracted minimum hours, after the pay run had already priced it.",
    "decision": "The person's row carries hours against contract and the make-up pay it will cost if the week ends like this. The cost is shown before it is incurred.",
    "rejected": "Reporting it at the pay run, which is where it used to appear and where it is already too late to act.",
    "n": 4,
@@ -49,7 +49,7 @@
   },
   {
    "title": "Somebody shared between restaurants is counted once",
-   "finding": "Compliance across locations for shared employees was raised as a distinct problem, and cross-schedule compliance for shared and cross-state employees went onto the backlog.",
+   "finding": "Shared employees raised a distinct compliance problem across locations, and cross-schedule compliance for shared and cross-state employees went onto the backlog.",
    "decision": "Hours are totalled across both restaurants on the person's row, so the overtime threshold is measured against the person rather than against the site.",
    "rejected": "Per-site totals, which let two compliant rosters add up to one non-compliant week.",
    "n": 6,
