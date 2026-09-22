@@ -57,6 +57,8 @@
   @media (max-width: 900px) { .est-grid, .est-sum { grid-template-columns: 1fr; } .est-grid > div, .est-sum > div { border-right: 0; } }
   @media (max-width: 640px) { .brief { grid-template-columns: 1fr; } }
 </style>
+<link rel="stylesheet" href="../../assets/motion.css?v=1">
+<script src="../../assets/motion.js?v=1"></script>
 <script>document.documentElement.classList.add('js')</script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -110,6 +112,119 @@
   <b>Measured</b><p>The research counts and the estimate of manual board effort in section 4 are the figures that exist. Reporting outcomes after the roadmap are held by the safety team.</p>
   <b>Shown here</b><p>Original artefacts: the blueprint, the tool's filter views and the form prototype. Later concept: the ten-module interface, designed in September 2026 from the same findings. Vendor, sites and people removed; research counts as the December 2025 findings report records them; every name and number on the concept screens is invented.</p>
 </div>
+
+<!-- graphic:eight-restaurants -->
+<figure class="fig fig-wide mo" id="g-eight-restaurants" data-graphic="eight-restaurants" data-freeze="30">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-eight-restaurants-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .er-frame { fill: none; stroke: #cfcfca; stroke-dasharray: 4 5; }
+    .er-label { fill: #6e6e69; }
+    .er-site rect { fill: #ffffff; stroke: #111110; stroke-width: 1.5; }
+    .er-site .er-roof { stroke: #111110; stroke-width: 1.5; fill: none; }
+    .er-site text { fill: #111110; }
+    .er-pulse { fill: none; stroke-width: 2.5; }
+    .er-routine { fill: #3b7d47; }
+    .er-routine.off { fill: #ffffff; stroke: #bbbbb6; stroke-width: 1.2; }
+    .er-meter-bg { fill: #e2e1db; }
+    .er-meter { fill: #3b7d47; }
+    .er-meter-lab { fill: #6e6e69; }
+  </style>
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <g id="er-frames"></g>
+  <g id="er-pulses"></g>
+  <g id="er-sites"></g>
+  <text x="60" y="612" font-size="12" class="mo-fine">Bar: reporting strength, relative and unlabelled. Three marks: the manager's routine, one each for talking about</text>
+  <text x="60" y="630" font-size="12" class="mo-fine">safety, thanking people for reports, and showing the system on the first shift. A ring is a report going in.</text>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-toggle="routine" aria-pressed="false">Arrange by the manager's routine</button>
+  <span class="mo-key"><i class="crew"></i> hazard reported &nbsp; <i class="attention"></i> incident reported</span>
+</div>
+<figcaption id="g-eight-restaurants-cap"><span class="fignum">Pattern</span>The eight sampled restaurants, arranged two ways. By location, the explanation the business held, the strong reporters scatter across metropolitan and regional, higher- and lower-crime suburbs. By the manager's routine, what the interviews and visits found, they line up. This draws the pattern the sample showed rather than the data behind it, and the finding holds for the sampled restaurants. Hover or tab to a restaurant.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-eight-restaurants');
+  var framesG = document.getElementById('er-frames'), pulsesG = document.getElementById('er-pulses'), sitesG = document.getElementById('er-sites');
+  /* Eight restaurants written to carry the finding: routine tracks reporting strength, location does not. */
+  var SITES = [
+    { metro: true,  crime: true,  routine: 3, s: 1.00 }, { metro: true,  crime: true,  routine: 1, s: 0.35 },
+    { metro: true,  crime: false, routine: 3, s: 0.92 }, { metro: true,  crime: false, routine: 0, s: 0.22 },
+    { metro: false, crime: true,  routine: 2, s: 0.66 }, { metro: false, crime: true,  routine: 0, s: 0.18 },
+    { metro: false, crime: false, routine: 3, s: 0.96 }, { metro: false, crime: false, routine: 1, s: 0.40 }
+  ];
+  var COLT = ['Metropolitan', 'Regional'], ROWT = ['higher-crime suburb', 'lower-crime suburb'];
+  var BANDS = ['The whole routine: talks about safety, thanks reporters, shows the system on the first shift',
+               'Part of the routine', 'Little or none of the routine'];
+  function band(s) { return s.routine >= 3 ? 0 : s.routine >= 1 ? 1 : 2; }
+  function posLocation(i) {
+    var s = SITES[i], col = s.metro ? 0 : 1, row = s.crime ? 0 : 1;
+    var idx = SITES.slice(0, i).filter(function (o) { return o.metro === s.metro && o.crime === s.crime; }).length;
+    return [232 + col * 560 + idx * 220, 216 + row * 250];
+  }
+  function posRoutine(i) {
+    var b = band(SITES[i]);
+    var idx = SITES.slice(0, i).filter(function (o) { return band(o) === b; }).length;
+    var n = SITES.filter(function (o) { return band(o) === b; }).length;
+    return [600 - (n - 1) * 110 + idx * 220, 208 + b * 162];
+  }
+  var locFrames = [], rouFrames = [];
+  for (var r = 0; r < 2; r++) for (var c = 0; c < 2; c++) {
+    var g = M.el('g', {}, framesG);
+    M.el('rect', { 'class': 'er-frame', x: 120 + c * 560, y: 140 + r * 250, width: 480, height: 210, rx: 6 }, g);
+    M.text(g, 134, 162, COLT[c] + ', ' + ROWT[r], { 'font-size': 12, 'class': 'er-label' });
+    locFrames.push(g);
+  }
+  BANDS.forEach(function (b, k) {
+    var g = M.el('g', {}, framesG);
+    M.el('rect', { 'class': 'er-frame', x: 120, y: 140 + k * 162, width: 1000, height: 142, rx: 6 }, g);
+    M.text(g, 134, 162 + k * 162, b, { 'font-size': 12, 'class': 'er-label' });
+    rouFrames.push(g);
+  });
+  var els = SITES.map(function (s, i) {
+    var loc = (s.metro ? 'metropolitan' : 'regional') + ', ' + (s.crime ? 'higher' : 'lower') + '-crime suburb';
+    var rt = ['none of the routine', 'one part of the routine', 'two parts of the routine',
+              'the whole routine: talks about safety, thanks people for reports, shows the system on the first shift'][s.routine];
+    var g = M.el('g', { 'class': 'er-site', 'data-tip': 'Restaurant ' + (i + 1) + ' of 8: ' + loc + '. The manager does ' + rt + '. Reporting is ' + (s.s > 0.6 ? 'strong' : s.s > 0.3 ? 'middling' : 'weak') + ' in the sample.' }, sitesG);
+    M.el('rect', { 'class': 'mo-hit', x: -22, y: -14, width: 44, height: 30, rx: 2 }, g);
+    M.el('path', { 'class': 'er-roof', d: 'M-26 -14 L0 -30 L26 -14' }, g);
+    M.text(g, 0, 7, String(i + 1), { 'font-size': 12, 'text-anchor': 'middle', 'font-weight': 600 });
+    for (var k = 0; k < 3; k++) M.el('circle', { cx: -13 + k * 13, cy: 30, r: 4.4, 'class': 'er-routine' + (k < s.routine ? '' : ' off') }, g);
+    M.el('rect', { 'class': 'er-meter-bg', x: -26, y: 44, width: 52, height: 6, rx: 3 }, g);
+    M.el('rect', { 'class': 'er-meter', x: -26, y: 44, width: (52 * s.s).toFixed(1), height: 6, rx: 3 }, g);
+    return { g: g };
+  });
+  var mix = 0;
+  function draw(t, s, dt) {
+    var target = s.routine ? 1 : 0;
+    if (M.isStatic || !dt) mix = target; else mix += (target - mix) * Math.min(1, dt * 3.2);
+    locFrames.forEach(function (g) { g.setAttribute('opacity', (1 - mix).toFixed(2)); });
+    rouFrames.forEach(function (g) { g.setAttribute('opacity', mix.toFixed(2)); });
+    while (pulsesG.firstChild) pulsesG.removeChild(pulsesG.firstChild);
+    SITES.forEach(function (site, i) {
+      var a = posLocation(i), b = posRoutine(i), e = M.ease(mix);
+      var x = a[0] + (b[0] - a[0]) * e, y = a[1] + (b[1] - a[1]) * e;
+      els[i].g.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + y.toFixed(1) + ')');
+      /* a report leaving the restaurant: period shortens as reporting strengthens */
+      var period = 1.4 + (1 - site.s) * 6;
+      var n = Math.floor(t / period + i * 0.13);
+      var ph = ((t / period) + i * 0.13) % 1;
+      var hazard = (n % 3) !== 2;                       /* hazards outnumber incidents where reporting is healthy */
+      M.el('circle', { cx: x.toFixed(1), cy: (y - 4).toFixed(1), r: (20 + 40 * ph).toFixed(1),
+                       'class': 'er-pulse ' + (hazard ? 'ring-crew' : 'ring-attention'),
+                       opacity: (Math.pow(1 - ph, 1.6) * 0.95).toFixed(2) }, pulsesG);
+    });
+  }
+  function describe(s) {
+    return s.routine ? 'Arranged by the manager’s routine: the strong reporters sit together in the top band, whatever their location.'
+                     : 'Arranged by location: strong and weak reporters sit side by side in every quadrant.';
+  }
+  M.mount(root, { duration: 60, freeze: parseFloat(root.getAttribute('data-freeze')) || 30, state: { routine: M.isStatic }, draw: draw, describe: describe });
+})();
+</script>
+</figure>
+<!-- /graphic:eight-restaurants -->
 
 <section class="art-sec" id="sec-1"><span class="sec-kicker">01</span><h2>The problem</h2>
 <p><strong>A platform configured for one workflow, used through another.</strong> The intended path was simple: a team member notices a hazard or has an incident, scans the QR code on the safety poster, fills in the form. The research found a different path in almost every restaurant. The team member tells the manager. The manager decides whether it is worth logging, logs it if so, and sometimes closes it without telling anyone. In restaurants that ban phones on shift, the QR code was not even an option, so the manager became the reporter by default without anyone deciding that.</p>

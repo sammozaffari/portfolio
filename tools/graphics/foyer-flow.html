@@ -1,0 +1,198 @@
+<figure class="fig fig-wide mo" id="g-foyer-flow" data-graphic="foyer-flow" data-freeze="41">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-foyer-flow-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .ff-table circle { fill: #ffffff; stroke: #bbbbb6; stroke-width: 1.2; }
+    .ff-kiosk rect { fill: #ffffff; stroke: #111110; stroke-width: 1.4; }
+    .ff-kiosk rect + rect { fill: #111110; stroke: none; }
+    .ff-ghost { pointer-events: none; }
+  </style>
+  <defs>
+    <pattern id="ff-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#bbbbb6" stroke-width="1"/></pattern>
+  </defs>
+  <!-- the building -->
+  <rect x="60" y="40" width="1080" height="600" class="z-paper" stroke="none"/>
+  <!-- zones -->
+  <g data-tip="Kitchen and back of house. The counter, the kiosks and the collection point all read from the same order queue.">
+    <rect class="zone z-kitchen mo-hit" x="600" y="40" width="540" height="90"/>
+    <text x="620" y="70" font-size="13" class="mo-fine">Kitchen</text>
+    <rect x="640" y="118" width="340" height="6" fill="#ffffff" stroke="#bbbbb6"/>
+    <text x="640" y="108" font-size="11" class="mo-fine">pass</text>
+  </g>
+  <g data-tip="Dining, to the left of the path. No kiosk sits past the counter or behind the guest, so nobody has to turn back to find one.">
+    <rect class="zone z-dining mo-hit" x="80" y="60" width="480" height="230"/>
+    <text x="100" y="90" font-size="13" class="mo-fine">Dining</text>
+    <g class="ff-table"><circle cx="160" cy="150" r="15"/><circle cx="160" cy="126" r="4"/><circle cx="184" cy="150" r="4"/><circle cx="160" cy="174" r="4"/><circle cx="136" cy="150" r="4"/></g><g class="ff-table"><circle cx="260" cy="110" r="15"/><circle cx="260" cy="86" r="4"/><circle cx="284" cy="110" r="4"/><circle cx="260" cy="134" r="4"/><circle cx="236" cy="110" r="4"/></g><g class="ff-table"><circle cx="360" cy="160" r="15"/><circle cx="360" cy="136" r="4"/><circle cx="384" cy="160" r="4"/><circle cx="360" cy="184" r="4"/><circle cx="336" cy="160" r="4"/></g><g class="ff-table"><circle cx="460" cy="110" r="15"/><circle cx="460" cy="86" r="4"/><circle cx="484" cy="110" r="4"/><circle cx="460" cy="134" r="4"/><circle cx="436" cy="110" r="4"/></g><g class="ff-table"><circle cx="300" cy="230" r="15"/><circle cx="300" cy="206" r="4"/><circle cx="324" cy="230" r="4"/><circle cx="300" cy="254" r="4"/><circle cx="276" cy="230" r="4"/></g><g class="ff-table"><circle cx="440" cy="230" r="15"/><circle cx="440" cy="206" r="4"/><circle cx="464" cy="230" r="4"/><circle cx="440" cy="254" r="4"/><circle cx="416" cy="230" r="4"/></g>
+  </g>
+  <g data-tip="Dining, beyond the collection point. A guest leaves the flow here with an order in hand.">
+    <rect class="zone z-dining mo-hit" x="700" y="440" width="420" height="180"/>
+    <text x="720" y="470" font-size="13" class="mo-fine">Dining</text>
+    <g class="ff-table"><circle cx="760" cy="500" r="15"/><circle cx="760" cy="476" r="4"/><circle cx="784" cy="500" r="4"/><circle cx="760" cy="524" r="4"/><circle cx="736" cy="500" r="4"/></g><g class="ff-table"><circle cx="830" cy="560" r="15"/><circle cx="830" cy="536" r="4"/><circle cx="854" cy="560" r="4"/><circle cx="830" cy="584" r="4"/><circle cx="806" cy="560" r="4"/></g><g class="ff-table"><circle cx="910" cy="490" r="15"/><circle cx="910" cy="466" r="4"/><circle cx="934" cy="490" r="4"/><circle cx="910" cy="514" r="4"/><circle cx="886" cy="490" r="4"/></g><g class="ff-table"><circle cx="990" cy="570" r="15"/><circle cx="990" cy="546" r="4"/><circle cx="1014" cy="570" r="4"/><circle cx="990" cy="594" r="4"/><circle cx="966" cy="570" r="4"/></g><g class="ff-table"><circle cx="1060" cy="510" r="15"/><circle cx="1060" cy="486" r="4"/><circle cx="1084" cy="510" r="4"/><circle cx="1060" cy="534" r="4"/><circle cx="1036" cy="510" r="4"/></g><g class="ff-table"><circle cx="880" cy="600" r="15"/><circle cx="880" cy="576" r="4"/><circle cx="904" cy="600" r="4"/><circle cx="880" cy="624" r="4"/><circle cx="856" cy="600" r="4"/></g>
+  </g>
+  <g data-tip="The counter stays an equal path, visible from every kiosk, so choosing it never feels like giving up. Cash and specific-piece requests come here.">
+    <rect class="zone z-counter mo-hit" x="620" y="130" width="380" height="60"/>
+    <text x="640" y="166" font-size="14" class="mo-ink">Counter</text>
+  </g>
+  <g data-tip="The stealth register at the end of the counter absorbs the cash queue, and a freed cashier becomes a packer or presenter without adding labour.">
+    <rect class="zone z-counter mo-hit" x="1000" y="130" width="120" height="60"/>
+    <text x="1012" y="156" font-size="12" class="mo-fine">Stealth</text>
+    <text x="1012" y="172" font-size="12" class="mo-fine">register</text>
+  </g>
+  <g data-tip="Queue space for the counter path, sized so it never spills across the kiosk approach.">
+    <rect class="zone mo-hit" x="640" y="200" width="340" height="120" fill="url(#ff-hatch)"/>
+    <text x="660" y="226" font-size="12" class="mo-fine">Counter queue</text>
+  </g>
+  <g data-tip="Collection point apart from the counter queue, with the collection screen in the guest's line of sight, so waiting never blocks ordering.">
+    <rect class="zone z-counter mo-hit" x="1020" y="220" width="100" height="120"/>
+    <rect x="1040" y="206" width="60" height="8" fill="#111110"/>
+    <text x="1030" y="200" font-size="11" class="mo-fine">collection screen</text>
+    <text x="1030" y="272" font-size="12" class="mo-fine">Collection</text>
+    <text x="1030" y="288" font-size="12" class="mo-fine">point</text>
+  </g>
+  <g data-tip="Kiosks in a bank of three or more, on the dominant path between the entrance and the counter, facing the path, with room for two guests to order side by side and a host between them.">
+    <rect class="zone z-kiosk mo-hit" x="230" y="360" width="90" height="250" rx="2"/>
+    <g class="ff-kiosk"><rect x="238" y="382" width="30" height="42" rx="2"/><rect x="236" y="386" width="4" height="34"/></g>
+    <g class="ff-kiosk"><rect x="238" y="462" width="30" height="42" rx="2"/><rect x="236" y="466" width="4" height="34"/></g>
+    <g class="ff-kiosk"><rect x="238" y="542" width="30" height="42" rx="2"/><rect x="236" y="546" width="4" height="34"/></g>
+    <text x="278" y="408" font-size="12" class="mo-fine">Kiosk 1</text>
+    <text x="278" y="488" font-size="12" class="mo-fine">Kiosk 2</text>
+    <text x="278" y="568" font-size="12" class="mo-fine">Kiosk 3</text>
+  </g>
+  <g data-tip="No kiosks past the counter. A kiosk the guest has already walked past is a kiosk nobody uses.">
+    <rect class="zone mo-hit" x="620" y="380" width="500" height="34" fill="url(#ff-hatch)"/>
+    <text x="640" y="402" font-size="12" class="mo-fine">No kiosks past the counter</text>
+  </g>
+  <!-- the dominant path: a swept band with a dashed centreline -->
+  <path d="M180 660 L180 340 L1000 340" fill="none" stroke="#efeeea" stroke-width="44" stroke-linejoin="round"/>
+  <path class="path" d="M180 660 L180 340 L1000 340"/>
+  <text x="196" y="596" font-size="12" class="mo-fine" transform="rotate(-90 196 596)">dominant path</text>
+  <!-- walls and the door -->
+  <path class="wall" d="M230 640 H1140 V40 H60 V640 H130"/>
+  <path class="line" d="M130 640 A100 100 0 0 1 230 540"/>
+  <path class="wall" d="M130 640 L130 600"/>
+  <text x="70" y="632" font-size="12" class="mo-fine">Entrance</text>
+  <!-- the host -->
+  <g id="ff-host" data-tip="The foyer host stands where the path splits: greets, helps a first order at the kiosk, and directs cash and specific-piece requests to the counter. Rostered at peak, reporting to the restaurant manager.">
+    <circle class="halo" id="ff-host-halo" cx="212" cy="318" r="40"/>
+    <circle class="a-crew mo-hit" cx="212" cy="318" r="9"/>
+    <text x="230" y="322" font-size="13" class="mo-ink" id="ff-host-label">Foyer host</text>
+  </g>
+  <g id="ff-agents"></g>
+  <g id="ff-marks"></g>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-toggle="host" aria-pressed="true">Host on shift</button>
+  <span class="mo-key"><i class="person"></i> guest &nbsp; <i class="cash"></i> cash guest &nbsp; <i class="crew"></i> host</span>
+</div>
+<figcaption id="g-foyer-flow-cap"><span class="fignum">Plan</span>The foyer, drawn from the placement standard: kiosks in a bank on the dominant path, the host where the path splits, the counter as an equal path with the stealth register, and the collection point apart from the queue. The figures walk the paths the standard designs for; they are not a measured flow. A rose ring marks a cash guest. Switch the host off to see the split with nobody standing on it. Hover or tab to a zone for its rule.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-foyer-flow');
+  var svg = root.querySelector('svg');
+  var agents = document.getElementById('ff-agents'), marks = document.getElementById('ff-marks');
+  var halo = document.getElementById('ff-host-halo'), hostLabel = document.getElementById('ff-host-label'), host = document.getElementById('ff-host');
+  var SPAWN = 2.1, LOOP = 84, WALK = 95;            /* seconds between guests, seconds a loop, units a second */
+  var CORNER = [180, 340];
+  var KIOSK = [[214, 403], [214, 483], [214, 563]];
+  var COUNTER = [[700, 260], [780, 250], [860, 262], [940, 255]];
+  var COLLECT = [[1046, 262], [1046, 300]];
+  var TABLES = [[760, 500], [830, 560], [910, 490], [990, 570], [1060, 510], [880, 600]];
+  var CHAIR = [[0, -24], [24, 0], [0, 24], [-24, 0]];
+
+  /* A guest's whole journey is a pure function of its index and the host state,
+     so any frame can be drawn on its own and a frozen frame is reproducible. */
+  function journey(i, s) {
+    var r = M.rng(1000 + i * 7919);
+    var cash = r() < 0.22;
+    var pts = [[150, 690], [180, 640], [180, 600]];
+    var dwell = [0, 0, 0];
+    function go(p, d) { pts.push(p); dwell.push(d || 0); }
+    var k = i % 3, q = i % COUNTER.length, tb = TABLES[i % TABLES.length], ch = CHAIR[Math.floor(i / TABLES.length) % 4], seat = [tb[0] + ch[0], tb[1] + ch[1]];
+    var hesitate = 0, toCounter = cash;
+    if (!s.host) {
+      hesitate = 1.4 + r() * 2.2;
+      if (!cash && r() < 0.5) toCounter = true;
+    }
+    if (toCounter) {
+      go([180, 360], hesitate);                            /* the split, and the pause without a host */
+      go(CORNER, s.host ? 0.6 : 0);                         /* a word with the host */
+      go([COUNTER[q][0] - 40, 340], 0); go(COUNTER[q], 4.5 + r() * 2);
+      go([COUNTER[q][0], 340], 0); go([1000, 340], 0); go(COLLECT[i % 2], 2.5 + r());
+    } else {
+      if (!s.host) { go([180, 360], hesitate); go([180, 380], 0); }
+      go([180, KIOSK[k][1]], 0); go(KIOSK[k], 5 + r() * 3);   /* order at the kiosk */
+      go([180, KIOSK[k][1]], 0); go(CORNER, s.host ? 0.4 : 0);
+      go([1000, 340], 0); go(COLLECT[i % 2], 2.5 + r());
+    }
+    go([1000, 420], 0); go(seat, 9 + r() * 4);
+    /* times at each waypoint */
+    var times = [0]; var T = 0;
+    for (var j = 1; j < pts.length; j++) {
+      var d = Math.hypot(pts[j][0] - pts[j - 1][0], pts[j][1] - pts[j - 1][1]);
+      T += d / WALK; times.push(T); T += dwell[j]; times.push(T);
+    }
+    return { cash: cash, pts: pts, times: times, end: T, hesitate: hesitate, toCounter: toCounter };
+  }
+  function at(J, u) {
+    /* times alternate arrive, leave for each waypoint after the first */
+    if (u >= J.end) return null;
+    var idx = 1, k = 1;
+    while (idx < J.pts.length) {
+      var arrive = J.times[k], leave = J.times[k + 1];
+      if (u < arrive) {
+        var t0 = idx === 1 ? 0 : J.times[k - 1];
+        var f = (u - t0) / (arrive - t0), a = J.pts[idx - 1], b = J.pts[idx];
+        return { x: a[0] + (b[0] - a[0]) * f, y: a[1] + (b[1] - a[1]) * f, waiting: false, idx: idx };
+      }
+      if (u <= leave) return { x: J.pts[idx][0], y: J.pts[idx][1], waiting: true, idx: idx };
+      idx += 1; k += 2;
+    }
+    return null;
+  }
+  var pool = [];
+  function circle(kind) {
+    var g = M.el('g', {}, agents);
+    var ghosts = [M.el('circle', { r: 5, 'class': 'ff-ghost ' + (kind === 'cash' ? 'ring-person' : 'a-person'), opacity: 0.16 }, g),
+                  M.el('circle', { r: 6, 'class': 'ff-ghost ' + (kind === 'cash' ? 'ring-person' : 'a-person'), opacity: 0.32 }, g)];
+    var c = M.el('circle', { r: 7, 'class': kind === 'cash' ? 'ring-person' : 'a-person', 'stroke-width': kind === 'cash' ? 3 : 0 }, g);
+    var q = M.text(g, 0, 0, '?', { 'font-size': 14, 'font-weight': 700, 'text-anchor': 'middle', 'class': 'a-attention' }); q.setAttribute('opacity', 0);
+    var ring = M.el('circle', { r: 12, 'class': 'ring-attention', 'stroke-width': 1.5, opacity: 0 }, g);
+    return { g: g, c: c, q: q, ring: ring, ghosts: ghosts };
+  }
+  var N = Math.ceil(LOOP / SPAWN) + 8;
+  for (var i = 0; i < N; i++) pool.push(null);
+
+  function draw(t, s) {
+    halo.setAttribute('opacity', s.host ? 1 : 0);
+    host.querySelector('.a-crew').setAttribute('opacity', s.host ? 1 : 0.18);
+    hostLabel.textContent = s.host ? 'Foyer host' : 'Nobody at the split';
+    for (var i = 0; i < N; i++) {
+      var spawn = i * SPAWN - 40;                  /* the scene is already busy at t = 0 */
+      var J = journey(i, s), u = t - spawn;
+      if (u < 0 && t + LOOP - spawn < J.end) u = t + LOOP - spawn;   /* wrap the loop */
+      var p = u >= 0 ? at(J, u) : null;
+      if (!p) { if (pool[i]) { pool[i].g.setAttribute('opacity', 0); } continue; }
+      if (!pool[i]) pool[i] = circle(J.cash ? 'cash' : 'person');
+      var a = pool[i];
+      a.g.setAttribute('opacity', 1);
+      a.g.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+      /* a short trail behind a moving figure, so a still frame shows direction */
+      for (var k2 = 0; k2 < 2; k2++) {
+        var pp = p.waiting ? null : at(J, u - 0.55 + k2 * 0.25);
+        if (pp) { a.ghosts[k2].setAttribute('cx', pp.x - p.x); a.ghosts[k2].setAttribute('cy', pp.y - p.y); a.ghosts[k2].setAttribute('opacity', 0.16 + k2 * 0.16); }
+        else a.ghosts[k2].setAttribute('opacity', 0);
+      }
+      var hes = !s.host && p.waiting && p.idx === 3 && J.hesitate > 0;
+      a.q.setAttribute('opacity', hes ? 1 : 0); a.q.setAttribute('y', -14);
+      a.ring.setAttribute('opacity', hes ? 0.9 : 0);
+    }
+  }
+  function describe(s) {
+    return s.host ? 'Host on shift: guests are greeted at the split, card guests go to the kiosks, cash guests to the counter.'
+                  : 'No host: guests pause at the split, about half turn to the counter and the queue grows.';
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 41, state: { host: true }, draw: draw, describe: describe });
+})();
+</script>
+</figure>

@@ -1,0 +1,140 @@
+<figure class="fig fig-wide mo" id="g-nine-stages" data-graphic="nine-stages" data-freeze="33">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-nine-stages-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .ns-col line { stroke: #e2e1db; }
+    .ns-col text { fill: #111110; font-weight: 600; }
+    .ns-col .ns-sub { fill: #6e6e69; font-weight: 400; }
+    .ns-fail { fill: none; stroke: #a8321f; stroke-width: 1.6; }
+    .ns-lane { fill: #e8eee5; }
+    .ns-lane-machine { fill: #fff2bb; }
+    .ns-lane text { fill: #3b7d47; }
+    .ns-lane-machine text { fill: #8a5a10; }
+    .ns-wait { fill: none; stroke: #a8321f; stroke-width: 1.5; }
+    .ns-owned { fill: none; stroke: #3b7d47; stroke-width: 1.5; }
+    .ns-tick { stroke: #3b7d47; stroke-width: 2.5; stroke-linecap: round; }
+    .ns-note { fill: #6e6e69; }
+    .ns-loop { fill: none; stroke: #a8321f; stroke-width: 1.4; stroke-dasharray: 3 3; }
+  </style>
+  <defs><marker id="ns-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#a8321f"/></marker></defs>
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <g id="ns-cols"></g>
+  <!-- the path candidates walk -->
+  <line x1="80" y1="330" x2="1120" y2="330" stroke="#e2e1db" stroke-width="40"/>
+  <!-- the lanes the specification adds: automation above, people below -->
+  <g id="ns-lanes">
+    <g class="ns-lane ns-lane-machine" data-tip="Five screening questions in a conversation, then automatic scheduling where the answers meet the rule; automated document, biometric and registry checks at work rights. The machine runs checks. It does not end an application."><rect class="mo-hit" x="420" y="196" width="600" height="56" rx="4"/><text x="432" y="220" font-size="12">Runs automatically</text><text x="432" y="238" font-size="11" class="ns-note">five questions · auto-scheduling · document, biometric and registry checks</text></g>
+    <g class="ns-lane" data-tip="Human lanes wherever identity, age or consent is decided: the under-18 consent branch before any decision, the review queue for anyone outside the scheduling rule with their answers attached, and a payroll-administrator lane for work-rights checks that fail, with the reason emailed."><rect class="mo-hit" x="420" y="408" width="600" height="56" rx="4"/><text x="432" y="432" font-size="12">A person decides</text><text x="432" y="450" font-size="11" class="ns-note">consent first for under-18s · review queue with answers attached · payroll lane for failed checks</text></g>
+  </g>
+  <!-- the loops the research found: documents asked twice, offers lost -->
+  <g id="ns-found">
+    <path class="ns-loop" d="M900 300 C860 240 500 240 460 300" marker-end="url(#ns-arrow)"/>
+    <text x="600" y="256" font-size="11" class="ns-note" text-anchor="middle">the same documents asked for again at onboarding</text>
+    <text x="700" y="392" font-size="11" class="ns-note" text-anchor="middle">an offer that landed in spam</text>
+  </g>
+  <g id="ns-cands"></g>
+  <text x="80" y="630" font-size="12" class="mo-fine">A ring around a candidate is the wait for a first human touch; red while nobody owns it, green once a step has an owner. The rows are a schematic of the journey, not real candidates.</text>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-toggle="spec" aria-pressed="false">As the specification designs it</button>
+  <span class="mo-key"><i class="person"></i> candidate &nbsp; <i class="machine"></i> automatic &nbsp; <i class="crew"></i> a person</span>
+</div>
+<figcaption id="g-nine-stages-cap"><span class="fignum">Journey</span>Nine stages from wondering where to find a job to a first shift. As the research found it, five of the seven moments that matter failed, the wait for a first human touch ran from days to weeks with nobody able to see it, documents were asked for twice and offers landed in spam. As the specification designs it, checks run automatically, people decide wherever identity, age or consent is at stake, reminders go at 24, 48 and 72 hours, and every candidate gets an answer within ten days. The specification was delivered to technology and the vendor to implement; the screens are a schematic of it.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-nine-stages');
+  var colsG = document.getElementById('ns-cols'), candsG = document.getElementById('ns-cands'), found = document.getElementById('ns-found'), lanes = document.getElementById('ns-lanes');
+  var STAGES = ['Identify', 'Search', 'Consider', 'Apply', 'Interview', 'Offer', 'Accept', 'Onboard', 'Start'];
+  var FAILED = { Search: 1, Apply: 1, Interview: 1, Offer: 1, Start: 1 };   /* the five failing moments */
+  var X0 = 80, CW = 1040 / 9;
+  var cx = function (k) { return X0 + CW * k + CW / 2; };
+  STAGES.forEach(function (name, k) {
+    var g = M.el('g', { 'class': 'ns-col', 'data-tip': name + (FAILED[name] ? ': one of the five moments that matter that failed basic expectations.' : ': ' + (name === 'Consider' || name === 'Accept' ? 'a moment that matters, judged weak rather than failing.' : 'a stage of the current-state blueprint.')) }, colsG);
+    M.el('line', { x1: X0 + CW * k, y1: 110, x2: X0 + CW * k, y2: 560 }, g);
+    M.el('rect', { 'class': 'mo-hit', x: X0 + CW * k + 4, y: 110, width: CW - 8, height: 40, fill: 'transparent' }, g);
+    M.text(g, cx(k), 134, name, { 'font-size': 13, 'text-anchor': 'middle' });
+    if (FAILED[name]) M.el('circle', { 'class': 'ns-fail', id: 'ns-f' + k, cx: cx(k), cy: 160, r: 6 }, g);
+  });
+  M.text(colsG, cx(5), 178, 'reminders at 24, 48 and 72 hours, then an answer by day ten', { 'font-size': 11, 'class': 'ns-note', 'text-anchor': 'middle', id: 'ns-remind', opacity: 0 });
+  M.text(colsG, cx(8), 178, 'first shift recorded', { 'font-size': 11, 'class': 'ns-note', 'text-anchor': 'middle', id: 'ns-record', opacity: 0 });
+  /* a candidate's journey: dwell per stage, longer where nobody owns the wait */
+  var LOOP = 72, EVERY = 4.2, WALK = 112;
+  function journey(i, s) {
+    var r = M.rng(500 + i * 37);
+    var steps = [];
+    var dw = s.spec ? [0.6, 0.9, 0.9, 2.4, 1.5, 1.1, 0.7, 2.4, 1.4] : [0.6, 1.6, 0.9, 3.4, 2.8, 3.6, 0.7, 3.2, 1.3];
+    var owned = s.spec ? [0, 0, 0, 1, 1, 1, 0, 1, 1] : [0, 0, 0, 0, 0, 0, 0, 0, 0];
+    var lane = s.spec ? (i % 2 === 0 ? 'above' : 'below') : '';
+    var loopBack = !s.spec && i % 3 === 1, spam = !s.spec && i % 4 === 2;
+    var t = 0;
+    for (var k = 0; k < 9; k++) {
+      var d = dw[k] * (0.8 + r() * 0.5);
+      var inLane = (k === 3 && lane === 'above') || (k === 7 && lane === 'below');
+      if (inLane) d += 1.1;
+      steps.push({ k: k, t0: t, t1: t + d, owned: owned[k], lane: inLane ? lane : '' });
+      t += d;
+      if (k < 8) { steps.push({ move: true, from: k, to: k + 1, t0: t, t1: t + CW / WALK }); t += CW / WALK; }
+      if (loopBack && k === 7) { steps.push({ move: true, from: 7, to: 3, t0: t, t1: t + 1.2, loop: true }); t += 1.2; steps.push({ k: 3, t0: t, t1: t + 1.2, owned: 0, redo: true }); t += 1.2; steps.push({ move: true, from: 3, to: 7, t0: t, t1: t + 1.2, loop: true }); t += 1.2; loopBack = false; }
+    }
+    return { steps: steps, end: t, spam: spam };
+  }
+  function where(J, u) {
+    if (u < 0 || u >= J.end) return null;
+    var wait = 0, lastOwned = 0, lastK = -1;
+    for (var i = 0; i < J.steps.length; i++) {
+      var st = J.steps[i];
+      if (u <= st.t1) {
+        var f = (u - st.t0) / Math.max(1e-6, st.t1 - st.t0);
+        if (st.move) { var a = cx(st.from), b = cx(st.to); return { x: a + (b - a) * (st.loop ? M.ease(f) : f), y: st.loop ? 330 - 40 * Math.sin(Math.PI * f) : 330, wait: wait, owned: lastOwned, k: lastK }; }
+        var y = st.lane === 'above' ? 224 : st.lane === 'below' ? 436 : 330;
+        return { x: cx(st.k), y: y, wait: wait + (st.owned ? 0 : f * (st.t1 - st.t0)), owned: st.owned, k: st.k, f: f, lane: st.lane, redo: st.redo };
+      }
+      if (!st.move) { lastOwned = st.owned; lastK = st.k; if (!st.owned) wait += st.t1 - st.t0; }
+    }
+    return null;
+  }
+  var pool = [];
+  function cand() {
+    var g = M.el('g', {}, candsG);
+    var ring = M.el('circle', { r: 10, 'class': 'ns-wait' }, g);
+    var dot = M.el('circle', { r: 7, 'class': 'a-person' }, g);
+    var tick = M.el('path', { d: 'M-5 0 L-1 4 L6 -4', 'class': 'ns-tick', opacity: 0, transform: 'translate(0 -40)' }, g);
+    var mark = M.el('circle', { r: 4.5, cx: 0, cy: -40, opacity: 0 }, g);
+    return { g: g, ring: ring, dot: dot, tick: tick, mark: mark };
+  }
+  var N = Math.ceil(LOOP / EVERY) + 6;
+  function draw(t, s) {
+    found.setAttribute('opacity', s.spec ? 0 : 1);
+    lanes.setAttribute('opacity', s.spec ? 1 : 0.12);
+    document.getElementById('ns-remind').setAttribute('opacity', s.spec ? 1 : 0);
+    document.getElementById('ns-record').setAttribute('opacity', s.spec ? 1 : 0);
+    STAGES.forEach(function (name, k) { var f = document.getElementById('ns-f' + k); if (f) f.setAttribute('opacity', s.spec ? 0 : 1); });
+    for (var i = 0; i < N; i++) {
+      var spawn = i * EVERY - 30, J = journey(i, s), u = t - spawn;
+      if (u < 0 && t + LOOP - spawn < J.end) u = t + LOOP - spawn;
+      var p = u >= 0 ? where(J, u) : null;
+      if (!p) { if (pool[i]) pool[i].g.setAttribute('opacity', 0); continue; }
+      if (!pool[i]) pool[i] = cand();
+      var c = pool[i];
+      c.g.setAttribute('opacity', 1);
+      c.g.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ')');
+      var applied = typeof p.k === 'number' ? p.k >= 3 : true;
+      var r = 10 + Math.min(22, p.wait * 5);
+      c.ring.setAttribute('r', r.toFixed(1));
+      c.ring.setAttribute('class', p.owned ? 'ns-owned' : 'ns-wait');
+      c.ring.setAttribute('opacity', applied ? 1 : 0);
+      c.dot.setAttribute('opacity', (J.spam && p.k === 5 && !s.spec) ? 0.35 : 1);
+      var auto = s.spec && p.lane === '' && (p.k === 3 || p.k === 7) && p.f > 0.3;
+      c.mark.setAttribute('opacity', auto ? 1 : 0); c.mark.setAttribute('class', 'a-machine');
+      c.tick.setAttribute('opacity', (s.spec && p.k === 8 && p.f > 0.4) || (p.lane && p.f > 0.5) ? 1 : 0);
+    }
+  }
+  function describe(s) {
+    return s.spec ? 'As specified: checks run automatically at apply and onboard, people decide in the lanes, the wait is owned and every candidate gets an answer within ten days.'
+                  : 'As found: five moments fail, the wait for a first human touch grows unseen, documents are asked for twice and an offer lands in spam.';
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 33, state: { spec: M.isStatic }, draw: draw, describe: describe });
+})();
+</script>
+</figure>

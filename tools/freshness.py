@@ -15,7 +15,10 @@ STYLES = (ROOT / "assets/product/tokens.css", ROOT / "assets/product/components.
 
 def source_hash(src_path):
     h = hashlib.sha1()
-    for f in (pathlib.Path(src_path),) + STYLES:
+    deps = (pathlib.Path(src_path),) + STYLES
+    if "/graphics/" in str(src_path):
+        deps += (ROOT / "assets/motion.js", ROOT / "assets/motion.css")
+    for f in deps:
         h.update(f.read_bytes() if f.exists() else b"")
     return h.hexdigest()[:16]
 

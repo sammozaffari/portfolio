@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twelve weeks for eight new starters, drawn from the blueprint and the day-one standard: five gates before the first shift, shifts week by week, check-ins at weeks two, six and twelve, and the attrition chain the research described running along the top · Sam Mozaffari</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../../assets/motion.css?v=1">
+<script src="../../../assets/motion.js?v=1"></script>
+<style>
+  body { background: var(--paper); }
+  .gp-wrap { max-width: 1200px; margin: 0 auto; padding: 24px var(--pad-m) 48px; }
+  .gp-wrap .fig { margin: 0; }
+  .gp-back { display: inline-block; margin: 18px 0 0; font-size: var(--t-2); border-bottom: 1px solid var(--line-strong); }
+  /* the cover capture wants the drawing alone, edge to edge */
+  html.capture .gp-wrap { padding: 0; max-width: none; }
+  html.capture .mo svg { border: 0; border-radius: 0; }
+  html.capture .mo-bar, html.capture figcaption, html.capture .gp-back { display: none; }
+</style>
+<script>if (new URLSearchParams(location.search).get('static') === '1') document.documentElement.classList.add('capture');</script>
+</head><body>
+<main class="gp-wrap" id="main">
+<figure class="fig fig-wide mo" id="g-twelve-weeks" data-graphic="twelve-weeks" data-freeze="27">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-twelve-weeks-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .tw-chain rect { fill: #ffffff; stroke: #cfcfca; }
+    .tw-chain.is-on rect { fill: #fff2bb; stroke: #bbbbb6; }
+    .tw-chain text { fill: #111110; }
+    .tw-gate { fill: #ffffff; stroke: #2f5d9a; stroke-width: 1.4; }
+    .tw-gate.on { fill: #2f5d9a; }
+    .tw-tick { stroke: #3b7d47; stroke-width: 3; stroke-linecap: round; }
+    .tw-tick.found { stroke: #6e6e69; }
+    .tw-late { stroke: #a8321f; stroke-width: 2; stroke-linecap: round; }
+    .tw-ci { fill: #ffffff; stroke: #2f5d9a; stroke-width: 1.4; }
+    .tw-ci.on { fill: #2f5d9a; }
+    .tw-sign { fill: #3b7d47; }
+    .tw-band { fill: #e8eee5; }
+    .tw-band.tw-onb { fill: #fff2bb; }
+    .tw-head text { fill: #6e6e69; }
+    .tw-ahead { opacity: 0.22; }
+    .tw-play { stroke: #111110; stroke-width: 1.5; stroke-dasharray: 3 4; }
+  </style>
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <!-- option bands, one per lane the option funds first -->
+  <rect id="tw-band-shift" class="tw-band" x="330" y="150" width="800" height="440"/>
+  <rect id="tw-band-onb" class="tw-band tw-onb" x="200" y="150" width="120" height="440" opacity="0"/>
+  <!-- the attrition chain along the top; each link lights as the weeks pass -->
+  <g id="tw-chain"></g>
+  <!-- axis: day one and twelve weeks -->
+  <g class="tw-head">
+    <text x="204" y="140" font-size="12" class="mo-fine">Day one gates</text>
+    <text x="330" y="140" font-size="12" class="mo-fine">Week 1</text>
+    <text x="1082" y="140" font-size="12" class="mo-fine">Week 12</text>
+  </g>
+  <g id="tw-grid"></g>
+  <g id="tw-rows"></g>
+  <line id="tw-playhead" class="tw-play" x1="330" y1="150" x2="330" y2="590"/>
+  <g data-tip="Five gates before the first shift, each a yes or no somebody owns: uniform issued, user ID provisioned, learning access confirmed, first roster confirmed against agreed availability, buddy and trainer named. The research found day one failed on these logistics, not on attitude.">
+    <rect class="mo-hit" x="200" y="150" width="120" height="440" fill="transparent"/>
+  </g>
+  <g data-tip="Structured check-ins at weeks two, six and twelve, recorded as calendar events. Few new starters strongly agreed they had a two-week check-in; the design makes it a step, not a hope.">
+    <rect class="mo-hit" x="420" y="596" width="60" height="30" fill="transparent"/>
+  </g>
+  <text x="200" y="622" font-size="12" class="mo-fine">Eight new starters, one row each. Filled gate: ready before day one. Tick: a shift worked.</text>
+  <text x="200" y="640" font-size="12" class="mo-fine">Diamond: a check-in that happened. Red mark: a late cancellation. Small green dot: a station sign-off.</text>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-toggle="designed" aria-pressed="false">As the standard designs it</button>
+  <button type="button" data-toggle="healthy" aria-pressed="true">Healthy shift first</button>
+  <span class="mo-key"><i class="person"></i> gates and check-ins &nbsp; <i class="crew"></i> shifts &nbsp; <i class="attention"></i> late cancellation</span>
+</div>
+<figcaption id="g-twelve-weeks-cap"><span class="fignum">Plan</span>Twelve weeks for eight new starters, drawn from the blueprint and the day-one standard: five gates before the first shift, shifts week by week, check-ins at weeks two, six and twelve, and the attrition chain the research described running along the top. It opens on the pattern the survey described, with gates missed, uneven weeks and check-ins that did not happen; turn the standard on to see what changes. The option toggle shades the lane each option funds first; the governance forum chose the healthy shift. The rows are a schematic of the design, not eight real people.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-twelve-weeks'), svg = root.querySelector('svg');
+  var chainG = document.getElementById('tw-chain'), rowsG = document.getElementById('tw-rows'), gridG = document.getElementById('tw-grid');
+  var play = document.getElementById('tw-playhead'), bandShift = document.getElementById('tw-band-shift'), bandOnb = document.getElementById('tw-band-onb');
+  var X0 = 330, WEEK = 800 / 12, ROWS = 8, Y0 = 170, RH = 54, LOOP = 40;
+  var CHAIN = [['Unprepared start', 0, 1.2], ['Inconsistent hours and skill mix', 1.2, 4], ['Pressured shifts', 4, 7],
+               ['Inconsistent support and recognition', 7, 10], ['Limited progress', 10, 12], ['Avoidable attrition', 12, 12.6]];
+  var GATES = ['Uniform issued', 'User ID provisioned', 'Learning access', 'First roster confirmed', 'Buddy and trainer named'];
+  /* the chain */
+  CHAIN.forEach(function (c, i) {
+    var w = (940 - (CHAIN.length - 1) * 12) / CHAIN.length, x = 200 + i * (w + 12);
+    var g = M.el('g', { 'class': 'tw-chain', id: 'tw-c' + i, transform: 'translate(' + x + ' 60)' }, chainG);
+    M.el('rect', { width: w, height: 44, rx: 3 }, g);
+    var words = c[0].split(' '), line1 = '', line2 = '';
+    words.forEach(function (wd) { if ((line1 + ' ' + wd).trim().length <= Math.floor(w / 7)) line1 = (line1 + ' ' + wd).trim(); else line2 = (line2 + ' ' + wd).trim(); });
+    M.text(g, 10, line2 ? 19 : 27, line1, { 'font-size': 12 }); if (line2) M.text(g, 10, 35, line2, { 'font-size': 12 });
+    if (i < CHAIN.length - 1) { M.el('path', { d: 'M' + (w + 2) + ' 22 l8 0', stroke: '#bbbbb6', 'stroke-width': 1.5 }, g); }
+  });
+  /* grid: week lines and check-in columns */
+  for (var w = 0; w <= 12; w++) M.el('line', { x1: X0 + w * WEEK, y1: 150, x2: X0 + w * WEEK, y2: 590, stroke: w % 2 ? '#f0efe9' : '#e2e1db', 'stroke-width': 1 }, gridG);
+  [2, 6, 12].forEach(function (wk) { M.text(gridG, X0 + wk * WEEK - (wk === 12 ? 44 : 0), 602, 'check-in', { 'font-size': 11, 'class': 'mo-fine' }); });
+  /* rows: each starter's found and designed patterns are fixed by a seed, so a frame is reproducible */
+  var rows = [];
+  for (var r = 0; r < ROWS; r++) {
+    var rng = M.rng(77 + r * 131), y = Y0 + r * RH;
+    var g = M.el('g', { transform: 'translate(0 ' + y + ')' }, rowsG);
+    M.el('circle', { cx: 176, cy: 0, r: 6, 'class': 'a-person' }, g);
+    var gates = GATES.map(function (name, k) {
+      var el = M.el('rect', { x: 200 + k * 22, y: -7, width: 14, height: 14, rx: 2, 'class': 'tw-gate' }, g);
+      return { el: el, foundOn: rng() > 0.35 };
+    });
+    var weeks = [];
+    for (var wk = 0; wk < 12; wk++) {
+      var found = Math.floor(rng() * 5), late = rng() < 0.18 && found > 0;   /* 0 to 4 shifts, sometimes a late cancellation */
+      if (rng() < 0.12) found = 0;                                              /* a zero-shift week */
+      var ticks = [];
+      for (var k = 0; k < 4; k++) ticks.push(M.el('line', { x1: X0 + wk * WEEK + 12 + k * 14, y1: -8, x2: X0 + wk * WEEK + 12 + k * 14, y2: 8, 'class': 'tw-tick' }, g));
+      var lateEl = M.el('path', { d: 'M' + (X0 + wk * WEEK + 12 + 3 * 14 - 5) + ' -5 l10 10 m0 -10 l-10 10', 'class': 'tw-late' }, g);
+      var sign = M.el('circle', { cx: X0 + wk * WEEK + WEEK - 8, cy: 12, r: 3.5, 'class': 'tw-sign' }, g);
+      weeks.push({ found: found, late: late, ticks: ticks, lateEl: lateEl, sign: sign, signAt: (wk === 2 || wk === 4 || wk === 7) });
+    }
+    var cis = [2, 6, 12].map(function (wk) {
+      var el = M.el('path', { d: 'M0 -9 L9 0 L0 9 L-9 0 Z', transform: 'translate(' + (X0 + wk * WEEK) + ' 0)', 'class': 'tw-ci' }, g);
+      return { el: el, wk: wk, foundOn: rng() > 0.7 };
+    });
+    rows.push({ g: g, gates: gates, weeks: weeks, cis: cis });
+  }
+  function draw(t, s) {
+    var wkNow = (t / LOOP) * 12.6;                     /* the sweep runs day one to just past week 12 */
+    play.setAttribute('x1', X0 + Math.min(12, wkNow) * WEEK); play.setAttribute('x2', X0 + Math.min(12, wkNow) * WEEK);
+    bandShift.setAttribute('opacity', s.healthy ? 1 : 0.28);
+    bandOnb.setAttribute('opacity', s.healthy ? 0 : 1);
+    CHAIN.forEach(function (c, i) { document.getElementById('tw-c' + i).classList.toggle('is-on', !s.designed && wkNow >= c[1] && wkNow < c[2] + 0.4); });
+    rows.forEach(function (row) {
+      row.gates.forEach(function (gt) { gt.el.classList.toggle('on', s.designed ? true : gt.foundOn); });
+      row.weeks.forEach(function (wkd, wk) {
+        var n = s.designed ? 3 : wkd.found, reached = wkNow >= wk + 0.5;
+        wkd.ticks.forEach(function (tk, k) {
+          tk.setAttribute('opacity', k < n ? (reached ? 1 : 0.22) : 0);
+          tk.setAttribute('class', 'tw-tick' + (s.designed ? '' : ' found'));
+        });
+        wkd.lateEl.setAttribute('opacity', (!s.designed && wkd.late) ? (reached ? 1 : 0.22) : 0);
+        wkd.sign.setAttribute('opacity', (s.designed && wkd.signAt) ? (reached ? 1 : 0.22) : 0);
+      });
+      row.cis.forEach(function (ci) {
+        var on = s.designed ? true : ci.foundOn;
+        ci.el.classList.toggle('on', on);
+        ci.el.setAttribute('opacity', wkNow >= ci.wk ? 1 : 0.3);
+      });
+    });
+  }
+  function describe(s) {
+    return (s.designed ? 'As designed: every gate ready before day one, three shifts a week, check-ins at weeks two, six and twelve. ' : 'As found: gates missed, uneven weeks with zero-shift weeks and late cancellations, check-ins that did not happen. ')
+         + (s.healthy ? 'The healthy shift is funded first, which the forum chose.' : 'The first twelve weeks are funded first, the option the forum sequenced behind the healthy shift.');
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 27, state: { designed: false, healthy: true }, draw: draw, describe: describe });
+})();
+</script>
+</figure>
+
+<a class="gp-back" href="../index.html">Back to the case study</a>
+</main>
+</body></html>

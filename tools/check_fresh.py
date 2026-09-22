@@ -26,7 +26,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 want = set(sys.argv[1:])
 bad, n, seen = [], 0, set()
 
-for spec_path in sorted(glob.glob(str(ROOT / "articles/*/showcase/capture*.json"))):
+for spec_path in sorted(glob.glob(str(ROOT / "articles/*/showcase/capture*.json")) + glob.glob(str(ROOT / "articles/*/graphics/capture*.json"))):
     spec_path = pathlib.Path(spec_path)
     article = spec_path.parent.parent.name
     if want and article not in want:

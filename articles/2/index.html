@@ -48,6 +48,8 @@
   .mods .t { display: block; font-size: var(--t-3); font-weight: 600; margin: 3px 0 3px; color: var(--ink); }
   .mods .d { display: block; font-size: var(--t-1); line-height: 1.45; color: var(--ink-soft); }
 </style>
+<link rel="stylesheet" href="../../assets/motion.css?v=1">
+<script src="../../assets/motion.js?v=1"></script>
 <script>document.documentElement.classList.add('js')</script>
 </head><body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -100,6 +102,134 @@
   <b>Measured</b><p>The release record is the measure that exists. The satisfaction and labour-cost measures in section 6 were designed at the close of the review, and the figures sit with people-systems and payroll.</p>
   <b>Shown here</b><p>Original artefacts, anonymised: the blueprint poster, redrawn from the delivered blueprint, the interview synthesis and the scored proposals. Later concept: the nine-module interface, designed in September 2026. A release label on a module names functionality the vendor implemented, not the screen.</p>
 </div>
+
+<!-- graphic:pain-point-triage -->
+<figure class="fig fig-wide mo" id="g-pain-point-triage" data-graphic="pain-point-triage" data-freeze="46">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-pain-point-triage-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .pt-bin rect { fill: #ffffff; stroke: #cfcfca; }
+    .pt-bin text { fill: #555555; }
+    .pt-bin .pt-n { fill: #111110; font-weight: 600; }
+    .pt-hopper { fill: #ffffff; stroke: #111110; stroke-width: 1.5; }
+    .pt-rank rect { fill: #ffffff; stroke: #cfcfca; }
+    .pt-rank text { fill: #111110; }
+    .pt-rank .pt-no { font-family: "IBM Plex Mono", Menlo, monospace; fill: #6e6e69; }
+    .pt-rank .pt-stamp { font-family: "IBM Plex Mono", Menlo, monospace; fill: #6e6e69; }
+    .pt-rank.is-released .pt-stamp { fill: #3b7d47; }
+    .pt-rank.is-released rect { stroke: #3b7d47; }
+    .pt-dot { fill: #2f5d9a; }
+  </style>
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <!-- the register, a hopper the pain points pour from -->
+  <g data-tip="The pain-point register: 175 pain points from ten restaurant visits, 200 survey responses, an above-restaurant interview round and a six-month support-queue analysis, each one typed and triaged.">
+    <path class="pt-hopper mo-hit" d="M80 70 H300 L250 130 H130 Z"/>
+    <text x="122" y="104" font-size="13" class="mo-ink">175 pain points</text>
+  </g>
+  <!-- four bins by the kind of fix each needs -->
+  <g id="pt-bins"></g>
+  <!-- the scored top ten -->
+  <text x="820" y="96" font-size="13" class="mo-ink">The scored top ten</text>
+  <text x="820" y="114" font-size="11" class="mo-fine">criteria agreed before any score was written; compliance ranks first</text>
+  <g id="pt-ladder"></g>
+  <g id="pt-dots"></g>
+  <text x="80" y="630" font-size="12" class="mo-fine">Shares from the delivered report: technology 41 per cent, education 26, integration 21, process 11, other 1. Release record from the reconciliation against the vendor calendar.</text>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-action="replay">Replay the sort</button>
+  <span class="mo-key"><i class="person"></i> a pain point &nbsp; <i class="crew"></i> released by the vendor</span>
+</div>
+<figcaption id="g-pain-point-triage-cap"><span class="fignum">Method</span>The triage that made the list arguable. 175 pain points sort by the kind of change that would resolve them, the split that showed the platform needed a compliance layer more than features. Then the ten that scored highest rise to the ladder with the release each carried: three in release 1.63 in November 2024, five in 1.64 across 2025, two scheduled. Hover or tab to a bin or a rank for the detail.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-pain-point-triage');
+  var binsG = document.getElementById('pt-bins'), ladderG = document.getElementById('pt-ladder'), dotsG = document.getElementById('pt-dots');
+  var BINS = [
+    ['Technology', 72, 41, 'A feature or a fix the vendor owns. Most of the compliance items sat here, and they became the vendor conversation.'],
+    ['Education', 45, 26, 'The platform could already do it and nobody knew. The review named the gap the business had never named: no channel to deliver that education through.'],
+    ['Integration', 37, 21, 'Forecasts late and short, role changes taking days to arrive, training completions syncing late. Consequences of who owned each system.'],
+    ['Process', 19, 11, 'A rule or a habit, not software: the business owned the fix.'],
+    ['Other', 2, 1, 'Two items that fitted none of the four.']
+  ];
+  var TOP = [
+    ['Soft warning on 5 to 5.5 hour shifts', 'Few hard stops, visible warnings', 'Released 1.63, November 2024', 1],
+    ['Hard stop on shift supervisor breaks', 'The one place a hard stop was right', 'Released 1.63, November 2024', 1],
+    ['Break auto-wizard, rerun on change', 'Remove a workaround', 'Released 1.64, 2025', 2],
+    ['Reporting at multiple levels', 'One view per person', 'Released 1.64, 2025', 2],
+    ['Shared employee punches and leave', 'One view per person', 'Scheduled', 0],
+    ['Auto-populated leave on the schedule', 'Remove a workaround', 'Released 1.64, 2025', 2],
+    ['Change a shift to a leave shift', 'Remove a workaround', 'Released 1.64, 2025', 2],
+    ['Consent workflow for leave', 'Consent is not an admin step', 'Released 1.64, 2025', 2],
+    ['Time off shift history', 'Team members can see their own record', 'Released 1.63, November 2024', 1],
+    ['Leave shifts on the mobile shift list', 'Team members can see their own record', 'Scheduled', 0]
+  ];
+  var BX0 = 80, BW = 128, BGAP = 14, BY = 560, COLS = 8, PITCH = 14;
+  BINS.forEach(function (b, k) {
+    var x = BX0 + k * (BW + BGAP), rows = Math.ceil(b[1] / COLS), h = Math.max(40, rows * PITCH + 20);
+    var g = M.el('g', { 'class': 'pt-bin', 'data-tip': b[0] + ': ' + b[1] + ' of 175, ' + b[2] + ' per cent. ' + b[3] }, binsG);
+    M.el('rect', { 'class': 'mo-hit', x: x, y: BY - h, width: BW, height: h, rx: 3 }, g);
+    M.text(g, x, BY + 20, b[0], { 'font-size': 12 });
+    M.text(g, x, BY + 36, b[2] + ' per cent', { 'font-size': 11, 'class': 'mo-fine' });
+    var n = M.text(g, x + BW, BY + 20, String(b[1]), { 'font-size': 12, 'text-anchor': 'end', 'class': 'pt-n' }); n.setAttribute('opacity', 0); b.nEl = n;
+  });
+  var LX = 826, LY0 = 132, LH = 46;
+  TOP.forEach(function (it, k) {
+    var g = M.el('g', { 'class': 'pt-rank', id: 'pt-r' + k, 'data-tip': 'Rank ' + (k + 1) + ': ' + it[0] + '. Principle: ' + it[1] + '. ' + it[2] + '.' }, ladderG);
+    M.el('rect', { 'class': 'mo-hit', x: LX, y: LY0 + k * LH, width: 310, height: 40, rx: 3 }, g);
+    M.text(g, LX + 12, LY0 + k * LH + 18, String(k + 1).padStart(2, '0'), { 'font-size': 11, 'class': 'pt-no' });
+    M.text(g, LX + 36, LY0 + k * LH + 18, it[0], { 'font-size': 12 });
+    var st = M.text(g, LX + 36, LY0 + k * LH + 33, it[3] === 1 ? 'released 1.63 · November 2024' : it[3] === 2 ? 'released 1.64 · 2025' : 'scheduled in the reconciliation', { 'font-size': 10, 'class': 'pt-stamp' });
+    st.setAttribute('opacity', 0); it.stEl = st; it.g = g;
+  });
+  /* every dot has a bin and a slot fixed by its index */
+  var dots = [], order = [];
+  BINS.forEach(function (b, k) { for (var j = 0; j < b[1]; j++) order.push(k); });
+  var shuffle = M.rng(4242); for (var i = order.length - 1; i > 0; i--) { var j = Math.floor(shuffle() * (i + 1)); var tmp = order[i]; order[i] = order[j]; order[j] = tmp; }
+  var slotCount = [0, 0, 0, 0, 0];
+  for (var i = 0; i < 175; i++) {
+    var k = order[i], slot = slotCount[k]++; var col = slot % COLS, row = Math.floor(slot / COLS);
+    var tx = BX0 + k * (BW + BGAP) + 12 + col * (PITCH + 1.2), ty = BY - 12 - row * PITCH;
+    var el = M.el('circle', { r: 4.6, 'class': 'pt-dot', cx: 0, cy: 0 }, dotsG);
+    dots.push({ el: el, k: k, tx: tx, ty: ty, t0: 0.6 + i * 0.105, jit: (shuffle() - 0.5) * 60 });
+  }
+  var SORT_END = 0.6 + 174 * 0.105 + 1.4, RISE_AT = SORT_END + 1.2, RISE_EACH = 0.5, RISE_DUR = 1.4;
+  var STAMP_AT = RISE_AT + 10 * RISE_EACH + RISE_DUR + 0.6, LOOP = 56;
+  var HOP = [190, 100];
+  function draw(t) {
+    var counts = [0, 0, 0, 0, 0];
+    dots.forEach(function (d, i) {
+      var u = (t - d.t0) / 1.4;
+      var risen = i < 10 ? (t - (RISE_AT + i * RISE_EACH)) / RISE_DUR : -1;
+      if (u <= 0) { d.el.setAttribute('opacity', 0); return; }
+      var x, y;
+      if (u < 1) { var f = M.ease(u); x = HOP[0] + d.jit * (1 - f) + (d.tx - HOP[0]) * f; y = HOP[1] + (d.ty - HOP[1]) * f * f; }
+      else { x = d.tx; y = d.ty; counts[d.k] += 1; }
+      if (risen > 0) {
+        var g = Math.min(1, M.ease(Math.min(1, risen)));
+        var rx = LX - 16, ry = LY0 + i * LH + 20;
+        x = d.tx + (rx - d.tx) * g; y = d.ty + (ry - d.ty) * g;
+      }
+      d.el.setAttribute('opacity', 1); d.el.setAttribute('cx', x.toFixed(1)); d.el.setAttribute('cy', y.toFixed(1));
+    });
+    BINS.forEach(function (b, k) { b.nEl.setAttribute('opacity', counts[k] === b[1] ? 1 : 0); if (counts[k] === b[1]) b.nEl.textContent = String(b[1]); });
+    TOP.forEach(function (it, k) {
+      var on = t > STAMP_AT + (it[3] === 1 ? 0 : it[3] === 2 ? 1.6 : 3.2);
+      it.stEl.setAttribute('opacity', on ? 1 : 0);
+      it.g.classList.toggle('is-released', on && it[3] > 0);
+    });
+  }
+  function describe(s, t) {
+    if (t < SORT_END) return '175 pain points are sorting into technology, education, integration, process and other.';
+    if (t < STAMP_AT) return 'The ten highest-scoring items are rising to the ladder.';
+    return 'Eight of the ten carry a vendor release, three from November 2024 and five from 2025; two are scheduled.';
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 46, state: {}, draw: draw, describe: describe,
+                  onAction: function (a) { if (a === 'replay') return 0; } });
+})();
+</script>
+</figure>
+<!-- /graphic:pain-point-triage -->
 
 <figure class="fig fig-wide annot reveal"><a href="images/blueprint-poster.svg"><img src="images/blueprint-poster.svg" alt="Service blueprint poster: seven stages from onboarding to reporting across physical evidence, frontstage, backstage and support lanes, with eight failure points marked in red" loading="lazy"></a><script type="application/json" class="annot-data">[
 {"n":1,"x":56.8,"y":14.7,"kind":"decision","title":"The highest scored item sits on this stage","body":"A visible warning at the five-hour break boundary with an audit trail, rather than a hard stop. Ranked first of ten, and released in November 2024.","link":{"href":"#sec-4","text":"Read the decision"}},

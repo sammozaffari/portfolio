@@ -14,7 +14,10 @@ def source_hash(src_path):
     tell a stale capture from a fresh one without trusting modification times,
     which git does not preserve."""
     h = hashlib.sha1()
-    for f in (src_path, ROOT / "assets/product/tokens.css", ROOT / "assets/product/components.css"):
+    deps = (src_path, ROOT / "assets/product/tokens.css", ROOT / "assets/product/components.css")
+    if "/graphics/" in str(src_path):
+        deps += (ROOT / "assets/motion.js", ROOT / "assets/motion.css")
+    for f in deps:
         h.update(f.read_bytes() if f.exists() else b"")
     return h.hexdigest()[:16]
 

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How a guest comment was coded: a theme, a sentiment and a confidence score, a human review queue for anything the coding was unsure of, then the decomposition into speed, execution or both · Sam Mozaffari</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../../assets/motion.css?v=1">
+<script src="../../../assets/motion.js?v=1"></script>
+<style>
+  body { background: var(--paper); }
+  .gp-wrap { max-width: 1200px; margin: 0 auto; padding: 24px var(--pad-m) 48px; }
+  .gp-wrap .fig { margin: 0; }
+  .gp-back { display: inline-block; margin: 18px 0 0; font-size: var(--t-2); border-bottom: 1px solid var(--line-strong); }
+  /* the cover capture wants the drawing alone, edge to edge */
+  html.capture .gp-wrap { padding: 0; max-width: none; }
+  html.capture .mo svg { border: 0; border-radius: 0; }
+  html.capture .mo-bar, html.capture figcaption, html.capture .gp-back { display: none; }
+</style>
+<script>if (new URLSearchParams(location.search).get('static') === '1') document.documentElement.classList.add('capture');</script>
+</head><body>
+<main class="gp-wrap" id="main">
+<figure class="fig fig-wide mo" id="g-coding-pipeline" data-graphic="coding-pipeline" data-freeze="47">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-coding-pipeline-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .cp-stage text { fill: #111110; font-weight: 600; }
+    .cp-stage .cp-sub { fill: #6e6e69; font-weight: 400; }
+    .cp-card rect { fill: #ffffff; stroke: #111110; stroke-width: 1.2; }
+    .cp-card text { fill: #111110; }
+    .cp-card .cp-chip rect { fill: #e9f1f7; stroke: none; }
+    .cp-card .cp-chip text { fill: #2f5d9a; }
+    .cp-card .cp-sent { fill: #6e6e69; }
+    .cp-card .cp-conf-fill { fill: #3b7d47; }
+    .cp-card.low .cp-conf-fill { fill: #a8321f; }
+    .cp-bin rect { fill: #ffffff; stroke: #cfcfca; stroke-dasharray: 4 4; }
+    .cp-bin .cp-bin-t { fill: #111110; font-weight: 600; }
+    .cp-pill rect { fill: #f6f5f0; stroke: #cfcfca; stroke-width: 1; }
+    .cp-pill text { fill: #555555; }
+    .cp-lane { fill: #e8eee5; }
+    .cp-xm rect { fill: none; stroke: #cfcfca; stroke-dasharray: 4 5; }
+    .cp-xm .cp-xm-t { fill: #111110; font-weight: 600; }
+    .cp-xm text { fill: #6e6e69; }
+    .cp-arrow { fill: none; stroke: #111110; stroke-width: 1.6; }
+    .cp-arrow.thin { stroke: #bbbbb6; stroke-width: 1.2; }
+  </style>
+  <defs>
+    <marker id="cp-head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#111110"/></marker>
+    <marker id="cp-head-thin" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#bbbbb6"/></marker>
+  </defs>
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <!-- the belt -->
+  <line x1="60" y1="250" x2="864" y2="250" stroke="#e2e1db" stroke-width="72"/>
+  <!-- stages -->
+  <g class="cp-stage" data-tip="A rolling year of verified guest feedback, a year of formal complaints, and the comments of guests who said they would not return, read as one corpus."><rect class="mo-hit" x="60" y="120" width="180" height="70" fill="transparent"/><text x="66" y="146" font-size="13">1 Comment</text><text class="cp-sub" x="66" y="166" font-size="12">one line, as written</text></g>
+  <g class="cp-stage" data-tip="Seven service themes, agreed with operations over three rounds: missing or wrong items, refund friction, kiosk friction, waits and understaffing, no acknowledgment at the till, demeanour, training gaps. Whether a theme exists at all is a design decision, and one of these was argued over three times."><rect class="mo-hit" x="256" y="120" width="180" height="70" fill="transparent"/><text x="262" y="146" font-size="13">2 Theme</text><text class="cp-sub" x="262" y="166" font-size="12">one of seven</text></g>
+  <g class="cp-stage" data-tip="Sentiment, so praise for a crew member is kept and counted in its own stream rather than lost among complaints."><rect class="mo-hit" x="452" y="120" width="170" height="70" fill="transparent"/><text x="458" y="146" font-size="13">3 Sentiment</text><text class="cp-sub" x="458" y="166" font-size="12">complaint or praise</text></g>
+  <g class="cp-stage" data-tip="A confidence score on the coding. Below the threshold the comment leaves the belt and is read by a person before it counts."><rect class="mo-hit" x="640" y="120" width="180" height="70" fill="transparent"/><text x="646" y="146" font-size="13">4 Confidence</text><text class="cp-sub" x="646" y="166" font-size="12">low goes to a person</text></g>
+  <g class="cp-stage" data-tip="The decomposition: every service complaint is classified as speed only, execution only, or both. Speed is clock time from order to receipt; execution is competence and coordination."><rect class="mo-hit" x="880" y="120" width="270" height="70" fill="transparent"/><text x="886" y="146" font-size="13">5 Speed or execution</text><text class="cp-sub" x="886" y="166" font-size="12">the split that redirected the programme</text></g>
+  <!-- the human review lane -->
+  <g data-tip="Low-confidence comments leave the belt and are read by a person. The coding is corrected or confirmed, and the comment rejoins the belt with the person's decision on it. Verified feedback only, and the share of comments with no channel attribution is reported every week rather than dropped.">
+    <rect class="cp-lane mo-hit" x="612" y="368" width="252" height="76" rx="4"/>
+    <circle class="a-crew" cx="646" cy="406" r="9"/>
+    <text x="664" y="410" font-size="12" class="mo-fine">human review queue</text>
+  </g>
+  <!-- the bins -->
+  <g class="cp-bin" id="cp-bin-speed" data-tip="Speed only: the complaint is about the clock and nothing else."><rect class="mo-hit" x="880" y="196" width="240" height="108" rx="4"/><text class="cp-bin-t" x="892" y="218" font-size="12">Speed only</text></g>
+  <g class="cp-bin" id="cp-bin-both" data-tip="Both: speed and execution appear together. Read alongside the cross-mention test, the speed complaint is usually a consequence of the execution one."><rect class="mo-hit" x="880" y="318" width="240" height="108" rx="4"/><text class="cp-bin-t" x="892" y="340" font-size="12">Both</text></g>
+  <g class="cp-bin" id="cp-bin-exec" data-tip="Execution only: competence and coordination, with no mention of the clock. The largest group in the coded corpus, which is what redirected the programme."><rect class="mo-hit" x="880" y="440" width="240" height="108" rx="4"/><text class="cp-bin-t" x="892" y="462" font-size="12">Execution only</text></g>
+  <g class="cp-bin" id="cp-bin-praise" data-tip="Praise, kept in its own stream. A large share of the comments that praised anything praised a crew member, which is the evidence the programme was built on."><rect class="mo-hit" x="880" y="562" width="240" height="56" rx="4"/><text class="cp-bin-t" x="892" y="584" font-size="12">Praise, its own stream</text></g>
+  <!-- the cross-mention test, in the space under the belt -->
+  <g class="cp-xm" data-tip="The cross-mention test. Execution complaints rarely mention speed; speed complaints often mention execution. That asymmetry is what kept speed out of the values framework, against the argument from operations to put it back in.">
+    <rect class="mo-hit" x="80" y="368" width="440" height="180" rx="6"/>
+    <text class="cp-xm-t" x="98" y="394" font-size="13">The cross-mention test</text>
+    <text x="98" y="414" font-size="12">Which complaints mention the other thing</text>
+    <text x="98" y="456" font-size="12">A speed complaint</text>
+    <path class="cp-arrow" d="M240 451 H392" marker-end="url(#cp-head)"/>
+    <text x="398" y="456" font-size="12">often mentions execution</text>
+    <text x="98" y="498" font-size="12">An execution complaint</text>
+    <path class="cp-arrow thin" d="M240 493 H392" marker-end="url(#cp-head-thin)"/>
+    <text x="398" y="498" font-size="12">rarely mentions speed</text>
+    <text x="98" y="530" font-size="11" class="mo-fine">So speed follows execution, and the framework trains for execution.</text>
+  </g>
+  <g id="cp-bin-pills"></g>
+  <g id="cp-cards"></g>
+  <text x="60" y="632" font-size="12" class="mo-fine">The comments on the belt are written for this walkthrough. The corpus sizes and the share in each bin are held by the programme.</text>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <span class="mo-key"><i class="crew"></i> a person decides &nbsp; <i class="attention"></i> low confidence</span>
+</div>
+<figcaption id="g-coding-pipeline-cap"><span class="fignum">Method</span>How a guest comment was coded: a theme, a sentiment and a confidence score, a human review queue for anything the coding was unsure of, then the decomposition into speed, execution or both. The cross-mention test underneath is the asymmetry that put execution under most speed complaints. Hover or tab to a stage, a bin or the test.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-coding-pipeline');
+  var cardsG = document.getElementById('cp-cards'), pillsG = document.getElementById('cp-bin-pills');
+  var THEMES = { miss: 'Missing or wrong items', refund: 'Refund friction', kiosk: 'Kiosk friction', wait: 'Waits and understaffing', ack: 'No acknowledgment at the till', tone: 'Demeanour' };
+  /* ten written comments; each resolves to one bin, and one is sent to a person first */
+  /* text, theme, sentiment, confidence, bin, the label it carries into the bin, sent to a person */
+  var COMMENTS = [
+    ['Waited twelve minutes, then the burger was missing.', 'miss', 'complaint', 0.92, 'both', 'Long wait, missing item'],
+    ['Nobody looked up when I got to the counter.', 'ack', 'complaint', 0.88, 'exec', 'Not acknowledged at the till'],
+    ['The kiosk would not let me add a bulk box.', 'kiosk', 'complaint', 0.81, 'exec', 'Kiosk menu gap'],
+    ['Quick, hot, and the person at the window was lovely.', 'tone', 'praise', 0.90, 'praise', 'Named the crew member'],
+    ['Drive-thru line took forever tonight.', 'wait', 'complaint', 0.84, 'speed', 'Drive-thru queue'],
+    ['No pickles, got pickles, then queued again for a refund.', 'refund', 'complaint', 0.90, 'both', 'Wrong item, then a refund queue'],
+    ['Took a while but fine I suppose.', 'wait', 'complaint', 0.41, 'speed', 'Ambiguous wait', true],
+    ['Chips were cold and the order number never came up.', 'miss', 'complaint', 0.70, 'exec', 'Cold item, no call-out'],
+    ['Queue out the door and one till open.', 'wait', 'complaint', 0.86, 'speed', 'One till at peak'],
+    ['Staff were rushing and forgot my sauces.', 'miss', 'complaint', 0.77, 'both', 'Rushed, item forgotten']
+  ];
+  var BIN_Y = { speed: 196, both: 318, exec: 440, praise: 562 };
+  var X = { start: 28, theme: 320, sent: 516, conf: 712 };
+  var BELT_Y = 250, W = 196, H = 56, EVERY = 4.2, LOOP = 50, SPEED = 132;
+  /* each comment has a fixed pill slot in its bin, so nothing moves once it lands */
+  var slot = {}, used = {};
+  COMMENTS.forEach(function (c, i) { var b = c[4]; slot[i] = used[b] = (used[b] || 0); used[b] += 1; });
+  var pills = COMMENTS.map(function (c, i) {
+    var y = BIN_Y[c[4]] + 32 + slot[i] * 24;
+    var g = M.el('g', { 'class': 'cp-pill', opacity: 0 }, pillsG);
+    M.el('rect', { x: 892, y: y, width: 216, height: 20, rx: 3 }, g);
+    M.text(g, 900, y + 14, c[5], { 'font-size': 11 });
+    if (c[6]) M.el('circle', { cx: 1098, cy: y + 10, r: 4, 'class': 'a-crew' }, g);
+    return { g: g, x: 1000, y: y + 10 };
+  });
+  function card(i) {
+    var c = COMMENTS[i % COMMENTS.length];
+    var g = M.el('g', { 'class': 'cp-card' + (c[3] < 0.6 ? ' low' : '') }, cardsG);
+    M.el('rect', { x: 0, y: 0, width: W, height: H, rx: 4 }, g);
+    var words = c[0].split(' '), l1 = '', l2 = '';
+    words.forEach(function (w) { if (!l2 && (l1 + ' ' + w).trim().length <= 31) l1 = (l1 + ' ' + w).trim(); else l2 = (l2 + ' ' + w).trim(); });
+    M.text(g, 9, 18, l1, { 'font-size': 11, 'class': 'mo-fine' }); M.text(g, 9, 32, l2, { 'font-size': 11, 'class': 'mo-fine' });
+    var chip = M.el('g', { 'class': 'cp-chip', opacity: 0 }, g);
+    var label = THEMES[c[1]], cw = Math.min(150, label.length * 5.6 + 12);
+    M.el('rect', { x: 9, y: 38, width: cw, height: 14, rx: 2 }, chip); M.text(chip, 14, 48.5, label, { 'font-size': 10 });
+    var sent = M.text(g, W - 9, 48.5, c[2], { 'class': 'cp-sent', 'font-size': 10, 'text-anchor': 'end', opacity: 0 });
+    var conf = M.el('rect', { x: 9, y: H - 3.5, width: 0, height: 3, rx: 1.5, 'class': 'cp-conf-fill' }, g);
+    var stamp = M.el('circle', { cx: W - 11, cy: 11, r: 5, 'class': 'a-crew', opacity: 0 }, g);
+    return { g: g, c: c, chip: chip, sent: sent, conf: conf, stamp: stamp };
+  }
+  var pool = [], N = Math.ceil(LOOP / EVERY) + 6;
+  function where(i, u) {
+    var c = COMMENTS[i % COMMENTS.length], review = !!c[6];
+    var legs = [[X.theme, 1.5], [X.sent, 1.3], [X.conf, 1.7]];
+    var t = 0, x = X.start;
+    for (var k = 0; k < legs.length; k++) {
+      var move = (legs[k][0] - x) / SPEED;
+      if (u < t + move) return { x: x + (legs[k][0] - x) * ((u - t) / move), y: BELT_Y, stage: k };
+      t += move; x = legs[k][0];
+      if (u < t + legs[k][1]) return { x: x, y: BELT_Y, stage: k + 1, dwell: (u - t) / legs[k][1] };
+      t += legs[k][1];
+    }
+    if (review) {
+      var down = 1.0, hold = 2.8;
+      if (u < t + down) return { x: X.conf, y: BELT_Y + (406 - BELT_Y) * M.ease((u - t) / down), stage: 3 };
+      t += down;
+      if (u < t + hold) return { x: X.conf, y: 406, stage: 'review', dwell: (u - t) / hold };
+      t += hold;
+      if (u < t + down) return { x: X.conf, y: 406 - (406 - BELT_Y) * M.ease((u - t) / down), stage: 'reviewed' };
+      t += down;
+    }
+    /* the card runs to the end of the belt and dissolves; its pill fades up in the bin,
+       so nothing is ever drawn across a bin or across the review lane */
+    var p = pills[i % COMMENTS.length], glide = 1.8, END = 846;
+    if (u < t + glide) {
+      var f = (u - t) / glide;
+      return { x: X.conf + (END - X.conf) * Math.min(1, f / 0.5), y: BELT_Y, stage: 'bin', f: f };
+    }
+    return { x: p.x, y: p.y, stage: 'binned', until: t + glide + 30 };
+  }
+  function draw(t) {
+    var shown = {};
+    for (var i = 0; i < N; i++) {
+      var idx = i % COMMENTS.length, spawn = i * EVERY - 18, u = t - spawn;
+      if (u < 0 && t + LOOP - spawn >= 0) u = t + LOOP - spawn;
+      var p = u >= 0 ? where(i, u) : null;
+      if (p && p.until && u > p.until) p = null;
+      if (!p) { if (pool[i]) pool[i].g.setAttribute('opacity', 0); continue; }
+      if (!pool[i]) pool[i] = card(i);
+      var k = pool[i], c = k.c;
+      if (p.stage === 'binned') { k.g.setAttribute('opacity', 0); shown[idx] = 1; continue; }
+      if (p.stage === 'bin' && p.f >= 0.5) k.g.setAttribute('opacity', 0);
+      var fade = p.stage === 'bin' ? Math.max(0, 1 - p.f / 0.5) : 1, scale = p.stage === 'bin' ? 1 - 0.3 * Math.min(1, p.f / 0.5) : 1;
+      if (p.stage === 'bin') shown[idx] = Math.max(shown[idx] || 0, Math.max(0, (p.f - 0.45) / 0.55));
+      k.g.setAttribute('opacity', fade.toFixed(2));
+      k.g.setAttribute('transform', 'translate(' + (p.x - W / 2 * scale).toFixed(1) + ' ' + (p.y - H / 2 * scale).toFixed(1) + ') scale(' + scale.toFixed(3) + ')');
+      var past = function (st) { return typeof p.stage === 'number' ? (p.stage > st || (p.stage === st && p.dwell > 0.45)) : true; };
+      k.chip.setAttribute('opacity', past(1) ? 1 : 0);
+      k.sent.setAttribute('opacity', past(2) ? 1 : 0);
+      var show = past(3) || (p.stage === 3 && p.dwell > 0.2);
+      var grow = p.stage === 3 ? Math.min(1, ((p.dwell || 1) - 0.2) / 0.6) : 1;
+      k.conf.setAttribute('width', show ? (178 * c[3] * grow).toFixed(1) : 0);
+      k.stamp.setAttribute('opacity', (p.stage === 'review' && p.dwell > 0.45) || p.stage === 'reviewed' || (c[6] && p.stage === 'bin') ? 1 : 0);
+    }
+    pills.forEach(function (p, i) { p.g.setAttribute('opacity', (shown[i] || 0).toFixed(2)); });
+  }
+  function describe() {
+    return 'Comments move along the belt, take a theme, a sentiment and a confidence score, and land in speed only, execution only, both, or praise. A low-confidence one goes to a person first.';
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 30, state: {}, draw: draw, describe: describe });
+})();
+</script>
+</figure>
+
+<a class="gp-back" href="../index.html">Back to the case study</a>
+</main>
+</body></html>

@@ -1,0 +1,54 @@
+/* The plan-view graphics on the case pages: one frame, one control bar, one
+   tooltip. The SVG carries the drawing; this file carries the chrome and the
+   few colours the drawings share, all from the site tokens. */
+.mo { position: relative; }
+.mo svg { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--paper); }
+.mo svg text { font-family: var(--sans); fill: var(--ink-soft); }
+.mo svg .mo-mono { font-family: var(--mono); letter-spacing: 0.04em; fill: var(--muted); }
+.mo svg .mo-ink { fill: var(--ink); }
+.mo svg .mo-fine { fill: var(--muted); }
+.mo svg [data-tip] { cursor: help; outline: none; }
+.mo svg [data-tip]:focus-visible .mo-hit, .mo svg [data-tip].is-tipped .mo-hit { stroke: var(--ink); stroke-width: 2; }
+/* the walls and paths */
+.mo svg .wall { fill: none; stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
+.mo svg .line { fill: none; stroke: var(--line-strong); stroke-width: 1.5; }
+.mo svg .path { fill: none; stroke: var(--line-strong); stroke-width: 1.5; stroke-dasharray: 4 6; }
+.mo svg .zone { stroke: var(--line-strong); stroke-width: 1; }
+.mo svg .z-kiosk { fill: var(--butter); }
+.mo svg .z-counter { fill: var(--blue); }
+.mo svg .z-kitchen { fill: var(--sage); }
+.mo svg .z-dining { fill: var(--lavender); }
+.mo svg .z-attention { fill: var(--rose); }
+.mo svg .z-paper { fill: var(--paper-tint); }
+/* the actors, one hue each, fixed */
+.mo svg .a-person { fill: #2f5d9a; }
+.mo svg .a-crew { fill: #3b7d47; }
+.mo svg .a-machine { fill: #b7791a; }
+.mo svg .a-attention { fill: #a8321f; }
+.mo svg .ring-person { fill: none; stroke: #2f5d9a; }
+.mo svg .ring-crew { fill: none; stroke: #3b7d47; }
+.mo svg .ring-machine { fill: none; stroke: #b7791a; }
+.mo svg .ring-attention { fill: none; stroke: #a8321f; }
+.mo svg .halo { fill: #3b7d47; opacity: 0.14; }
+.mo svg .dim { opacity: 0.28; }
+
+/* control bar: real buttons, the site's ghost style, wrapping on a phone */
+.mo-bar { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; margin: 12px 0 0; }
+.mo-bar button { font: 500 var(--t-2)/1 var(--sans); color: var(--ink); background: var(--paper); border: 1px solid var(--line-strong); border-radius: var(--radius-small); padding: 8px 12px; cursor: pointer; }
+.mo-bar button:hover { border-color: var(--ink); }
+.mo-bar button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+.mo-bar button[data-toggle][aria-pressed="true"], .mo-bar button[data-play][aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.mo-bar .mo-key { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: var(--t-1); color: var(--muted); letter-spacing: 0.04em; margin-left: auto; }
+.mo-bar .mo-key i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; }
+.mo-bar .mo-key i.person { background: #2f5d9a; }
+.mo-bar .mo-key i.crew { background: #3b7d47; }
+.mo-bar .mo-key i.machine { background: #b7791a; }
+.mo-bar .mo-key i.attention { background: #a8321f; }
+.mo-bar .mo-key i.cash { background: transparent; border: 2px solid #2f5d9a; }
+.mo-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mo-tip { position: absolute; z-index: 5; max-width: 34ch; background: var(--ink); color: var(--paper); font-size: var(--t-2); line-height: 1.45; padding: 8px 11px; border-radius: var(--radius-small); pointer-events: none; box-shadow: 0 6px 20px rgba(17,17,16,.18); }
+.mo-tip::after { content: ""; position: absolute; left: 14px; bottom: -6px; border: 6px solid transparent; border-top-color: var(--ink); border-bottom: 0; }
+.mo.is-static .mo-bar [data-play] { display: none; }
+/* fine labels leave at phone widths; the shapes and the tooltips carry the reading */
+@media (max-width: 720px) { .mo svg .mo-fine { display: none; } .mo-bar .mo-key { margin-left: 0; width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .mo-bar [data-play] { display: none; } }

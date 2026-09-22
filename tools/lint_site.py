@@ -33,7 +33,7 @@ def text_of(s, keep_svg=False):
     s = re.sub(r'<script.*?</script>|<style.*?</style>|<pre.*?</pre>|<code.*?</code>' + ('' if keep_svg else '|<svg.*?</svg>'), ' ', s, flags=re.S)
     return html.unescape(re.sub(r'<[^>]+>', ' ', s))
 errors = []
-pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'articles/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')) + glob.glob(str(ROOT/'articles/*/artifacts/*.html')))
+pages = sorted(glob.glob(str(ROOT/'*.html')) + glob.glob(str(ROOT/'articles/*.html')) + glob.glob(str(ROOT/'articles/*/index.html')) + glob.glob(str(ROOT/'articles/*/showcase/index.html')) + glob.glob(str(ROOT/'articles/*/artifacts/*.html')) + glob.glob(str(ROOT/'articles/*/graphics/*.html')))
 for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     for b in BANNED:

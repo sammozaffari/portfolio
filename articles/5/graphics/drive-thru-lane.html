@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The drive-thru as the journey map drew it: five moments around the machine voice, four of them human touchpoints with a trained behaviour, and the takeover when the voice-AI mishears · Sam Mozaffari</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../../assets/motion.css?v=1">
+<script src="../../../assets/motion.js?v=1"></script>
+<style>
+  body { background: var(--paper); }
+  .gp-wrap { max-width: 1200px; margin: 0 auto; padding: 24px var(--pad-m) 48px; }
+  .gp-wrap .fig { margin: 0; }
+  .gp-back { display: inline-block; margin: 18px 0 0; font-size: var(--t-2); border-bottom: 1px solid var(--line-strong); }
+  /* the cover capture wants the drawing alone, edge to edge */
+  html.capture .gp-wrap { padding: 0; max-width: none; }
+  html.capture .mo svg { border: 0; border-radius: 0; }
+  html.capture .mo-bar, html.capture figcaption, html.capture .gp-back { display: none; }
+</style>
+<script>if (new URLSearchParams(location.search).get('static') === '1') document.documentElement.classList.add('capture');</script>
+</head><body>
+<main class="gp-wrap" id="main">
+<figure class="fig fig-wide mo" id="g-drive-thru-lane" data-graphic="drive-thru-lane" data-freeze="23">
+<svg viewBox="0 0 1200 680" role="img" aria-labelledby="g-drive-thru-lane-cap" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .dt-card rect { fill: #ffffff; stroke: #cfcfca; stroke-width: 1; }
+    .dt-card.is-on rect { fill: #fff2bb; stroke: #bbbbb6; }
+    .dt-card text { fill: #555555; }
+    .dt-card .dt-num { font-family: "IBM Plex Mono", Menlo, monospace; fill: #6e6e69; }
+    .dt-card .dt-title { fill: #111110; font-weight: 600; }
+    .dt-car rect { fill: #ffffff; stroke: #111110; stroke-width: 1.6; }
+    .dt-car .dt-glass { fill: #e9f1f7; stroke: #111110; stroke-width: 1; }
+    .dt-post rect { fill: #ffffff; stroke: #111110; stroke-width: 1.4; }
+    .dt-window { fill: #e9f1f7; stroke: #111110; stroke-width: 1.4; }
+    .dt-ripple { fill: none; stroke-width: 2; }
+  </style>
+  <defs>
+    <pattern id="dt-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#bbbbb6" stroke-width="1"/></pattern>
+  </defs>
+  <!-- the site -->
+  <rect x="40" y="40" width="1120" height="600" class="z-paper" stroke="none"/>
+  <!-- the lane: a swept band and its centreline -->
+  <path d="M40 560 H920 Q980 560 980 500 V120 Q980 60 1040 60 H1160" fill="none" stroke="#e6e5e0" stroke-width="64" stroke-linejoin="round"/>
+  <path d="M40 560 H920 Q980 560 980 500 V120 Q980 60 1040 60 H1160" fill="none" stroke="#bbbbb6" stroke-width="1.5" stroke-dasharray="6 8"/>
+  <!-- the waiting bay, off the lane above the pick-up window -->
+  <g data-tip="Waiting bay, moment 5. A car with fresh product coming waits here rather than holding the lane: the crew name the wait in minutes before it parks, recall the order by number plate, and in the delight hour the token goes out with the receipt.">
+    <rect class="mo-hit" x="1050" y="96" width="90" height="130" fill="url(#dt-hatch)" stroke="#bbbbb6"/>
+    <text x="1058" y="246" font-size="12" class="mo-fine">Waiting bay</text>
+  </g>
+  <!-- the restaurant -->
+  <g data-tip="The kitchen and the two windows. The order lands on the make screen from the voice-AI; the crew on the headset hear every order and can step in.">
+    <rect class="zone z-kitchen mo-hit" x="240" y="140" width="620" height="340"/>
+    <text x="260" y="170" font-size="13" class="mo-fine">Kitchen</text>
+  </g>
+  <rect class="dt-window" x="852" y="392" width="16" height="56"/>
+  <rect class="dt-window" x="852" y="212" width="16" height="56"/>
+  <!-- the order point: a menu board and a speaker post between building and lane -->
+  <g class="dt-post" data-tip="Order point, moment 1. The voice-AI takes the spoken order and shows it back on the confirmation screen. The one guaranteed human moment of the channel used to be here.">
+    <rect class="mo-hit" x="500" y="492" width="120" height="30" rx="2"/>
+    <rect x="556" y="522" width="8" height="18"/>
+    <circle cx="560" cy="507" r="6" class="a-machine"/>
+    <text x="500" y="484" font-size="11" class="mo-fine">menu board and speaker</text>
+  </g>
+  <!-- crew on the headset, inside, near the order point -->
+  <g id="dt-headset" data-tip="The handoff, moment 2. The voice-AI alerts the headset when it struggles. The trained behaviour is to take over before frustration, with a light line about the machine still learning. Failure risk F-02: a late takeover reads to the guest as the machine's fault.">
+    <circle class="a-crew mo-hit" cx="560" cy="452" r="9"/>
+    <text x="440" y="456" font-size="12" class="mo-fine">crew on the headset</text>
+  </g>
+  <!-- crew at the two windows -->
+  <g data-tip="Payment window, moment 3. The first person the guest meets: eye contact and a real greeting before touching the terminal, the order confirmed back item by item, small talk while the kitchen catches up, the receipt handed over with the survey link. Failure risk F-01: a robotic read-back that mirrors the machine.">
+    <circle class="a-crew mo-hit" cx="830" cy="420" r="9"/>
+  </g>
+  <g data-tip="Pick-up window, moment 4. Accuracy confirmed visually and aloud, a progress update if anything is still coming, a sincere farewell.">
+    <circle class="a-crew mo-hit" cx="830" cy="240" r="9"/>
+  </g>
+  <!-- the five moment cards -->
+  <g class="dt-card" id="dt-m1" transform="translate(300 590)"><rect width="240" height="46" rx="3"/><text class="dt-num" x="12" y="19" font-size="11">1</text><text class="dt-title" x="28" y="19" font-size="13">Order point</text><text x="12" y="37" font-size="12">Voice-AI takes the spoken order</text></g>
+  <g class="dt-card" id="dt-m2" transform="translate(560 590)"><rect width="240" height="46" rx="3"/><text class="dt-num" x="12" y="19" font-size="11">2</text><text class="dt-title" x="28" y="19" font-size="13">The handoff</text><text x="12" y="37" font-size="12">Crew take over before frustration</text></g>
+  <g class="dt-card" id="dt-m3" transform="translate(560 396)"><rect width="250" height="46" rx="3"/><text class="dt-num" x="12" y="19" font-size="11">3</text><text class="dt-title" x="28" y="19" font-size="13">Payment window</text><text x="12" y="37" font-size="12">Greet, confirm the order, receipt and survey</text></g>
+  <g class="dt-card" id="dt-m4" transform="translate(560 216)"><rect width="250" height="46" rx="3"/><text class="dt-num" x="12" y="19" font-size="11">4</text><text class="dt-title" x="28" y="19" font-size="13">Pick-up window</text><text x="12" y="37" font-size="12">Accuracy aloud, a farewell</text></g>
+  <g class="dt-card" id="dt-m5" transform="translate(1040 262)"><rect width="120" height="62" rx="3"/><text class="dt-num" x="12" y="19" font-size="11">5</text><text class="dt-title" x="28" y="19" font-size="13">Waiting bay</text><text x="12" y="37" font-size="12">Name the wait,</text><text x="12" y="52" font-size="12">recall by plate</text></g>
+  <text x="48" y="548" font-size="12" class="mo-fine">cars enter</text>
+  <text x="1096" y="50" font-size="12" class="mo-fine">exit</text>
+  <g id="dt-ripples"></g>
+  <g id="dt-cars"></g>
+</svg>
+<div class="mo-bar">
+  <button type="button" data-play aria-pressed="false">Play</button>
+  <button type="button" data-toggle="mishear" aria-pressed="true">Voice-AI mishears one order in three</button>
+  <span class="mo-key"><i class="machine"></i> voice-AI &nbsp; <i class="crew"></i> crew &nbsp; <i class="attention"></i> a misheard order</span>
+</div>
+<figcaption id="g-drive-thru-lane-cap"><span class="fignum">Plan</span>The drive-thru as the journey map drew it: five moments around the machine voice, four of them human touchpoints with a trained behaviour, and the takeover when the voice-AI mishears. A card lights while a car is at its moment. Cars move slowly enough to read; the timings are not measured. Hover or tab to a moment for the behaviour and the failure risk it guards.</figcaption>
+<script>
+(function () {
+  var M = window.Motion; if (!M) return;
+  var root = document.getElementById('g-drive-thru-lane');
+  var carsG = document.getElementById('dt-cars'), ripG = document.getElementById('dt-ripples');
+  var lane = M.polyline([[40, 560], [900, 560], [940, 556], [966, 540], [978, 516], [980, 500], [980, 120], [982, 100], [996, 78], [1016, 64], [1040, 60], [1160, 60]]);
+  var bay = M.polyline([[980, 212], [1012, 190], [1060, 165], [1090, 150], [1095, 146]]);
+  var SPEED = 70, EVERY = 8.5, LOOP = 85;
+  /* distances along the lane of each stop */
+  var D_CURVE = lane.at(0) && 973.6;                                /* distance along the lane to (980, 500) */
+  var D_ORDER = 560 - 40, D_PAY = D_CURVE + (500 - 420), D_PICK = D_CURVE + (500 - 240), D_BAY = D_CURVE + (500 - 212);
+  var stops = [[D_ORDER, 6.5], [D_PAY, 5], [D_PICK, 4]];
+  var cards = [1, 2, 3, 4, 5].map(function (n) { return document.getElementById('dt-m' + n); });
+
+  function plan(i, s) {
+    var mis = s.mishear && (i % 3 === 1);
+    var toBay = (i % 5 === 2);
+    var segs = [], t = 0, d = 0;
+    function run(to) { var dt = (to - d) / SPEED; segs.push({ kind: 'move', from: d, to: to, t0: t, t1: t + dt }); t += dt; d = to; }
+    function wait(sec, where) { segs.push({ kind: 'wait', at: d, t0: t, t1: t + sec, where: where }); t += sec; }
+    run(D_ORDER); wait(stops[0][1] + (mis ? 3 : 0), 'order');
+    run(D_PAY); wait(stops[1][1], 'pay');
+    run(D_PICK); wait(stops[2][1] - (toBay ? 2 : 0), 'pick');
+    if (toBay) { segs.push({ kind: 'bay', t0: t, t1: t + bay.length / SPEED }); t += bay.length / SPEED; segs.push({ kind: 'baywait', t0: t, t1: t + 9 }); t += 9; segs.push({ kind: 'bayback', t0: t, t1: t + bay.length / SPEED }); t += bay.length / SPEED; d = D_BAY; }
+    run(lane.length);
+    return { segs: segs, end: t, mis: mis, toBay: toBay };
+  }
+  function where(P, u) {
+    if (u < 0 || u >= P.end) return null;
+    for (var i = 0; i < P.segs.length; i++) {
+      var g = P.segs[i];
+      if (u <= g.t1) {
+        var f = (u - g.t0) / Math.max(1e-6, g.t1 - g.t0);
+        if (g.kind === 'move') { var q = lane.at(g.from + (g.to - g.from) * f); return { x: q.x, y: q.y, ang: q.ang, moving: true }; }
+        if (g.kind === 'wait') { var w = lane.at(g.at); return { x: w.x, y: w.y, ang: w.ang, at: g.where, f: f }; }
+        if (g.kind === 'bay') { var b = bay.at(bay.length * f); return { x: b.x, y: b.y, ang: b.ang, moving: true }; }
+        if (g.kind === 'baywait') { var e = bay.at(bay.length); return { x: e.x, y: e.y, ang: e.ang, at: 'bay', f: f }; }
+        if (g.kind === 'bayback') { var r = bay.at(bay.length * (1 - f)); return { x: r.x, y: r.y, ang: r.ang + Math.PI, moving: true }; }
+      }
+    }
+    return null;
+  }
+  var pool = [];
+  function car() {
+    var g = M.el('g', { 'class': 'dt-car' }, carsG);
+    M.el('rect', { x: -22, y: -12, width: 44, height: 24, rx: 5 }, g);
+    M.el('rect', { x: 2, y: -9, width: 9, height: 18, rx: 2, 'class': 'dt-glass' }, g);
+    M.el('rect', { x: -16, y: -9, width: 5, height: 18, rx: 1, 'class': 'dt-glass' }, g);
+    var flag = M.el('circle', { cx: 0, cy: 0, r: 5, 'class': 'a-attention', opacity: 0 }, g);
+    return { g: g, flag: flag };
+  }
+  var N = Math.ceil(LOOP / EVERY) + 6;
+  function ripple(x, y, cls, f) {
+    var r = M.el('circle', { cx: x, cy: y, r: 6 + 34 * f, 'class': 'dt-ripple ' + cls, opacity: (1 - f) * 0.9 }, ripG);
+  }
+  function draw(t, s) {
+    while (ripG.firstChild) ripG.removeChild(ripG.firstChild);
+    var lit = { order: false, hand: false, pay: false, pick: false, bay: false };
+    for (var i = 0; i < N; i++) {
+      var spawn = i * EVERY - 30, P = plan(i, s), u = t - spawn;
+      if (u < 0 && t + LOOP - spawn < P.end) u = t + LOOP - spawn;
+      var p = u >= 0 ? where(P, u) : null;
+      if (!p) { if (pool[i]) pool[i].g.setAttribute('opacity', 0); continue; }
+      if (!pool[i]) pool[i] = car();
+      var c = pool[i];
+      c.g.setAttribute('opacity', 1);
+      c.g.setAttribute('transform', 'translate(' + p.x.toFixed(1) + ' ' + p.y.toFixed(1) + ') rotate(' + (p.ang * 180 / Math.PI).toFixed(1) + ')');
+      var flag = 0;
+      if (p.at === 'order') {
+        lit.order = true;
+        var ph = (u * 0.9) % 1;
+        if (P.mis && p.f > 0.35) { flag = 1; lit.hand = true; ripple(560, 452, 'ring-crew', (u * 0.8) % 1); ripple(560, 507, 'ring-attention', ph); }
+        else ripple(560, 507, 'ring-machine', ph);
+      }
+      if (p.at === 'pay') { lit.pay = true; ripple(830, 420, 'ring-crew', (u * 0.7) % 1); }
+      if (p.at === 'pick') { lit.pick = true; ripple(830, 240, 'ring-crew', (u * 0.7) % 1); }
+      if (p.at === 'bay') { lit.bay = true; ripple(1095, 146, 'ring-crew', (u * 0.5) % 1); }
+      c.flag.setAttribute('opacity', flag);
+    }
+    cards[0].classList.toggle('is-on', lit.order); cards[1].classList.toggle('is-on', lit.hand);
+    cards[2].classList.toggle('is-on', lit.pay); cards[3].classList.toggle('is-on', lit.pick); cards[4].classList.toggle('is-on', lit.bay);
+  }
+  function describe(s) {
+    return s.mishear ? 'One order in three is misheard: the crew on the headset take over before the guest is frustrated.'
+                     : 'Every order lands cleanly: the voice-AI takes it and the first person the guest meets is at the payment window.';
+  }
+  M.mount(root, { duration: LOOP, freeze: parseFloat(root.getAttribute('data-freeze')) || 23, state: { mishear: true }, draw: draw, describe: describe });
+})();
+</script>
+</figure>
+
+<a class="gp-back" href="../index.html">Back to the case study</a>
+</main>
+</body></html>
