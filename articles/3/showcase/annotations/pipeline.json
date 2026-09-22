@@ -22,7 +22,7 @@
   },
   {
    "title": "A person is in one column",
-   "finding": "Two products on this site have already shipped a screen where the same record appeared in two states at once, and a reader spotted it before any check did.",
+   "finding": "Two earlier concept screens carried the same record in two states at once, and it was spotted by eye before any check did.",
    "decision": "One card per person, with the trail underneath. Tia's speed from Monday to Friday is shown as history on her card rather than as four copies of her across the board.",
    "rejected": "Drawing the candidate at every stage they have passed, which looks busier and is wrong.",
    "n": 3,

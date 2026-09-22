@@ -21,7 +21,7 @@
    "title": "A plan drawn in one colour, with numbers doing the work",
    "finding": "design decision",
    "decision": "The plan is flat outlines with rooms named in small caps and fittings as plain rectangles. Every item is a numbered circle and the number is the only link to the legend, so the drawing never has to carry a text label. That matters most in the kitchen, which holds the most items and has the least room.",
-   "rejected": "Labels printed on the plan itself. At this size they collide around the fryer line, which is the one place a reader cannot afford to lose.",
+   "rejected": "Labels printed on the plan itself. At this size they collide around the fryer line, which is the one place someone in an emergency cannot afford to lose.",
    "pattern": "Tripadvisor, itinerary with mapped stops — https://mobbin.com/screens/b18c23ab-39ce-48a9-9666-d7d1423ab0b5"
   },
   {
