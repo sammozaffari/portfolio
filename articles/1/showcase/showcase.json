@@ -10,7 +10,7 @@
   },
   {
    "dt": "Evidence behind it",
-   "dd": "Safety items on the network-wide employee engagement survey read across the whole workforce of tens of thousands of team members, then interviews, restaurant visits and two form walkthroughs, held as 232 typed insight records tied to a five-stage blueprint."
+   "dd": "Safety items on the network-wide employee engagement survey read across the whole workforce of more than 50,000 team members, then interviews, restaurant visits and two form walkthroughs, held as 232 typed insight records tied to a five-stage blueprint."
   },
   {
    "dt": "How it is built",
@@ -25,7 +25,7 @@
   "kicker": "The concept",
   "title": "The product in brief",
   "body": [
-   "**The problem.** A safety incident and hazard reporting platform, configured for one workflow across several hundred restaurants: a team member notices something, scans the poster, fills in the form. The research found a different workflow in almost every restaurant. The team member tells the manager. The manager decides whether it is worth logging, logs it if so, and sometimes closes it without telling anyone. Reporting volume varied widely between sites and the platform's own data could not say whether a quiet restaurant was safe or silent.",
+   "**The problem.** A safety incident and hazard reporting platform, configured for one workflow across 900 restaurants: a team member notices something, scans the poster, fills in the form. The research found a different workflow in almost every restaurant. The team member tells the manager. The manager decides whether it is worth logging, logs it if so, and sometimes closes it without telling anyone. Reporting volume varied widely between sites and the platform's own data could not say whether a quiet restaurant was safe or silent.",
    "**What the research changed.** The business assumed location explained the difference, so the sample was designed to test that: eight restaurants across high- and low-reporting sites, higher- and lower-crime suburbs, metropolitan and regional. Location did not predict it. The manager did. That finding reorganised the recommendations, and it organises these screens.",
    "**From the findings to the product.** The delivered recommendations changed what the form asks and what managers do, inside a platform the business had already bought. This is the next move: the whole service redrawn as a product, module by module, following the navigation the restaurants already knew. Each module below is one item from that navigation, designed from the evidence.",
    "**How each module is set out.** The finding sits above the screen. The screen is shown whole, at full size, with numbered pins. Each pin names the finding, the decision it drove and the alternative it replaced. The states that matter sit underneath. [The case study](../index.html) carries the research, the method and what the internal tool saved."
