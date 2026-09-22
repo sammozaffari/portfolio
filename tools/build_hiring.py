@@ -29,7 +29,7 @@ TIMES = {
 }
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/55/showcase/screens"
+SCR = ROOT / "articles/3/showcase/screens"
 SCR.mkdir(parents=True, exist_ok=True)
 
 

@@ -15,7 +15,7 @@ Usage: build_crew_app.py
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/52/showcase/screens"
+SCR = ROOT / "articles/2/showcase/screens"
 
 ICON = {
     "home": '<svg class="p-ico" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l7-6 7 6v8a1 1 0 0 1-1 1h-4v-5H8v5H4a1 1 0 0 1-1-1z"/></svg>',

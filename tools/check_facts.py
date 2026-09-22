@@ -32,7 +32,7 @@ def want(rel, needles, why):
         fails.append(f"{rel}: expected one of {needles!r}\n    because {why}")
 
 
-facts = {n: json.loads((ROOT / f"articles/{n}/facts.json").read_text()) for n in ("50", "51", "52", "53", "54", "55", "57")}
+facts = {n: json.loads((ROOT / f"articles/{n}/facts.json").read_text()) for n in ("1", "2", "3", "4", "5", "6", "7")}
 
 # 1. every number on a stat strip is a fact of that case
 for n, f in facts.items():
@@ -57,7 +57,7 @@ for n, f in facts.items():
         fails.append(f"articles/{n}/index.html: the strip says {f['lanes']} lanes and the blueprint table draws {lanes}")
 
 # 2. the surfaces that repeat a fact repeat it exactly
-f57, f52, f55 = facts["57"], facts["52"], facts["55"]
+f57, f52, f55 = facts["1"], facts["2"], facts["3"]
 S = ("index.html", "articles.html", "cv.html", "llms.txt")
 want("index.html", [f"{f57['records']} insight records"], "the home panel quotes the record count")
 want("index.html", [f"{f57['items']} items"], "the home panel quotes the blueprint item count")
@@ -84,9 +84,9 @@ want("llms.txt", [f"{f52['responses']} survey responses"], "and the survey count
 want("llms.txt", [f"{W[f52['modules']]}-module"], "and the workforce module count")
 want("llms.txt", [f"{W[f57['modules']]}-module"], "and the safety module count")
 want("llms.txt", [f"{W[f55['stages']]}-stage"], "and the hiring stage count")
-for n, f in (("57", f57), ("52", f52), ("55", f55)):
+for n, f in (("1", f57), ("2", f52), ("3", f55)):
     want(f"articles/{n}/showcase/index.html", [f"{W[f['modules']]} modules", f"{W[f['modules']].capitalize()} modules"], "the showcase names its module count")
-want("articles/52/showcase/index.html", [f"{W[f52['personas']]} personas"], "the showcase quotes the persona count")
+want("articles/2/showcase/index.html", [f"{W[f52['personas']]} personas"], "the showcase quotes the persona count")
 # the Work page headline count equals its card count
 work = (ROOT / "articles.html").read_text()
 cards = len(re.findall(r'<a class="pf-card"', work))

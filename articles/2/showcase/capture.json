@@ -1,0 +1,128 @@
+[
+ {
+  "src": "articles/2/showcase/screens/compliance-dismiss.html",
+  "w": 1440,
+  "h": 960,
+  "out": "articles/2/showcase/img/compliance-dismiss.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/compliance-list.html",
+  "w": 1440,
+  "h": 928,
+  "out": "articles/2/showcase/img/compliance-list.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/features-console.html",
+  "w": 1440,
+  "h": 920,
+  "out": "articles/2/showcase/img/features-console.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/labour-live.html",
+  "w": 1440,
+  "h": 748,
+  "out": "articles/2/showcase/img/labour-live.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/leave-consent.html",
+  "w": 1440,
+  "h": 676,
+  "out": "articles/2/showcase/img/leave-consent.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/leave-drop.html",
+  "w": 1440,
+  "h": 696,
+  "out": "articles/2/showcase/img/leave-drop.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/leave-range.html",
+  "w": 1440,
+  "h": 680,
+  "out": "articles/2/showcase/img/leave-range.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/payperiod-closed.html",
+  "w": 1440,
+  "h": 588,
+  "out": "articles/2/showcase/img/payperiod-closed.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/payperiod-correct.html",
+  "w": 1440,
+  "h": 808,
+  "out": "articles/2/showcase/img/payperiod-correct.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/payperiod-open.html",
+  "w": 1440,
+  "h": 720,
+  "out": "articles/2/showcase/img/payperiod-open.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/phone-break.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/2/showcase/img/phone-break.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/phone-clockin.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/2/showcase/img/phone-clockin.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/phone-home.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/2/showcase/img/phone-home.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/phone-hours.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/2/showcase/img/phone-hours.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/phone-shifts.html",
+  "w": 393,
+  "h": 852,
+  "out": "articles/2/showcase/img/phone-shifts.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/reports-group.html",
+  "w": 1440,
+  "h": 916,
+  "out": "articles/2/showcase/img/reports-group.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/roster-extended.html",
+  "w": 1440,
+  "h": 968,
+  "out": "articles/2/showcase/img/roster-extended.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/roster-hardstop.html",
+  "w": 1440,
+  "h": 968,
+  "out": "articles/2/showcase/img/roster-hardstop.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/roster-week.html",
+  "w": 1440,
+  "h": 968,
+  "out": "articles/2/showcase/img/roster-week.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/timeclock-board.html",
+  "w": 1440,
+  "h": 620,
+  "out": "articles/2/showcase/img/timeclock-board.png"
+ },
+ {
+  "src": "articles/2/showcase/screens/hero.html",
+  "w": 1440,
+  "h": 1021,
+  "out": "articles/2/showcase/img/hero.png"
+ }
+]

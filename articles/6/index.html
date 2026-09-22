@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Employee experience at KFC South Pacific: the first twelve weeks of a restaurant team member's career, blueprinted from survey evidence and one attrition chain, with two competing options decided through a gated roadmap. By Sam Mozaffari.">
+<title>Designing the first twelve weeks of a restaurant career, network-wide · Sam Mozaffari</title>
+<meta property="og:type" content="website"><meta property="og:title" content="Designing the first twelve weeks of a restaurant career, network-wide · Sam Mozaffari"><meta property="og:description" content="Employee experience at KFC South Pacific: the first twelve weeks of a restaurant team member's career, blueprinted from survey evidence and one attrition chain, with two competing options decided through a gated roadmap. By Sam Mozaffari."><meta property="og:url" content="https://sammozaffari.github.io/the-agentic-service-designer-site/articles/6/index.html"><meta property="og:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Designing the first twelve weeks of a restaurant career, network-wide · Sam Mozaffari"><meta name="twitter:description" content="Employee experience at KFC South Pacific: the first twelve weeks of a restaurant team member's career, blueprinted from survey evidence and one attrition chain, with two competing options decided through a gated roadmap. By Sam Mozaffari."><meta name="twitter:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../assets/article-blocks.css?v=9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
+<style>
+  .brief { border: 1px solid var(--line); border-radius: var(--radius-card); padding: 18px 22px; margin: 0 0 28px; display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; font-size: var(--t-3); }
+  .brief b { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); padding-top: 2px; }
+  .brief p { margin: 0; }
+  .trail { border-left: 3px solid var(--ink); padding: 4px 18px; margin: 22px 0; }
+  .trail h4 { margin: 0 0 6px; font-size: var(--t-4); }
+  .trail p { margin: 0 0 8px; }
+  .trail .step { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); }
+  .fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-card); background: #fff; }
+  .fig-wide { width: min(100%, 1180px); }
+  table.plain { width: 100%; border-collapse: collapse; font-size: var(--t-3); margin: 0 0 12px; }
+  table.plain th, table.plain td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.plain th { background: var(--paper-tint); font-weight: 600; }
+  .frame { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: var(--t-3); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px; margin: 12px 0 18px; }
+  .frame b { color: var(--ink-soft); font-weight: 600; }
+  .frame p { margin: 0; }
+  .fig-html { border: 1px solid var(--line); border-radius: var(--radius-card); margin: 16px 0; }
+  table.blueprint { border-collapse: collapse; font-size: var(--t-2); width: 100%; }
+  table.blueprint th, table.blueprint td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left; }
+  table.blueprint th { background: var(--paper-tint); color: var(--ink); border-color: var(--line); }
+  table.blueprint caption { caption-side: top; text-align: left; padding: 8px 10px; color: var(--ink-soft); font-size: var(--t-2); }
+  table.blueprint details summary { cursor: pointer; font-weight: 600; }
+  table.blueprint details p { margin: 4px 0 0; color: var(--ink-soft); }
+  table.blueprint .cell.fail summary, table.blueprint .fp { color: #b3261e; }
+  pre.cfg { background: var(--dark); color: var(--dark-ink); padding: 14px 16px; border-radius: var(--radius-card); font-size: var(--t-1); line-height: 1.5; overflow-x: auto; }
+  .chain { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 12px 0 16px; }
+  .chain span { border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: var(--t-2); background: var(--paper); }
+  .chain i { color: var(--muted); font-style: normal; }
+  @media (max-width: 640px) { .brief, .frame { grid-template-columns: 1fr; } }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <a class="brand" href="../../index.html">
+    <div class="brand-title">Sam Mozaffari</div>
+    <div class="brand-sub">Experience Designer</div>
+  </a>
+  <nav class="main-nav">
+    <a href="../../index.html" class="">Home</a>
+    <a href="../../articles.html" class="on">Work</a>
+    <a href="../../about.html" class="">About</a>
+    <a href="../../cv.html" class="">CV</a>
+  </nav>
+</header>
+<main id="main" class="art art-article"><div class="art-progress"><div class="art-progress-bar" id="progress"></div></div><div class="art-layout art-layout--hero">
+  <header class="art-hero">
+    <div class="art-meta">
+      <span class="art-meta-item"><span class="chip">KFC South Pacific · employment work</span></span><span class="art-meta-item"><span class="chip">Employee experience</span></span><span class="art-meta-item"><span class="chip">About 20 weeks, 2026</span></span>
+    </div>
+    <h1>Designing the first twelve weeks of a restaurant career, network-wide</h1>
+    <p class="deck">Same training, same standards, same menu, and one restaurant runs engaged while another does not. I synthesised three separate asks into one attrition chain, designed two blueprint options held in deliberate tension, and put a decision brief in front of a franchise governance forum.</p>
+    <div class="art-stats"><span><b>6</b> stages, 5 lanes including measures</span><span><b>1</b> attrition chain, evidenced</span><span><b>2</b> blueprint options in tension</span><span><b>4</b> decisions put to governance</span></div>
+    <div class="author-block">
+      <div class="author-id">
+        <div class="author-avatar">SM</div>
+        <div><b>Sam Mozaffari</b><span>Experience Designer</span></div>
+      </div>
+      <p class="author-note">I led the design work: the survey reading discipline, the evidence register, the attrition chain, the blueprint with its owners and measures, the two study designs and the options paper. The employee-experience team, franchise governance forums and an external consultancy's earlier study were the context; the governance forum was the audience.</p>
+    </div>
+  </header></div><div class="art-layout art-layout--body"><aside class="art-rail"><nav class="toc" aria-label="In this article"><b>In this article</b><ol>
+<li><a href="#brief">In brief</a></li>
+<li><a href="#sec-1">The problem</a></li>
+<li><a href="#sec-2">What I did</a></li>
+<li><a href="#sec-3">What the research found</a></li>
+<li><a href="#sec-4">Three decisions</a></li>
+<li><a href="#sec-5">What was delivered</a></li>
+<li><a href="#sec-6">How it would be measured</a></li>
+<li><a href="#sec-7">For a consulting reader</a></li></ol></nav></aside><article class="art-body">
+
+<div class="brief" id="brief">
+  <b>Context</b><p>A large franchise network with a crew-heavy workforce and a management spine of restaurant general managers, assistant managers and area coaches. An external consultancy had studied the restaurant structure some years earlier and produced a role-design framework that was issued as pre-reading and never implemented. The same problems had not moved.</p>
+  <b>My role</b><p>Experience Designer leading the design work, working with the employee-experience team.</p>
+  <b>Collaborators</b><p>The employee-experience team; the people function; franchise governance forums; the external consultancy's earlier study as the historical anchor.</p>
+  <b>Constraints</b><p>The brief scoped out redesigning every process and replacing functional improvement projects. The survey is anonymous and cannot be joined to individual exit records. Franchisees own their restaurants; a central programme has to be sold, not imposed.</p>
+  <b>Key decision</b><p>Refuse to treat three asks as three problems. Synthesise them into one attrition chain and design for consistency rather than for higher engagement: start people ready, back them on shift, notice their effort, show them what comes next.</p>
+  <b>Status</b><p>Options paper and gated roadmap tabled to the franchise governance forum, which chose the healthy-shift option; the pilot and scale phases designed. The field study and the scorecard change sat with the business.</p>
+  <b>Figures</b><p>Figure 2 was redrawn in September 2026 from the options paper.</p>
+</div>
+
+<figure class="fig fig-wide reveal"><a href="images/blueprint-poster.svg"><img src="images/blueprint-poster.svg" alt="Blueprint poster: six stages from pre-start to established across crew, assistant manager, restaurant manager, above-store and measures lanes, with six failure points" loading="lazy"></a><figcaption><span class="fignum">Figure 1</span>The first-twelve-weeks blueprint with its owners: what the crew member experiences at each stage, what each management role does about it, and the measure that says whether it happened. Open for full size; the interactive version is in section 5.</figcaption></figure>
+
+<section class="art-sec" id="sec-1"><span class="sec-kicker">01</span><h2>The problem</h2>
+<p>The business asked for three things: a holistic, evidence-based view of the end-to-end team-member experience, because there was no single view of the journey, the moments that matter or the pain points; a single definition of the restaurant-manager role, because five unconnected frameworks existed and none had been rolled out; and relief on turnover, which had run high for years.</p>
+<p>The quarterly engagement survey, joined with open-text comments and operating records, said the first quarter of employment was flat: people spent longer at the network without becoming more positive about it. New crew arrived on day one without a uniform, without a training schedule or without system access. Few strongly agreed they had received a manager check-in at two weeks. At twelve weeks, few could see a path forward or felt their effort was recognised. Managers rated the same relationships far more positively than crew did, and manager engagement varied enormously across franchise groups.</p>
+<div class="key-insight"><span class="ki-label">Why it mattered</span><p>The two most-selected fixes for stress, more hours and more people on shift, are the same problem: hours are not always allocated to the right people, at the right time, with the right capability. Rostering, not headcount, sat underneath the experience.</p></div>
+</section>
+
+<section class="art-sec" id="sec-2"><span class="sec-kicker">02</span><h2>What I did</h2>
+<ul class="art-list">
+  <li><b>Read the survey honestly.</b> The dashboards coded only "strongly agree" as favourable, so most results looked positive until you counted how few people were strongly positive. I adopted and broadcast that reading discipline: every readout carried the caveat, scores below the threshold were treated as action thresholds, and variation between best and worst restaurant was reported beside every average.</li>
+  <li><b>Built the evidence register</b> from the survey exports by role and area, the topic-tagged open-text comments, the onboarding dashboards at two, six and twelve weeks, exit-interview snapshots, the competency matrix and the scorecard, with the earlier external study as the historical anchor.</li>
+  <li><b>Synthesised one attrition chain</b> from the three asks, and rebuilt the survey platform's automatic topic tags by sampling and re-reading before trusting them.</li>
+  <li><b>Blueprinted the first twelve weeks</b> with a lane for each role that owns part of the experience and a measures lane that says what counts as done.</li>
+  <li><b>Designed two field studies to the same depth</b> (sample, method, observations, outputs, strengths, risks) and a third parallel workstream, then wrote the options paper and the decision line so a governance forum could settle it in one meeting.</li>
+</ul>
+</section>
+
+<section class="art-sec" id="sec-3"><span class="sec-kicker">03</span><h2>What the research found</h2>
+<div class="chain"><span>Unprepared start</span><i>then</i><span>Inconsistent hours and skill mix</span><i>then</i><span>Pressured shifts</span><i>then</i><span>Inconsistent support and recognition</span><i>then</i><span>Limited progress</span><i>then</i><span>Avoidable attrition</span></div>
+<p><strong>The manager makes or breaks the first twelve weeks.</strong> The same brand ran a disengaged restaurant and an engaged one on identical materials. Manager engagement swung widely across franchise groups, and managers rated the relationship with their crew far more positively than the crew did. Protect the committed manager group and the improvement flows downstream.</p>
+<p><strong>The experience curve flatlined between week two and week twelve.</strong> Tenure was not producing positivity. Whatever happened in those ten weeks was not the design; it was whatever the shift happened to be.</p>
+<p><strong>Day one failed on logistics, not attitude.</strong> Uniform, user ID, learning access, a roster and a named buddy were the five things a new starter needed and did not reliably get. Each is a yes-or-no gate somebody can own.</p>
+<p><strong>The manager role needed an operating model, not an engagement campaign.</strong> Five frameworks, none rolled out, and assistant managers as the squeezed middle carrying responsibility without authority, resources, coaching or clarity.</p>
+<p><strong>The survey needed a partner instrument.</strong> It is anonymous, so cohort-level voice has to be linked to operating records in a pilot to say anything about who left and why. High intent-to-stay among managers was treated as a masking risk, because a healthy role shows up in more than retention.</p>
+</section>
+
+<section class="art-sec" id="sec-4"><span class="sec-kicker">04</span><h2>Three decisions</h2>
+<div class="trail">
+  <span class="step">Decision 1</span>
+  <h4>One attrition chain, not three projects</h4>
+  <p><b>Evidence.</b> The crew-experience ask, the manager-role ask and the turnover ask all traced to the same sequence of moments, and the rostering insight sat underneath all three.</p>
+  <p><b>Alternative considered.</b> Answer the three briefs separately, as they were commissioned. Rejected: three reports would have competed for the same investment and none would have named the root cause.</p>
+  <p><b>What we did.</b> Wrote the chain as the programme's problem statement and designed for consistency rather than for a higher engagement score.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 2</span>
+  <h4>Two fully designed options in deliberate tension, decided by a forum</h4>
+  <p><b>Evidence.</b> The earlier synthesis argued for the first twelve weeks first, because it is bounded and pilotable. The decision options paper argued for the healthy shift first, because it reaches the largest population and the most repeated controllable issues, and sits on the rostering root cause.</p>
+  <p><b>Alternative considered.</b> Pick one and present it as the answer. Rejected: the disagreement was real and evidence-argued, and a governance forum settles a well-framed tension better than it accepts a verdict.</p>
+  <p><b>What we did.</b> Both study designs written to the same depth, each with its own risk stated plainly (the twelve-weeks model cannot overcome inconsistent hours, weak skill mix or broken equipment; the healthy-shift model can sprawl into a review of every process), a six-reason recommendation, and one decision line: the first twelve weeks tells us how well we bring people in; the healthy shift tells us what they experience every time they come back.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 3</span>
+  <h4>Measure with the strongly-agree discipline, and put team-member experience on the scorecard</h4>
+  <p><b>Evidence.</b> Dashboards that made weak results look fine; a scorecard that carried customer experience and business growth but not the people delivering them.</p>
+  <p><b>Alternative considered.</b> Report the survey as the platform reported it. Rejected: it would have hidden the action thresholds that made the case.</p>
+  <p><b>What we did.</b> Every readout carries the coding caveat; team-member experience becomes a formal scorecard line at restaurant and area level beside customer experience and business growth, which is what makes the investment legible to a franchise network.</p>
+</div>
+</section>
+
+<section class="art-sec" id="sec-5"><span class="sec-kicker">05</span><h2>What was delivered</h2>
+<figure class="fig fig-wide annot reveal"><a href="images/decision-brief.svg"><img src="images/decision-brief.svg" alt="Decision brief one-pager: the problem in one line, the attrition chain, three options with their risks, the recommended sequence, the decision line and four decisions requested" loading="lazy"></a><script type="application/json" class="annot-data">[{"n": 1, "x": 7, "y": 14.5, "kind": "decision", "title": "The problem, stated in one line", "body": "Three commissioned asks, the crew experience, the manager role and turnover, describe one problem. The brief opens by saying so, because a forum that accepts the problem statement can then argue about the sequence rather than the diagnosis.", "link": {"href": "#sec-4", "text": "Read decision 1"}}, {"n": 2, "x": 22, "y": 24.2, "kind": "evidence", "title": "The attrition chain across the top", "body": "Unprepared start, inconsistent hours and skill mix, pressured shifts, inconsistent support and recognition, limited progress, avoidable attrition. Rostering sits underneath the two most-selected fixes, more hours and more people, which are the same problem.", "link": {"href": "#sec-3", "text": "See the chain"}}, {"n": 3, "x": 12, "y": 33.5, "kind": "decision", "title": "Option A, bounded and pilotable", "body": "One cohort you can follow, measure and pilot as a unit, from offer to week twelve. It has the strongest claim to boundedness, which is what makes it easy to fund and easy to prove.", "link": {"href": "#sec-4", "text": "Read decision 2"}}, {"n": 4, "x": 12, "y": 42.2, "kind": "pain", "title": "Each option carries its own risk, in the open", "body": "A checklist, a buddy and a check-in will not overcome inconsistent hours, weak skill mix or broken equipment. Writing the risk into the option is what let the forum choose rather than be sold to.", "link": {"href": "#sec-4", "text": "Read decision 2"}}, {"n": 5, "x": 41, "y": 39.5, "kind": "evidence", "title": "Option B, reach and the root cause", "body": "The recurring shift reaches the largest population and the most repeated controllable issues, and it sits directly on the rostering root cause the survey analysis surfaced.", "link": {"href": "#sec-3", "text": "See the finding"}}, {"n": 6, "x": 70, "y": 33.5, "kind": "decision", "title": "Option C runs in parallel, not against the others", "body": "Assistant managers are the squeezed middle, carrying responsibility without the authority, resources or coaching. Manager enablement is a workstream beside the first blueprint rather than a third candidate for it.", "link": {"href": "#sec-3", "text": "See the finding"}}, {"n": 7, "x": 9, "y": 75.5, "kind": "decision", "title": "Four decisions, each answerable in the room", "body": "Adopt the chain as the problem statement, sequence the work and fund the study, put team-member experience on the scorecard, adopt the strongly-agree reading. A forum can say yes or no to each one in a single meeting.", "link": {"href": "#sec-7", "text": "See what was asked"}}]</script><figcaption><span class="fignum">Figure 2</span>The decision brief as the governance forum received it, rendered as one page: the problem, the chain, the three options with their risks, the recommended sequence, the decision line and the four decisions requested.</figcaption></figure>
+<p>The day-one readiness standard was written as a specification with owners, so it could be run and checked rather than hoped for.</p>
+<pre class="cfg">sop: EX-DAY1-001   Day-one readiness standard   version 1.0
+owner: restaurant_general_manager      # accountable; assistant manager runs the checklist
+gates_before_first_shift:
+  - uniform_issued               # the item most often missing on day one
+  - user_id_provisioned
+  - learning_access_confirmed
+  - first_roster_confirmed       # hours matched to agreed availability
+  - buddy_and_trainer_named      # assigned before day one, not improvised on shift
+first_shift:
+  - welcome_script
+  - station_tour
+  - who_to_ask_card
+check_ins: [week_2, week_6, week_12]   # calendar events, structured, recorded
+measures:
+  - day1_readiness_complete      # five yes-or-no gates
+  - check_in_completed_by_week
+  - roster_consistency           # planned vs actual hours; zero-shift weeks; late cancellations
+  - station_sign_offs
+  - recognition_during_learning
+escalation: maintenance, equipment and staffing issues get a named owner and a response time</pre>
+
+<figure class="fig fig-wide reveal"><a href="images/chart-day-one.svg"><img src="images/chart-day-one.svg" alt="Bar chart: five gates before the first shift, three first-shift steps, three structured check-ins and five measures on the day-one readiness standard" loading="lazy"></a><figcaption><span class="fignum">Figure 3</span>The standard turned into things somebody can be held to. Five gates decide whether a new starter is ready before they arrive, and five measures say whether the twelve weeks happened.</figcaption></figure>
+<p>Also delivered: the evidence register with the strongly-agree baseline, the attrition chain, personas for crew, assistant manager and restaurant manager, the journey spine with owners below, two study designs with observation protocols and a restaurant-selection matrix, the options paper, the gated roadmap (decide, pilot, scale), the day-one role standard, the KPI tree and the scorecard change.</p>
+<figure class="fig fig-wide reveal"><a href="images/chart-lanes.svg"><img src="images/chart-lanes.svg" alt="Bar chart: named commitments per lane across the six stages, six each for crew, assistant manager, restaurant manager and above-store, four for measures and six failure points" loading="lazy"></a><figcaption><span class="fignum">Figure 4</span>Every management layer carries a named commitment at every stage, so no stage of the twelve weeks depends on goodwill. Four checkpoints measure all of it.</figcaption></figure>
+<div class="fig-html"><table class="blueprint tbl-bleed"><caption>Frontstage journey × backstage owners: click any cell to expand the design detail; fail points are marked and owned.</caption><tr><th>Stage / lane</th><th>Pre-start</th><th>First shift</th><th>Weeks 1–2</th><th>Weeks 3–6</th><th>Weeks 7–12</th><th>Established</th></tr><tr class="lane"><td data-label="Stage / lane">Crew (frontstage)</td><td data-label="Pre-start"><details class="cell"><summary>Uniform, access, first roster confirmed</summary><div class="cell-detail">Readiness pack: uniform (the top missing item), user ID, learning access, named buddy.</div></details></td><td data-label="First shift"><details class="cell"><summary>Introduced · tour · first station</summary><div class="cell-detail">Welcome script, station tour, who-to-ask card.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary>Structured training plan</summary><div class="cell-detail">Only a minority strongly agree a plan exists: the plan is the artefact, not the module list.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary>Station progression starts</summary><div class="cell-detail">Skills ladder with visible sign-off per station.</div></details></td><td data-label="Weeks 7–12"><details class="cell"><summary>Independence builds</summary><div class="cell-detail">Solo station time with escalation rights.</div></details></td><td data-label="Established"><details class="cell"><summary>Next skill visible</summary><div class="cell-detail">Cross-training and a named next opportunity.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Assistant manager</td><td data-label="Pre-start"><details class="cell"><summary>Readiness checklist run</summary><div class="cell-detail">Day-1 checklist: uniform, ID, learning, roster, buddy.</div></details></td><td data-label="First shift"><details class="cell"><summary>Welcome + first-day brief</summary><div class="cell-detail">The ARM owns the first-day script and the station tour.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary>Coach on shift</summary><div class="cell-detail">Two-week coaching beats classroom content.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary>Skill-mix reviews</summary><div class="cell-detail">Roster composition checked against capability, not just headcount.</div></details></td><td data-label="Weeks 7–12"><details class="cell"><summary>Feedback + recognition</summary><div class="cell-detail">Recognition during learning, not only after mastery.</div></details></td><td data-label="Established"><details class="cell"><summary>Cross-training plan</summary><div class="cell-detail">Roster builds toward a visible next step.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Restaurant manager</td><td data-label="Pre-start"><details class="cell"><summary>Named buddy + trainer assigned</summary><div class="cell-detail">The buddy is assigned before day one, not improvised on shift.</div></details></td><td data-label="First shift"><details class="cell"><summary>Check-in scheduled</summary><div class="cell-detail">The 2-week check-in is a calendar event, not an aspiration.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary>Roster consistency review</summary><div class="cell-detail">Hours matched to agreed availability: the root cause behind "more hours" and "more people" at once.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary>Escalation path</summary><div class="cell-detail">Maintenance, equipment and staffing issues get a named owner and a response SLA.</div></details></td><td data-label="Weeks 7–12"><details class="cell"><summary>Recognition + career conversation</summary><div class="cell-detail">Progress made visible; the 12-week career conversation is scheduled.</div></details></td><td data-label="Established"><details class="cell"><summary>RGM sign-off</summary><div class="cell-detail">Independence signed off with evidence, not tenure.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Above-store & support</td><td data-label="Pre-start"><details class="cell"><summary>Systems access provisioned</summary><div class="cell-detail">User ID, learning access, uniform logistics confirmed before day one.</div></details></td><td data-label="First shift"><details class="cell"><summary>Maintenance queue</summary><div class="cell-detail">First-shift equipment failures route to a named owner.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary>Learning content live</summary><div class="cell-detail">Training plan content available on the learner dashboard.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary>Labour model support</summary><div class="cell-detail">Peak labour plans reviewed against skill mix.</div></details></td><td data-label="Weeks 7–12"><details class="cell"><summary>Area coach follow-up</summary><div class="cell-detail">The area coach verifies the first-12-weeks standard in-store.</div></details></td><td data-label="Established"><details class="cell"><summary>Retention analytics</summary><div class="cell-detail">Tenure-by-wave dashboards feed the next cycle.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Measures</td><td data-label="Pre-start"><details class="cell"><summary>Day-1 readiness complete</summary><div class="cell-detail">Uniform · ID · learning · roster · buddy: five yes/no gates.</div></details></td><td data-label="First shift"><details class="cell"><summary>2-week check-in done</summary><div class="cell-detail">Structured plan, hours match, welcomed.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary>6-week progress</summary><div class="cell-detail">Station sign-offs, feedback received, roster consistency.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary>12-week outcome</summary><div class="cell-detail">Independence, recognition, intent to stay, next step named.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Failure points</td><td data-label="Pre-start"><details class="cell"><summary><span class="fp">F-01</span> Missing uniform · no user ID</summary><div class="cell-detail">Preboarding failure: the employee starts not ready.</div></details></td><td data-label="First shift"><details class="cell"><summary><span class="fp">F-02</span> No training schedule</summary><div class="cell-detail">First-day plan absent: the earliest credibility gap.</div></details></td><td data-label="Weeks 1–2"><details class="cell"><summary><span class="fp">F-03</span> No check-ins</summary><div class="cell-detail">Two-week check-in skipped under shift pressure.</div></details></td><td data-label="Weeks 3–6"><details class="cell"><summary><span class="fp">F-04</span> Hours mismatch</summary><div class="cell-detail">Roster ignores availability: the attrition engine.</div></details></td><td data-label="Weeks 7–12"><details class="cell"><summary><span class="fp">F-05</span> No visible path</summary><div class="cell-detail">Twelve weeks in, no named next step.</div></details></td><td data-label="Established"><details class="cell"><summary><span class="fp">F-06</span> Recognition gap</summary><div class="cell-detail">Effort unseen: the final push out the door.</div></details></td></tr></table>
+<p>Working files, anonymised: the <a href="artifacts/insight-register.html">insight register</a>. The brief, the personas, the journey map and the blueprint stayed working documents with the business.</p>
+</section>
+
+<section class="art-sec" id="sec-6"><span class="sec-kicker">06</span><h2>How it would be measured</h2>
+<div class="frame">
+  <b>North star</b><p>Consistent, productive tenure: fewer avoidable early exits, with even short-tenure leavers leaving with a positive view.</p>
+  <b>Baselines</b><p>The quarterly engagement survey read on the strongly-agree discipline, by role and area; onboarding dashboards at two, six and twelve weeks; the turnover series; exit-interview snapshots.</p>
+  <b>Leading drivers</b><p>Day-one readiness; check-in completion at two, six and twelve weeks; roster consistency (planned versus actual hours, zero-shift weeks, late cancellations); training completion and station sign-offs; recognition during learning; manager capacity (protected people-leadership time).</p>
+  <b>Lagging</b><p>Engagement and experience-versus-expectations on the strongly-agree reading; intent to stay; retention at 30, 60 and 90 days; exit reasons; the cost of avoidable attrition from the turnover model.</p>
+  <b>Economics</b><p>A cost-of-turnover model that counts only what the blueprint can move: recruitment and training not spent for each avoidable exit avoided, and productive tenure recovered. The posture is fewer avoidable exits, not zero attrition.</p>
+  <b>Where the numbers sit</b><p>The forum chose the healthy-shift option, the on-shift experience, because it sits on the rostering root cause and ties to the workforce platform work; the first-twelve-weeks design waits behind it. The survey proportions and the cost-of-turnover model are held by the business.</p>
+</div>
+<p>What I would do differently: put the two options in front of the forum with the measurement design attached, so the decision and its baseline landed in the same meeting.</p>
+</section>
+
+<section class="art-sec" id="sec-7"><span class="sec-kicker">07</span><h2>For a consulting reader</h2>
+<div class="frame">
+  <b>Sponsor</b><p>The employee-experience function, reporting to franchise governance forums.</p>
+  <b>Scope in</b><p>A single evidence-based view of the crew experience; the moments that matter; the manager-role definition; where to invest first.</p>
+  <b>Scope out</b><p>Redesigning every process; replacing functional improvement projects; structural changes to franchise operating models.</p>
+  <b>Decisions requested</b><p>Adopt the attrition chain as the problem statement; sequence the blueprints (healthy shift, then first twelve weeks, manager enablement in parallel) and fund the field study; embed team-member experience in the scorecard; adopt the strongly-agree reading discipline.</p>
+  <b>Timeline and gates</b><p>About twenty weeks: research and baseline (weeks 0 to 4); synthesis and the chain (5 to 8); blueprint and personas (9 to 13); options and study designs (14 to 18); decision paper and forum (19 to 20). Then decide, pilot, scale as gated phases.</p>
+  <b>Risks managed</b><p>Franchisee acceptance (forum decision, not central mandate); survey misreading (the coding discipline, enforced); scope sprawl in the healthy-shift study (coverage named as the failure mode); masking by high manager retention (retention never counted alone).</p>
+</div>
+</section>
+
+<div class="cross-links"><a class="xlink" href="../1/index.html"><span class="lbl">Previous case</span><span class="ttl">Transforming safety and compliance reporting across a restaurant network</span></a><a class="xlink" href="../7/index.html"><span class="lbl">Next case</span><span class="ttl">Shifting a service-quality programme from speed to competence</span></a></div>
+</article></div></main>
+<footer class="footer">
+  <span>Sam Mozaffari · Experience Designer, Sydney.</span>
+  <span><a href="../../library.html">Library</a> · <a href="../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7">LinkedIn</a></span>
+</footer>
+<script src="../../assets/site.js?v=9"></script>
+<script src="../../assets/playonce.js?v=12"></script>
+<script src="../../assets/annotate.js?v=11"></script>
+</body></html>

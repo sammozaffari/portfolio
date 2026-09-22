@@ -169,7 +169,7 @@ for _p in ROOT.rglob('*'):
     # Working notes are not pages, and the site's content is HTML. The one
     # exception is a README that documents a deliverable a reader can download,
     # which is the point of publishing it.
-    _ALLOWED_MD = {'articles/57/prototype/figma/README.md'}
+    _ALLOWED_MD = {'articles/1/prototype/figma/README.md'}
     if (_p.suffix.lower() == '.md' and _rel.parts[0] in ('articles', 'writing')
             and str(_rel) not in _ALLOWED_MD):
         errors.append(f'{_rel}: internal notes under a served path; keep them outside the repository')

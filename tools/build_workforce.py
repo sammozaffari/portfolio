@@ -6,13 +6,13 @@ written once here rather than pasted into eight files, so the compliance count i
 the nav can never disagree with the compliance screen. That is the same argument
 the product makes about the roster legend, applied to the deck that shows it.
 
-Writes: articles/52/showcase/screens/*.html
+Writes: articles/2/showcase/screens/*.html
 Usage: build_workforce.py
 """
 import pathlib, html
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/52/showcase/screens"
+SCR = ROOT / "articles/2/showcase/screens"
 e = lambda s: html.escape(str(s), quote=False)
 
 # The one place the module nav is declared. Counts here are the counts on the

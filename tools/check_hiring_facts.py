@@ -27,8 +27,8 @@ Exit 0 if every fact holds, 1 with a list of what disagrees.
 import re, sys, pathlib, html, datetime
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/55/showcase/screens"
-IMG = ROOT / "articles/55/showcase/img"
+SCR = ROOT / "articles/3/showcase/screens"
+IMG = ROOT / "articles/3/showcase/img"
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 # An edit that keeps a file the same length can leave a stale .pyc looking
 # current. A gate that can be fooled by a cache is not a gate.

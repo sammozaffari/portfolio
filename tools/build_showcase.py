@@ -7,11 +7,11 @@ One generator, several showcases: the safety reporting product and the workforce
 platform are different products on the same design system, so they are the same
 page mechanism with different specs.
 
-Usage: build_showcase.py [showcase-dir]   (default articles/57/showcase)"""
+Usage: build_showcase.py [showcase-dir]   (default articles/1/showcase)"""
 import json, re, pathlib, html, struct, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SC = ROOT / (sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "articles/57/showcase")
+SC = ROOT / (sys.argv[1].rstrip("/") if len(sys.argv) > 1 else "articles/1/showcase")
 if not (SC / "showcase.json").exists():
     raise SystemExit("no showcase.json in " + str(SC))
 e = lambda s: html.escape(str(s), quote=False)

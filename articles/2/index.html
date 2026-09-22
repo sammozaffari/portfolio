@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Rostering, time and attendance at KFC South Pacific: 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane service blueprint and a ranked top ten. Eight of the ten carried a named release within the year.">
+<title>Transforming rostering, time and attendance across a billion-dollar restaurant business · Sam Mozaffari</title>
+<meta property="og:type" content="website"><meta property="og:title" content="Transforming rostering, time and attendance across a billion-dollar restaurant business · Sam Mozaffari"><meta property="og:description" content="Rostering, time and attendance at KFC South Pacific: 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane service blueprint and a ranked top ten. Eight of the ten carried a named release within the year."><meta property="og:url" content="https://sammozaffari.github.io/the-agentic-service-designer-site/articles/2/index.html"><meta property="og:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Transforming rostering, time and attendance across a billion-dollar restaurant business · Sam Mozaffari"><meta name="twitter:description" content="Rostering, time and attendance at KFC South Pacific: 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane service blueprint and a ranked top ten. Eight of the ten carried a named release within the year."><meta name="twitter:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../assets/article-blocks.css?v=9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
+<style>
+  .brief { border: 1px solid var(--line); border-radius: var(--radius-card); padding: 18px 22px; margin: 0 0 28px; display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; font-size: var(--t-3); }
+  .brief b { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); padding-top: 2px; }
+  .brief p { margin: 0; }
+  .trail { border-left: 3px solid var(--ink); padding: 4px 18px; margin: 22px 0; }
+  .trail h4 { margin: 0 0 6px; font-size: var(--t-4); }
+  .trail p { margin: 0 0 8px; }
+  .trail .step { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); }
+  .fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-card); background: #fff; }
+    table.plain { width: 100%; border-collapse: collapse; font-size: var(--t-3); margin: 0 0 12px; }
+  table.plain th, table.plain td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.plain th { background: var(--paper-tint); font-weight: 600; }
+  .frame { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: var(--t-3); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px; margin: 12px 0 18px; }
+  .frame b { color: var(--ink-soft); font-weight: 600; }
+  .frame p { margin: 0; }
+  .fig-html { border: 1px solid var(--line); border-radius: var(--radius-card); margin: 16px 0; }
+  table.blueprint { border-collapse: collapse; font-size: var(--t-2); width: 100%; }
+  table.blueprint th, table.blueprint td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left; }
+  table.blueprint th { background: var(--paper-tint); }
+  table.blueprint caption { caption-side: top; text-align: left; padding: 8px 10px; color: var(--ink-soft); font-size: var(--t-2); }
+  table.blueprint details summary { cursor: pointer; font-weight: 600; }
+  table.blueprint details p { margin: 4px 0 0; color: var(--ink-soft); }
+  table.blueprint .cell.fail summary, table.blueprint .fp { color: #b3261e; }
+  @media (max-width: 640px) { .brief, .frame { grid-template-columns: 1fr; } }
+
+  /* module index into the showcase */
+  .mods { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 2px 28px; margin: 22px 0 30px; }
+  /* A rule above each item, and nothing around the set. Bordering every cell drew
+     a boxed table in the middle of the prose, with outer edges that lined up with
+     nothing on the page. */
+  .mods a { display: block; padding: 12px 0 16px; border-top: 1px solid var(--line); text-decoration: none; }
+  /* the whole card is the link, so the prose inside it must not be underlined;
+     the article rule for links is more specific than a bare .mods a */
+  .art-body .mods a, .art-body .mods a span { text-decoration: none; border-bottom: 0; }
+  .art-body .mods a:hover .t { text-decoration: underline; }
+    .mods .k { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+  .mods .t { display: block; font-size: var(--t-3); font-weight: 600; margin: 3px 0 3px; color: var(--ink); }
+  .mods .d { display: block; font-size: var(--t-1); line-height: 1.45; color: var(--ink-soft); }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <a class="brand" href="../../index.html">
+    <div class="brand-title">Sam Mozaffari</div>
+    <div class="brand-sub">Experience Designer</div>
+  </a>
+  <nav class="main-nav">
+    <a href="../../index.html" class="">Home</a>
+    <a href="../../articles.html" class="on">Work</a>
+    <a href="../../about.html" class="">About</a>
+    <a href="../../cv.html" class="">CV</a>
+  </nav>
+</header>
+<main id="main" class="art art-article"><div class="art-progress"><div class="art-progress-bar" id="progress"></div></div><div class="art-layout art-layout--hero">
+  <header class="art-hero">
+    <div class="art-meta">
+      <span class="art-meta-item"><span class="chip">KFC South Pacific · employment work</span></span><span class="art-meta-item"><span class="chip">Workforce management</span></span><span class="art-meta-item"><span class="chip">24 weeks, 2024</span></span>
+    </div>
+    <h1>Transforming rostering, time and attendance across a billion-dollar restaurant business</h1>
+    <p class="deck">Every restaurant in the network ran on the same time and attendance platform, everyone used it, and nobody agreed what to fix first. Ten restaurant visits, 200 survey responses and an above-restaurant interview round located 175 pain points. Those became a four-lane blueprint and a scored top ten, and eight of the ten had a named release within the year.</p>
+    <div class="art-stats"><span><b>175</b> pain points located and triaged</span><span><b>200</b> field survey responses</span><span><b>10</b> priorities scored and reconciled</span><span><b>8</b> of the 10 shipped, then 10 more releases in early 2026</span></div>
+    <div class="author-block">
+      <div class="author-id">
+        <div class="author-avatar">SM</div>
+        <div><b>Sam Mozaffari</b><span>Experience Designer</span></div>
+      </div>
+      <p class="author-note">I co-led the review with one other designer. Between us we ran the interviews and site visits, built the survey, synthesised the pain points on the wall and in the sheet, drew the blueprint and ran the scoring workshop. People-systems, payroll and IT were the collaborators; the vendor was the audience for the result.</p>
+    </div>
+  </header></div><div class="art-layout art-layout--body"><aside class="art-rail"><nav class="toc" aria-label="In this article"><b>In this article</b><ol>
+<li><a href="#brief">In brief</a></li>
+<li><a href="#sec-1">The problem</a></li>
+<li><a href="#sec-2">What I did</a></li>
+<li><a href="#sec-3">What the research found</a></li>
+<li><a href="#sec-4">Four decisions</a></li>
+<li><a href="#sec-5">What was delivered</a></li>
+<li><a href="#sec-6">How it would be measured</a></li>
+<li><a href="#sec-7">For a consulting reader</a></li>
+<li><a href="#sec-8">What AI did and what stayed human</a></li></ol></nav></aside><article class="art-body">
+
+<div class="brief" id="brief">
+  <b>Context</b><p>A software-as-a-service time and attendance platform spanning rostering, timekeeping, breaks, leave, compliance and the payroll feed, across equity and franchised restaurants. The business did not own it. The vendor released features on its own schedule; the business negotiated.</p>
+  <b>My role</b><p>One of two experience designers running the review. Research, synthesis, the blueprint, the scoring workshop and the vendor reconciliation.</p>
+  <b>Collaborators</b><p>People-systems, payroll and IT; restaurant managers, team members and area coaches as participants; a franchisee.</p>
+  <b>Constraints</b><p>Vendor roadmap outside our control. Forecast and role data arriving late from global systems. Payroll cycles and configurations that differ by franchise group by design.</p>
+  <b>Key decision</b><p>Treat the brief as an alignment problem, not a feature list. Build the instrument that lets priority disputes be settled by evidence: a blueprint that locates every pain point and a scoring model published before any score is written.</p>
+  <b>Status</b><p>Shipped, and still shipping. The blueprint and the scored top ten were accepted. Eight of the ten carried a named release within a year, three in release 1.63 in November 2024 and five in release 1.64 across 2025, and ten further releases landed in early 2026. The blueprint runs as a living document on a half-yearly review.</p>
+</div>
+
+<figure class="fig fig-wide annot reveal"><a href="images/blueprint-poster.svg"><img src="images/blueprint-poster.svg" alt="Service blueprint poster: seven stages from onboarding to reporting across physical evidence, frontstage, backstage and support lanes, with eight failure points marked in red" loading="lazy"></a><script type="application/json" class="annot-data">[
+{"n":1,"x":56.8,"y":14.7,"kind":"decision","title":"The highest scored item sits on this stage","body":"A visible warning at the five-hour break boundary with an audit trail, rather than a hard stop. Ranked first of ten, and released in November 2024.","link":{"href":"#sec-4","text":"Read the decision"}},
+{"n":2,"x":21.4,"y":55.7,"kind":"pain","title":"Role changes take up to two weeks","body":"Integration latency is structural. Role changes reach the platform in up to two weeks, forecasts arrive late and short, and training completions sync late.","link":{"href":"#sec-3","text":"What the research found"}},
+{"n":3,"x":68.6,"y":40.9,"kind":"decision","title":"Data credibility is a design surface","body":"Payroll figures and platform figures disagreed and area coaches, payroll and managers all said so. Pay advice now reflects the platform's own figures."},
+{"n":4,"x":45.0,"y":70.6,"kind":"evidence","title":"Sixteen of seventeen supervisors adjust clock-ins","body":"Forgotten clock-ins were being corrected by hand by almost every supervisor: a process support gap the blueprint names."},
+{"n":5,"x":92.3,"y":70.6,"kind":"decision","title":"Build the report in house","body":"Group-level figures were compiled per store by hand. The in-house report build was chosen over a paid per-store add-on."},
+{"n":6,"x":33.2,"y":87.3,"kind":"pain","title":"The only stage carrying two failure points","body":"Deployment charts transcribed twice a day, and a week of leave hand-entered shift by shift."},
+{"n":7,"x":56.8,"y":87.3,"kind":"evidence","title":"A silent risk across 100,000+ shifts","body":"The five-hour boundary sat across more than a hundred thousand rostered shifts, and a hard stop would have forced managers to record things that were not true.","link":{"href":"#sec-4","text":"Read the decision"}}
+]</script><figcaption><span class="fignum">Figure 1</span>The target-state blueprint the top ten was scored against: seven stages, four lanes, the line of visibility and the line of internal interaction, and the eight failure points the research located. The numbered notes mark the decisions the blueprint carries.</figcaption></figure>
+
+<section class="art-sec" id="sec-1"><span class="sec-kicker">01</span><h2>The problem</h2>
+<p>The platform had replaced a legacy time system and most managers preferred it; the mobile app in particular. But the business had accumulated a long backlog of wanted features across real-time data, mobile functionality and rostering flexibility, and nobody could rank it. Restaurant managers, payroll, IT and compliance each had a different list. The vendor kept releasing its own roadmap. A stakeholder-weighted prioritisation model built during implementation had been discarded. The visible ask was a system-improvement exercise: prioritise and implement critical fixes, reduce labour-cost inefficiency, mitigate compliance risk, reduce staff frustration and standardise across equity and franchise.</p>
+<p>The people living with it said the real problem plainly: the biggest pain point was prioritising development across so many stakeholders. Underneath that, the compliance layer was quietly failing. Managers faced a warnings list so long they stopped reading it, and hard stops on common shift patterns pushed managers into recording things that were not true just to get a pay run through. The workarounds were physical: paper deployment charts transcribed twice a day, whiteboards above time clocks, spreadsheet rosters, printed break sheets, phantom shifts entered to unblock payroll.</p>
+<div class="key-insight"><span class="ki-label">Why it mattered</span><p>Every recurring workaround was evidence of a missing feature, and without a shared way of ranking them the vendor conversation went nowhere. The cost was not only manager time; it was a compliance layer that people had learned to route around.</p></div>
+</section>
+
+<section class="art-sec" id="sec-2"><span class="sec-kicker">02</span><h2>What I did</h2>
+<p>We designed the research to map the whole lifecycle rather than to collect complaints, and we triangulated four methods so no single voice could set the priority.</p>
+<ul class="art-list">
+  <li>Semi-structured interviews from team members through restaurant managers, area coaches, IT support, people-systems and payroll, across equity and franchised restaurants, plus an above-restaurant round with a franchisee, two area coaches and payroll.</li>
+  <li>A role-branched field survey that returned <b>200 responses</b>: one instrument, a role gate at the start, six branch paths. Two thirds of respondents were team members. The area-leader and franchisee branches returned nothing, which we read as a sampling signal rather than a finding, and covered those roles by interview instead.</li>
+  <li>Site visits and contextual inquiry in <b>ten restaurants</b>, six franchise and four equity, watching the time clocks, the printed rosters, the deployment whiteboards and the laminated charts, and photographing every workaround we found.</li>
+  <li>A support-queue analysis of six months of mobile-app tickets to quantify failure demand.</li>
+</ul>
+<p>That fieldwork produced <b>175 pain points</b>, each one typed and triaged. Synthesis ran on a shared wall with the restaurant, people-systems, payroll and IT stakeholders while a spreadsheet kept the digital twin. The taxonomy was the load-bearing move: every pain point was tagged by solution type (technology, education, integration, process) and by backlog status (already planned, solvable but unplanned, outside platform scope). That one table showed at a glance which problems were the vendor's to solve, which were the business's, and which were nobody's because nobody had named them. Personas, two worked user journeys and the four-lane blueprint followed, and the review closed with a scoring workshop and a reconciliation pass against the vendor's release calendar.</p>
+<figure class="fig fig-wide reveal"><a href="images/chart-survey.svg"><img src="images/chart-survey.svg" alt="Ranked bar chart of field survey respondents by role: team member 67 per cent, assistant restaurant manager 20 per cent, shift supervisor 12 per cent, restaurant general manager 1 per cent" loading="lazy"></a><figcaption><span class="fignum">Figure 2</span>Who the survey reached. The platform was bought to run rosters, and the people who answered in the largest number were the ones it gave the least back to.</figcaption></figure>
+</section>
+
+<section class="art-sec" id="sec-3"><span class="sec-kicker">03</span><h2>What the research found</h2>
+<p><strong>Alert fatigue, not non-compliance.</strong> The compliance warnings list was so overwhelming that managers dismissed warnings without investigation. That set the design philosophy for everything after: few hard stops, visible warnings everywhere else, with an audit trail.</p>
+<p><strong>Rules create their own workarounds.</strong> The swap-notice rule pushed team members to drop and re-pick shifts instead of swapping. Pay-period rigidity produced phantom shifts. A hard stop on breaks would have forced managers to record fraudulently. Each was a system-design decision before it was a behaviour problem.</p>
+<p><strong>A quarter of the problems were education, with no delivery vehicle.</strong> Feature availability varied store to store with no baseline; most managers had never heard of the school-calendar feature; report literacy was low. The blueprint named a gap the business had never named: there was no channel to deliver that education through.</p>
+<p><strong>Data credibility is a design surface.</strong> The payroll figures and the platform figures disagreed, and area coaches, payroll and managers all said so. We treated that as an experience problem to design for, not an IT complaint to forward.</p>
+<figure class="fig fig-wide reveal"><a href="images/chart-solution.svg"><img src="images/chart-solution.svg" alt="Ranked bar chart of pain points by the kind of fix needed: technology 41 per cent, education 26 per cent, integration 21 per cent, process change 11 per cent, other 1 per cent" loading="lazy"></a><figcaption><span class="fignum">Figure 3</span>The triage that made the list arguable. Tagging every pain point by the kind of change that would resolve it separated what the platform owed from what the business owed.</figcaption></figure>
+<figure class="fig fig-wide reveal"><a href="images/chart-painroles.svg"><img src="images/chart-painroles.svg" alt="Ranked bar chart of pain points by role: area coach 45, rostering manager 42, restaurant general manager 35, team member 25, payroll 11, support 10, central teams 9" loading="lazy"></a><figcaption><span class="fignum">Figure 4</span>The same register read by role. An area coach carries the most pain of anyone in the service and has no screen built for them, which is why multi-level reporting scored as high as it did.</figcaption></figure>
+<p><strong>Integration latency is structural.</strong> Forecasts arrived late and short. Role changes took days to reach the platform. Training completions synced late. These were consequences of who owned each system, and the integration strand of the blueprint is the one most reviews never draw.</p>
+</section>
+
+<section class="art-sec" id="sec-4"><span class="sec-kicker">04</span><h2>Four decisions</h2>
+<div class="trail">
+  <span class="step">Decision 1</span>
+  <h4>Treat the brief as an alignment problem, not a feature list</h4>
+  <p><b>Evidence.</b> The discarded weighting model; four functions with four lists; the vendor roadmap ruling by default; the stakeholders' own words about prioritising across so many people.</p>
+  <p><b>Alternative considered.</b> A feature-fix campaign against the visible ask. Rejected because it would have shipped random improvements and left the stalemate intact.</p>
+  <p><b>What we did.</b> Built the instrument that makes priority disputes resolvable by evidence: a blueprint that locates every pain point in the service, and a scoring model agreed before any score was written.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 2</span>
+  <h4>Compliance ranks first by standing rule; everything else is weighted and published</h4>
+  <p><b>Evidence.</b> The previous model had been thrown out because nobody could defend it. Compliance failures carried the highest cost and were the ones people were routing around.</p>
+  <p><b>Alternative considered.</b> Let the vendor's release calendar set the order, or reinstate the old weights. Rejected: neither survives a challenge from the functions that lost.</p>
+  <p><b>What we did.</b> Six criteria agreed in the workshop: compliance impact (ranks first, always), labour-cost accuracy, team member experience, manager time, feasibility, cost and effort. Every item cites its insight and evidence count; nothing enters the list without one.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 3</span>
+  <h4>A visible warning at the five-hour break boundary, not a hard stop</h4>
+  <p><b>Evidence.</b> Existing hard stops on common shift patterns were already forcing false records. The boundary risk sat across 100,000+ rostered shifts.</p>
+  <p><b>Alternative considered.</b> The hard stop the vendor had on its roadmap. Rejected and negotiated down: it would have handcuffed managers and produced fraudulent data, which is worse than a visible, audited risk.</p>
+  <p><b>What we did.</b> Guided enforcement with visible warnings and an audit trail, quantified against the rostered shifts it protects. It became item one on the list.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 4</span>
+  <h4>Draw the blueprint's boundary at the manual adjustments</h4>
+  <p><b>Evidence.</b> Payroll cycles, reopening policies and leave handling differed by franchise group, and only the enterprise-agreement interpretation was uniform.</p>
+  <p><b>Alternative considered.</b> One configuration imposed across the network. Rejected: it would have blocked the blueprint on franchise politics and misrepresented how the service works.</p>
+  <p><b>What we did.</b> A standard feature list per restaurant and a deliberate variant tail. The blueprint ends where franchise autonomy begins, and says so.</p>
+</div>
+</section>
+
+<section class="art-sec" id="sec-5"><span class="sec-kicker">05</span><h2>What was delivered</h2>
+<p>The scored top ten, with the design principle and backlog status each item carried into the vendor conversation. Items already on the vendor's calendar were adopted and fast-tracked; unplanned items were negotiated; one sat outside the platform's scope and became a business process.</p>
+<table class="plain">
+<tr><th>Rank</th><th>Item</th><th>Category</th><th>Principle</th><th>Release</th></tr>
+<tr><td data-label="Rank">1</td><td data-label="Item">Soft warning on shifts of five to five and a half hours</td><td data-label="Category">Compliance</td><td data-label="Principle">Few hard stops, visible warnings</td><td data-label="Release">Released 1.63, Nov 2024</td></tr>
+<tr><td data-label="Rank">2</td><td data-label="Item">Hard stop on shift supervisor breaks</td><td data-label="Category">Compliance</td><td data-label="Principle">The one place a hard stop was right</td><td data-label="Release">Released 1.63, Nov 2024</td></tr>
+<tr><td data-label="Rank">3</td><td data-label="Item">Manager break auto-wizard, rerun when a shift changes</td><td data-label="Category">Compliance</td><td data-label="Principle">Remove a workaround</td><td data-label="Release">Released 1.64, 2025</td></tr>
+<tr><td data-label="Rank">4</td><td data-label="Item">Reporting at multiple levels</td><td data-label="Category">Experience</td><td data-label="Principle">One view per person</td><td data-label="Release">Released 1.64, 2025</td></tr>
+<tr><td data-label="Rank">5</td><td data-label="Item">Shared employee punches and leave in one view</td><td data-label="Category">Compliance</td><td data-label="Principle">One view per person</td><td data-label="Release">Scheduled</td></tr>
+<tr><td data-label="Rank">6</td><td data-label="Item">Auto-populated leave on the schedule</td><td data-label="Category">Compliance</td><td data-label="Principle">Remove a workaround</td><td data-label="Release">Released 1.64, 2025</td></tr>
+<tr><td data-label="Rank">7</td><td data-label="Item">Change a shift to a leave shift</td><td data-label="Category">Compliance</td><td data-label="Principle">Remove a workaround</td><td data-label="Release">Released 1.64, 2025</td></tr>
+<tr><td data-label="Rank">8</td><td data-label="Item">Consent workflow for leave</td><td data-label="Category">Compliance</td><td data-label="Principle">Consent is not an admin step</td><td data-label="Release">Released 1.64, 2025</td></tr>
+<tr><td data-label="Rank">9</td><td data-label="Item">Time off shift history</td><td data-label="Category">Compliance</td><td data-label="Principle">Team members can see their own record</td><td data-label="Release">Released 1.63, Nov 2024</td></tr>
+<tr><td data-label="Rank">10</td><td data-label="Item">Leave shifts on the mobile shift list</td><td data-label="Category">Experience</td><td data-label="Principle">Team members can see their own record</td><td data-label="Release">Scheduled</td></tr>
+</table>
+<figure class="fig fig-wide reveal"><a href="images/chart-toptenmix.svg"><img src="images/chart-toptenmix.svg" alt="Cross-tabulation of the ten scored items by design principle and backlog status" loading="lazy"></a><figcaption><span class="fignum">Figure 5</span>The same ten items, cross-tabulated by category and release. Reading the list this way is what made the conversation tractable: eight of the ten were compliance, and compliance was the strand nobody had a screen for.</figcaption></figure>
+<p><strong>How the ranking was validated.</strong> A scoring model was published before any score was written, so the order could be argued with rather than appealed. The result went back through the platform user group and the franchise and area-coach channels across three milestones, which is where a prioritisation either survives contact with the people it affects or does not. The review closed with a reconciliation pass against the release calendar, item by item, with the business position recorded on each one.</p>
+<p>Alongside it: the pain-point register tagged by solution type and backlog status, personas for team member, rostering manager, area coach and payroll specialist, two worked journeys (roster to clock to pay), a reconciliation table against the vendor's release calendar with the business position on each vendor item, a release-communication template routed through the platform user group and franchise channels, and the blueprint (Figure 1) as a living document.</p>
+<figure class="fig fig-wide reveal"><a href="images/chart-failurepoints.svg"><img src="images/chart-failurepoints.svg" alt="Bar chart of the eight failure points across the seven lifecycle stages" loading="lazy"></a><figcaption><span class="fignum">Figure 6</span>The eight failure points placed on the stage where each one happens. Rostering carries two; every other stage carries one.</figcaption></figure>
+
+<figure class="fig fig-wide reveal"><a href="./showcase/index.html#roster"><img src="./showcase/img/roster-week.png" width="1440" height="968" alt="The roster for a week, as a manager builds it." loading="lazy"></a><figcaption><span class="fignum">Figure 7</span>The roster as a manager builds it, and the first of nine modules. Compliance runs while the week is being drawn rather than after it is published, which is the change the research argued for. <a href="./showcase/index.html">Open the product, module by module</a>.</figcaption></figure>
+<h3>The product the findings argued for</h3>
+<p>The report ended with a ranked list, and a ranked list is an argument about what to build. These nine modules are that argument drawn out: each one starts from a pain point in the register and shows the screen that answers it, with the release that carried it where there is one. They are built on the same design system as the safety reporting product, because a restaurant manager uses both in the same shift.</p>
+<div class="mods">
+  <a href="./showcase/index.html#roster"><span class="k">Module 01</span><span class="t">The roster</span><span class="d">Compliance runs while the week is being built, not after it is published.</span></a>
+  <a href="./showcase/index.html#compliance"><span class="k">Module 02</span><span class="t">Compliance triage</span><span class="d">Thirty-one warnings sorted by what they cost, and a dismissal that is signed.</span></a>
+  <a href="./showcase/index.html#timeclock"><span class="k">Module 03</span><span class="t">Deployment chart</span><span class="d">Generated from the roster, with the station columns the restaurants already drew.</span></a>
+  <a href="./showcase/index.html#leave"><span class="k">Module 04</span><span class="t">Leave as a date range</span><span class="d">A year of leave entered once, and the person asked before it is recorded.</span></a>
+  <a href="./showcase/index.html#labour"><span class="k">Module 05</span><span class="t">Labour during the shift</span><span class="d">The number managers were working out by hand, while it can still be acted on.</span></a>
+  <a href="./showcase/index.html#reports"><span class="k">Module 06</span><span class="t">Reporting above one restaurant</span><span class="d">One row per restaurant, past the thirty day cap, with the compliance rate.</span></a>
+  <a href="./showcase/index.html#payperiod"><span class="k">Module 07</span><span class="t">Pay period correction</span><span class="d">The compliant path made faster than the workaround, and priced against it.</span></a>
+  <a href="./showcase/index.html#crew"><span class="k">Module 08</span><span class="t">The team member app</span><span class="d">Punch history, a break that counts down, expected pay and a live leave balance.</span></a>
+  <a href="./showcase/index.html#features"><span class="k">Module 09</span><span class="t">What is switched on</span><span class="d">Every configurable feature against every restaurant, so nobody has to guess.</span></a>
+</div>
+<p><a href="./showcase/index.html">Open the full product</a>, with the design system, the tokens and every decision traced to the finding behind it.</p>
+<p>Working files, anonymised: the <a href="artifacts/interview-synthesis.html">interview synthesis</a> and the <a href="artifacts/proposals.html">scored proposals</a>. The register, the personas, the journey map and the blueprint stayed working documents with the business.</p>
+</section>
+
+<section class="art-sec" id="sec-6"><span class="sec-kicker">06</span><h2>How it would be measured</h2>
+<p>The review designed its measurement at the end rather than at the start, and the record does not hold post-implementation figures. This is the frame, stated so the next review starts from it.</p>
+<div class="frame">
+  <b>North star</b><p>Every team member paid accurately, on time, first time, without anyone breaking a rule to get there.</p>
+  <b>Drivers</b><p>Data freshness (age of labour figures); correction volume (phantom shifts, reopen requests); manual leave entries; team member self-service adoption; exception rate (compliance issues over published shifts, the area coach's manual spot-check automated).</p>
+  <b>Lagging</b><p>Support-ticket volume; payroll query load; compliance exceptions; manager hours on administration.</p>
+  <b>Baselines</b><p>The support-queue analysis (mobile-app tickets over six months) and the pain-point register are the baselines that exist. Labour-figure age and correction volume need a baseline pulled before the next release.</p>
+  <b>Cadence</b><p>Half-yearly review of the blueprint and the list, per the living-document charter.</p>
+</div>
+<p>What I would do differently: build the measurement instrument in week one, name the education delivery vehicle in the roadmap rather than in a footnote, and baseline the service against a published standard before the first workshop.</p>
+</section>
+
+<section class="art-sec" id="sec-7"><span class="sec-kicker">07</span><h2>For a consulting reader</h2>
+<div class="frame">
+  <b>Sponsor</b><p>The people-systems function, with payroll and IT as co-owners of the outcome.</p>
+  <b>Scope in</b><p>The end-to-end time and attendance service from restaurant floor to payroll: onboarding and access, rostering, timekeeping, breaks, leave, compliance and the payroll feed, across seven stages and four lanes.</p>
+  <b>Scope out</b><p>The payroll engine's internals beyond the feed, pay architecture, and any single configuration imposed on franchise groups.</p>
+  <b>Decisions requested</b><p>Adopt the scoring model as the standing prioritisation method; accept the top ten as the negotiating position; fund the in-house report build over the paid per-store add-on; establish the half-yearly review.</p>
+  <b>Timeline and gates</b><p>Twenty-four weeks: research (weeks 1 to 8), synthesis (8 to 12), mapping (12 to 16), prioritisation and reconciliation (16 to 24). Each phase closed with a stakeholder review before the next began.</p>
+  <b>Stakeholders</b><p>Restaurant managers, team members, area coaches, a franchisee, IT support, people-systems, payroll, compliance, and the vendor's account and product teams.</p>
+  <b>Risks managed</b><p>Vendor roadmap outside our control (mitigated by reconciliation and joint acceptance); franchise autonomy (mitigated by the variant tail); survey non-response from senior roles (covered by interview); data credibility disputes (treated as a design surface).</p>
+</div>
+</section>
+
+<section class="art-sec" id="sec-8"><span class="sec-kicker">08</span><h2>What AI did and what stayed human</h2>
+<p>Fieldwork stayed human: consent, rapport, and the trust needed to hear about phantom-shift payroll fixes are not delegable, and neither is walking the restaurant floor instead of trusting the ticket queue. After the recording, AI helped: transcripts into structured write-ups on a standard template, and open-text survey answers and interview notes extracted into the pain-point schema for the triage sheet. Every extracted row was checked against its source before it counted, and ambiguous ones went to an orphans list rather than into the register. The wall synthesis, the taxonomy, the scoring criteria and every negotiation with the vendor were people's work.</p>
+</section>
+
+<div class="cross-links"><a class="xlink" href="../1/index.html"><span class="lbl">Previous case</span><span class="ttl">Transforming safety and compliance reporting across a restaurant network</span></a><a class="xlink" href="../3/index.html"><span class="lbl">Next case</span><span class="ttl">Redesigning hiring and onboarding for a restaurant network</span></a></div>
+</article></div></main>
+<footer class="footer">
+  <span>Sam Mozaffari · Experience Designer, Sydney.</span>
+  <span><a href="../../library.html">Library</a> · <a href="../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7">LinkedIn</a></span>
+</footer>
+<script src="../../assets/site.js?v=9"></script>
+<script src="../../assets/playonce.js?v=12"></script>
+<script src="../../assets/annotate.js?v=11"></script>
+</body></html>

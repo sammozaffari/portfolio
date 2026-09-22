@@ -10,7 +10,7 @@ The background is read from the top-right corner of the render rather than
 assumed, because the workforce screens sit on a canvas grey and the phone
 screens sit on white.
 
-Usage: fit_heights.py articles/52/showcase/capture.json [--apply]
+Usage: fit_heights.py articles/2/showcase/capture.json [--apply]
 Without --apply it reports what it would change and writes nothing.
 """
 import json, sys, time, pathlib, subprocess, tempfile, shutil, os, signal, struct, zlib
@@ -122,7 +122,7 @@ def render(src, w, h, out):
     shutil.rmtree(ud, ignore_errors=True)
 
 
-spec_path = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "articles/52/showcase/capture.json")
+spec_path = ROOT / (sys.argv[1] if len(sys.argv) > 1 else "articles/2/showcase/capture.json")
 apply = "--apply" in sys.argv
 spec = json.loads(spec_path.read_text())
 

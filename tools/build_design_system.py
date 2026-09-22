@@ -28,14 +28,14 @@ gate_rows = re.findall(r"^\| ([^|]+?) \| `([^`]+)` \| ([^|]+?) \|$", agents, re.
 gate_rows = [r for r in gate_rows if r[0].strip() not in ("Gate",)]
 
 # the gate that failed for real, told where it happened: the workforce showcase
-s52 = json.loads((ROOT / "articles/52/showcase/showcase.json").read_text())
+s52 = json.loads((ROOT / "articles/2/showcase/showcase.json").read_text())
 story = [p for p in s52["system"]["body"] if "It caught a real failure" in p]
 story = [story[0][story[0].index("It caught a real failure"):]] if story else []
 
 # one component, the status badge in a table row, on all three products
-CROPS = [("Safety", "articles/57/showcase/img/register.png", (0.16, 0.36, 0.98, 0.50)),
-         ("Workforce", "articles/52/showcase/img/compliance-list.png", (0.02, 0.55, 0.98, 0.71)),
-         ("Hiring", "articles/55/showcase/img/pipeline.png", (0.01, 0.29, 0.80, 0.62))]
+CROPS = [("Safety", "articles/1/showcase/img/register.png", (0.16, 0.36, 0.98, 0.50)),
+         ("Workforce", "articles/2/showcase/img/compliance-list.png", (0.02, 0.55, 0.98, 0.71)),
+         ("Hiring", "articles/3/showcase/img/pipeline.png", (0.01, 0.29, 0.80, 0.62))]
 crops = []
 for name, src, (x0, y0, x1, y1) in CROPS:
     im = Image.open(ROOT / src); w, h = im.size

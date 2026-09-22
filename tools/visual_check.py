@@ -6,7 +6,7 @@ cannot see what its code renders. This closes that: each screen is captured, has
 per horizontal band, and compared against a committed baseline. A changed band is
 reported with the region that moved, so a diff is reviewable rather than a yes or no.
 
-Baselines live in articles/57/showcase/baseline/*.json and are committed, so a change
+Baselines live in articles/1/showcase/baseline/*.json and are committed, so a change
 to a screen shows up in the diff of the pull request like any other change.
 
 Usage: visual_check.py            compare every captured screen against its baseline
@@ -15,8 +15,8 @@ Usage: visual_check.py            compare every captured screen against its base
 import hashlib, json, pathlib, sys, struct, zlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-IMG = ROOT / "articles/57/showcase/img"
-BASE = ROOT / "articles/57/showcase/baseline"
+IMG = ROOT / "articles/1/showcase/img"
+BASE = ROOT / "articles/1/showcase/baseline"
 BANDS = 24  # horizontal strips; enough to localise a change without being brittle
 
 

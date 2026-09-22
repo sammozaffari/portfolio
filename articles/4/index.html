@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Self-service kiosks at KFC South Pacific: a channel that grew faster than the operating model around it. A channel review, a floor role named and rostered, a training ecosystem and audit-linked standards. By Sam Mozaffari.">
+<title>Designing the human half of self-service ordering · Sam Mozaffari</title>
+<meta property="og:type" content="website"><meta property="og:title" content="Designing the human half of self-service ordering · Sam Mozaffari"><meta property="og:description" content="Self-service kiosks at KFC South Pacific: a channel that grew faster than the operating model around it. A channel review, a floor role named and rostered, a training ecosystem and audit-linked standards. By Sam Mozaffari."><meta property="og:url" content="https://sammozaffari.github.io/the-agentic-service-designer-site/articles/4/index.html"><meta property="og:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Designing the human half of self-service ordering · Sam Mozaffari"><meta name="twitter:description" content="Self-service kiosks at KFC South Pacific: a channel that grew faster than the operating model around it. A channel review, a floor role named and rostered, a training ecosystem and audit-linked standards. By Sam Mozaffari."><meta name="twitter:image" content="https://sammozaffari.github.io/the-agentic-service-designer-site/assets/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/style.css?v=9">
+<link rel="stylesheet" href="../../assets/article-design.css?v=9">
+<link rel="stylesheet" href="../../assets/article-blocks.css?v=9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
+<style>
+  .brief { border: 1px solid var(--line); border-radius: var(--radius-card); padding: 18px 22px; margin: 0 0 28px; display: grid; grid-template-columns: 140px 1fr; gap: 8px 16px; font-size: var(--t-3); }
+  .brief b { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .04em; text-transform: uppercase; color: var(--ink-soft); padding-top: 2px; }
+  .brief p { margin: 0; }
+  .trail { border-left: 3px solid var(--ink); padding: 4px 18px; margin: 22px 0; }
+  .trail h4 { margin: 0 0 6px; font-size: var(--t-4); }
+  .trail p { margin: 0 0 8px; }
+  .trail .step { font-family: var(--mono); font-size: var(--t-1); letter-spacing: .05em; text-transform: uppercase; color: var(--ink-soft); }
+  .fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--radius-card); background: #fff; }
+    table.plain { width: 100%; border-collapse: collapse; font-size: var(--t-3); margin: 0 0 12px; }
+  table.plain th, table.plain td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+  table.plain th { background: var(--paper-tint); font-weight: 600; }
+  .frame { display: grid; grid-template-columns: 150px 1fr; gap: 8px 16px; font-size: var(--t-3); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px; margin: 12px 0 18px; }
+  .frame b { color: var(--ink-soft); font-weight: 600; }
+  .frame p { margin: 0; }
+  .fig-html { border: 1px solid var(--line); border-radius: var(--radius-card); margin: 16px 0; }
+  table.blueprint { border-collapse: collapse; font-size: var(--t-2); width: 100%; }
+  table.blueprint th, table.blueprint td { border: 1px solid var(--line); padding: 6px 8px; vertical-align: top; text-align: left; }
+  table.blueprint th { background: var(--paper-tint); }
+  table.blueprint caption { caption-side: top; text-align: left; padding: 8px 10px; color: var(--ink-soft); font-size: var(--t-2); }
+  table.blueprint details summary { cursor: pointer; font-weight: 600; }
+  table.blueprint details p { margin: 4px 0 0; color: var(--ink-soft); }
+  table.blueprint .cell.fail summary, table.blueprint .fp { color: #b3261e; }
+  pre.cfg { background: var(--dark); color: var(--dark-ink); padding: 14px 16px; border-radius: var(--radius-card); font-size: var(--t-1); line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
+  @media (max-width: 640px) { .brief, .frame { grid-template-columns: 1fr; } }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head><body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-head">
+  <a class="brand" href="../../index.html">
+    <div class="brand-title">Sam Mozaffari</div>
+    <div class="brand-sub">Experience Designer</div>
+  </a>
+  <nav class="main-nav">
+    <a href="../../index.html" class="">Home</a>
+    <a href="../../articles.html" class="on">Work</a>
+    <a href="../../about.html" class="">About</a>
+    <a href="../../cv.html" class="">CV</a>
+  </nav>
+</header>
+<main id="main" class="art art-article"><div class="art-progress"><div class="art-progress-bar" id="progress"></div></div><div class="art-layout art-layout--hero">
+  <header class="art-hero">
+    <div class="art-meta">
+      <span class="art-meta-item"><span class="chip">KFC South Pacific · employment work</span></span><span class="art-meta-item"><span class="chip">Self-service channel</span></span><span class="art-meta-item"><span class="chip">28 weeks, July 2024 to January 2025</span></span>
+    </div>
+    <h1>Designing the human half of self-service ordering</h1>
+    <p class="deck">Self-service ordering reached about half the network in three years and the operating model never moved: no channel training, no rollout process, no floor role. I designed the foyer host role, the placement standard and the governance phases that gave the channel a human again.</p>
+    <div class="art-stats"><span><b>50 per cent</b> of the network on kiosks</span><span><b>4</b> evidence streams</span><span><b>4</b> franchisee role designs converged into 1</span><span><b>3</b> governance phases</span></div>
+    <div class="author-block">
+      <div class="author-id">
+        <div class="author-avatar">SM</div>
+        <div><b>Sam Mozaffari</b><span>Experience Designer</span></div>
+      </div>
+      <p class="author-note">I led the design work within a regional channel and learning working group: the channel review, the feedback mining at two scales, the benchmarking of four franchisee programmes, the journey map, the floor-role standard, the training approach and the placement and governance standards. Four franchisee groups, the global standards programme and market leads were the collaborators.</p>
+    </div>
+  </header></div><div class="art-layout art-layout--body"><aside class="art-rail"><nav class="toc" aria-label="In this article"><b>In this article</b><ol>
+<li><a href="#brief">In brief</a></li>
+<li><a href="#sec-1">The problem</a></li>
+<li><a href="#sec-2">What I did</a></li>
+<li><a href="#sec-3">What the research found</a></li>
+<li><a href="#sec-4">Three decisions</a></li>
+<li><a href="#sec-5">What was delivered</a></li>
+<li><a href="#sec-6">How it would be measured</a></li>
+<li><a href="#sec-7">For a consulting reader</a></li></ol></nav></aside><article class="art-body">
+
+<div class="brief" id="brief">
+  <b>Context</b><p>Kiosks installed in about half the regional network with a global mandate that every new build run them. The business case was proven in other markets. The operating system that should have served the channel, training, rollout, rostering and recovery, did not exist.</p>
+  <b>My role</b><p>Experience Designer leading the design work in a regional channel and learning working group.</p>
+  <b>Collaborators</b><p>The channel lead and the learning team; four franchisee groups running their own floor-role programmes; the global standards programme; a global design agency's omnichannel map; market leads.</p>
+  <b>Constraints</b><p>Labour constraints that ruled out a network-wide mandate. Franchisee operating cultures that differ materially. Training built only where most restaurants had the technology, which kiosks fell below for years.</p>
+  <b>Key decision</b><p>Installation is not adoption. Name the human role between the door and the machine, roster it, train it, and tie the standards to the audit so compliance is a fact rather than advice.</p>
+  <b>Status</b><p>Floor-role standard, training approach, placement and governance standards delivered; brand standards published; the flagship programme franchisee-led rather than mandated. Enforcement through the audit sat with the standards programme.</p>
+  <b>Figures</b><p>Figures 1 and 2 were redrawn in September 2026 from the floor-role standard and the implementation playbook.</p>
+</div>
+
+<figure class="fig fig-wide reveal"><a href="images/foyer-host-card.svg"><img src="images/foyer-host-card.svg" alt="The foyer host training card, front and back." loading="lazy"></a><figcaption><span class="fignum">Figure 1</span>The foyer host card, front and back: the role a crew member carries in their pocket. Four franchisee groups had each invented a version of this role; the standard converged them.</figcaption></figure>
+
+<section class="art-sec" id="sec-1"><span class="sec-kicker">01</span><h2>The problem</h2>
+<p>The brief was direct: there was no process to train and upskill teams on kiosks once they were installed. Troubleshooting documents existed but were never sent to restaurants or collated. The training gap was a symptom. Four gaps surfaced in the first pass.</p>
+<table class="plain">
+<tr><th>Gap</th><th>What was actually true</th></tr>
+<tr><td data-label="Gap">No channel training</td><td data-label="What was actually true">Onboarding courses for order-taking and register work had no self-service content. Training was only built where most restaurants had the technology, and kiosks fell below that bar for years.</td></tr>
+<tr><td data-label="Gap">No rollout process</td><td data-label="What was actually true">No defined process for installing kiosks and bringing a team up to speed; user-guide distribution had lapsed entirely.</td></tr>
+<tr><td data-label="Gap">No floor role</td><td data-label="What was actually true">The foyer role was not formalised. The time and attendance platform could not even roster someone as a host; the concierge section of the guide was outdated and stuck in an IT backlog.</td></tr>
+<tr><td data-label="Gap">No design for the channel's limits</td><td data-label="What was actually true">The kiosk is not a replica of the register or the app: no cash, express-kiosk exclusions, menu mismatches, and no team script for a failed machine.</td></tr>
+</table>
+<div class="key-insight"><span class="ki-label">Why it mattered</span><p>Usage followed store format, customer flow and the presence of floor support, not the presence of the machine. Every uniform installation without the human half left adoption to chance and recorded service failures as kiosk complaints.</p></div>
+</section>
+
+<section class="art-sec" id="sec-2"><span class="sec-kicker">02</span><h2>What I did</h2>
+<ul class="art-list">
+  <li><b>Channel performance.</b> Sales mix by store format and asset type, penetration and adoption, which showed the swing between drive-thru-led stores and the highest-usage franchisee group.</li>
+  <li><b>Guest-feedback mining at two scales.</b> A deep read of every self-service comment in a three-month pull, and a wide sweep across a much larger store population to measure how often the channel surfaced at all. The absence signal was the finding: the channel was near-invisible in the wide sweep, and where it appeared, staff recognition was the top positive theme.</li>
+  <li><b>Benchmarking.</b> Four franchisee groups running parallel floor-role programmes, compared as archetypes, plus a scan of markets with older kiosk footprints.</li>
+  <li><b>Pilot measurement.</b> Mirror-store surveys on menu-board removal, store-level adoption tracking, and a monthly cut benchmarking a pilot store pair.</li>
+  <li><b>Mapping and design.</b> The omnichannel journey on the agency's spine, seven insights, one concept converged from the four franchisee designs, the floor-role standard, the training ecosystem, labour-deployment arithmetic, the placement playbook, the troubleshooting FAQ and the governance roadmap.</li>
+</ul>
+</section>
+
+<section class="art-sec" id="sec-3"><span class="sec-kicker">03</span><h2>What the research found</h2>
+<p><strong>Installation is not adoption.</strong> The machine was the constant; the human was the variable.</p>
+<p><strong>The role already existed, four times.</strong> The best of the four franchisee designs converged into one standard rather than a fifth invention.</p>
+<p><strong>The failures were about people, recorded as machine complaints.</strong> A first-timer who gave up, a cash guest excluded, a failed kiosk, a dirty foyer nobody owned: each was logged as a kiosk problem.</p>
+<p><strong>Awareness of the flagship programme was zero in the sample.</strong> None of the restaurants sampled had implemented, or heard of, the programme meant to fix this.</p>
+<p><strong>Menu boards were not the comprehension problem.</strong> The mirror study on menu-board removal showed comprehension held without them where a host was present, which freed wall space and settled a long argument.</p>
+</section>
+
+<section class="art-sec" id="sec-4"><span class="sec-kicker">04</span><h2>Three decisions</h2>
+<div class="trail">
+  <span class="step">Decision 1</span>
+  <h4>Name the role, roster it, train it</h4>
+  <p><b>Evidence.</b> Adoption tracked floor support; the four franchisee programmes; the time and attendance platform unable to roster the role.</p>
+  <p><b>Alternative considered.</b> Better signage and a kiosk-side help screen. Rejected: the failures happened before the screen and after it, at the door and at the hand-off.</p>
+  <p><b>What we did.</b> A floor-role standard with triggers (a new install, or adoption below the target share), presence at peak, a greeting script, pre-peak checks, primary and secondary duties, exception paths and KPIs, and the platform change that made it rosterable.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 2</span>
+  <h4>Design the counter as an equal path, and reject the cash machine</h4>
+  <p><b>Evidence.</b> Cash guests waiting at the counter with no path; the cost and failure profile of cash-accepting kiosks in the benchmark markets.</p>
+  <p><b>Alternative considered.</b> Cash-accepting kiosks. Rejected on evidence: cost, jams and a second failure mode, for a guest the host can walk to a register in ten seconds.</p>
+  <p><b>What we did.</b> A scripted counter path with a stealth register absorbing the cash queue, a redeployment rule that converts freed cashiers into packers and presenters without adding labour, and a rule that no guest is made to feel wrong for choosing the counter.</p>
+</div>
+<div class="trail">
+  <span class="step">Decision 3</span>
+  <h4>Tie the standards to the audit, with an escape valve</h4>
+  <p><b>Evidence.</b> Standards had been advisory and invisible; the awareness check found nobody had heard of the programme.</p>
+  <p><b>Alternative considered.</b> Mandate the flagship programme network-wide. Rejected: labour constraints made it unenforceable and franchisee cultures differ.</p>
+  <p><b>What we did.</b> Placement, hardware and operating standards linked to the audit from a set date, a compliance target for existing stores, an exception process through the annual operating plan, and the flagship programme run franchisee-led.</p>
+</div>
+</section>
+
+<section class="art-sec" id="sec-5"><span class="sec-kicker">05</span><h2>What was delivered</h2>
+<figure class="fig fig-wide annot reveal"><a href="images/placement.svg"><img src="images/placement.svg" alt="Floor plan showing kiosks in a bank on the dominant path between the entrance and the counter, the foyer host where the path splits, the counter as an equal path with a stealth register, and a separate collection point, beside the placement rules" loading="lazy"></a><script type="application/json" class="annot-data">[
+{"n":1,"x":34.3,"y":44.0,"kind":"decision","title":"Kiosks on the dominant path","body":"A bank of three or more between the entrance and the counter, never behind the guest and never past it. Placement follows the path people already walk.","link":{"href":"#sec-4","text":"Read the decision"}},
+{"n":2,"x":19.2,"y":67.5,"kind":"decision","title":"The host stands where the path splits","body":"The greeting and the cash-or-card question happen at the point of choice, because the failures the research found happened before the screen and after it, at the door and at the hand-off."},
+{"n":3,"x":60.4,"y":50.5,"kind":"evidence","title":"The counter stays an equal path","body":"Cash guests were waiting at the counter with no path. A stealth register absorbs the queue and no guest is made to feel wrong for choosing it.","link":{"href":"#sec-4","text":"Why the cash kiosk was rejected"}},
+{"n":4,"x":60.4,"y":84.0,"kind":"decision","title":"Collection separate from the queue","body":"The collection point sits away from the counter queue with the collection screen in the guest's line of sight, so waiting for food does not look like waiting to order."},
+{"n":5,"x":33.3,"y":77.5,"kind":"pattern","title":"No kiosks past the counter","body":"Dining sits beyond the decision point. A kiosk placed there is reached only by guests who have already chosen another path."},
+{"n":6,"x":70.8,"y":69.0,"kind":"evidence","title":"Kiosk count is a formula, not floor area","body":"The playbook sizes the bank from peak front-counter transactions and the target kiosk share, which is why two stores of the same size get different numbers."}
+]</script><figcaption><span class="fignum">Figure 2</span>The placement standard as a floor plan, drawn September 2026 from the implementation playbook. The numbered notes mark what each placement rule is protecting.</figcaption></figure>
+<p>The floor-role standard as it was written: fields, not prose, so it can be versioned, reviewed and checked.</p>
+<pre class="cfg">sop: QSR-FHR-001   Foyer host floor-role standard   version 1.0
+owner: channel_lead
+triggers:
+  - kiosk_installed AND weeks_since_install < 26
+  - adoption_share < target        # share of in-store sales via kiosk
+presence: { required: peak_hours, rosterable: true, reporting: restaurant_manager }
+scripts:
+  greeting: "Hi, I'm [name], your ordering host. Would you like faster, cashless ordering at the kiosk?"
+  assist: help_navigate_without_judgment
+  direct: cash_and_specific_piece_requests_to_counter_queue
+pre_peak_checks: [menu_availability_synced, collection_screen_functional, kiosks_cleaned, receipt_and_payment_stock_ok]
+duties:
+  primary: [greet, assist, direct, drive_adoption]
+  secondary: [foyer_cleanliness, high_touch_surface_cleaning_hourly]
+exceptions:
+  cash_guest: counter_queue_with_smile
+  out_of_stock: script_out_of_stock + counter_fallback
+  tech_failure: first_line_ladder   # retry, error-code catalogue, manager reboot, stand-alone reprint
+kpis: [adoption_share, feedback_staff_recognition, feedback_cleanliness, cash_wait_complaints, first_line_recovery_rate]
+review_cadence: monthly</pre>
+<p>Also delivered: the channel review and benchmark report, the omnichannel journey map and the kiosk order workflow below, the training ecosystem (huddle guide, job aids, station stickers linked to scenario videos, the card above), deployment cards and the redeployment calculator, the implementation playbook with the kiosk-count formula and the submission and approval flow for new installations, the troubleshooting FAQ with the error-code catalogue, the placement self-assessment template, and the governance roadmap.</p>
+<div class="fig-html"><table class="blueprint tbl-bleed"><caption>Kiosk order workflow: guest frontstage, restaurant backstage, measures and fail points per step; click any cell to expand the design detail.</caption><tr><th>Stage / lane</th><th>Enter & greet</th><th>Order</th><th>Pay</th><th>Prepare</th><th>Collect & enjoy</th></tr><tr class="lane"><td data-label="Stage / lane">Guest (frontstage)</td><td data-label="Enter & greet"><details class="cell"><summary>Greeted within seconds</summary><div class="cell-detail">The guest enters and is met at the door: before the redesign nobody owned this space.</div></details></td><td data-label="Order"><details class="cell"><summary>Guided first order</summary><div class="cell-detail">Assist script: help navigate, never judge, offer the counter as an equal path.</div></details></td><td data-label="Pay"><details class="cell"><summary>Card at the kiosk</summary><div class="cell-detail">Kiosks take no cash by design; cash guests are directed to the counter queue with the stealth register.</div></details></td><td data-label="Prepare"><details class="cell"><summary>Waits at pick-up queue</summary><div class="cell-detail">Collection screen shows order status; “Checking kitchen” delays are acknowledged and reassured.</div></details></td><td data-label="Collect & enjoy"><details class="cell"><summary>Order verified at hand-off</summary><div class="cell-detail">The presenter confirms the order; the feedback link lands on the receipt.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Foyer host (frontstage)</td><td data-label="Enter & greet"><details class="cell"><summary>Greeting + cash-or-card ask</summary><div class="cell-detail">No customer enters without being greeted; the direct script sends cash and specific-piece requests to the counter.</div></details></td><td data-label="Order"><details class="cell"><summary>Assist + pre-peak checks</summary><div class="cell-detail">Menu availability synced, collection screen functional, kiosks cleaned, receipt and payment stock ready.</div></details></td><td data-label="Pay"><details class="cell"><summary>Cash path to the counter</summary><div class="cell-detail">Cash guests are never abandoned at the machine; the stealth register absorbs the queue.</div></details></td><td data-label="Prepare"><details class="cell"><summary>Ready flip within 60 s</summary><div class="cell-detail">The order is flipped to ready inside the 60-second order-to-collect rule.</div></details></td><td data-label="Collect & enjoy"><details class="cell"><summary>Hand-off + parting recognition</summary><div class="cell-detail">The guest leaves recognised, not ignored: the moment that drives the feedback theme.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Restaurant (backstage)</td><td data-label="Enter & greet"><details class="cell"><summary>Rostering + cleanliness</summary><div class="cell-detail">The foyer host is a rostered role: the time & attendance platform now supports it; hourly high-touch cleaning.</div></details></td><td data-label="Order"><details class="cell"><summary>POS receives order; menu sync</summary><div class="cell-detail">Menu availability is refreshed nightly; express-kiosk exclusions and availability mismatches are scripted.</div></details></td><td data-label="Pay"><details class="cell"><summary>Payment state verified</summary><div class="cell-detail">Pin-pad timeouts and failed payments have defined responses before the guest escalates.</div></details></td><td data-label="Prepare"><details class="cell"><summary>Kitchen display + packer</summary><div class="cell-detail">One packer/presenter per redeployed cashier assembles the order to the display.</div></details></td><td data-label="Collect & enjoy"><details class="cell"><summary>Collect / recovery</summary><div class="cell-detail">First-line ladder: retry → error-code catalogue (100–699) → manager reboot → stand-alone reprint.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Measures</td><td data-label="Enter & greet"><details class="cell"><summary>Greet rate; cash routed</summary><div class="cell-detail">Every guest greeted at peak; cash guests routed, not turned away.</div></details></td><td data-label="Order"><details class="cell"><summary>Assisted first order</summary><div class="cell-detail">Guided first order completes in ~60 seconds.</div></details></td><td data-label="Pay"><details class="cell"><summary>Counter wait ≤ 5 min</summary><div class="cell-detail">Guest through the system inside the 5-minute golden rule.</div></details></td><td data-label="Prepare"><details class="cell"><summary>Order-to-collect ≤ 60 s</summary><div class="cell-detail">Ready flip measured per order.</div></details></td><td data-label="Collect & enjoy"><details class="cell"><summary>Feedback theme mix</summary><div class="cell-detail">Staff recognition top positive theme; channel near-invisible in the wide sweep.</div></details></td></tr><tr class="lane"><td data-label="Stage / lane">Failure points</td><td data-label="Enter & greet"><details class="cell fail"><summary>F-01 No one owns the door</summary><div class="cell-detail">No named foyer role: nobody greets; the space between door and machine is unowned.</div></details></td><td data-label="Order"><details class="cell fail"><summary>F-02 First-timer struggles</summary><div class="cell-detail">Guest gives up at the kiosk and asks staff for help: with no assist script.</div></details></td><td data-label="Pay"><details class="cell fail"><summary>F-03 Cash guest excluded</summary><div class="cell-detail">long counter waits; cash customers have no path but the queue.</div></details></td><td data-label="Prepare"><details class="cell fail"><summary>F-04 Order forgotten / tech failure</summary><div class="cell-detail">Order not flipped; all-kiosk outages and payment timeouts with no team response.</div></details></td><td data-label="Collect & enjoy"><details class="cell fail"><summary>F-05 Machine blamed in feedback</summary><div class="cell-detail">A service failure is recorded as a kiosk complaint; no recovery script.</div></details></td></tr></table>
+<figure class="fig fig-wide reveal"><a href="images/chart-standards.svg"><img src="images/chart-standards.svg" alt="Ranked bar chart of the three clock measures in the foyer host standard" loading="lazy"></a><figcaption><span class="fignum">Figure 3</span>The three clock measures the role carries. The counter path is allowed five times the kiosk path, which is what stops it being a penalty.</figcaption></figure>
+<p>Working files, anonymised: the <a href="artifacts/benchmark-report.html">benchmark report</a>. The brief, the channel analysis, the journey map, the blueprint and the analysis report stayed working documents with the business.</p>
+</section>
+
+<section class="art-sec" id="sec-6"><span class="sec-kicker">06</span><h2>How it would be measured</h2>
+<div class="frame">
+  <b>Channel measures</b><p>Penetration (share of stores equipped), adoption (share of in-store sales), sales and conversion, technology performance and guest feedback, the five the channel lead's remit named.</p>
+  <b>Baselines</b><p>The channel-mix baseline by store format; the deep-dive and wide-sweep feedback coding; the pilot store pair's monthly cut; the awareness check.</p>
+  <b>Role measures</b><p>Greet rate at peak; cash guests routed; assisted first orders completing inside the standard time; order-to-collect inside the rule; first-line recovery rate; the feedback theme mix with staff recognition on top.</p>
+  <b>Governance</b><p>Share of stores compliant with the placement and operating standards at each audit; exceptions granted through the annual operating plan.</p>
+  <b>Labour</b><p>The redeployment rule: freed cashiers become packers and presenters, so service capacity rises without added headcount. Tracked as redeployed hours, not saved hours.</p>
+  <b>Held back</b><p>Adoption shares and audit compliance are held by the channel team, which tracks them restaurant by restaurant; what travels is the finding that installation is not adoption, and the floor-role standard built on it.</p>
+</div>
+<p>What I would do differently: run the post-implementation phone check as part of the programme from the first installation, rather than as the check that found nobody had heard of it.</p>
+</section>
+
+<section class="art-sec" id="sec-7"><span class="sec-kicker">07</span><h2>For a consulting reader</h2>
+<div class="frame">
+  <b>Sponsor</b><p>The regional channel lead, with the learning team as co-owner and the global standards programme as the enforcement route.</p>
+  <b>Scope in</b><p>Channel strategy for penetration and adoption; the floor-role standard; the training ecosystem; labour deployment arithmetic; journey mapping; placement and governance standards.</p>
+  <b>Scope out</b><p>Kiosk hardware and software; the voice-ordering initiative referenced as a future direction; franchisee labour models beyond the redeployment rule.</p>
+  <b>Decisions requested</b><p>Adopt the floor-role standard and make the role rosterable; fund the training ecosystem; reject the cash-accepting kiosk; link the standards to the audit with an exception process; run the flagship programme franchisee-led.</p>
+  <b>Timeline and gates</b><p>Twenty-eight weeks: research and evidence (weeks 1 to 8); synthesis (9 to 11); journey mapping (12 to 14); concept and standard (15 to 18); training and playbook (19 to 22); standards and governance (23 to 25); measurement (26 to 28).</p>
+  <b>Risks managed</b><p>Franchisee variance (converge, never impose uniformity); labour constraints (redeployment rather than headcount; franchisee-led flagship); standards ignored (audit-linked with an escape valve); the channel blamed for service failures (recovery scripts and the feedback theme mix).</p>
+</div>
+</section>
+
+<div class="cross-links"><a class="xlink" href="../7/index.html"><span class="lbl">Previous case</span><span class="ttl">Shifting a service-quality programme from speed to competence</span></a><a class="xlink" href="../5/index.html"><span class="lbl">Next case</span><span class="ttl">Keeping the human moment in an AI-run drive-thru</span></a></div>
+</article></div></main>
+<footer class="footer">
+  <span>Sam Mozaffari · Experience Designer, Sydney.</span>
+  <span><a href="../../library.html">Library</a> · <a href="../../llms.txt">llms.txt</a> · <a href="https://github.com/sammozaffari">GitHub</a> · <a href="https://www.linkedin.com/in/sam-mozaffari-210588a7">LinkedIn</a></span>
+</footer>
+<script src="../../assets/site.js?v=9"></script>
+<script src="../../assets/playonce.js?v=12"></script>
+<script src="../../assets/annotate.js?v=11"></script>
+</body></html>

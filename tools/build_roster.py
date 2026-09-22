@@ -13,7 +13,7 @@ Usage: build_roster.py
 import pathlib, html, collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-OUT = ROOT / "articles/52/showcase/screens/roster.html"
+OUT = ROOT / "articles/2/showcase/screens/roster.html"
 e = lambda s: html.escape(str(s), quote=False)
 
 DAYS = [("Tue", "5 Nov"), ("Wed", "6 Nov"), ("Thu", "7 Nov"), ("Fri", "8 Nov"),

@@ -18,7 +18,7 @@ Exit 0 if every fact holds, 1 with a list of what disagrees.
 import re, sys, pathlib, html, collections
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/52/showcase/screens"
+SCR = ROOT / "articles/2/showcase/screens"
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 # An edit that keeps the file the same length can leave a stale .pyc looking
 # current, and this check once read a week of shifts that was no longer there.
@@ -223,7 +223,7 @@ for f in ("phone-home.html", "phone-break.html", "phone-shifts.html", "phone-hou
 # picture. That happened once here: the markup said one restaurant and the PNG
 # still said another, and every text gate passed. A capture older than the
 # screen it came from is now a failure, not something a reader has to notice.
-IMG = ROOT / "articles/52/showcase/img"
+IMG = ROOT / "articles/2/showcase/img"
 from freshness import stale_reason  # noqa: E402
 for n in ALL:
     # Every screen depends on the two stylesheets as much as on its own markup,

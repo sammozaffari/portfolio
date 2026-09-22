@@ -11,7 +11,7 @@ import json, os, pathlib, re, signal, subprocess, sys, tempfile, time
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 PAGES = ["index.html", "articles.html", "about.html", "cv.html", "library.html",
-         "articles/57/index.html", "articles/57/showcase/index.html", "articles/design-system.html"]
+         "articles/1/index.html", "articles/1/showcase/index.html", "articles/design-system.html"]
 MAX_DISTINCT = 12   # eight steps plus the display clamps a page may use
 MIN_PX = 12.0
 

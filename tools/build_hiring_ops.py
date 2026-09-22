@@ -16,14 +16,14 @@ The human lane exists because work rights was the step that most needed a person
 and least had one. A machine can say a photo is unreadable. It must not be
 allowed to say a sixteen year old cannot have their first job.
 
-Writes: articles/55/showcase/screens/*.html
+Writes: articles/3/showcase/screens/*.html
 Usage: build_hiring_ops.py
 """
 import pathlib, html
 import hiring_data as D
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/55/showcase/screens"
+SCR = ROOT / "articles/3/showcase/screens"
 e = lambda s: html.escape(str(s), quote=False)
 
 # Declared once. The count in the nav is the count on the screen below it.

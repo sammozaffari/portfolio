@@ -12,7 +12,7 @@ Exit 0 if every fact holds, 1 with a list of what disagrees.
 import datetime, html, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SCR = ROOT / "articles/57/showcase/screens"
+SCR = ROOT / "articles/1/showcase/screens"
 YEAR = 2026
 fails = []
 
