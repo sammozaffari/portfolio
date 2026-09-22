@@ -27,6 +27,12 @@
   var params = new URLSearchParams(location.search);
   var STATIC = params.get('static') === '1' || reduce;
   var T_STATIC = params.has('t') ? parseFloat(params.get('t')) : null;
+  /* ?set=host:0,routine:1 forces a toggle before the first frame, so a capture or an
+     audit can ask for either state of a graphic without clicking anything. */
+  var PRESET = {};
+  (params.get('set') || '').split(',').filter(Boolean).forEach(function (pair) {
+    var kv = pair.split(':'); PRESET[kv[0]] = kv[1] !== '0';
+  });
 
   function q(el, s) { return el.querySelector(s); }
   function qa(el, s) { return Array.prototype.slice.call(el.querySelectorAll(s)); }
@@ -69,6 +75,7 @@
   function mount(root, spec) {
     var svg = q(root, 'svg');
     var state = spec.state || {};
+    Object.keys(PRESET).forEach(function (k) { state[k] = PRESET[k]; });
     var duration = spec.duration || 40;
     var live = q(root, '.mo-live');
     if (!live) { live = document.createElement('p'); live.className = 'mo-live'; live.setAttribute('aria-live', 'polite'); root.appendChild(live); }

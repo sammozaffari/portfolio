@@ -17,8 +17,8 @@
   <g id="er-frames"></g>
   <g id="er-pulses"></g>
   <g id="er-sites"></g>
-  <text x="60" y="612" font-size="12" class="mo-fine">Bar: reporting strength, relative and unlabelled. Three marks: the manager's routine, one each for talking about</text>
-  <text x="60" y="630" font-size="12" class="mo-fine">safety, thanking people for reports, and showing the system on the first shift. A ring is a report going in.</text>
+  <text x="60" y="642" font-size="12" class="mo-fine">Bar: reporting strength, relative and unlabelled. Three marks: the manager's routine, one each for talking about</text>
+  <text x="60" y="660" font-size="12" class="mo-fine">safety, thanking people for reports, and showing the system on the first shift. A ring is a report going in.</text>
 </svg>
 <div class="mo-bar">
   <button type="button" data-play aria-pressed="false">Play</button>
@@ -45,7 +45,7 @@
   function posLocation(i) {
     var s = SITES[i], col = s.metro ? 0 : 1, row = s.crime ? 0 : 1;
     var idx = SITES.slice(0, i).filter(function (o) { return o.metro === s.metro && o.crime === s.crime; }).length;
-    return [232 + col * 560 + idx * 220, 216 + row * 250];
+    return [232 + col * 560 + idx * 220, 235 + row * 250];
   }
   function posRoutine(i) {
     var b = band(SITES[i]);
@@ -57,7 +57,7 @@
   for (var r = 0; r < 2; r++) for (var c = 0; c < 2; c++) {
     var g = M.el('g', {}, framesG);
     M.el('rect', { 'class': 'er-frame', x: 120 + c * 560, y: 140 + r * 250, width: 480, height: 210, rx: 6 }, g);
-    M.text(g, 134, 162, COLT[c] + ', ' + ROWT[r], { 'font-size': 12, 'class': 'er-label' });
+    M.text(g, 134 + c * 560, 162 + r * 250, COLT[c] + ', ' + ROWT[r], { 'font-size': 12, 'class': 'er-label' });
     locFrames.push(g);
   }
   BANDS.forEach(function (b, k) {

@@ -38,8 +38,29 @@ token.
 | Side gutter | `tools/check_layout.py` | Any text under `main` within 16px of the window edge, or a page that scrolls sideways, at 390 and 1280 (pages are loaded in an iframe of that width, because headless Chrome will not lay out under about 500px) |
 | Facts across surfaces | `tools/check_facts.py` | A hero number typed differently on the case, the home page, the Work page, the showcase, the CV or llms.txt; a Work headline that miscounts its cards; a stat-strip number missing from the case's facts.json |
 | Safety facts | `tools/check_safety_facts.py` | A weekday that does not match its date in the safety screens, initials that do not match the name, a reference used for two records, counts that disagree between screens |
+| Case graphics | `tools/check_graphics.py` | A label in a case graphic that overlaps another, crowds it, or comes within 6 units of the edge, measured in every state its toggles can reach |
 
 Run `tools/lint_site.py` before you consider anything finished. The lint also holds the type rules: every font-size on a product screen is one of the `--p-fs-0` to `--p-fs-7` tokens, every font-size on a site page is one of the eight `--t-1` to `--t-8` steps in `style.css` (display headings may use `clamp()`), and nothing outside a code block sets `overflow-x` to auto or scroll.
+
+## Case graphics
+
+`tools/graphics/<name>.html` is the source of one animated plan-view graphic: its SVG, its
+control bar, its caption and its script, all self-contained. `tools/build_graphics.py`
+injects it into its case page between `<!-- graphic:name -->` markers, writes the standalone
+page at `articles/N/graphics/<name>.html`, and writes the capture spec for its cover. Edit
+the source, never the copy inside a case page, and never the standalone page.
+
+`assets/motion.js` owns the clock. A graphic starts when it scrolls into view, stops when it
+leaves, pauses on its button, and freezes to one composed frame under `prefers-reduced-motion`.
+Add `?static=1` to a graphics page for that frozen frame, `&t=<seconds>` to pick the moment,
+and `&set=host:0` to force a toggle. Covers are captured that way, so a cover cannot drift
+from the graphic; `tools/check_fresh.py` hashes `motion.js` and `motion.css` into a graphics
+capture, which means changing the runtime makes every cover stale until it is recaptured.
+
+Two failures worth knowing. A CSS `opacity` on a class beats the `opacity` attribute a script
+sets, so an element meant to be hidden stays visible. And a ReferenceError inside a draw loop
+renders as a blank frame rather than an error, so run `tools/check_graphics.py` after editing:
+it loads every graphic and would report nothing drawn.
 
 ## Capturing screens
 

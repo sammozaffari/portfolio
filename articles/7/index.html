@@ -199,7 +199,7 @@
     M.el('rect', { x: 0, y: 0, width: W, height: H, rx: 4 }, g);
     var words = c[0].split(' '), l1 = '', l2 = '';
     words.forEach(function (w) { if (!l2 && (l1 + ' ' + w).trim().length <= 31) l1 = (l1 + ' ' + w).trim(); else l2 = (l2 + ' ' + w).trim(); });
-    M.text(g, 9, 18, l1, { 'font-size': 11, 'class': 'mo-fine' }); M.text(g, 9, 32, l2, { 'font-size': 11, 'class': 'mo-fine' });
+    M.text(g, 9, 17, l1, { 'font-size': 11, 'class': 'mo-fine' }); M.text(g, 9, 33, l2, { 'font-size': 11, 'class': 'mo-fine' });
     var chip = M.el('g', { 'class': 'cp-chip', opacity: 0 }, g);
     var label = THEMES[c[1]], cw = Math.min(150, label.length * 5.6 + 12);
     M.el('rect', { x: 9, y: 38, width: cw, height: 14, rx: 2 }, chip); M.text(chip, 14, 48.5, label, { 'font-size': 10 });

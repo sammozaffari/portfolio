@@ -1,0 +1,63 @@
+<!doctype html><html><body><script>
+const q = new URLSearchParams(location.search);
+const PAGE = q.get('page');            // graphics page url
+const TOG  = q.get('toggles') || '';   // comma list of data-toggle keys to click first
+const f = document.createElement('iframe');
+f.style.cssText = 'width:' + (q.get('w') || 1280) + 'px;height:1000px;border:0';
+f.src = PAGE;
+f.onload = () => {
+  const d = f.contentDocument, w = f.contentWindow;
+  setTimeout(() => {
+    try {
+      if (TOG) TOG.split(',').filter(Boolean).forEach(k => { const b = d.querySelector('[data-toggle="' + k + '"]'); if (b) b.click(); });
+      setTimeout(() => report(d, w), 400);
+    } catch (e) { out({ error: String(e) }); }
+  }, 900);
+};
+function out(o) { document.body.setAttribute('data-result', JSON.stringify(o)); }
+function report(d, w) {
+  const svg = d.querySelector('svg');
+  const vb = svg.viewBox.baseVal;
+  const sr = svg.getBoundingClientRect();
+  const sx = vb.width / sr.width, sy = vb.height / sr.height;
+  const toVB = r => ({ x: (r.left - sr.left) * sx, y: (r.top - sr.top) * sy, w: r.width * sx, h: r.height * sy });
+  const visible = el => {
+    let n = el;
+    while (n && n !== d.documentElement) {
+      const cs = w.getComputedStyle(n);
+      if (cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.06) return false;
+      n = n.parentNode;
+    }
+    return true;
+  };
+  const items = [];
+  for (const t of svg.querySelectorAll('text')) {
+    const s = (t.textContent || '').trim();
+    if (!s || !visible(t)) continue;
+    const r = t.getBoundingClientRect();
+    if (!r.width || !r.height) continue;
+    items.push({ s: s.slice(0, 46), b: toVB(r) });
+  }
+  const overlaps = [], tight = [], EPS = 1.5, NEAR = 4;
+  for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
+    const a = items[i].b, b = items[j].b;
+    const ox = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
+    const oy = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
+    if (ox > EPS && oy > EPS) { overlaps.push({ a: items[i].s, b: items[j].s, area: Math.round(ox * oy) }); continue; }
+    /* Crowding, not line leading. Two labels side by side on the same row must keep a
+       horizontal gap; two labels stacked must not touch. Consecutive lines of one wrapped
+       label sit 14 to 16px apart, which is leading and not a defect, so only a gap under
+       half a unit counts vertically. */
+    if (oy > 3 && ox <= 0 && -ox < 3) tight.push({ a: items[i].s, b: items[j].s, gap: Math.round(-ox * 10) / 10, axis: 'side by side' });
+    else if (ox > 3 && oy <= 0 && -oy < 0.5) tight.push({ a: items[i].s, b: items[j].s, gap: Math.round(-oy * 10) / 10, axis: 'stacked' });
+  }
+  const M = 6;   /* every label keeps a margin inside the drawing */
+  const outside = items.filter(it => it.b.x < M || it.b.y < M || it.b.x + it.b.w > vb.width - M || it.b.y + it.b.h > vb.height - M)
+                       .map(it => ({ s: it.s, left: Math.round(it.b.x), top: Math.round(it.b.y), right: Math.round(it.b.x + it.b.w), bottom: Math.round(it.b.y + it.b.h) }));
+  /* text sitting on a frame/box border it does not belong to is hard to judge; report text very close to the SVG edge instead */
+  const bar = d.querySelector('.mo-bar');
+  const barOverflow = bar ? Math.round(bar.scrollWidth - bar.clientWidth) : null;
+  out({ texts: items.length, overlaps: overlaps.sort((x, y) => y.area - x.area).slice(0, 14), tight: tight.sort((x, y) => x.gap - y.gap).slice(0, 10), outside: outside.slice(0, 8), barOverflow });
+}
+document.body.appendChild(f);
+</script></body></html>
