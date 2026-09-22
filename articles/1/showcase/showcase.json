@@ -35,7 +35,7 @@
   "kicker": "The design system",
   "title": "One set of tokens, one set of components, three products",
   "body": [
-   "Every screen here is built on one design system: a token file for colour, type, spacing and radius, and a component library the workforce and hiring products share. Nothing is a UI-kit template and nothing is a flat picture of a component. Each screen is a working layout, which is why its states, spacing and type can be checked rather than admired, and why the same badge, table row and drawer appear on all three products.",
+   "Every screen here is built on one design system: a token file for colour, type, spacing and radius, and a component library the workforce and hiring products share. Nothing is a UI-kit template and nothing is a flat picture of a component. Each screen is a working layout, which is why its states, spacing and type can be checked, and why the same badge, table row and drawer appear on all three products.",
    "The type scale has eight steps from a 14px base, the smallest 11px for badges and labels, and a lint fails any screen that sets a size outside them. Spacing is a 4px grid. There are three radii and two elevations. Colour is one neutral ramp plus four status pairs, each pair a foreground and a ground; a contrast script checks every text pair at 4.5 to 1 and every border at 3 to 1 before a screen is captured, and the muted ink and the strong line were both darkened after it failed them.",
    "Numbers are set in tabular figures so a column of counts aligns. Status is never carried by colour alone: every badge has a dot and a word. The sidebar is the one dark surface, which keeps the working area white and lets a status colour mean something. Components were lifted into the shared file once a second screen needed them, which is how the drawer, the numbered step list, the comparison pair and the oversized search field arrived."
   ]
@@ -225,7 +225,7 @@
     "The area view compares restaurants on the ratio of hazards to incidents rather than on report counts, and it names the three conversations worth having this week instead of sending twelve people the same message.",
     "This is the screen where the study's central finding becomes an operating instrument: if the manager is the variable, the area manager's job is to find the managers who need a conversation, and to have it on evidence."
    ],
-   "caption": "The area manager's dashboard. Twelve restaurants compared, three flagged, and the reasoning written next to the table rather than left to the reader.",
+   "caption": "The area manager's dashboard. Twelve restaurants compared, three flagged, and the reasoning written next to the table rather than left implicit.",
    "statesTitle": "The state that matters",
    "states": [
     {

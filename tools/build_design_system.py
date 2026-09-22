@@ -87,12 +87,12 @@ page = f"""<!doctype html>
 <div class="sc-wrap sc-hero">
   <span class="sc-eyebrow">Design system · Three products · One token file</span>
   <h1>One design system, three products</h1>
-  <p class="sc-deck">The safety, workforce and hiring concepts are built on one token file and one component file, with gates that fail the build rather than warn. This page shows the files as they are, the gate that failed for real, and one component photographed on all three products.</p>
+  <p class="sc-deck">The safety, workforce and hiring concepts are built on one token file and one component file, with gates that fail the build rather than warn. Here are the files as they are, the gate that failed for real, and one component photographed on all three products.</p>
 </div>
 
 <section class="sc-sec"><div class="sc-wrap">
   <span class="sc-num">01</span><h2>The token file</h2>
-  <p class="sc-prose"><code>assets/product/tokens.dtcg.json</code> is the source, written in the W3C Design Tokens Community Group format. <code>tools/build_tokens.py</code> compiles it to the stylesheet the screens load, and the lint fails if the two drift. The values below are read from the compiled file when this page is built, so what you see is what the screens use. There is one mode: the DTCG resolver module is still a preview draft that says not to implement it, so this system does not pretend to have modes it cannot build.</p>
+  <p class="sc-prose"><code>assets/product/tokens.dtcg.json</code> is the source, written in the W3C Design Tokens Community Group format. <code>tools/build_tokens.py</code> compiles it to the stylesheet the screens load, and the lint fails if the two drift. The values below are read from the compiled file when this page is built, so the values here are the values the screens use. There is one mode: the DTCG resolver module is still a preview draft that says not to implement it, so this system does not pretend to have modes it cannot build.</p>
   <h3>Surfaces and ink</h3><div class="ds-sws">{swatches(["--p-canvas", "--p-panel", "--p-panel-2", "--p-sidebar", "--p-line", "--p-line-strong", "--p-ink", "--p-ink-2", "--p-ink-3", "--p-ink-inverse"])}</div>
   <h3>Status pairs</h3><div class="ds-sws">{swatches(["--p-danger", "--p-danger-bg", "--p-warning", "--p-warning-bg", "--p-success", "--p-success-bg", "--p-info", "--p-info-bg", "--p-neutral", "--p-neutral-bg"])}</div>
   <h3>Roster states, the workforce product only</h3><div class="ds-sws">{swatches(["--p-w-shift", "--p-w-open", "--p-w-leave", "--p-w-training", "--p-w-break-risk", "--p-w-overtime", "--p-w-forecast", "--p-w-actual"])}</div>
@@ -113,7 +113,7 @@ page = f"""<!doctype html>
   {"".join(f"<tr><td>{e(g[0].strip())}</td><td><code>{e(g[1])}</code></td><td>{e(g[2].strip())}</td></tr>" for g in gate_rows)}
   </tbody></table>
   <div class="sc-finding"><b>The one that failed for real</b><p>{e(story[0]) if story else ""}</p></div>
-  <p class="sc-prose">Two products on this site have already shipped a screen where the same record appeared in two states at once, and a reader spotted it before any check did. The three fact checkers exist because of that: they assert the screens against one data table each, and staleness is a content hash written at capture time, so they pass on a fresh clone as well as on the machine that captured them.</p>
+  <p class="sc-prose">Two of the products shipped a screen where the same record appeared in two states at once, and it was spotted by eye before any check did. The three fact checkers exist because of that: they assert the screens against one data table each, and staleness is a content hash written at capture time, so they pass on a fresh clone as well as on the machine that captured them.</p>
 </div></section>
 
 <section class="sc-sec"><div class="sc-wrap">
