@@ -21,22 +21,26 @@ function report(d, w) {
   const sr = svg.getBoundingClientRect();
   const sx = vb.width / sr.width, sy = vb.height / sr.height;
   const toVB = r => ({ x: (r.left - sr.left) * sx, y: (r.top - sr.top) * sy, w: r.width * sx, h: r.height * sy });
-  const visible = el => {
-    let n = el;
+  const eff = el => {                       /* opacity as it actually renders, ancestors included */
+    let n = el, o = 1;
     while (n && n !== d.documentElement) {
       const cs = w.getComputedStyle(n);
-      if (cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) < 0.06) return false;
+      if (cs.display === 'none' || cs.visibility === 'hidden') return 0;
+      o *= parseFloat(cs.opacity);
       n = n.parentNode;
     }
-    return true;
+    return o;
   };
+  const visible = el => eff(el) >= 0.06;
+  /* A wash behind a label, a motion trail and an expanding ripple are not layout. */
+  const TRANSIENT = /halo|ripple|ghost|pulse|seq-/;
   const items = [];
   for (const t of svg.querySelectorAll('text')) {
     const s = (t.textContent || '').trim();
     if (!s || !visible(t)) continue;
     const r = t.getBoundingClientRect();
     if (!r.width || !r.height) continue;
-    items.push({ s: s.slice(0, 46), b: toVB(r) });
+    items.push({ s: s.slice(0, 46), b: toVB(r), o: eff(t) });
   }
   const overlaps = [], tight = [], EPS = 1.5, NEAR = 4;
   for (let i = 0; i < items.length; i++) for (let j = i + 1; j < items.length; j++) {
@@ -51,13 +55,41 @@ function report(d, w) {
     if (oy > 3 && ox <= 0 && -ox < 3) tight.push({ a: items[i].s, b: items[j].s, gap: Math.round(-ox * 10) / 10, axis: 'side by side' });
     else if (ox > 3 && oy <= 0 && -oy < 0.5) tight.push({ a: items[i].s, b: items[j].s, gap: Math.round(-oy * 10) / 10, axis: 'stacked' });
   }
+  /* A label must also sit clear of the shapes around it: inside the box it belongs to,
+     not across the border of a zone, and never on top of a drawn mark. */
+  const shapes = [];
+  for (const el of svg.querySelectorAll('rect, circle, ellipse')) {
+    if (!visible(el)) continue;
+    const cs = w.getComputedStyle(el);
+    const stroked = cs.stroke && cs.stroke !== 'none' && parseFloat(cs.strokeWidth) > 0;
+    const filled = cs.fill && cs.fill !== 'none' && cs.fill !== 'transparent' && !/rgba\(0, 0, 0, 0\)/.test(cs.fill);
+    const mark = el.tagName !== 'rect' && filled;      /* a drawn dot, never under a label */
+    if (!stroked && !mark) continue;
+    if (TRANSIENT.test(el.getAttribute('class') || '') || eff(el) < 0.5) continue;
+    const r = el.getBoundingClientRect();
+    if (!r.width || !r.height) continue;
+    shapes.push({ b: toVB(r), mark: mark, cls: (el.getAttribute('class') || el.tagName) });
+  }
+  const shapeHits = [];
+  for (const it of items) {
+    if (it.o < 0.5) continue;                     /* a label fading out is not a collision */
+    for (const sh of shapes) {
+      const a = it.b, b = sh.b;
+      const ox = Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x);
+      const oy = Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y);
+      if (ox <= 1 || oy <= 1) continue;
+      if (sh.mark) { shapeHits.push({ s: it.s, cls: sh.cls, why: 'sits on a drawn mark' }); continue; }
+      const inside = a.x >= b.x + 2 && a.y >= b.y + 2 && a.x + a.w <= b.x + b.w - 2 && a.y + a.h <= b.y + b.h - 2;
+      if (!inside) shapeHits.push({ s: it.s, cls: sh.cls, why: 'crosses the border of' });
+    }
+  }
   const M = 6;   /* every label keeps a margin inside the drawing */
   const outside = items.filter(it => it.b.x < M || it.b.y < M || it.b.x + it.b.w > vb.width - M || it.b.y + it.b.h > vb.height - M)
                        .map(it => ({ s: it.s, left: Math.round(it.b.x), top: Math.round(it.b.y), right: Math.round(it.b.x + it.b.w), bottom: Math.round(it.b.y + it.b.h) }));
   /* text sitting on a frame/box border it does not belong to is hard to judge; report text very close to the SVG edge instead */
   const bar = d.querySelector('.mo-bar');
   const barOverflow = bar ? Math.round(bar.scrollWidth - bar.clientWidth) : null;
-  out({ texts: items.length, overlaps: overlaps.sort((x, y) => y.area - x.area).slice(0, 14), tight: tight.sort((x, y) => x.gap - y.gap).slice(0, 10), outside: outside.slice(0, 8), barOverflow });
+  out({ texts: items.length, shapeHits: shapeHits.slice(0, 16), overlaps: overlaps.sort((x, y) => y.area - x.area).slice(0, 14), tight: tight.sort((x, y) => x.gap - y.gap).slice(0, 10), outside: outside.slice(0, 8), barOverflow });
 }
 document.body.appendChild(f);
 </script></body></html>

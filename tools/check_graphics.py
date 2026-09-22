@@ -10,6 +10,8 @@ Every graphic is loaded in headless Chrome, in each state its toggles can reach,
 bounding box of every visible label is measured. Three things fail:
 
   overlap   two labels' boxes intersect
+  shape     a label that leaves the box it belongs to, crosses the border of a zone,
+            or sits on a drawn mark
   crowding  two labels side by side on a row with under 3 units between them, or two
             stacked labels whose boxes touch (under half a unit). Consecutive lines of
             one wrapped label sit 14 to 16 units apart, which is leading, not crowding.
@@ -21,7 +23,7 @@ import itertools, json, os, pathlib, re, signal, subprocess, sys, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-HARNESS = ROOT / "tools/graphics/audit-harness.html"
+HARNESS = ROOT / "tools/graphics-audit-harness.html"
 WIDTH = 1280
 
 
@@ -29,8 +31,6 @@ def graphics():
     """Every graphic, with the toggle keys its control bar offers."""
     out = {}
     for spec in sorted((ROOT / "articles").glob("*/graphics/*.html")):
-        if spec.name == "audit-harness.html":
-            continue
         src = spec.read_text()
         keys = re.findall(r'data-toggle="([a-z]+)"', src)
         out[spec] = keys
@@ -90,6 +90,8 @@ def main():
                 fails.append(f"{label}: {o['a']!r} overlaps {o['b']!r} over {o['area']} square units")
             for o in r.get("tight", []):
                 fails.append(f"{label}: {o['a']!r} and {o['b']!r} are {o['axis']} with {o['gap']} units between them")
+            for o in r.get("shapeHits", []):
+                fails.append(f"{label}: {o['s']!r} {o['why']} {o['cls']}")
             for o in r.get("outside", []):
                 fails.append(f"{label}: {o['s']!r} is within 6 units of the edge (left {o['left']}, top {o['top']}, right {o['right']}, bottom {o['bottom']})")
             if r.get("barOverflow"):

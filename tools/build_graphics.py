@@ -96,7 +96,8 @@ def main():
         m = re.search(r'data-case="(\d+)"', frag)
         case = int(m.group(1)) if m else GRAPHICS.get(name)
         if not case:
-            raise SystemExit(f"{name}: no case number (data-case or GRAPHICS table)")
+            raise SystemExit(f"{name}: no case number (data-case or GRAPHICS table). "
+                             "tools/graphics/ holds graphics and nothing else.")
         page = ROOT / f"articles/{case}/index.html"
         changed = inject(page, name, frag)
         gdir = ROOT / f"articles/{case}/graphics"
