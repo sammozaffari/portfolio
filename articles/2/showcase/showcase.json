@@ -14,7 +14,7 @@
   },
   {
    "dt": "How it is built",
-   "dd": "Hand-written HTML and CSS on the same token-based design system as the safety reporting product, extended with a rostering layer. Gated by a contrast script, a component manifest and a site lint. Components were checked against shipped products before they were drawn; the reference list is in the repository."
+   "dd": "Designed in code on the same token-based design system as the safety reporting product, extended with a rostering layer. Gated by a contrast script, a component manifest and a site lint. Components were checked against shipped products before they were drawn; the reference list is in the repository."
   },
   {
    "dt": "Confidentiality",
@@ -252,7 +252,7 @@
     {
      "img": "img/phone-hours.png",
      "title": "Punch history, which did not exist",
-     "cap": "Ranked ninth of ten and released in November 2024. A team member could not see their own clock-ins, and sixteen of seventeen supervisors were adjusting forgotten ones by hand."
+     "cap": "Ranked ninth of ten and released in November 2024. A team member could not see their own clock-ins, and supervisors were adjusting forgotten ones by hand."
     }
    ]
   },

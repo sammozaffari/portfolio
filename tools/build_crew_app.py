@@ -107,7 +107,6 @@ BREAK = '''
   <div class="p-mstat"><div class="p-mstat-l">Rest pause today<span>Ten minutes, paid</span></div><div class="p-mstat-v good">Taken 11:20</div></div>
   <div class="p-mstat"><div class="p-mstat-l">Back on station<span>L1 QT, lane 1</span></div><div class="p-mstat-v">13:32</div></div>
 </div>
-<p class="p-meta" style="padding:0 2px">Before this, a team member on a break had no way to see the time left and would come back early or late by a few minutes, and the only record of either was a manager keeping a note in their head.</p>
 '''
 BREAK_CTA = '<div class="p-cta"><button class="p-btn p-btn-primary p-btn-lg p-btn-block">End my break now</button></div>'
 
@@ -143,7 +142,6 @@ SHIFTS = '''
   <div class="p-mdate"><i>Sun</i><b>10</b></div>
   <div class="p-grow"><b>Offered to you, front counter</b><span>17:00 &ndash; 21:00 &middot; 4 hrs</span><em>Offered to three people trained on counter</em></div>
 </div>
-<p class="p-meta" style="padding:2px">A day of approved leave now appears here as a day. It used to be a gap, which is why people rang the restaurant to ask whether their leave had gone through.</p>
 '''
 
 # -------------------------------------------------------------------- history
@@ -163,7 +161,6 @@ HISTORY = '''
   <div class="p-punch"><span class="p-pd">Sat 2</span><div><b>16:58 in &middot; 22:03 out</b><span class="p-pb">Break 19:00 to 19:30</span></div><span class="p-ph">4.58</span></div>
   <div class="p-punch"><span class="p-pd">Fri 1</span><div><b>17:00 in &middot; 21:02 out</b><span class="p-pb">Rest pause 19:10</span></div><span class="p-ph">4.03</span></div>
 </div>
-<p class="p-meta" style="padding:8px 2px 0">A corrected punch is shown as a correction, with who added it and why, rather than quietly replacing what the clock recorded.</p>
 '''
 
 # -------------------------------------------------------------------- clock in

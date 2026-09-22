@@ -787,6 +787,8 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .btn-ink:hover { transform: translateY(-1px); box-shadow: var(--shadow-hover); text-decoration: none; }
 .btn-ghost { display: inline-block; border: 1px solid var(--line-strong); color: var(--ink); padding: 12px 22px; border-radius: var(--radius-card); font-weight: 600; font-size: var(--t-3); transition: border-color var(--fast) var(--ease); }
 .btn-ghost:hover { border-color: var(--ink); text-decoration: none; }
+/* a ghost button may carry a mark: the LinkedIn and GitHub links lost their brand fill (C5) and their icons must stay 18px */
+.btn-ghost svg { width: 18px; height: 18px; fill: currentColor; flex: none; vertical-align: -4px; margin-right: 8px; }
 
 /* Social buttons carry their own brand, because a reader scans for the two marks
    rather than reading two words in a meta line. Official colours, both of which
