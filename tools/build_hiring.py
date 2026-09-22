@@ -136,7 +136,7 @@ chips = "".join(
     for c in q2["chips"])
 questions_body = f'''
 <div class="p-chat">
-  {msg(f"I am {D.ASSISTANT}, an assistant, not a person. Five questions and I will book you in with the manager. Nothing you say here is a decision on its own.", who=D.ASSISTANT)}
+  {msg(f"I am {D.ASSISTANT}, an assistant, not a person. Five quick questions. If your answers match the shifts {D.RESTAURANT} needs, I book your interview with the manager straight away; if not, the manager reads your answers and gets back to you. Nothing you say here is a decision on its own.", who=D.ASSISTANT)}
   {msg(q0["ask"])}
   {you(q0["answer"])}
   {msg(q1["ask"])}

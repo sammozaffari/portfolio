@@ -12,9 +12,9 @@
    "y": 50.0
   },
   {
-   "title": "Held on a document is not held on a decision",
+   "title": "The card names the owner and the start, not just the delay",
    "finding": "Managers could not distinguish a candidate they had not looked at from one who was stuck behind a check somebody else owned.",
-   "decision": "The card says which it is. The longest wait on this board belongs to a document, and the stat card underneath says so in those words.",
+   "decision": "The card says who owes the next step and since when: payroll review since Monday, one visa photo needed. The stat card underneath says the same, so the manager knows it is not theirs to chase and what they can do, which is message the candidate.",
    "rejected": "One amber state for everything slow, which tells a manager to chase something that is not theirs to chase.",
    "n": 2,
    "x": 50.0,

@@ -102,18 +102,18 @@ pipeline_body = f'''
     <button class="p-btn p-btn-secondary p-btn-sm">This restaurant</button>
     <button class="p-btn p-btn-primary p-btn-sm">Post a job</button>
   </div>
-  <p class="p-work-sub">Every card carries how long that person has been waiting, because the wait from applying to hearing from a human ran from days to weeks and nobody could see it while it was happening. {D.DAYS["offer"][1]}.</p>
+  <p class="p-work-sub">{D.DAYS["offer"][1]}. Each card shows how long the person has been waiting, since which step, and who owes the next one.</p>
   <div class="p-kanban" style="grid-template-columns:repeat(5,minmax(0,1fr))">{"".join(cols)}</div>
   <div class="p-grid p-grid-3" style="margin-top:22px">
     <div class="p-card p-stat p-stat-accent warning"><div class="p-stat-label">Longest wait right now</div>
       <div class="p-stat-value">{D.OTIS_WAIT}</div>
-      <div class="p-stat-delta">{D.CAST["otis"]["name"]}, held on a document, not on a decision</div></div>
+      <div class="p-stat-delta">{D.CAST["otis"]["name"]}, with payroll since {D.DAYS["apply"][0]} for one visa photo. You can message him.</div></div>
     <div class="p-card p-stat"><div class="p-stat-label">Applied to offer</div>
       <div class="p-stat-value">{D.APPLY_TO_OFFER}</div>
       <div class="p-stat-delta">{D.CAST["tia"]["name"]}, {D.DAYS["apply"][1]} to {D.DAYS["offer"][1]}</div></div>
-    <div class="p-card p-stat"><div class="p-stat-label">Answer guaranteed within</div>
+    <div class="p-card p-stat"><div class="p-stat-label">Every applicant answered within</div>
       <div class="p-stat-value">{D.DISPOSITION_DAYS} days</div>
-      <div class="p-stat-delta">Reminders at {", ".join(D.REMINDERS[:-1])} and {D.REMINDERS[-1]}, then an answer either way</div></div>
+      <div class="p-stat-delta">Reminders at {", ".join(D.REMINDERS[:-1])} and {D.REMINDERS[-1]}, then an answer either way. Still waiting on you at {D.DISPOSITION_DAYS} days: it goes to your area coach first</div></div>
   </div>
 </main>'''
 write("pipeline.html", shell("Pipeline", "Pipeline", pipeline_body,

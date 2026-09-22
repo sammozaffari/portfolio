@@ -1,12 +1,16 @@
 {
  "title": "The workforce platform, module by module",
  "eyebrow": "Product design · Nine modules · One design system",
- "description": "The rostering, time and attendance product that the findings report argued for, module by module, with every design decision traced to a research finding and checked against a shipped pattern. By Sam Mozaffari.",
- "deck": "Nine modules of a rostering, time and attendance product for a restaurant network. Each screen answers a pain point from the research, and the ones that carry a release number were shipped.",
+ "description": "The rostering, time and attendance interface concept the findings report argued for, module by module, with every design decision traced to a research finding and checked against a shipped pattern. Release labels name vendor functionality, not these screens. By Sam Mozaffari.",
+ "deck": "Nine modules of a rostering, time and attendance interface concept, designed in September 2026 from the workforce review. Each screen answers a pain point from the research. Eight of the ten prioritised improvements were released in the vendor platform; a release label on a module names that implemented functionality, not the screen.",
  "facts": [
   {
    "dt": "Delivered",
-   "dd": "The findings report, a four-lane service blueprint across seven lifecycle stages, four personas, two worked user journeys and a scored top ten, accepted as the standing prioritisation. Eight of the ten had a named release within a year: three in release 1.63 in November 2024 and five in release 1.64 across 2025."
+   "dd": "The findings report, a four-lane service blueprint across seven lifecycle stages, four personas, two worked user journeys and a scored top ten, accepted as the standing prioritisation. Eight of the ten had a named vendor release within a year: three in release 1.63 in November 2024 and five in release 1.64 across 2025."
+  },
+  {
+   "dt": "Shown here",
+   "dd": "An interface concept designed in September 2026. The functionality the vendor released came from the scored list; these screens are my concept of the product the list argues for, not the vendor's implementation."
   },
   {
    "dt": "Evidence behind it",
@@ -27,7 +31,7 @@
   "body": [
    "Every restaurant in the network ran on the same time and attendance platform. Most managers preferred it to what came before. And yet the research found 175 distinct pain points, the compliance warnings list had grown so long that managers had stopped reading it, and the workarounds were physical: paper deployment charts transcribed twice a day, whiteboards above the time clock, spreadsheet rosters, and shifts entered in the wrong week so a pay run would go through.",
    "Only 41 per cent of those pain points were a software problem. That is the finding the screens here are built on. The platform did not need more features. It needed a compliance layer people could work inside, a way for a manager to see the cost of a decision while they were making it, and something to give back to the team member, who supplied two thirds of the survey responses and got the least from the product.",
-   "So each module below starts from a pain point in the report and shows the screen that answers it. Where an item carried a release number, it is on the module. Where it did not, it is marked as scheduled."
+   "So each module below starts from a pain point in the report and shows the screen that answers it. Where the pain point was one of the scored ten and the vendor released it, the module says so, with the release; the release names the vendor's implementation, and the screen is my concept of it. Items without a release are marked as they stood in the reconciliation: scheduled."
   ]
  },
  "system": {
@@ -72,14 +76,15 @@
     {
      "img": "img/roster-hardstop.png",
      "title": "The one place a hard stop was right",
-     "cap": "A shift supervisor over nine hours with no meal break cannot be published. Ranked second of ten and released in November 2024. Almost everywhere else the research argued against hard stops, because a hard stop on a common shift pattern pushes a manager into recording something untrue."
+     "cap": "A shift supervisor over nine hours with no meal break cannot be published. Ranked second of ten; the vendor released it in November 2024, and this screen is my concept of it. Almost everywhere else the research argued against hard stops, because a hard stop on a common shift pattern pushes a manager into recording something untrue."
     },
     {
      "img": "img/roster-extended.png",
      "title": "The shift that grew",
-     "cap": "An eight and a half hour shift extended by an hour on the floor adds a rest pause entitlement and moves the meal break, and nothing used to flag it. Ranked third of ten and released during 2025."
+     "cap": "An eight and a half hour shift extended by an hour on the floor adds a rest pause entitlement and moves the meal break, and nothing used to flag it. Ranked third of ten; the vendor released it during 2025, and this screen is my concept of it."
     }
-   ]
+   ],
+   "nav": "The roster"
   },
   {
    "id": "compliance",
@@ -103,7 +108,8 @@
      "title": "A dismissal is a decision, and it is signed",
      "cap": "The reason is required, the name is attached, and the record is what the area coach sees. This is the mitigation the report asked for under compliance pay dismissal."
     }
-   ]
+   ],
+   "nav": "Compliance"
   },
   {
    "id": "timeclock",
@@ -121,7 +127,8 @@
    "img": "img/timeclock-board.png",
    "phone": false,
    "noteLimit": 4,
-   "states": []
+   "states": [],
+   "nav": "Deployment chart"
   },
   {
    "id": "leave",
@@ -143,14 +150,15 @@
     {
      "img": "img/leave-consent.png",
      "title": "Consent, captured at the point it is given",
-     "cap": "Ranked eighth of ten and released during 2025. The manager can still act quickly. What they cannot do is record leave against someone who has not seen it."
+     "cap": "Ranked eighth of ten; the vendor released it during 2025, and this screen is my concept of it. The manager can still act quickly. What they cannot do is record leave against someone who has not seen it."
     },
     {
      "img": "img/leave-drop.png",
      "title": "A dropped shift, offered as leave",
      "cap": "When a part-timer drops a shift, the manager used to get a compliance warning for not meeting contracted hours. Now the drop asks the question the manager was going to have to answer anyway."
     }
-   ]
+   ],
+   "nav": "Leave"
   },
   {
    "id": "labour",
@@ -168,7 +176,8 @@
    "img": "img/labour-live.png",
    "phone": false,
    "noteLimit": 4,
-   "states": []
+   "states": [],
+   "nav": "Labour"
   },
   {
    "id": "reports",
@@ -179,14 +188,15 @@
    "findingLabel": "What the research found",
    "finding": "Reports were per restaurant, capped at a thirty day window, and area and group figures were compiled by hand. Managers also did not know which reports existed. One said plainly that they had not generated a report in the platform for some time.",
    "body": [
-    "Ranked fourth of ten and released during 2025. An area coach carries more pain points than any other role in the service and had no screen built for them, which is why this scored as high as it did.",
+    "Ranked fourth of ten; the vendor released it during 2025, and this screen is my concept of it. An area coach carries more pain points than any other role in the service and had no screen built for them, which is why this scored as high as it did.",
     "The compliance rate is the area coach's manual spot-check, automated: issues divided by published shifts. It was described in an interview as a thing done by hand, week by week, and it is now a column."
    ],
    "caption": "One row per restaurant, past the thirty day cap, with the compliance rate that an area coach was calculating by hand.",
    "img": "img/reports-group.png",
    "phone": false,
    "noteLimit": 4,
-   "states": []
+   "states": [],
+   "nav": "Reporting"
   },
   {
    "id": "payperiod",
@@ -215,7 +225,8 @@
      "title": "Closed, with its history kept",
      "cap": "One correction, one dismissal and one dropped shift that became leave, all still attached to the period they belong to."
     }
-   ]
+   ],
+   "nav": "Pay period correction"
   },
   {
    "id": "crew",
@@ -247,14 +258,15 @@
     {
      "img": "img/phone-shifts.png",
      "title": "Shifts, with leave shifts in the list",
-     "cap": "Ranked tenth of ten. Leave used to be invisible in the shift list, so people were not sure their leave had been recorded."
+     "cap": "Ranked tenth of ten, marked as scheduled in the reconciliation. Leave used to be invisible in the shift list, so people were not sure their leave had been recorded."
     },
     {
      "img": "img/phone-hours.png",
      "title": "Punch history, which did not exist",
-     "cap": "Ranked ninth of ten and released in November 2024. A team member could not see their own clock-ins, and supervisors were adjusting forgotten ones by hand."
+     "cap": "Ranked ninth of ten; the vendor released it in November 2024, and this screen is my concept of it. A team member could not see their own clock-ins, and supervisors were adjusting forgotten ones by hand."
     }
-   ]
+   ],
+   "nav": "Team member app"
   },
   {
    "id": "features",
@@ -272,7 +284,8 @@
    "img": "img/features-console.png",
    "phone": false,
    "noteLimit": 4,
-   "states": []
+   "states": [],
+   "nav": "What is switched on"
   }
  ]
 }

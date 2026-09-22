@@ -310,7 +310,7 @@ def build(state):
       <button class="p-btn p-btn-secondary p-btn-sm">Auto-fill breaks</button>
       <button class="p-btn p-btn-primary p-btn-sm">Publish week</button>
     </div>
-    <p class="p-work-sub">Compliance runs as you build, not when you publish. Everything here is checked against the agreement and the state rules for each person, including Rosa V., whose hours are counted across Riverside and Lakeside together.</p>
+    <p class="p-work-sub">Checked as you build against the agreement and each state's rules for every person, including Rosa V., whose hours are counted across Riverside and Lakeside together.</p>
     <div class="p-roster">
       <div class="p-rgrid">{''.join(head)}{''.join(rows)}</div>
       {legend}

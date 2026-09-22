@@ -5,7 +5,7 @@
   {
    "title": "Nobody measured whether she turns up",
    "finding": "Two moments had no data at all. Nobody measured whether a hired crew member turned up to their first shift, and nobody measured retention at ninety days.",
-   "decision": "The screen exists because the moment does. It is the first thing in the service that anybody built specifically for the first shift rather than for the paperwork before it.",
+   "decision": "The screen exists because the moment does. It is the first thing in the service built specifically for the first shift rather than for the paperwork before it, and the confirmation it asks for is the intent to turn up; attendance is recorded when the manager clocks the new starter in.",
    "rejected": "Treating the offer as the end of hiring, which is what produced two moments with no owner and no number.",
    "n": 1,
    "x": 50.0,

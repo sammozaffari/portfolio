@@ -2,11 +2,15 @@
  "title": "Hiring and onboarding, module by module",
  "eyebrow": "Product design · Ten modules · One design system",
  "description": "The hiring and onboarding product the research argued for, from finding a job to a first shift, with every design decision traced to a research finding and checked against a shipped pattern. By Sam Mozaffari.",
- "deck": "Ten modules from finding a job to turning up for a first shift. Seven belong to the candidate and three to the manager, because the research found the admin burden was the experience.",
+ "deck": "Ten modules from finding a job to turning up for a first shift, designed in September 2026 from the delivered research. Seven belong to the candidate and three to the manager, because the research found the admin burden was the experience.",
  "facts": [
   {
    "dt": "Delivered",
    "dd": "A nine-stage service blueprint from Identify to Start, a competency framework for the manager pipeline, and an automated screening-to-interview path specified around the failing moments."
+  },
+  {
+   "dt": "Shown here",
+   "dd": "An interface concept designed in September 2026. The workflow specification delivered in 2025 sits with technology and the recruiting-platform vendor to implement; one rule the concept adds to it is labelled where it appears."
   },
   {
    "dt": "Evidence behind it",
@@ -27,7 +31,7 @@
   "body": [
    "The business had a labour-market theory: the jobs were hard to fill because the labour market was tight. The research pointed at the company's own process instead. Candidates uploaded the same documents more than once even when everything was correct, managers re-keyed candidate data across systems, offers landed in spam, and the wait for a first human touch ran from days to weeks.",
    "Two moments had no data at all. Nobody measured whether a hired crew member turned up to their first shift, and nobody measured retention at ninety days. That absence became a documented finding with an owner rather than an invented number, and two of the screens below exist to close it.",
-   "Work rights were the hardest part of the experience and the step that most needed a person. First-job candidates did not know what documents they needed, consent forms expired, and payroll discovered the wrong documents at pay time. So nothing here is ever automatically rejected. Checks run on their own and anything that fails goes to a human with the reason attached."
+   "Work rights were the hardest part of the experience and the step that most needed a person. First-job candidates did not know what documents they needed, consent forms expired, and payroll discovered the wrong documents at pay time. So no check here ends an application: checks run on their own and anything that fails goes to a person with the reason attached. An application the candidate stops answering is closed as no response after three reminders and ten days, and the candidate is told."
   ]
  },
  "system": {
@@ -63,7 +67,8 @@
    "img": "img/find.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Finding a job"
   },
   {
    "id": "questions",
@@ -74,14 +79,15 @@
    "findingLabel": "What the research found",
    "finding": "The old application asked more than it decided, across more than one system. Screening reduces to five things that actually change a decision: minimum age, work rights, availability, shifts per week, and the high-demand shift.",
    "body": [
-    "The assistant says what it is in its first line, and says that nothing in the conversation is a decision on its own. That line is the work-rights rule, put where the candidate can see it.",
+    "The assistant says what it is in its first line, and what happens next either way: answers that match the shifts the restaurant needs book an interview straight away, and any other set goes to the manager to read. Nothing in the conversation is a decision on its own, and that line is the work-rights rule, put where the candidate can see it.",
     "The careers site advertises this assistant in black and red with the brand display face. What candidates met did not look like the brand that advertised it, and sat behind a disabled composer and a terms gate. This module builds the one the brand promised."
    ],
    "caption": "The five questions, as tappable answers rather than a form. The progress is visible and any answer can be changed before the end.",
    "img": "img/questions.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Five questions"
   },
   {
    "id": "consent",
@@ -99,7 +105,8 @@
    "img": "img/consent.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Consent"
   },
   {
    "id": "book",
@@ -117,7 +124,8 @@
    "img": "img/book.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Booking the interview"
   },
   {
    "id": "rights",
@@ -135,7 +143,8 @@
    "img": "img/rights.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Work rights"
   },
   {
    "id": "offer",
@@ -144,7 +153,7 @@
    "figure": "Figure 6",
    "annotations": "annotations/offer.json",
    "findingLabel": "What the research found",
-   "finding": "Offers landed in spam and candidates vanished without a response. Reminders at 24, 48 and 72 hours and dispositioning after ten days mean every candidate gets an answer, either way.",
+   "finding": "Offers landed in spam and candidates vanished without a response. Reminders at 24, 48 and 72 hours, then closure as no response after ten days with a message to the candidate, mean every candidate gets an answer either way. The specification set that rule; the concept adds that an application still waiting on the manager at ten days goes to the area coach first.",
    "body": [
     "The offer is not an email. It lives where the application lives, and the email is only a pointer to it, because an email was the single point of failure that lost people at the last step.",
     "The rate is explained rather than stated. A first job is the one time somebody has no idea whether a number is normal."
@@ -153,7 +162,8 @@
    "img": "img/offer.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "The offer"
   },
   {
    "id": "before",
@@ -165,13 +175,14 @@
    "finding": "Nobody measured whether a hired crew member turned up to their first shift, and nobody measured retention at ninety days. The absence was written up as a finding with an owner rather than filled in with a number.",
    "body": [
     "Everything a person needs on a first day is one screen: when to arrive, what to bring, which door, and the name of the person to ask for.",
-    "This screen is also the instrument for the measurement that did not exist, because a first shift that is confirmed is a first shift that can be counted."
+    "This screen is also the first instrument for the measurement that did not exist. The confirmation records the intent to turn up; attendance itself is recorded when the manager clocks the new starter in on the first shift."
    ],
    "caption": "What to bring, which door, and one name to ask for. Also the first point in the service where turning up can be counted.",
    "img": "img/before.png",
    "phone": true,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "Before the first shift"
   },
   {
    "id": "pipeline",
@@ -182,14 +193,15 @@
    "findingLabel": "What the research found",
    "finding": "The wait for a first human touch ran from days to weeks, and it was invisible while it was happening. It surfaced in a report afterwards, to somebody who was not the person who could fix it.",
    "body": [
-    "Every card carries how long that person has been waiting, in the place where the manager can do something about it. A number in a weekly report arrives for somebody who has already gone.",
+    "Every card carries how long that person has been waiting, since which event, and who owes the next step, in the place where the manager can do something about it. A number in a weekly report arrives for somebody who has already gone.",
     "A person stands in exactly one stage, with their history on the card. The board is what the manager works from, so a candidate appearing in four columns at once is a board that cannot be trusted."
    ],
    "caption": "Candidates by stage, with the waiting time on the card rather than in a report nobody opens.",
    "img": "img/pipeline.png",
    "phone": false,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "The pipeline"
   },
   {
    "id": "queue",
@@ -207,7 +219,8 @@
    "img": "img/queue.png",
    "phone": false,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "The queue"
   },
   {
    "id": "humanlane",
@@ -225,7 +238,8 @@
    "img": "img/humanlane.png",
    "phone": false,
    "noteLimit": 5,
-   "states": []
+   "states": [],
+   "nav": "The human lane"
   }
  ]
 }

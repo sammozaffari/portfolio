@@ -2,11 +2,15 @@
  "title": "The safety reporting product, module by module",
  "eyebrow": "Product design · Ten modules · One design system",
  "description": "A product-grade concept for a restaurant safety reporting system, module by module, with every design decision traced to a research finding and checked against a shipped pattern. By Sam Mozaffari.",
- "deck": "Ten modules of a safety reporting product for a restaurant network, each screen annotated with the research finding that drove the decision and the alternative it replaced.",
+ "deck": "Ten modules of a safety reporting interface concept, designed in September 2026 from the December 2025 research, each screen annotated with the research finding that drove the decision and the alternative it replaced.",
  "facts": [
   {
    "dt": "Delivered",
    "dd": "Into the live reporting programme in December 2025: the findings report, a five-stage service blueprint, a prioritised three-phase roadmap and the form prototypes, refined through a stakeholder validation session."
+  },
+  {
+   "dt": "Shown here",
+   "dd": "An interface concept designed in September 2026 from the December 2025 findings. The delivered work was the report, the blueprint, the roadmap and the form prototypes; this is the product the findings argue for, built on a configured vendor platform the business had already bought."
   },
   {
    "dt": "Evidence behind it",
@@ -26,7 +30,7 @@
   "title": "The product in brief",
   "body": [
    "**The problem.** A safety incident and hazard reporting platform, configured for one workflow across 900 restaurants: a team member notices something, scans the poster, fills in the form. The research found a different workflow in almost every restaurant. The team member tells the manager. The manager decides whether it is worth logging, logs it if so, and sometimes closes it without telling anyone. Reporting volume varied widely between sites and the platform's own data could not say whether a quiet restaurant was safe or silent.",
-   "**What the research changed.** The business assumed location explained the difference, so the sample was designed to test that: eight restaurants across high- and low-reporting sites, higher- and lower-crime suburbs, metropolitan and regional. Location did not predict it. The manager did. That finding reorganised the recommendations, and it organises these screens.",
+   "**What the research changed.** The business assumed location explained the difference, so the sample was designed to test that: eight restaurants across high- and low-reporting sites, higher- and lower-crime suburbs, metropolitan and regional. In the sampled restaurants, the manager's routine explained the difference more consistently than location did. That finding reorganised the recommendations, and it organises these screens.",
    "**From the findings to the product.** The delivered recommendations changed what the form asks and what managers do, inside a platform the business had already bought. This is the next move: the whole service redrawn as a product, module by module, following the navigation the restaurants already knew. Each module below is one item from that navigation, designed from the evidence.",
    "**How each module is set out.** The finding sits above the screen. The screen is shown whole, at full size, with numbered pins. Each pin names the finding, the decision it drove and the alternative it replaced. The states that matter sit underneath. [The case study](../index.html) carries the research, the method and what the internal tool saved."
   ]
@@ -195,7 +199,8 @@
       ]
      }
     ]
-   }
+   },
+   "nav": "Quick Add"
   },
   {
    "id": "dashboard",
@@ -204,14 +209,15 @@
    "figure": "Figure 2",
    "annotations": "annotations/dashboard-manager.json",
    "findingLabel": "What the research found",
-   "finding": "Location did not predict safety culture. The manager did. Where a manager talked about safety, thanked people for reports and showed the system on the first shift, reporting was strong regardless of where the restaurant was. That finding made the manager's screen the most important screen in the product.",
+   "finding": "In the sampled restaurants, the manager's routine explained reporting better than location did. Where a manager talked about safety, thanked people for reports and showed the system on the first shift, reporting was strong regardless of where the restaurant was. That finding made the manager's screen the most important screen in the product.",
    "body": [
     "So this dashboard is not a reporting console. It is a shift tool: what needs a person today, what is overdue, what was fixed and who reported it, and the routine that the research found to be the strongest lever. The vendor product opened on a permissions wall where the dashboard should have been.",
     "The two charts answer the question the safety team could not answer from the platform's data: whether a quiet restaurant is a safe one. Hazards and incidents are plotted separately, because a restaurant finding hazards before they hurt anyone looks nothing like one that reports only after an injury."
    ],
    "caption": "The restaurant manager's dashboard at 1440 by 900. Four counts, a weekly trend read in a sentence, the open reports with the next human act as their status, and the loop closed on the right.",
    "img": "img/dashboard-manager.png",
-   "noteLimit": 5
+   "noteLimit": 5,
+   "nav": "Dashboard, restaurant"
   },
   {
    "id": "dashboard-area",
@@ -222,7 +228,7 @@
    "findingLabel": "What the research found",
    "finding": "Reporting volume varied widely between restaurants and nobody could say why. Low volume could mean a safe restaurant or a silent one, and the existing lever was a reminder email that went to everyone and told no one anything.",
    "body": [
-    "The area view compares restaurants on the ratio of hazards to incidents rather than on report counts, and it names the three conversations worth having this week instead of sending twelve people the same message.",
+    "The area view compares restaurants on the ratio of hazards to incidents rather than on report counts, and it names the three conversations worth having this week instead of sending twelve people the same message. The ratio is a proposed signal: a prompt for a conversation until the safety team has checked it against outcomes, and a restaurant with too few reports to read says so instead of carrying a tint.",
     "This is the screen where the study's central finding becomes an operating instrument: if the manager is the variable, the area manager's job is to find the managers who need a conversation, and to have it on evidence."
    ],
    "caption": "The area manager's dashboard. Twelve restaurants compared, three flagged, and the reasoning written next to the table rather than left implicit.",
@@ -235,7 +241,8 @@
     }
    ],
    "img": "img/dashboard-area.png",
-   "noteLimit": 5
+   "noteLimit": 5,
+   "nav": "Dashboard, area"
   },
   {
    "id": "register",
@@ -264,7 +271,8 @@
     }
    ],
    "img": "img/register.png",
-   "noteLimit": 5
+   "noteLimit": 5,
+   "nav": "Incidents and hazards"
   },
   {
    "id": "incident-record",
@@ -288,7 +296,8 @@
     }
    ],
    "img": "img/incident-record.png",
-   "noteLimit": 5
+   "noteLimit": 5,
+   "nav": "Incident record"
   },
   {
    "id": "actions",
@@ -323,7 +332,8 @@
     }
    ],
    "img": "img/actions-board.png",
-   "noteLimit": 5
+   "noteLimit": 5,
+   "nav": "Corrective actions"
   },
   {
    "id": "emergency",
@@ -347,7 +357,8 @@
     }
    ],
    "img": "img/emergency.png",
-   "noteLimit": 3
+   "noteLimit": 3,
+   "nav": "Emergency information"
   },
   {
    "id": "chemicals",
@@ -371,7 +382,8 @@
     }
    ],
    "img": "img/chemicals.png",
-   "noteLimit": 3
+   "noteLimit": 3,
+   "nav": "Chemical register"
   },
   {
    "id": "contractors",
@@ -395,7 +407,8 @@
     }
    ],
    "img": "img/contractors.png",
-   "noteLimit": 3
+   "noteLimit": 3,
+   "nav": "Contractors"
   },
   {
    "id": "knowledge",
@@ -419,7 +432,8 @@
     }
    ],
    "img": "img/knowledge.png",
-   "noteLimit": 3
+   "noteLimit": 3,
+   "nav": "Knowledge base"
   }
  ],
  "footNav": [

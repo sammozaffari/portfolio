@@ -15,6 +15,13 @@
 .sc-hero-facts dt { font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 .sc-hero-facts dd { margin: 0; font-size: var(--t-3); line-height: 1.5; }
 
+.sc-modnav { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; padding-block: 16px 18px; border-bottom: 1px solid var(--line); }
+.sc-modnav-label { font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+.sc-modnav a { font-size: var(--t-2); color: var(--ink-soft); border-bottom: 1px solid transparent; padding-bottom: 1px; white-space: nowrap; }
+.sc-modnav a i { font-style: normal; font-family: var(--mono); font-size: var(--t-1); color: var(--muted); margin-right: 6px; }
+.sc-modnav a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+.sc-modnav a:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
 .sc-sec { padding-block: 54px 8px; border-top: 1px solid var(--line); }
 .sc-sec:first-of-type { border-top: 0; }
 .sc-num { font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.08em; color: var(--muted); }

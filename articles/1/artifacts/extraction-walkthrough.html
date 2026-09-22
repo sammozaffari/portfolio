@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Extraction walkthrough: one record from transcript to blueprint · Sam Mozaffari</title>
+<meta name="description" content="How the safety research tool turns a transcript line into a typed, placed, reviewed record: source input, candidate insight, source reference, human correction and the downstream view, shown with synthetic data, plus the rubric a record is checked against.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/artefact.css?v=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
+<style>
+  .xw-steps { counter-reset: step; display: grid; gap: 18px; margin: 18px 0 8px; }
+  .xw-step { background: #fff; border: 1px solid var(--line); border-radius: var(--radius-card); padding: 18px 20px 20px; }
+  .xw-step h3 { margin: 0 0 4px; font-size: var(--t-5); letter-spacing: -0.01em; }
+  .xw-step h3::before { counter-increment: step; content: counter(step, decimal-leading-zero); font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.1em; color: var(--muted); margin-right: 12px; }
+  .xw-step .xw-what { font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .xw-step p { margin: 8px 0; }
+  pre.xw { background: #f1f1ec; border: 1px solid var(--line); border-radius: 6px; padding: 14px 16px; font-family: var(--mono); font-size: var(--t-2); line-height: 1.55; white-space: pre-wrap; word-break: break-word; margin: 10px 0; color: var(--ink); }
+  pre.xw .k { color: #6b4bbf; }
+  pre.xw .s { color: #1f5f8b; }
+  pre.xw .c { color: var(--muted); }
+  .xw-transcript { border-left: 3px solid var(--line-strong); padding: 6px 0 6px 16px; margin: 10px 0; color: var(--ink-soft); }
+  .xw-transcript span { display: block; }
+  .xw-transcript i { font-style: normal; font-family: var(--mono); font-size: var(--t-1); color: var(--muted); margin-right: 10px; }
+  .xw-cell { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 12px 0 4px; }
+  .xw-cell div { border: 1px solid var(--line); border-radius: var(--radius-card); padding: 12px 14px; background: #fff; }
+  .xw-cell b { display: block; font-size: var(--t-3); margin-bottom: 4px; }
+  .xw-cell span { font-size: var(--t-2); color: var(--muted); }
+  .xw-badge { display: inline-block; font-family: var(--mono); font-size: var(--t-1); letter-spacing: 0.04em; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-strong); color: var(--ink-soft); margin-right: 6px; }
+  .xw-badge.ok { border-color: #1f7a4d; color: #1f7a4d; }
+  .xw-badge.fix { border-color: #b06d00; color: #b06d00; }
+  .xw-badge.bad { border-color: var(--red); color: var(--red); }
+  .xw-synth { background: #fff8e6; border: 1px solid #f0dfae; border-radius: var(--radius-card); padding: 12px 16px; margin: 0 0 22px; font-size: var(--t-3); max-width: 78ch; }
+</style>
+</head><body><main class="af-wrap">
+
+<p class="af-kicker">Safety and compliance reporting · working file</p>
+<h1>Extraction walkthrough: one record, from a transcript line to a blueprint cell</h1>
+<p class="af-lede">The research tool behind the safety case takes an interview transcript in one end and puts a typed, placed, reviewed record out the other. This page walks one record through the five steps, then sets out the rubric a record is checked against.</p>
+<div class="af-chips"><span>Employment work</span><span>KFC South Pacific</span><span>Research tooling</span><span>Synthetic data</span></div>
+<nav class="af-nav"><a href="../index.html">The case study</a><a href="../index.html#sec-3">Why the tool was built</a><a href="../index.html#sec-9">How AI was used</a><a class="here" href="extraction-walkthrough.html">Extraction walkthrough</a></nav>
+
+<div class="xw-synth"><b>Synthetic data.</b> Every name, transcript line, identifier and record on this page was written for this walkthrough so the mechanism can be shown without any research material. The real transcripts, the 232 records and the evaluation fixture stay inside the employer's project.</div>
+
+<h2>The tool in brief</h2>
+<p><b>The problem.</b> The safety synthesis outgrew a document, then outgrew a Miro board. Every new batch of interviews reclassified records, moved them between substages and split them, and every move had to be made twice: once in the record and once on the board. The findings report was then retyped from the board a third time.</p>
+<p><b>Why I built it.</b> To make the records the source and everything else an output: the blueprint, the board and the report render from the same rows, so none of them can disagree with the others.</p>
+<p><b>How it works.</b> Capture, extract, place, use. A Claude Code command reads a transcript and emits candidate records as JSON. A schema-validating importer refuses a batch unless every type, stakeholder, stage, substage and theme resolves, and tags git before the import so a bad batch is one command to undo. A person reads each record against its transcript line before it counts. The record is then tied to one of five stages, eleven substages and a role, and the blueprint, evidence trails and report are generated from it.</p>
+<p><b>The backend.</b> Python and Flask over SQLite with a vanilla JavaScript front end: 50 HTTP routes, 37 scripts, 318 commits between 27 October 2025 and 22 January 2026. An Anthropic SDK endpoint drafts recommendations from five templates and stores each prompt beside its output.</p>
+<p><b>From insights to prototypes.</b> Filtering the 184 blueprint items by substage, role and type narrows the map to the handful of records behind one recommendation, and those records are the evidence list on each proposal. The form prototype and the three proposals in the case were built from those lists.</p>
+<p><b>Which AI tools.</b> Speech-to-text transcription, the Claude Code extraction command, and the Anthropic SDK drafting endpoint. Each has a human step after it. What the tool saved against the manual board is an estimate with its assumptions shown, in <a href="../index.html#sec-4">section 4 of the case</a>.</p>
+
+<h2>One record, five steps</h2>
+<div class="xw-steps">
+
+<section class="xw-step">
+  <h3>Source input</h3>
+  <p class="xw-what">A transcript, speaker-separated, with line numbers</p>
+  <p>Interview 07 in this walkthrough is a restaurant manager, recorded in the office between lunch and the afternoon shift change. The extraction reads the whole transcript; these are the lines the record comes from.</p>
+  <div class="xw-transcript">
+    <span><i>211</i>Researcher: When something happens, who puts it in the system?</span>
+    <span><i>212</i>Manager: Me, nearly always. The crew tell me, I have a look, and I put it in at close.</span>
+    <span><i>213</i>Manager: The hard bit is the category. Half the time I ring the ASL about which box to tick, because if I pick wrong it comes back from head office and then I am doing it twice.</span>
+    <span><i>214</i>Researcher: Every time?</span>
+    <span><i>215</i>Manager: Anything that is not obviously a slip or a burn. Near misses especially.</span>
+  </div>
+</section>
+
+<section class="xw-step">
+  <h3>Candidate insight</h3>
+  <p class="xw-what">What the extraction command emitted for those lines</p>
+  <p>The command returns JSON only, against a schema the importer enforces. This candidate passed validation: every field resolves to a value the tool knows. It is still wrong, in a way the schema cannot see.</p>
+<pre class="xw">{
+  <span class="k">"id"</span>: <span class="s">"insight-0642"</span>,
+  <span class="k">"type"</span>: <span class="s">"Behaviour"</span>,
+  <span class="k">"stakeholder"</span>: <span class="s">"Manager"</span>,
+  <span class="k">"stage"</span>: <span class="s">"Reporting"</span>,
+  <span class="k">"substage"</span>: <span class="s">"Completing the form"</span>,
+  <span class="k">"theme"</span>: <span class="s">"Process and procedure"</span>,
+  <span class="k">"title"</span>: <span class="s">"Manager phones a colleague to choose the incident category"</span>,
+  <span class="k">"body"</span>: <span class="s">"The manager often calls a colleague to decide which category to select, because a wrong choice is returned by head office and has to be re-entered."</span>,
+  <span class="k">"source"</span>: { <span class="k">"interview"</span>: <span class="s">"int-07"</span>, <span class="k">"lines"</span>: [213, 213] },
+  <span class="k">"confidence"</span>: 0.86
+}</pre>
+</section>
+
+<section class="xw-step">
+  <h3>Source reference</h3>
+  <p class="xw-what">The record keeps a link back to the line it came from</p>
+  <p>Every record carries its interview id and line range, so the review step is a click, not a search. The importer writes a git tag before anything is inserted, and the batch is refused whole if one record fails the schema.</p>
+<pre class="xw"><span class="c"># importer log, batch b07 (synthetic)</span>
+tag      pre-import-b07 written at 3e91c
+schema   14 of 14 candidates valid
+source   int-07 lines 213 to 213  →  transcript/int-07.txt#L213
+status   staged for review, 0 of 14 reviewed</pre>
+</section>
+
+<section class="xw-step">
+  <h3>Human correction</h3>
+  <p class="xw-what">Read against the transcript, and corrected where the extraction flattened what was said</p>
+  <p>The passage says <b>ASL</b>, the business's shorthand for the area safety lead. The extraction read it as an ordinary word and produced "a colleague", which loses the point: the manager is escalating a routine classification to the role above them, and the form is the reason. That is the failure class that accounted for nearly all of the corrections in the real study.</p>
+  <table>
+    <tr><th>Field</th><th>Candidate</th><th>Corrected</th><th>Why</th></tr>
+    <tr><td data-label="Field" class="lab">title</td><td data-label="Candidate">Manager phones a colleague to choose the incident category</td><td data-label="Corrected">Manager phones the area safety lead to choose the incident category</td><td data-label="Why">ASL is the area safety lead, not any colleague</td></tr>
+    <tr><td data-label="Field" class="lab">type</td><td data-label="Candidate">Behaviour</td><td data-label="Corrected">Pain point</td><td data-label="Why">A routine escalation to avoid rework is a workaround, and workarounds are evidence of a form problem</td></tr>
+    <tr><td data-label="Field" class="lab">body</td><td data-label="Candidate">The manager often calls a colleague to decide which category to select, because a wrong choice is returned by head office and has to be re-entered.</td><td data-label="Corrected">For anything that is not obviously a slip or a burn, the manager phones the area safety lead to choose the category, because a wrong choice is sent back and entered twice.</td><td data-label="Why">The condition on line 215 belongs in the record; the passage names the trigger</td></tr>
+    <tr><td data-label="Field" class="lab">source lines</td><td data-label="Candidate">213 to 213</td><td data-label="Corrected">213 to 215</td><td data-label="Why">The qualifier is two lines later</td></tr>
+  </table>
+  <p><span class="xw-badge fix">corrected before import</span> The change is logged against the record with the reviewer and the reason, so a later reader can see what the machine said and what the person changed.</p>
+</section>
+
+<section class="xw-step">
+  <h3>Downstream view</h3>
+  <p class="xw-what">Where the record lands, and what is generated from it</p>
+  <p>Once imported, the record sits in one cell of the blueprint and is counted wherever that cell is counted. It appears in the evidence list of any proposal that cites it, and the findings report paragraph for that substage is generated from the records in the cell rather than retyped from a board.</p>
+  <div class="xw-cell">
+    <div><b>Reporting › Completing the form</b><span>Manager lane · one more pain point in the cell</span></div>
+    <div><b>Proposal 1 evidence</b><span>Ask what happened first; classify at the manager's review · cites insight-0642</span></div>
+    <div><b>Report, section 3</b><span>Generated paragraph: managers escalate routine classification to the area safety lead to avoid rework</span></div>
+    <div><b>Miro board</b><span>One sticky, pain-point colour, in the Reporting frame · placed by the migrator</span></div>
+  </div>
+</section>
+
+</div>
+
+<h2>How a record is checked</h2>
+<p>A schema-valid record is not necessarily a true one, and reading every record by hand does not by itself say how often the extraction was right. So a record is scored against its transcript with four verdicts.</p>
+<table>
+  <tr><th>Verdict</th><th>Meaning</th><th>Synthetic example</th></tr>
+  <tr><td data-label="Verdict" class="lab"><span class="xw-badge ok">faithful</span></td><td data-label="Meaning">States what the passage says, at the passage's level of specificity</td><td data-label="Synthetic example">"Crew tell the manager first; the manager enters the report at close" from lines 212 to 213</td></tr>
+  <tr><td data-label="Verdict" class="lab"><span class="xw-badge fix">flattened</span></td><td data-label="Meaning">Supported, but a qualifier, condition, cause or nuance is lost</td><td data-label="Synthetic example">"Manager phones a colleague about categories": the role and the trigger are gone</td></tr>
+  <tr><td data-label="Verdict" class="lab"><span class="xw-badge bad">overstated</span></td><td data-label="Meaning">Claims more than the passage supports: a cause, outcome or attribution the speaker did not give</td><td data-label="Synthetic example">"Phoning the area safety lead has reduced misclassified reports": the passage says nothing about the effect</td></tr>
+  <tr><td data-label="Verdict" class="lab"><span class="xw-badge bad">unsupported</span></td><td data-label="Meaning">No supporting passage in the cited transcript after searching for the record's key terms and their synonyms</td><td data-label="Synthetic example">"Managers are trained on categories at induction": nothing in interview 07 says so</td></tr>
+</table>
+<p>Each scored record also carries a note on whether its assigned type and substage fit the passage, because a true statement filed in the wrong cell still misleads the blueprint.</p>
+
+<h3>The fixture</h3>
+<p>One JSON row per scored record, with the passage quoted verbatim and its character offsets into the transcript file, so any verdict can be re-read by someone else in seconds.</p>
+<pre class="xw">{
+  <span class="k">"id"</span>: <span class="s">"insight-0642"</span>,
+  <span class="k">"interview"</span>: <span class="s">"int-07"</span>,
+  <span class="k">"verdict"</span>: <span class="s">"flattened"</span>,
+  <span class="k">"type_fits"</span>: <span class="s">"no: escalation to avoid rework is a pain point, not a behaviour"</span>,
+  <span class="k">"passage"</span>: <span class="s">"Half the time I ring the ASL about which box to tick, because if I pick wrong it comes back from head office and then I am doing it twice."</span>,
+  <span class="k">"offsets"</span>: [18412, 18551],
+  <span class="k">"note"</span>: <span class="s">"ASL read as an ordinary word; condition on line 215 dropped"</span>
+}</pre>
+
+<h3>Sample design</h3>
+<p>Every record from the interviews with five or fewer records, plus the first records by id from the pooled larger interviews, until the sample reaches forty. Small interviews are covered whole so that no source is judged on one record; the pooled remainder is taken by id rather than chosen, so the sample cannot be steered towards records that look right.</p>
+
+<h3>What was observed, and what is designed</h3>
+<table>
+  <tr><th>Observed in the study</th><th>Designed, and measured by the rubric</th></tr>
+  <tr>
+    <td data-label="Observed in the study">All 232 records were read against their transcript and placed by hand before they counted. About ten needed correcting, and nearly all of those had failed the same way: a business acronym read as an ordinary word, which flattened what the person meant.</td>
+    <td data-label="Designed, and measured by the rubric">Fidelity per record (the four verdicts), type and substage fit, the correction rate, and where the misses cluster by interview. A 40-record sample was scored against this rubric in September 2026 with every passage quoted in the fixture; the per-record judgements are read by hand before the figures are published.</td>
+  </tr>
+</table>
+<p>What a schema and a review step give you is provenance: every record can be walked back to the moment in the room. What the rubric adds is a number for how often the first draft was right, which is the number that decides whether the review step is a safety net or the actual work.</p>
+
+<p class="af-foot">Working file from employment at KFC South Pacific. The mechanism is the tool's; the data on this page is synthetic. <a href="../index.html">Back to the case</a>.</p>
+</main></body></html>

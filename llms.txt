@@ -1,27 +1,27 @@
 # Sam Mozaffari
 
-> Experience Designer in Sydney, Australia. Research, service blueprints, stakeholder workshops and practical AI for operational services.
+> Experience Designer in Sydney, Australia. Service and experience design for complex operational services, with enterprise UX and applied-AI capability: research, service blueprints, prioritisation and AI-assisted research tools with human review.
 
 ## Who
 
 - Experience Designer at KFC South Pacific, July 2024 to present, a network of 900 restaurants and more than 50,000 team members. Leads and co-leads service-improvement projects across safety reporting, workforce-management tools, hiring and onboarding and employee experience.
-- Works at the point where research turns into a decision: designs studies around the decision they inform, maps every lane and handoff of a service, prioritises with criteria agreed before scoring, and runs the sessions where priorities get set and owned. Leads and co-leads projects; project and stakeholder leadership.
+- Works at the point where research turns into a decision: designs studies that test what the business already believes, maps every lane and handoff of a service, prioritises with criteria agreed before scoring, and runs the sessions where priorities get set and owned. Leads and co-leads projects; project and stakeholder leadership, not people management.
 - Uses AI daily in research synthesis and built an internal tool that extracts and classifies interview insights with AI, each record reviewed by hand. Designs and builds custom harnesses and agents for specific design tasks, on a token-based design system with deterministic build gates.
 - Earlier: product designer in electrical hardware and digital products (2021 to 2024); UX designer on public-sector forms (part-time, 2020 to 2023); product designer in retail environments (2019 to 2021).
 
 ## Work (employment at KFC South Pacific; vendors, sites and people not named)
 
-- [Safety and compliance reporting](https://sammozaffari.github.io/portfolio/articles/1/index.html): research into why reporting varied across the network, a five-stage blueprint and three proposals, held in an insight tool he built, then designed as a ten-module product concept. Led research and design. Delivered December 2025.
-- [Rostering, time and attendance](https://sammozaffari.github.io/portfolio/articles/2/index.html): 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane blueprint and a ranked top ten, then designed as a nine-module product concept. Eight of the ten carried a named release within the year, and ten further releases followed in early 2026. Co-led with one other designer.
-- [Hiring and onboarding](https://sammozaffari.github.io/portfolio/articles/3/index.html): a nine-stage blueprint from application to first shift, and an automated screening-to-interview path designed around the failing moments. Led the design work.
+- [Rostering, time and attendance](https://sammozaffari.github.io/portfolio/articles/2/index.html): 175 pain points from ten restaurant visits and 200 survey responses, triaged into a four-lane blueprint and a ranked top ten with criteria agreed before scoring. Eight of the ten were released in the vendor platform across November 2024 and 2025, and ten further vendor releases followed in early 2026. Co-led with one other designer, July to December 2024. The nine-module screens are an interface concept designed in September 2026; a release label names vendor functionality, not the screen.
+- [Safety and compliance reporting](https://sammozaffari.github.io/portfolio/articles/1/index.html): research into why reporting varied across the network (13 interviews, a 55-response survey, eight restaurants), a five-stage blueprint and three proposals, held in an insight tool he built with AI extraction behind human review. Led research and design. Findings report, blueprint, roadmap and form prototypes delivered December 2025; implementation sits with the platform, safety and training teams. The ten-module screens are an interface concept designed in September 2026. The 37-hour figure is an estimate of manual board placement, with assumptions shown.
+- [Hiring and onboarding](https://sammozaffari.github.io/portfolio/articles/3/index.html): a nine-stage blueprint from application to first shift, and a screening-to-interview workflow with human review lanes delivered as a specification to technology and the recruiting-platform vendor. Led the design work. The ten-module screens are an interface concept designed in September 2026.
 - Further write-ups: [employee experience](https://sammozaffari.github.io/portfolio/articles/6/index.html), [service quality](https://sammozaffari.github.io/portfolio/articles/7/index.html), [self-service channel](https://sammozaffari.github.io/portfolio/articles/4/index.html), [drive-thru](https://sammozaffari.github.io/portfolio/articles/5/index.html).
 
 ## Pages
 
 - [Work](https://sammozaffari.github.io/portfolio/articles.html)
 - [About](https://sammozaffari.github.io/portfolio/about.html)
-- [CV](https://sammozaffari.github.io/portfolio/cv.html)
-- [Library](https://sammozaffari.github.io/portfolio/library.html): a book and open tooling on running service design with AI agents. Personal projects with fictional examples, separate from employment work.
+- [CV](https://sammozaffari.github.io/portfolio/cv.html), with PDF downloads: [service design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-Service-Design.pdf), [experience design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-Experience-Design.pdf) and [AI experience design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-AI-Experience-Design.pdf)
+- [Library](https://sammozaffari.github.io/portfolio/library.html): a book and public tooling on running service design with AI agents. Personal projects with fictional examples, separate from employment work.
 
 ## Contact
 

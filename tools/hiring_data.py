@@ -191,7 +191,7 @@ OTIS_WAIT = "4 days"
 PIPELINE = [
     ("Applied", [
         {"who": "otis", "waited": OTIS_WAIT, "flag": "warn",
-         "sub": "Work rights need a person, not a decision"},
+         "sub": "Payroll review since Mon 4 Nov: one visa photo needed"},
     ]),
     ("Screened", []),
     ("Interview booked", []),

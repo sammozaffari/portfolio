@@ -241,7 +241,7 @@ page = f"""<!doctype html>
 <meta property="og:type" content="website"><meta property="og:title" content="{e(spec['title'])} · Sam Mozaffari"><meta property="og:description" content="{e(spec['description'])}"><meta property="og:url" content="https://sammozaffari.github.io/portfolio/{SC.relative_to(ROOT)}/index.html"><meta property="og:image" content="https://sammozaffari.github.io/portfolio/assets/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(spec['title'])} · Sam Mozaffari"><meta name="twitter:description" content="{e(spec['description'])}"><meta name="twitter:image" content="https://sammozaffari.github.io/portfolio/assets/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/style.css?v=9">
-<link rel="stylesheet" href="../../../assets/showcase.css?v=9">
+<link rel="stylesheet" href="../../../assets/showcase.css?v=10">
 <link rel="stylesheet" href="../../../assets/scrollytell.css?v=13">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%23171817'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%23f8f8f5' font-family='sans-serif' font-weight='600'>S</text></svg>">
 <script>document.documentElement.classList.add('js')</script>
@@ -266,6 +266,7 @@ page = f"""<!doctype html>
   <p class="sc-deck">{md_inline(spec['deck'])}</p>
   <dl class="sc-hero-facts">{''.join(f'<div><dt>{e(f["dt"])}</dt><dd>{md_inline(f["dd"])}</dd></div>' for f in spec['facts'])}</dl>
 </div>
+<nav class="sc-wrap sc-modnav" aria-label="Modules on this page"><span class="sc-modnav-label">Modules</span>{''.join(f'<a href="#{e(m["id"])}"><i>{e(m["kicker"].replace("Module ", ""))}</i>{e(m.get("nav") or m["title"].split(":")[0].split(",")[0])}</a>' for m in spec["modules"])}</nav>
 <section class="sc-sec"><div class="sc-wrap">
   <span class="sc-num">{e(spec['intro']['kicker'])}</span><h2>{e(spec['intro']['title'])}</h2>
   {''.join(f'<p class="sc-prose sc-lede">{md_inline(p)}</p>' for p in spec['intro']['body'])}
