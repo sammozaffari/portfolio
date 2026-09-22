@@ -61,7 +61,7 @@
    "title": "A gap in first-aid cover is stated, not left to be noticed",
    "finding": "Team members described telling the manager first and doing whatever the manager said next. Beyond first aid, they see the rest as the manager's responsibility.",
    "decision": "If the team's default is to follow the manager's lead, then the manager has to know when there is no first aider on the floor. The roster is read for gaps and the gap is written as a sentence with two ways to close it, rather than left for somebody to work out by comparing two shift times.",
-   "rejected": "Showing the roster and letting the reader compare the times. It is the same data and it hides the one fact that needs acting on.",
+   "rejected": "Showing the roster and letting the manager compare the times. It is the same data and it hides the one fact that needs acting on.",
    "pattern": "Design system: inline warning alert (p-alert p-alert-warning)"
   },
   {

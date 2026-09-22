@@ -91,7 +91,8 @@
 }
 
 /* a phone still is shown in the same device frame as the scroll story */
-.dv-phone { position: relative; margin: 0 auto; }
+/* the frame throws a 90px shadow; without a margin it sat on the caption below it */
+.dv-phone { position: relative; margin: 0 auto 44px; }
 .dv-phone .dv-screen { position: relative; }
 .dv-phone .dv-screen img { display: block; width: 100%; height: auto; }
-.states.phones .dv-phone { --sw: 230px; }
+.states.phones .dv-phone { --sw: 230px; margin-bottom: 30px; }

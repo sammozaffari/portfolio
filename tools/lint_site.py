@@ -18,6 +18,15 @@ BLOCKED = _dec("TGlmZWxlbnp8TWFjcm9tYXRpeHxWYXVsdHxZdW18RG9uZXNhZmV8Q2xldmVyIEZp
 # Real suburbs and a real area code that reached a draft once. Same reasoning.
 PLACES = _dec("Tm9ydGhnYXRlfEFzaGdyb3ZlfDA3MzE=")
 WRONG_COUNTS = [r'\b80 (?:methods|skills)', r'\b30(?:-tool| tools| runtime tools)', r'\b(?:38|39) (?:registered |runtime )?(?:artifact|template) kinds', r'\b12 (?:emitted|platform|distribution)', r'\b232 (?:corpus )?resources', r'\b(?:51|50) published', r'\b43 practice']
+# The site describes the work and the decisions, never the person reading it or
+# the purpose of the page. Six pages named a recruiter, a consulting reader or an
+# interview, and a review written for hiring readers did not notice. Research
+# interviews are exempt: "said in an interview" is fieldwork.
+AUDIENCE = [r"\brecruiters?\b", r"\bhiring managers?\b", r"\bconsulting reader\b", r"\b(?:a|the|any) readers?\b",
+            r"\binterviewers?\b", r"(?<!described )(?<!said )(?<!told )(?<!reported )(?<!raised )(?<!heard )\b(?:in|for|at) an interview\b",
+            r"\bthis site\b", r"\bthis portfolio\b", r"\bcredentials slide\b", r"\bpanel interview", r"\bhiring evidence\b",
+            r"\bwhat I can show\b", r"\bevidence that I\b", r"\bshows that I\b", r"\bproves that I\b", r"\bAI-slop\b"]
+
 def text_of(s, keep_svg=False):
     # SVG text is text a reader sees; a wrong tool count sat inside an SVG for
     # a month because this stripped it. Counts are checked with the SVG kept.
@@ -29,6 +38,8 @@ for f in pages:
     p = pathlib.Path(f); s = p.read_text(errors='ignore'); rel = p.relative_to(ROOT); t = text_of(s)
     for b in BANNED:
         for m in re.finditer(re.escape(b), t, flags=re.I): errors.append(f'{rel}: banned "{b}"')
+    for pat in AUDIENCE:
+        for m in re.finditer(pat, t, flags=re.I): errors.append(f'{rel}: addresses the audience: "{m.group(0)}"')
     for b in BLOCKED:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: blocked name {b}')
     for b in PLACES:
@@ -95,6 +106,9 @@ if _llms.exists():
             errors.append(f'llms.txt: blocked name {b}')
     if '\u2014' in _t:
         errors.append(f'llms.txt: {_t.count(chr(8212))} em dashes')
+    for pat in AUDIENCE:
+        for m in re.finditer(pat, _t, flags=re.I):
+            errors.append(f'llms.txt: addresses the audience: "{m.group(0)}"')
     if re.search(r'(has not (shipped|built|delivered|led|run)|does not (manage|lead|run))', _t, flags=re.I):
         errors.append('llms.txt: describes Sam by what he has not done')
 

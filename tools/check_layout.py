@@ -30,11 +30,12 @@ MIN_GUTTER = 16
 HARNESS = """<!doctype html><html><body><script>
 const q=new URLSearchParams(location.search);const w=+q.get('w');
 const f=document.createElement('iframe');f.style.cssText='width:'+w+'px;height:900px;border:0';f.src=q.get('page');
-f.onload=()=>{try{const d=f.contentDocument;
+f.onload=()=>{try{const d=f.contentDocument;const st=d.createElement('style');st.textContent='*{transition:none!important;animation:none!important}.reveal,.st-step,.st-shot{opacity:1!important;transform:none!important}';d.head.appendChild(st);d.body.getBoundingClientRect();
 const root=d.querySelector('main')||d.body;const els=[...root.querySelectorAll('*')].filter(e=>e.children.length===0&&e.textContent.trim()&&e.offsetParent!==null);
 let min=1e9,who='',maxR=0,wide='';for(const el of els){const r=el.getBoundingClientRect();if(r.width>0&&r.right>0&&r.left<min){min=r.left;who=el.tagName+' '+el.textContent.trim().slice(0,40);}}
 for(const el of d.querySelectorAll('body *')){const r=el.getBoundingClientRect();if(r.right>maxR){maxR=r.right;wide=el.tagName+'.'+(el.className||'')+' '+Math.round(r.width)+'px';}}
-document.body.setAttribute('data-result',JSON.stringify({vw:d.documentElement.clientWidth,min:Math.round(min*10)/10,who,scroll:d.documentElement.scrollWidth,wide}));
+let tight=[];for(const el of d.querySelectorAll('.dv-phone, .shot, .fig, .st-device')){let n=el.nextElementSibling;while(n&&!n.textContent.trim())n=n.nextElementSibling;if(!n)continue;const gap=n.getBoundingClientRect().top-el.getBoundingClientRect().bottom;if(gap<12)tight.push({el:el.className.toString().slice(0,20),next:n.textContent.trim().slice(0,30),gap:Math.round(gap)});}
+document.body.setAttribute('data-result',JSON.stringify({vw:d.documentElement.clientWidth,min:Math.round(min*10)/10,who,scroll:d.documentElement.scrollWidth,wide,tight:tight.slice(0,8)}));
 }catch(e){document.body.setAttribute('data-result',JSON.stringify({err:String(e)}))}};
 document.body.appendChild(f);</script></body></html>"""
 
@@ -79,6 +80,8 @@ for page in pages:
             fails.append(f"{page}: asked for {w}px and laid out at {r['vw']}px")
         if r["min"] < MIN_GUTTER:
             fails.append(f"{page} at {w}px: text starts {r['min']}px from the edge ({r['who']!r}); the gutter must be at least {MIN_GUTTER}px")
+        for t in r.get("tight", []):
+            fails.append(f"{page} at {w}px: {t['el']!r} sits {t['gap']}px from the text under it ({t['next']!r}); a frame or a figure keeps at least 12px")
         if r["scroll"] > w:
             fails.append(f"{page} at {w}px: the page scrolls sideways ({r['scroll']}px wide; widest element {r.get('wide')})")
 

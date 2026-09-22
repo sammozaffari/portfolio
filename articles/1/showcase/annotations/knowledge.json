@@ -12,7 +12,7 @@
    "title": "Search first, in the words people use",
    "finding": "Team members said they had never been told the threshold, so each person set their own. Survey responses showed awareness that incidents should be reported but no common understanding of what counts.",
    "decision": "The page opens on one search field whose placeholder is the question people actually ask: is a wet floor a hazard or an incident?",
-   "rejected": "A grid of category tiles, which asks the reader to already know the word they came here to look up.",
+   "rejected": "A grid of category tiles, which asks the person to already know the word they came here to look up.",
    "pattern": "Amazon, Help topics — https://mobbin.com/screens/29ee3038-b4ed-4679-b1b8-8effef391215"
   },
   {
@@ -21,7 +21,7 @@
    "y": 30.6,
    "title": "Topics named after the shift, not the policy",
    "finding": "22 of the 40 respondents who answered the question said they had received no formal training on the reporting platform they were expected to use.",
-   "decision": "Seven topics in shift language, with the article count beside each and the open topic held open so the reader can see where they are.",
+   "decision": "Seven topics in shift language, with the article count beside each and the open topic held open so the person can see where they are.",
    "rejected": "Policy-document naming and a nested compliance hierarchy, which is how the material was already organised and was not being read.",
    "pattern": "Revolut, How can we help — https://mobbin.com/screens/fe3a659f-b364-40ca-b5ea-04851fa48533"
   },
