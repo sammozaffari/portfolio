@@ -38,7 +38,7 @@ token.
 | Side gutter | `tools/check_layout.py` | Any text under `main` within 16px of the window edge, or a page that scrolls sideways, at 390 and 1280 (pages are loaded in an iframe of that width, because headless Chrome will not lay out under about 500px) |
 | Facts across surfaces | `tools/check_facts.py` | A hero number typed differently on the case, the home page, the Work page, the showcase, the CV or llms.txt; a Work headline that miscounts its cards; a stat-strip number missing from the case's facts.json |
 | Safety facts | `tools/check_safety_facts.py` | A weekday that does not match its date in the safety screens, initials that do not match the name, a reference used for two records, counts that disagree between screens |
-| Case graphics | `tools/check_graphics.py` | A label in a case graphic that overlaps another, crowds it, or comes within 6 units of the edge, measured in every state its toggles can reach |
+| Case graphics | `tools/check_graphics.py` | A label in a case graphic that overlaps another, crowds it, leaves the box it belongs to, crosses the border of a zone, sits on a drawn mark, or comes within 6 units of the edge, measured in every state its toggles can reach |
 
 Run `tools/lint_site.py` before you consider anything finished. The lint also holds the type rules: every font-size on a product screen is one of the `--p-fs-0` to `--p-fs-7` tokens, every font-size on a site page is one of the eight `--t-1` to `--t-8` steps in `style.css` (display headings may use `clamp()`), and nothing outside a code block sets `overflow-x` to auto or scroll.
 
@@ -61,6 +61,16 @@ Two failures worth knowing. A CSS `opacity` on a class beats the `opacity` attri
 sets, so an element meant to be hidden stays visible. And a ReferenceError inside a draw loop
 renders as a blank frame rather than an error, so run `tools/check_graphics.py` after editing:
 it loads every graphic and would report nothing drawn.
+
+The audit measures each label against its neighbours and against the shapes around it, and
+ignores a wash, a motion trail, an expanding ripple and anything faded below half opacity,
+because those are motion rather than layout. Consecutive lines of one wrapped label sit 14 to
+16 units apart, which is leading and not crowding, and it knows the difference.
+
+`tools/graphics/` holds graphics and nothing else. The builder reads every file in it as a
+graphic and stops on one it cannot place, which is how the audit harness, parked there for an
+afternoon, silently stopped every graphic from being rebuilt. The harness lives at
+`tools/graphics-audit-harness.html`.
 
 ## Capturing screens
 
