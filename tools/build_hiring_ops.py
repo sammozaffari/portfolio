@@ -135,7 +135,7 @@ queue_body = f'''
   <div class="p-work-head"><h1>Needs a decision</h1><div class="p-spacer"></div>
     <div class="p-counters"><span class="p-counter attn">1 person</span></div>
   </div>
-  <p class="p-work-sub">A candidate outside the auto-schedule rule is not a rejection. They arrive here with everything they already told us, so the decision is made with context rather than re-keyed from another system. {D.DAYS["offer"][1]}.</p>
+  <p class="p-work-sub">{D.DAYS["offer"][1]}. A candidate outside the auto-schedule rule is not a rejection. They arrive here with everything they already told us, so you decide with the answers in front of you.</p>
   <div class="p-grid p-grid-8-4">
     <div class="p-card">
       <div class="p-card-head"><h2>{D.CAST["otis"]["name"]}</h2>

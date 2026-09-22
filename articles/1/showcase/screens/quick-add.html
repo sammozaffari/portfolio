@@ -16,6 +16,8 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
 .p-phone .p-screen{display:flex;flex-direction:column;flex:1}
 .needs-answer{border-left:2px solid var(--p-danger);padding-left:10px;margin-left:-12px}
 .p-phone .p-choices{gap:10px}
+.p-group{grid-column:1/-1;font-size:var(--p-fs-1);text-transform:uppercase;letter-spacing:var(--p-tracking-caps);color:var(--p-ink-3);margin:2px 0 -4px}
+.p-choice.wide{grid-column:1/-1}
 .p-phone .p-choice label{min-height:56px}
 /* a phone screen fills to the action: bigger targets for one thumb, mid-shift */
 .p-phone .p-screen>.p-choices{flex:1;align-content:stretch}
@@ -65,18 +67,20 @@ body[data-show="entry"] [data-state="entry"],body[data-show="what"] [data-state=
       <div class="p-stepper"><span class="now"></span><span></span><span></span><span></span></div>
       <p class="p-lead">Pick the closest. Your manager works out how serious it is later, so you do not have to.</p>
       <div class="p-choices">
+        <div class="p-group">To a person</div>
         <div class="p-choice"><input type="radio" name="w" id="w1" checked><label for="w1">Burn</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w2"><label for="w2">Cut</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w3"><label for="w3">Slip, trip or fall</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w4"><label for="w4">Hit by or against</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w5"><label for="w5">Lifting or carrying</label></div>
-        <div class="p-choice"><input type="radio" name="w" id="w6"><label for="w6">Chemical</label></div>
+        <div class="p-choice"><input type="radio" name="w" id="w10"><label for="w10">Feeling unwell</label></div>
+        <div class="p-choice wide"><input type="radio" name="w" id="w9"><label for="w9">Threatened or hurt by someone</label></div>
+        <div class="p-group">To the place or equipment</div>
+        <div class="p-choice"><input type="radio" name="w" id="w6"><label for="w6">Chemical spill or contact</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w7"><label for="w7">Electrical</label></div>
         <div class="p-choice"><input type="radio" name="w" id="w8"><label for="w8">Vehicle</label></div>
-        <div class="p-choice"><input type="radio" name="w" id="w9"><label for="w9">A person</label></div>
-        <div class="p-choice"><input type="radio" name="w" id="w10"><label for="w10">Feeling unwell</label></div>
-        <div class="p-choice"><input type="radio" name="w" id="w11"><label for="w11">Property</label></div>
-        <div class="p-choice"><input type="radio" name="w" id="w12"><label for="w12">Something else</label></div>
+        <div class="p-choice"><input type="radio" name="w" id="w11"><label for="w11">Damage to property</label></div>
+        <div class="p-choice wide"><input type="radio" name="w" id="w12"><label for="w12">Something else</label></div>
       </div>
     </div>
     <div class="p-cta two"><button class="p-btn p-btn-secondary p-btn-lg">Back</button><button class="p-btn p-btn-primary p-btn-lg">Next</button><div class="p-home" style="grid-column:1/-1"></div></div>
