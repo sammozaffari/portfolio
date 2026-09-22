@@ -6,7 +6,7 @@
    "title": "Colour means something is wrong, not that something exists",
    "finding": "Managers described the compliance list as overwhelming and unmanageable, and said they had stopped actioning it. One checked it by opening the exception report, opening the roster beside it, and dividing issues by published shifts by hand.",
    "decision": "A rostered shift is grey. Colour is spent only on the four shifts that need a decision, so the eye lands on them before it lands on anything else.",
-   "rejected": "Colouring every shift by work area, which is the common pattern in this category and the reason a roster of sixty shifts reads as sixty alerts.",
+   "rejected": "Colouring every shift by work area, which is the common pattern in this category and the reason a roster of forty-two shifts reads as forty-two alerts.",
    "n": 1,
    "x": 50.0,
    "y": 50.0
@@ -23,7 +23,7 @@
   {
    "title": "The break question, priced and named",
    "finding": "The agreement is ambiguous between five and five and a half hours, and managers could not tell whether to send a break. It was raised as a backlog item for a soft constraint on 5 to 5.49 hour shifts.",
-   "decision": "The shift carries the hours and the doubt in the chip itself, in words, at the point the decision is made. It warns rather than stops, because a hard stop on a rule people cannot satisfy is what drives hours being recorded that were not worked.",
+   "decision": "The shift carries the hours and the break it now owes in the chip itself, in words, at the point the decision is made. It warns rather than stops, because a hard stop on a rule people cannot satisfy is what drives hours being recorded that were not worked.",
    "rejected": "A silent pass. The previous behaviour was that nothing flagged at all, so the entitlement was simply missed.",
    "n": 3,
    "x": 50.0,

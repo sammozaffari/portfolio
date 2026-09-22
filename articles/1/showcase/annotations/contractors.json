@@ -20,7 +20,7 @@
    "x": 27.2,
    "y": 34.1,
    "title": "The hazard briefing is recorded, not assumed",
-   "finding": "Design decision, built on the open hazards the system already holds for this restaurant.",
+   "finding": "Design decision.",
    "decision": "Sign-in fills the hazard list from the restaurant's open hazards and records which ones the contractor was told about, so the card can state it afterwards.",
    "rejected": "A single 'site induction given' tick, which records that something was said but never what.",
    "pattern": "Deel, Compliance documents — https://mobbin.com/screens/9f5af254-f966-4810-adbb-c428854523e3"

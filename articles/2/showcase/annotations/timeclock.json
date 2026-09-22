@@ -4,7 +4,7 @@
  "markers": [
   {
    "title": "The question the manager actually has",
-   "finding": "The journey records an rostering manager looking at the time clock during the dinner rush and seeing only a list of red compliance warnings, at the moment she needs to know who is where.",
+   "finding": "The journey records a rostering manager looking at the time clock during the dinner rush and seeing only a list of red compliance warnings, at the moment she needs to know who is where.",
    "decision": "The board answers who is standing where and who is owed a break. Compliance is still counted, in four pills at the top, but it is not the screen.",
    "rejected": "The warnings list as the default view, which is what it replaced and what people had learned to look past.",
    "n": 1,

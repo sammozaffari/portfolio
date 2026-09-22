@@ -113,7 +113,7 @@ page = f"""<!doctype html>
   {"".join(f"<tr><td>{e(g[0].strip())}</td><td><code>{e(g[1])}</code></td><td>{e(g[2].strip())}</td></tr>" for g in gate_rows)}
   </tbody></table>
   <div class="sc-finding"><b>The one that failed for real</b><p>{e(story[0]) if story else ""}</p></div>
-  <p class="sc-prose">Two of the products shipped a screen where the same record appeared in two states at once, and it was spotted by eye before any check did. The three fact checkers exist because of that: they assert the screens against one data table each, and staleness is a content hash written at capture time, so they pass on a fresh clone as well as on the machine that captured them.</p>
+  <p class="sc-prose">The three fact checkers assert the screens against one data table each, and staleness is a content hash written at capture time, so they pass on a fresh clone as well as on the machine that captured them.</p>
 </div></section>
 
 <section class="sc-sec"><div class="sc-wrap">

@@ -35,7 +35,7 @@
   "title": "Two products, one set of tokens",
   "body": [
    "This product and the safety reporting product are built on the same token file and the same component library. That is deliberate: they are two products for the same network, used by the same restaurant manager on the same shift, so a badge, a table row and a primary button behave identically in both.",
-   "What the workforce product added is a rostering layer: a shift chip with six states, a roster grid that freezes the person column and the day header, a strip that draws forecast demand behind rostered labour, and a compliance rail. Colour is the scarce resource. A rostered shift is grey, because a week holds sixty of them, and colour is spent only on the shifts that need a decision.",
+   "What the workforce product added is a rostering layer: a shift chip with six states, a roster grid that freezes the person column and the day header, a strip that draws forecast demand behind rostered labour, and a compliance rail. Colour is the scarce resource. A rostered shift is grey, because a week holds forty-two of them, and colour is spent only on the shifts that need a decision.",
    "Tokens are written in the W3C Design Tokens format and compiled to CSS, the component manifest is generated from the stylesheet, and the build fails if either drifts. A contrast script checks every text pair at 4.5:1 and every border at 3:1. It caught a real failure while this layer was being written: an open shift is drawn as an outline, so the outline is the object and has to clear 3:1, which the first grey did not."
   ]
  },
@@ -61,7 +61,7 @@
    "findingLabel": "What the research found",
    "finding": "Managers described the compliance warnings list as overwhelming and unmanageable, and said the result was that issues went unactioned. One area coach checked compliance by opening the exception report, opening the roster beside it, counting published shifts and dividing by hand.",
    "body": [
-    "The warnings did not go away. They were triaged, and moved to where the decision is made. A roster of sixty shifts now surfaces four things that need a person, each with the cost of getting it wrong and the two or three ways to fix it.",
+    "The warnings did not go away. They were triaged, and moved to where the decision is made. A roster of forty-two shifts now surfaces four things that need a person, each with the cost of getting it wrong and the two or three ways to fix it.",
     "The two counters beside the publish button are the whole argument in miniature. A count that is a route into the work is a tool. A count that is a badge is noise, which is what the old list had become."
    ],
    "caption": "The week as a manager builds it. Everything is checked against the agreement while the roster is being drawn, not after it is published and not on a separate screen.",
@@ -72,12 +72,12 @@
     {
      "img": "img/roster-hardstop.png",
      "title": "The one place a hard stop was right",
-     "cap": "A shift supervisor over eight hours with no thirty minute break cannot be published. Ranked second of ten and released in November 2024. Almost everywhere else the research argued against hard stops, because a hard stop on a common shift pattern pushes a manager into recording something untrue."
+     "cap": "A shift supervisor over nine hours with no meal break cannot be published. Ranked second of ten and released in November 2024. Almost everywhere else the research argued against hard stops, because a hard stop on a common shift pattern pushes a manager into recording something untrue."
     },
     {
      "img": "img/roster-extended.png",
      "title": "The shift that grew",
-     "cap": "A three and a half hour shift extended by an hour on the floor crosses into a rest pause entitlement, and nothing used to flag it. Ranked first of ten and released in November 2024."
+     "cap": "An eight and a half hour shift extended by an hour on the floor adds a rest pause entitlement and moves the meal break, and nothing used to flag it. Ranked third of ten and released during 2025."
     }
    ]
   },
@@ -90,7 +90,7 @@
    "findingLabel": "What the research found",
    "finding": "Compliance warnings were dismissed without investigation, with no documentation and no oversight of the dismissal. Separately, a manager was found adding missed pay as empty shifts in the following week, which created overtime and broke part-timers' contracted hours.",
    "body": [
-    "A flat list of thirty-one warnings is a list nobody reads. The same thirty-one split by what happens if you ignore them is a morning's work with an order to it.",
+    "A flat list of warnings is a list nobody reads. The same list split by what happens if you ignore them is a morning's work with an order to it.",
     "Dismissing is still allowed, because the research was clear that a system which forbids it gets routed around. What changed is that a dismissal now takes a reason, carries a name, and appears on the area coach's report as a decision rather than as a silence."
    ],
    "caption": "The same warnings the old list held, sorted by what they cost and who owns them.",

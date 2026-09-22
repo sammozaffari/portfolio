@@ -22,13 +22,13 @@
   }
  ],
  "intro": {
-  "kicker": "Start here",
-  "title": "What you are looking at",
+  "kicker": "The concept",
+  "title": "The product in brief",
   "body": [
    "**The problem.** A safety incident and hazard reporting platform, configured for one workflow across several hundred restaurants: a team member notices something, scans the poster, fills in the form. The research found a different workflow in almost every restaurant. The team member tells the manager. The manager decides whether it is worth logging, logs it if so, and sometimes closes it without telling anyone. Reporting volume varied widely between sites and the platform's own data could not say whether a quiet restaurant was safe or silent.",
    "**What the research changed.** The business assumed location explained the difference, so the sample was designed to test that: eight restaurants across high- and low-reporting sites, higher- and lower-crime suburbs, metropolitan and regional. Location did not predict it. The manager did. That finding reorganised the recommendations, and it organises these screens.",
    "**From the findings to the product.** The delivered recommendations changed what the form asks and what managers do, inside a platform the business had already bought. This is the next move: the whole service redrawn as a product, module by module, following the navigation the restaurants already knew. Each module below is one item from that navigation, designed from the evidence.",
-   "**How to read a module.** The finding sits above the screen. The screen is shown whole, at full size, with numbered pins. Each pin names the finding, the decision it drove and the alternative it replaced. The states that matter sit underneath. [The case study](../index.html) carries the research, the method and what the internal tool saved."
+   "**How each module is set out.** The finding sits above the screen. The screen is shown whole, at full size, with numbered pins. Each pin names the finding, the decision it drove and the alternative it replaced. The states that matter sit underneath. [The case study](../index.html) carries the research, the method and what the internal tool saved."
   ]
  },
  "system": {
@@ -318,7 +318,7 @@
     {
      "img": "img/fixes-notice.png",
      "title": "The monthly notice",
-     "cap": "Generated from the closed actions and printed for the break room: what changed, who reported it, how long it took. It is the artefact the whole loop exists to produce, so it is annotated too.",
+     "cap": "Generated from the closed actions and printed for the break room: what changed, who reported it, how long it took. It is the artefact the whole loop exists to produce.",
      "annotations": "annotations/fixes-notice.json"
     }
    ],

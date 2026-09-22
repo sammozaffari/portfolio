@@ -30,7 +30,7 @@
    "y": 18.2,
    "title": "The audit is a fact on the page, with what it covered",
    "finding": "design decision",
-   "decision": "Last audit 2 Sep by Priya M., 14 of 14 products sighted. Naming the person and the coverage turns an audit from a status into something the manager can check, and it makes a partial audit visible rather than rounding it up to done.",
+   "decision": "Last audit 1 Sep by Priya M., 13 of 14 sighted, glass cleaner added without a sheet. Naming the person and the coverage turns an audit from a status into something the manager can check, and it makes a partial audit visible rather than rounding it up to done.",
    "rejected": "A green Compliant badge. It says less and it cannot be wrong in a useful way.",
    "pattern": "Design system: meta line aligned to the filter row (p-meta)"
   },

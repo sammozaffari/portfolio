@@ -118,7 +118,7 @@
 <p>We designed the research to map the whole lifecycle rather than to collect complaints, and we triangulated four methods so no single voice could set the priority.</p>
 <ul class="art-list">
   <li>Semi-structured interviews from team members through restaurant managers, area coaches, IT support, people-systems and payroll, across equity and franchised restaurants, plus an above-restaurant round with a franchisee, two area coaches and payroll.</li>
-  <li>A role-branched field survey that returned <b>200 responses</b>: one instrument, a role gate at the start, six branch paths. Two thirds of respondents were team members. The area-leader and franchisee branches returned nothing, which we read as a sampling signal rather than a finding, and covered those roles by interview instead.</li>
+  <li>A role-branched field survey that returned <b>200 responses</b>: one instrument, a role gate at the start, six branch paths. Two thirds of respondents were team members. The area-coach and franchisee branches returned nothing, which we read as a sampling signal rather than a finding, and covered those roles by interview instead.</li>
   <li>Site visits and contextual inquiry in <b>ten restaurants</b>, six franchise and four equity, watching the time clocks, the printed rosters, the deployment whiteboards and the laminated charts, and photographing every workaround we found.</li>
   <li>A support-queue analysis of six months of mobile-app tickets to quantify failure demand.</li>
 </ul>
@@ -133,7 +133,7 @@
 <p><strong>Data credibility is a design surface.</strong> The payroll figures and the platform figures disagreed, and area coaches, payroll and managers all said so. We treated that as an experience problem to design for, not an IT complaint to forward.</p>
 <figure class="fig fig-wide reveal"><a href="images/chart-solution.svg"><img src="images/chart-solution.svg" alt="Ranked bar chart of pain points by the kind of fix needed: technology 41 per cent, education 26 per cent, integration 21 per cent, process change 11 per cent, other 1 per cent" loading="lazy"></a><figcaption><span class="fignum">Figure 3</span>The triage that made the list arguable. Tagging every pain point by the kind of change that would resolve it separated what the platform owed from what the business owed.</figcaption></figure>
 <figure class="fig fig-wide reveal"><a href="images/chart-painroles.svg"><img src="images/chart-painroles.svg" alt="Ranked bar chart of pain points by role: area coach 45, rostering manager 42, restaurant general manager 35, team member 25, payroll 11, support 10, central teams 9" loading="lazy"></a><figcaption><span class="fignum">Figure 4</span>The same register read by role. An area coach carries the most pain of anyone in the service and has no screen built for them, which is why multi-level reporting scored as high as it did.</figcaption></figure>
-<p><strong>Integration latency is structural.</strong> Forecasts arrived late and short. Role changes took days to reach the platform. Training completions synced late. These were consequences of who owned each system, and the integration strand of the blueprint is the one most reviews never draw.</p>
+<p><strong>Integration latency is structural.</strong> Forecasts arrived late and short. Role changes took days to reach the platform. Training completions synced late. These were consequences of who owned each system, and the integration strand of the blueprint is the one that is easiest to leave out.</p>
 </section>
 
 <section class="art-sec" id="sec-4"><span class="sec-kicker">04</span><h2>Four decisions</h2>
@@ -192,7 +192,7 @@
 <p>The report ended with a ranked list, and a ranked list is an argument about what to build. These nine modules are that argument drawn out: each one starts from a pain point in the register and shows the screen that answers it, with the release that carried it where there is one. They are built on the same design system as the safety reporting product, because a restaurant manager uses both in the same shift.</p>
 <div class="mods">
   <a href="./showcase/index.html#roster"><span class="k">Module 01</span><span class="t">The roster</span><span class="d">Compliance runs while the week is being built, not after it is published.</span></a>
-  <a href="./showcase/index.html#compliance"><span class="k">Module 02</span><span class="t">Compliance triage</span><span class="d">Thirty-one warnings sorted by what they cost, and a dismissal that is signed.</span></a>
+  <a href="./showcase/index.html#compliance"><span class="k">Module 02</span><span class="t">Compliance triage</span><span class="d">Warnings sorted by what they cost, and a dismissal that is signed.</span></a>
   <a href="./showcase/index.html#timeclock"><span class="k">Module 03</span><span class="t">Deployment chart</span><span class="d">Generated from the roster, with the station columns the restaurants already drew.</span></a>
   <a href="./showcase/index.html#leave"><span class="k">Module 04</span><span class="t">Leave as a date range</span><span class="d">A year of leave entered once, and the person asked before it is recorded.</span></a>
   <a href="./showcase/index.html#labour"><span class="k">Module 05</span><span class="t">Labour during the shift</span><span class="d">The number managers were working out by hand, while it can still be acted on.</span></a>
@@ -201,12 +201,12 @@
   <a href="./showcase/index.html#crew"><span class="k">Module 08</span><span class="t">The team member app</span><span class="d">Punch history, a break that counts down, expected pay and a live leave balance.</span></a>
   <a href="./showcase/index.html#features"><span class="k">Module 09</span><span class="t">What is switched on</span><span class="d">Every configurable feature against every restaurant, so nobody has to guess.</span></a>
 </div>
-<p><a href="./showcase/index.html">Open the full product</a>, with the design system, the tokens and every decision traced to the finding behind it.</p>
+<p><a href="./showcase/index.html">Open the full concept</a>, with every decision traced to the finding behind it.</p>
 <p>Working files, anonymised: the <a href="artifacts/interview-synthesis.html">interview synthesis</a> and the <a href="artifacts/proposals.html">scored proposals</a>. The register, the personas, the journey map and the blueprint stayed working documents with the business.</p>
 </section>
 
 <section class="art-sec" id="sec-6"><span class="sec-kicker">06</span><h2>How it would be measured</h2>
-<p>The review designed its measurement at the end rather than at the start, and the record does not hold post-implementation figures. This is the frame, stated so the next review starts from it.</p>
+<p>The measure that exists is the release record: eight of the scored ten carried a named release within the year, and ten further releases followed in early 2026. The satisfaction and labour-cost measures below were designed at the end of the review rather than at the start, so this is the frame the next review starts from.</p>
 <div class="frame">
   <b>North star</b><p>Every team member paid accurately, on time, first time, without anyone breaking a rule to get there.</p>
   <b>Drivers</b><p>Data freshness (age of labour figures); correction volume (phantom shifts, reopen requests); manual leave entries; team member self-service adoption; exception rate (compliance issues over published shifts, the area coach's manual spot-check automated).</p>

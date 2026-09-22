@@ -33,7 +33,7 @@ token.
 | Tokens in step | `tools/build_tokens.py --check` | CSS out of date with the DTCG source |
 | Contrast | `tools/contrast_check.py` | Any text pair under 4.5:1, any control border under 3:1 |
 | Component registry | `tools/lint_site.py` | A `p-` class that is not declared anywhere |
-| Site content | `tools/lint_site.py` | Blocked vendor names, wrong counts, broken local links, cropped artefacts, em dashes |
+| Site content | `tools/lint_site.py` | Vendor names, wrong counts, broken local links, cropped artefacts, em dashes |
 | Visual regression | `tools/visual_check.py` | A screen that has changed against its committed baseline |
 | Side gutter | `tools/check_layout.py` | Any text under `main` within 16px of the window edge, or a page that scrolls sideways, at 390 and 1280 (pages are loaded in an iframe of that width, because headless Chrome will not lay out under about 500px) |
 | Facts across surfaces | `tools/check_facts.py` | A hero number typed differently on the case, the home page, the Work page, the showcase, the CV or llms.txt; a Work headline that miscounts its cards; a stat-strip number missing from the case's facts.json |
