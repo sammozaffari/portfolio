@@ -20,7 +20,7 @@
 
 - [Work](https://sammozaffari.github.io/portfolio/articles.html)
 - [About](https://sammozaffari.github.io/portfolio/about.html)
-- [CV](https://sammozaffari.github.io/portfolio/cv.html), with PDF downloads: [service design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-Service-Design.pdf), [experience design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-Experience-Design.pdf) and [AI experience design](https://sammozaffari.github.io/portfolio/assets/cv/Sam-Mozaffari-CV-AI-Experience-Design.pdf)
+- [CV](https://sammozaffari.github.io/portfolio/cv.html)
 - [Library](https://sammozaffari.github.io/portfolio/library.html): a book and public tooling on running service design with AI agents. Personal projects with fictional examples, separate from employment work.
 
 ## Contact

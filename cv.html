@@ -10,14 +10,6 @@
 <style>
   .cv-wrap { max-width: 860px; margin: 0 auto; padding: 0 var(--pad-d) 64px; }
   .cv-wrap h2 { font-size: var(--t-2); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 1px solid var(--line); padding-bottom: 6px; margin: 36px 0 14px; }
-  .cv-downloads { border: 1px solid var(--line); border-radius: var(--radius-card); padding: 16px 20px 6px; margin: 0 0 28px; background: var(--paper-tint); }
-  .cv-downloads b { display: block; font-size: var(--t-4); margin-bottom: 4px; }
-  .cv-downloads p { margin: 0 0 10px; font-size: var(--t-3); color: var(--ink-soft); }
-  .cv-downloads ul { list-style: none; padding: 0; margin: 0; }
-  .cv-downloads li { font-size: var(--t-4); padding: 8px 0; border-top: 1px solid var(--line); }
-  .cv-downloads li a { font-weight: 600; border-bottom: 1px solid var(--line-strong); }
-  .cv-downloads li a:hover { border-bottom-color: var(--ink); }
-  .cv-downloads li span { font-family: var(--mono); font-size: var(--t-1); color: var(--muted); letter-spacing: .06em; }
   .cv-summary { font-size: var(--t-5); line-height: 1.55; max-width: 70ch; margin: 0 0 14px; }
   .cv-skills { font-size: var(--t-3); max-width: 70ch; color: var(--ink-soft); margin: 0; }
   .job { display: grid; grid-template-columns: 150px 1fr; gap: 16px; margin-bottom: 22px; }
@@ -32,7 +24,7 @@
   @media (max-width: 640px) { .job { grid-template-columns: 1fr; gap: 4px; } }
   @media print {
     @page { size: A4; margin: 14mm 16mm; }
-    .site-head, .footer, .page-hero .kicker, .cv-downloads { display: none; }
+    .site-head, .footer, .page-hero .kicker { display: none; }
     .page-hero > * { animation: none !important; opacity: 1 !important; transform: none !important; }
     body { font-size: 11.5px; color: #111; background: #fff; }
     .page-hero { padding: 0 0 6px; } .page-hero h1 { font-size: 22px; margin: 0 0 4px; } .lede { font-size: 11.5px; }
@@ -70,16 +62,6 @@
 </section>
 
 <div class="cv-wrap">
-  <div class="cv-downloads" id="downloads">
-    <b>Application CVs</b>
-    <p>Three versions of the same history, each with the emphasis a role family reads for. Text-based, single-column, two pages.</p>
-    <ul>
-      <li><a href="./assets/cv/Sam-Mozaffari-CV-Service-Design.pdf">Service design and operational experience design</a> <span>PDF</span> · <a href="./assets/cv/Sam-Mozaffari-CV-Service-Design.docx">Word</a></li>
-      <li><a href="./assets/cv/Sam-Mozaffari-CV-Experience-Design.pdf">Experience and UX design for enterprise platforms</a> <span>PDF</span> · <a href="./assets/cv/Sam-Mozaffari-CV-Experience-Design.docx">Word</a></li>
-      <li><a href="./assets/cv/Sam-Mozaffari-CV-AI-Experience-Design.pdf">AI experience design and AI adoption</a> <span>PDF</span> · <a href="./assets/cv/Sam-Mozaffari-CV-AI-Experience-Design.docx">Word</a></li>
-    </ul>
-  </div>
-
   <p class="cv-summary">Service and experience designer with seven years across physical products, digital products and operational services. At KFC South Pacific I lead research, service blueprinting and cross-functional prioritisation for a network of <span data-scale="network_restaurants">900 restaurants</span> and <span data-scale="network_people">more than 50,000 team members</span>. I co-led a workforce review whose prioritised roadmap included eight improvements released by the platform vendor, and I build AI-assisted research tools with traceable evidence and human review. I design studies that test what the business already believes, turn what they find into models the operators recognise as their own, and run the conversations where priorities get set and owned.</p>
   <p class="cv-skills"><b>Skills.</b> Service design, service blueprints and journey mapping, discovery and evaluative research (interviews, contextual inquiry, surveys, user testing), co-design and prioritisation workshops, stakeholder facilitation, current and future state design, operational change, prototyping in Figma and code, design tokens and component libraries, accessibility to WCAG 2.2, agile delivery with product and technology teams, AI-assisted research synthesis with human review, LLM workflow design.</p>
 
