@@ -196,7 +196,11 @@ want_not(r"\bSarah\b", "is an owner who is in no cast; owners are First L. and c
 want_not(r"break unclear|Break rule unclear", "hedges a rule the product decides: a 5.25 hour shift attracts a meal break")
 
 # ------------------------------------------------------- 6. things never said
-want_not(r"[vendor names removed]",
+# The names are encoded for the same reason as the lists in tools/lint_site.py:
+# this repository is served as the website, so spelling them out would publish them.
+import base64 as _b64
+_VENDORS = r"\b(?:" + "|".join(re.escape(n) for n in _b64.b64decode("bGlmZWxlbnp8bWFjcm9tYXRpeHxkb25lc2FmZXxjbGV2ZXIgZmlyc3QgYWlkfHBhcmFkb3h8eXVt").decode().split("|")) + r")\b"
+want_not(_VENDORS,
          "is a blocked vendor name")
 # Encoded because this repository is served as the website, so a plain-text
 # list of real suburbs beside the client name would publish the thing it exists

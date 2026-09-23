@@ -64,6 +64,37 @@ for sc in sorted(glob.glob(str(ROOT / "articles/*/showcase/screens/*.html"))):
     if rel not in seen:
         bad.append(f"{rel}: in no capture spec, so it is never turned into an image")
 
+# A card thumbnail is its cover scaled down, made by hand, so nothing re-makes it
+# when the cover is recaptured. The case 7 card kept an old caption that way.
+# Scale the cover to the thumbnail's size and compare the pixels.
+try:
+    from PIL import Image, ImageChops, ImageStat
+except ImportError:
+    Image = None
+for th in sorted(glob.glob(str(ROOT / "articles/*/images/cover-*-thumb.png"))):
+    th = pathlib.Path(th)
+    article = th.parent.parent.name
+    if want and article not in want:
+        continue
+    cover = th.with_name(th.name.replace("-thumb.png", ".png"))
+    rel = th.relative_to(ROOT)
+    if not cover.exists():
+        bad.append(f"{rel}: its cover {cover.name} does not exist")
+        continue
+    if Image is None:
+        continue
+    t = Image.open(th).convert("RGB")
+    c = Image.open(cover).convert("RGB").resize(t.size, Image.LANCZOS)
+    # A changed caption is a small patch, so an average over the whole image
+    # hides it (0.6 for the stale case 7 card). Take the worst 20px tile instead:
+    # a thumb re-made from its cover scores 0; the stale card scored about 20.
+    d = ImageChops.difference(t, c).convert("L")
+    worst = max(ImageStat.Stat(d.crop((x, y, min(x + 20, d.width), min(y + 20, d.height)))).mean[0]
+                for y in range(0, d.height, 20) for x in range(0, d.width, 20))
+    n += 1
+    if worst > 4:
+        bad.append(f"{rel}: differs from its cover scaled down (worst tile {worst:.0f}); re-make it from {cover.name}")
+
 if bad:
     print("STALE CAPTURES")
     for b in bad:

@@ -81,7 +81,7 @@ page = f"""<!doctype html>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-head">
   <a class="brand" href="../index.html"><div class="brand-title">Sam Mozaffari</div><div class="brand-sub">Experience Designer</div></a>
-  <nav class="main-nav"><a href="../index.html">Home</a><a href="../articles.html" class="on">Work</a><a href="../about.html">About</a><a href="../cv.html">CV</a></nav>
+  <nav class="main-nav"><a href="../index.html">Home</a><a href="../articles.html" class="on">Work</a><a href="../about.html">About</a></nav>
 </header>
 <main id="main" class="sc">
 <div class="sc-wrap sc-hero">

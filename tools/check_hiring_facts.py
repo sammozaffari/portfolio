@@ -160,7 +160,11 @@ for n in ALL:
             fails.append(f"{n}: avatar {m.group(1)} belongs to nobody in the cast")
 
 # ------------------------------------------------- 4. names that must not ship
-want_not(r"[vendor names removed]",
+# The names are encoded for the same reason as the lists in tools/lint_site.py:
+# this repository is served as the website, so spelling them out would publish them.
+import base64 as _b64
+_VENDORS = r"\b(?:" + "|".join(re.escape(n) for n in _b64.b64decode("bGlmZWxlbnp8bWFjcm9tYXRpeHxkb25lc2FmZXxjbGV2ZXIgZmlyc3QgYWlkfHBhcmFkb3g=").decode().split("|")) + r")\b"
+want_not(_VENDORS,
          "is a blocked vendor name and must never reach a published screen")
 # Encoded for the same reason as the lists in tools/lint_site.py: this file is
 # served as a page, so spelling the real name out here would publish it.

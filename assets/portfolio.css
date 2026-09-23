@@ -171,6 +171,9 @@
 .pf-levels li:last-child { border-bottom: 1px solid var(--line); }
 .pf-levels b { font-family: var(--mono); font-size: var(--pf-micro); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); font-weight: 500; padding-top: 2px; }
 .pf-levels span { color: var(--ink-soft); }
+/* under a section head the head's rule already opens the list */
+.pf-sec-head + .pf-levels li:first-child { border-top: 0; padding-top: 0; }
+.pf-sec-head + .pf-levels span { max-width: 72ch; }
 
 /* ---------- a quiet closing block ---------- */
 .pf-note { padding-block: 0 var(--pf-section); }

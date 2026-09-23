@@ -1,0 +1,8 @@
+[
+ {
+  "src": "tools/og-card.html",
+  "w": 600,
+  "h": 315,
+  "out": "assets/og.png"
+ }
+]

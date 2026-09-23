@@ -4,8 +4,5 @@
   "network_people": "more than 50,000 team members",
   "network_people_short": "more than 50,000",
   "ex_survey_name": "the network-wide employee engagement survey",
-  "ex_survey_reach": "read across the whole workforce",
-  "_sam_to_confirm": {
-    "ex_survey_responses": "The response count on the EX Listens safety items. Add it here and it will appear wherever the survey is described."
-  }
+  "ex_survey_responses": "about 30,000 responses a year"
 }

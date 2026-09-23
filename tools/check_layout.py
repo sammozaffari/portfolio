@@ -20,7 +20,7 @@ import json, os, pathlib, re, signal, subprocess, sys, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-PAGES = ["index.html", "articles.html", "about.html", "cv.html", "library.html",
+PAGES = ["index.html", "articles.html", "about.html", "library.html",
          "articles/1/index.html", "articles/2/index.html", "articles/3/index.html", "articles/6/index.html", "articles/7/index.html", "articles/4/index.html", "articles/5/index.html",
          "articles/design-system.html", "articles/1/showcase/index.html", "articles/2/showcase/index.html",
          "articles/3/showcase/index.html",

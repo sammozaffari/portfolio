@@ -1002,6 +1002,9 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .skip-link:focus { left: 8px; top: 8px; }
 body { min-height: 100vh; position: relative; padding-bottom: 72px; }
 footer.footer { position: absolute; left: 0; right: 0; bottom: 0; }
+/* On a phone the footer wraps to about three lines, taller than the 72px the body
+   reserves for it, so it sat over the last line of the page. Let it follow the content. */
+@media (max-width: 640px) { body { padding-bottom: 0; } footer.footer { position: static; } }
 .portrait-stage { background: var(--paper-tint); border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; }
 .portrait-fallback { object-fit: cover; }
 

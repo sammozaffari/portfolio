@@ -2,7 +2,7 @@
 """Fail if a hero number is typed differently on two surfaces.
 
 Each case carries articles/NN/facts.json. Every surface that states one of its
-facts (the case's stat strip, the home page, the Work page, the showcase, the CV
+facts (the case's stat strip, the home page, the Work page, the showcase
 and llms.txt) must state the number in facts.json, and every number in a case's
 stat strip must be a fact. "Twelve personas" sat on three surfaces beside a
 persona set of four; "eight projects" sat over seven cards.
@@ -58,7 +58,7 @@ for n, f in facts.items():
 
 # 2. the surfaces that repeat a fact repeat it exactly
 f57, f52, f55 = facts["1"], facts["2"], facts["3"]
-S = ("index.html", "articles.html", "cv.html", "llms.txt")
+S = ("index.html", "articles.html", "llms.txt")
 want("index.html", [f"{f57['records']} insight records"], "the home panel quotes the record count")
 want("index.html", [f"{f57['items']} items"], "the home panel quotes the blueprint item count")
 want("index.html", [f"{W[f57['modules']]}-module", f"{f57['modules']}-module"], "the home panel names the safety module count")
@@ -73,17 +73,22 @@ want("index.html", [f"{W[f55['candidate_screens']]} screens for the candidate, {
 want("index.html", [f"answer within {W[f55['answer_days']]} days"], "and the disposition promise")
 want("articles.html", [f"{f52['pain_points']} pain points"], "the Work card quotes the pain-point count")
 want("articles.html", [f"{W[f55['stages']]} stages".capitalize(), f"{W[f55['stages']]} stages"], "the Work card quotes the hiring stage count")
-want("cv.html", [f"{f57['interviews']} in-depth interviews"], "the CV quotes the safety interview count")
-want("cv.html", [f"{f57['responses']}-response"], "and the safety survey count")
-want("cv.html", [f"{f57['records']} linked records"], "and the record count")
-want("cv.html", [f"{f52['responses']} survey responses"], "and the workforce survey count")
-want("cv.html", [f"{f52['pain_points']} pain points"], "and the pain-point count")
-want("cv.html", [f"{W[f55['stages']]}-stage"], "and the hiring stage count")
 want("llms.txt", [f"{f52['pain_points']} pain points"], "llms.txt quotes the pain-point count")
 want("llms.txt", [f"{f52['responses']} survey responses"], "and the survey count")
 want("llms.txt", [f"{W[f52['modules']]}-module"], "and the workforce module count")
 want("llms.txt", [f"{W[f57['modules']]}-module"], "and the safety module count")
 want("llms.txt", [f"{W[f55['stages']]}-stage"], "and the hiring stage count")
+# the interview floors read the same on every surface that repeats them
+want("index.html", [f"175 pain points from more than {f52['interviews']} interviews"], "the home card quotes the workforce interview floor")
+want("index.html", [f"More than {f57['interviews']} interviews, a {f57['responses']}-response survey"], "the home panel quotes the safety interview floor")
+want("index.html", [f"More than {f55['interviews']} interviews in and above restaurants"], "the home panel quotes the hiring interview floor")
+want("llms.txt", [f"from more than {f55['interviews']} interviews in and above restaurants"], "and the hiring interview floor")
+want("articles.html", [f"More than {f52['interviews']} interviews, ten restaurant visits"], "the Work card quotes the workforce interview floor")
+want("articles.html", [f"from more than {f55['interviews']} interviews"], "the Work card quotes the hiring interview floor")
+want("llms.txt", [f"more than {f57['interviews']} interviews, a {f57['responses']}-response survey"], "llms.txt quotes the safety interview floor")
+want("llms.txt", [f"175 pain points from more than {f52['interviews']} interviews"], "and the workforce interview floor")
+want("articles/1/showcase/index.html", [f"more than {f57['interviews']} interviews"], "the safety showcase quotes the interview floor")
+want("articles/2/showcase/index.html", [f"More than {f52['interviews']} interviews"], "the workforce showcase quotes the interview floor")
 for n, f in (("1", f57), ("2", f52), ("3", f55)):
     want(f"articles/{n}/showcase/index.html", [f"{W[f['modules']]} modules", f"{W[f['modules']].capitalize()} modules"], "the showcase names its module count")
 want("articles/2/showcase/index.html", [f"{W[f52['personas']]} personas"], "the showcase quotes the persona count")

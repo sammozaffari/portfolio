@@ -17,6 +17,9 @@ _dec = lambda b: _b64.b64decode(b).decode().split("|")
 BLOCKED = _dec("TGlmZWxlbnp8TWFjcm9tYXRpeHxWYXVsdHxZdW18RG9uZXNhZmV8Q2xldmVyIEZpcnN0IEFpZHxQYXJhZG94fFNhbmR5")
 # Real suburbs and a real area code that reached a draft once. Same reasoning.
 PLACES = _dec("Tm9ydGhnYXRlfEFzaGdyb3ZlfDA3MzE=")
+# A research count the site no longer states, encoded like BLOCKED so this file
+# does not print it.
+RETIRED = _b64.b64decode("XGIoPzoxM3x0aGlydGVlbikoPzpccytpbi1kZXB0aHxccytyZWNvcmRlZCk/XHMraW50ZXJ2aWV3c1xi").decode()
 WRONG_COUNTS = [r'\b80 (?:methods|skills)', r'\b30(?:-tool| tools| runtime tools)', r'\b(?:38|39) (?:registered |runtime )?(?:artifact|template) kinds', r'\b12 (?:emitted|platform|distribution)', r'\b232 (?:corpus )?resources', r'\b(?:51|50) published', r'\b43 practice']
 # The site describes the work and the decisions, never the person reading it or
 # the purpose of the page. Six pages named a recruiter, a consulting reader or an
@@ -44,6 +47,7 @@ for f in pages:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: blocked name {b}')
     for b in PLACES:
         if re.search(r'\b'+re.escape(b)+r'\b', s): errors.append(f'{rel}: real place or store code {b}')
+    if re.search(RETIRED, text_of(s, keep_svg=True), flags=re.I): errors.append(f'{rel}: a retired research count')
     for pat in WRONG_COUNTS:
         if re.search(pat, text_of(s, keep_svg=True)): errors.append(f'{rel}: wrong tooling count {pat}')
     if '<html lang="en-AU">' not in s: errors.append(f'{rel}: lang is not en-AU')

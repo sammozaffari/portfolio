@@ -71,7 +71,6 @@
     <a href="../../index.html" class="">Home</a>
     <a href="../../articles.html" class="on">Work</a>
     <a href="../../about.html" class="">About</a>
-    <a href="../../cv.html" class="">CV</a>
   </nav>
 </header>
 <main id="main" class="art art-article"><div class="art-progress"><div class="art-progress-bar" id="progress"></div></div><div class="art-layout art-layout--hero">
@@ -81,7 +80,7 @@
     </div>
     <h1>Transforming safety and compliance reporting across a restaurant network</h1>
     <p class="deck">Nine hundred restaurants, more than 50,000 team members, one reporting platform, and no way to tell a safe restaurant from a silent one. I designed the research that found the real variable, built the tool that holds the evidence, and in September 2026 designed the ten-module interface concept the findings pointed at.</p>
-    <div class="art-stats"><span><b>232</b> insight records, each tied to a stage</span><span><b>184</b> items on a five-stage blueprint</span><span><b>10</b> modules designed on one design system</span><span><b>37</b> hours of manual board placement, estimated</span></div>
+    <div class="art-stats"><span><b>50+</b> interviews in and above restaurants</span><span><b>232</b> insight records, each tied to a stage</span><span><b>184</b> items on a five-stage blueprint</span><span><b>10</b> modules designed on one design system</span><span><b>37</b> hours of manual board placement, estimated</span></div>
     <div class="author-block">
       <div class="author-id">
         <div class="author-avatar">SM</div>
@@ -110,7 +109,7 @@
   <b>Delivered</b><p>December 2025: findings report, five-stage service blueprint, prioritised three-phase roadmap and form prototypes, refined through a stakeholder validation session.</p>
   <b>What happened next</b><p>Implementation of the form change sat with the platform owner; the manager routines sat with the safety and training teams. The insight tool generated the blueprint and the report during the study.</p>
   <b>Measured</b><p>The research counts and the estimate of manual board effort in section 4 are the figures that exist. Reporting outcomes after the roadmap are held by the safety team.</p>
-  <b>Shown here</b><p>Original artefacts: the blueprint, the tool's filter views and the form prototype. Later concept: the ten-module interface, designed in September 2026 from the same findings. Vendor, sites and people removed; research counts as the December 2025 findings report records them; every name and number on the concept screens is invented.</p>
+  <b>Shown here</b><p>Original artefacts: the blueprint, the tool's filter views and the form prototype. Later concept: the ten-module interface, designed in September 2026 from the same findings. Vendor, sites and people removed; every name and number on the concept screens is invented.</p>
 </div>
 
 <!-- graphic:eight-restaurants -->
@@ -232,15 +231,15 @@
 </section>
 
 <section class="art-sec" id="sec-2"><span class="sec-kicker">02</span><h2>How I approached it</h2>
-<p><strong>Two layers, and a sample designed to test an explanation.</strong> Underneath sits the quantitative base: the safety and reporting items carried on <span data-scale="ex_survey_name">the network-wide employee engagement survey</span>, <span data-scale="ex_survey_reach">read across the whole workforce</span> of <span data-scale="network_people">more than 50,000 team members</span> across <span data-scale="network_restaurants">900 restaurants</span>. That layer says where reporting is strong and where it is quiet. It cannot say why, so the qualitative layer was designed to answer that.</p>
+<p><strong>Two layers, and a sample designed to test an explanation.</strong> Underneath sits the quantitative base: the safety and reporting items carried on <span data-scale="ex_survey_name">the network-wide employee engagement survey</span>, with <span data-scale="ex_survey_responses">about 30,000 responses a year</span> from a workforce of <span data-scale="network_people">more than 50,000 team members</span> across <span data-scale="network_restaurants">900 restaurants</span>. That layer says where reporting is strong and where it is quiet. It cannot say why, so the qualitative layer was designed to answer that.</p>
 <p><strong>The sample had to be able to disprove the theory.</strong> The working assumption in the business was that location explained reporting differences: rougher suburbs, rougher safety culture. So the restaurant sample was deliberately mixed: eight restaurants across high- and low-reporting sites, higher- and lower-crime suburbs, metropolitan and regional.</p>
 <ul class="art-list">
-  <li>Thirteen in-depth interviews with team members, restaurant managers, area safety leads, a franchisee and the central safety team, mostly in the restaurants, some by phone.</li>
+  <li>More than 50 interviews with team members, restaurant managers, area safety leads, a franchisee and the central safety team, mostly in the restaurants, some by phone.</li>
   <li>A dedicated reporting survey with 55 responses on awareness, training, ease of reporting and what happens after a report.</li>
   <li>Restaurant visits, watching how a report actually gets made during a shift and looking at the posters, the first-aid cabinet and the office setup.</li>
   <li>Two walkthroughs of the platform's forms with the safety team, field by field.</li>
 </ul>
-<p><strong>Every observation became a typed record.</strong> A pain point, an action people already take, a decision point, a behaviour, a process gap or an opportunity. Each record was tied to a stage and substage of the incident journey and to the role it concerned. That structure is what let the findings report point at exact places in the service rather than at themes.</p>
+<p><strong>Every recorded observation became a typed record.</strong> A pain point, an action people already take, a decision point, a behaviour, a process gap or an opportunity. Each record was tied to a stage and substage of the incident journey and to the role it concerned. That structure is what let the findings report point at exact places in the service rather than at themes.</p>
 
 <figure class="fig fig-wide annot reveal"><a href="images/explorer-blueprint.png"><img src="images/explorer-blueprint.png" style="max-width:700px;margin:0 auto" alt="The service blueprint: five stages across the top, eleven substages, and lanes for the team member, the manager, backstage roles and systems, with coloured markers showing where insights were recorded" loading="lazy"></a><script type="application/json" class="annot-data">[
 {"n":1,"x":11,"y":16,"kind":"decision","title":"Five stages, eleven substages","body":"The journey is cut at the points where responsibility actually moves, not at the screens of the platform. That is what let the findings name a place in the service rather than a theme.","link":{"href":"#sec-2","text":"How the research was designed"}},
@@ -371,8 +370,8 @@
 </section>
 
 <section class="art-sec" id="sec-9"><span class="sec-kicker">09</span><h2>How AI was used, and where it stopped</h2>
-<p><strong>Three jobs, each with a gate after it.</strong> AI transcribed the interviews. It extracted candidate insights from transcripts and classified them by type, stakeholder and theme, through a Claude Code command whose output is validated against a schema before it can be imported, with a git tag written first so a batch can be rolled back whole. And an Anthropic SDK endpoint drafts recommendations from five templates, storing the prompt alongside its output so any draft can be traced to what produced it.</p>
-<p><strong>None of it counted until I had reviewed it.</strong> Every one of the 232 records was read against the transcript and placed on the blueprint by hand. About ten needed correcting, and nearly all of them had failed the same way: an acronym the business uses, read by the extraction as an ordinary word, which flattened what the person had meant. Those were fixed by hand before import; the rest went in as extracted. The drafted mockups and recommendations were edited before they went into the report. That review step is the part I can describe field by field, and it is the part that makes the rest of it usable.</p>
+<p><strong>Three jobs, each with a gate after it.</strong> AI transcribed the recorded interviews. It extracted candidate insights from transcripts and classified them by type, stakeholder and theme, through a Claude Code command whose output is validated against a schema before it can be imported, with a git tag written first so a batch can be rolled back whole. And an Anthropic SDK endpoint drafts recommendations from five templates, storing the prompt alongside its output so any draft can be traced to what produced it.</p>
+<p><strong>None of it counted until I had reviewed it.</strong> Every one of the 232 records was read against its source and placed on the blueprint by hand. About ten needed correcting, and nearly all of them had failed the same way: an acronym the business uses, read by the extraction as an ordinary word, which flattened what the person had meant. Those were fixed by hand before import; the rest went in as extracted. The drafted mockups and recommendations were edited before they went into the report. That review step is the part I can describe field by field, and it is the part that makes the rest of it usable.</p>
 <p>How one record travels from a transcript line to a blueprint cell, and how a record is checked against its source, is set out with synthetic data in <a href="artifacts/extraction-walkthrough.html">the extraction walkthrough</a>.</p>
 <p>The same discipline produced the concept screens: designed on a design system I built, checked against shipped products, and measured by a contrast script and a lint gate that fail the build rather than warn about it.</p>
 </section>

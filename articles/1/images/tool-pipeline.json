@@ -11,7 +11,7 @@
      "id": "i1",
      "kind": "input",
      "label": "Interview recording",
-     "note": "13 interviews, mostly in restaurants"
+     "note": "Recorded interviews, mostly in restaurants"
     },
     {
      "id": "i2",
@@ -29,7 +29,7 @@
      "id": "i4",
      "kind": "store",
      "label": "Source of record",
-     "note": "Every record keeps a link back to the transcript line it came from"
+     "note": "Every record keeps a link back to the transcript line, survey answer or visit note it came from"
     }
    ]
   },

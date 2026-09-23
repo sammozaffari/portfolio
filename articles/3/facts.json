@@ -8,5 +8,6 @@
  "modules": 10,
  "candidate_screens": 7,
  "manager_screens": 3,
- "answer_days": 10
+ "answer_days": 10,
+ "interviews": 50
 }
