@@ -79,7 +79,7 @@ want("llms.txt", [f"{W[f52['modules']]}-module"], "and the workforce module coun
 want("llms.txt", [f"{W[f57['modules']]}-module"], "and the safety module count")
 want("llms.txt", [f"{W[f55['stages']]}-stage"], "and the hiring stage count")
 # the interview floors read the same on every surface that repeats them
-want("index.html", [f"175 pain points from more than {f52['interviews']} interviews"], "the home card quotes the workforce interview floor")
+want("index.html", [f"More than {f52['interviews']} interviews, including an above-restaurant round"], "the home workforce panel quotes the interview floor")
 want("index.html", [f"More than {f57['interviews']} interviews, a {f57['responses']}-response survey"], "the home panel quotes the safety interview floor")
 want("index.html", [f"More than {f55['interviews']} interviews in and above restaurants"], "the home panel quotes the hiring interview floor")
 want("llms.txt", [f"from more than {f55['interviews']} interviews in and above restaurants"], "and the hiring interview floor")

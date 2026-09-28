@@ -57,8 +57,15 @@ for f in pages:
     # Library carried about 190 em dashes while the rule ran on seven pages
     n_dash = len(re.findall(r'—', t)) + len(re.findall(r'—', ' '.join(re.findall(r'<svg.*?</svg>', s, flags=re.S))))
     if n_dash: errors.append(f'{rel}: {n_dash} em dashes in prose')
-    # a quotation may keep its contraction: the comment category a guest wrote is theirs
-    _unquoted = re.sub(r'["\u201c][^"\u201d]{0,120}["\u201d]', ' ', t)
+    # Sam's personal introductions use conversational contractions by choice.
+    # Keep the formal case-study rule and every factual check above intact.
+    contraction_prose = s
+    if str(rel) == 'index.html':
+        contraction_prose = re.sub(r'<p class="pf-lead">.*?</p>', '', s, count=1, flags=re.S)
+    elif str(rel) == 'about.html':
+        contraction_prose = re.sub(r'<div class="pf-about-body">.*?</div>', '', s, count=1, flags=re.S)
+    # A quotation may keep its contraction: the guest's wording is theirs.
+    _unquoted = re.sub(r'["\u201c][^"\u201d]{0,120}["\u201d]', ' ', text_of(contraction_prose))
     for m in re.finditer(r"\b(?:don't|doesn't|didn't|isn't|aren't|wasn't|weren't|won't|can't|couldn't|shouldn't|wouldn't|hasn't|haven't|it's|that's|what's|there's|here's|let's|we're|they're|you're|I'm|I've|we've)\b", _unquoted):
         errors.append(f'{rel}: contraction \"{m.group(0)}\"')
     if re.search(r'<span class="kicker">0\d\s*[—·]', s): errors.append(f'{rel}: numbered kicker')
